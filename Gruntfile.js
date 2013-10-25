@@ -5,10 +5,10 @@ module.exports = function( grunt ) {
 
   // get banner comment from draggabilly.js
   var banner = ( function() {
-    var src = grunt.file.read('bower_components/masonry/masonry.js');
+    var src = grunt.file.read('bower_components/isotope/js/isotope.js');
     var re = new RegExp('^\\s*(?:\\/\\*[\\s\\S]*?\\*\\/)\\s*');
     var matches = src.match( re );
-    return matches[0].replace( 'Masonry', 'Masonry PACKAGED' );
+    return matches[0].replace( 'Isotope', 'Isotope PACKAGED' );
   })();
 
   grunt.initConfig({
@@ -21,25 +21,25 @@ module.exports = function( grunt ) {
     concat: {
       js: {
         src: [ 'js/controller.js', 'js/pages/*.js' ],
-        dest: 'build/js/masonry-docs.js'
+        dest: 'build/js/isotope-docs.js'
       },
       pkgd: {
         // src will be set in package-sources task
-        dest: 'build/masonry.pkgd.js',
+        dest: 'build/isotope.pkgd.js',
         options: {
           banner: banner
         }
       },
       css: {
-        src: [ 'bower_components/normalize-css/normalize.css', 'css/*.css', '!css/masonry-docs.css' ],
-        dest: 'build/css/masonry-docs.css'
+        src: [ 'bower_components/normalize-css/normalize.css', 'css/*.css', '!css/isotope-docs.css' ],
+        dest: 'build/css/isotope-docs.css'
       }
     },
 
     uglify: {
       pkgd: {
         files: {
-          'build/masonry.pkgd.min.js': [ 'build/masonry.pkgd.js' ]
+          'build/isotope.pkgd.min.js': [ 'build/isotope.pkgd.js' ]
         },
         options: {
           banner: banner
@@ -47,7 +47,7 @@ module.exports = function( grunt ) {
       },
       js: {
         files: {
-          // 'build/js/masonry-site.min.js' will be set in bower-list-map
+          // 'build/js/isotope-site.min.js' will be set in bower-list-map
         }
       }
     },
@@ -56,10 +56,10 @@ module.exports = function( grunt ) {
     hbarz: {
       docs: {
         files: {
-          'build/': '_content/*'
+          'build/': 'content/*'
         },
         options: {
-          templates: '_templates/*.mustache',
+          templates: 'templates/*.mustache',
           defaultTemplate: 'page'
         }
       }
@@ -99,7 +99,6 @@ module.exports = function( grunt ) {
       },
       bowerSources: {
         // additional sources will be set in bower-list-map
-        // friggin Nicolas, not using main the right way :P
         src: [ 'components/jquery/jquery.min.js' ],
         dest: 'build/'
       }
@@ -108,7 +107,7 @@ module.exports = function( grunt ) {
 
     watch: {
       content: {
-        files: [ '_content/*', '_templates/*.mustache' ],
+        files: [ 'content/*', 'templates/*.mustache' ],
         tasks: [ 'bower-list-map', 'hbarz' ]
       },
       "public": {
@@ -133,7 +132,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   // load all tasks in tasks/
-  grunt.loadTasks('_tasks/');
+  grunt.loadTasks('tasks/');
 
   grunt.registerTask( 'default', [
     'jshint',

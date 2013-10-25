@@ -1,13 +1,13 @@
 # @desandro only
 
 zip:
-	rm -rf build/masonry-docs.zip
-	cp -r build masonry-docs
-	zip -rq build/masonry-docs.zip masonry-docs/
-	rm -rf masonry-docs
+	rm -rf build/isotope-docs.zip
+	cp -r build isotope-docs
+	zip -rq build/isotope-docs.zip isotope-docs/
+	rm -rf isotope-docs
 
-deploy:
-	s3cmd sync build/. s3://masonry.desandro.com
+# deploy:
+# 	s3cmd sync build/. s3://isotope.metafizzy.co
 
 grunt:
 	grunt
