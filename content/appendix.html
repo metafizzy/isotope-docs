@@ -1,0 +1,243 @@
+---
+{
+  "title": "Appendix",
+  "nav": [
+    "imagesLoaded",
+    "Web fonts",
+    "Component libraries",
+    "Submitting issues",
+    "Upgrading from v2",
+    "RequireJS",
+    "Additional resources"
+  ]
+}
+---
+
+<div class="primary-content">
+
+<h2 id="imagesloaded">imagesLoaded</h2>
+
+<p>Unloaded images can throw off Masonry layouts and cause item elements to overlap. <a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback after all child images have been loaded.</p>
+
+``` js
+var container = document.querySelector('#container');
+var msnry;
+// initialize Masonry after all images have loaded
+imagesLoaded( container, function() {
+  msnry = new Masonry( container );
+});
+```
+``` js
+// or with jQuery
+var $container = $('#container');
+// initialize Masonry after all images have loaded  
+$container.imagesLoaded( function() {
+  $container.masonry();
+});
+```
+
+<p>Or initialize Masonry first, then trigger <a href="methods.html#layout"><code>layout</code></a> after images have loaded.</p>
+
+``` js
+// initialize Masonry
+var msnry = new Masonry( container );
+// layout Masonry again after all images have loaded
+imagesLoaded( container, function() {
+  msnry.layout();
+});
+```
+``` js
+// or with jQuery
+// initialize Masonry
+var $container = $('#container').masonry();
+// layout Masonry again after all images have loaded
+$container.imagesLoaded( function() {
+  $container.masonry();
+});
+```
+
+</div><div class="primary-content">
+
+<h2 id="web-fonts">Web fonts</h2>
+
+<p>Like images, unloaded web fonts can throw off Masonry. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
+
+<ul>
+  <li><a href="http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/">Typekit font events</a></li>
+  <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
+</ul>
+
+<h3 id="typekit">Typekit</h3>
+
+<p>Try the script below when using Masonry on a page with Typekit. This will trigger Masonry when the document is ready and again when fonts have loaded. Be sure to remove Typekit’s default script, <code>try{Typekit.load();}catch(e){}</code>.</p>
+
+``` js
+var msnry;
+
+function triggerMasonry() {
+  // don't proceed if masonry has not been initialized
+  if ( !msnry ) {
+    return;
+  }
+  msnry.layout();
+}
+// initialize masonry on document ready
+docReady( function() {
+  var container = document.querySelector('#container');
+  msnry = new Masonry( container, {
+    // options...
+  });
+});
+// trigger masonry when fonts have loaded
+Typekit.load({
+  active: triggerMasonry,
+  inactive: triggerMasonry
+});
+```
+
+``` js
+// or with jQuery
+var $container;
+
+function triggerMasonry() {
+  // don't proceed if $container has not been selected
+  if ( !$container ) {
+    return;
+  }
+  // init Masonry
+  $container.masonry({
+    // options...
+  });
+}
+// trigger masonry on document ready
+$(function(){
+  $container = $('#container');
+  triggerMasonry();
+});
+// trigger masonry when fonts have loaded
+Typekit.load({
+  active: triggerMasonry,
+  inactive: triggerMasonry
+});
+```
+
+</div><div class="primary-content">
+
+<h2 id="component-libraries">Component libraries</h2>
+
+<p>Masonry includes several component libraries. You might have seen these used in the example code. You can use some of these libraries in your own code.</p>
+
+<h3 id="docready">docReady</h3>
+
+<p><a href="https://github.com/desandro/doc-ready">docReady triggers initialization logic when the document is ready,</a> just like jQuery's <code>$(document).ready()</code>. <code>docReady</code> is used to initialize all the demos in these docs.</p>
+
+``` js
+docReady( function() {
+  // document is ready, let's do some fun stuff!
+  var container = document.querySelector('#container');
+  var msnry = new Masonry( container );
+});
+```
+
+<h3 id="classie">classie</h3>
+
+<p><a href="https://github.com/desandro/classie">classie has class helper functions.</a> classie is not included with Masonry.</p>
+
+``` js
+classie.has( element, 'my-class' ) // returns true/false
+classie.add( element, 'my-new-class' ) // add new class
+classie.remove( element, 'my-unwanted-class' ) // remove class
+classie.toggle( element, 'my-class' ) // toggle class
+```
+
+<h3 id="eventie">eventie</h3>
+
+<p><a href="https://github.com/desandro/eventie">Eventie makes event binding in IE8 legit.</a></p>
+
+``` js
+var elem = document.querySelector('#my-elem');
+function onElemClick( event ) {
+  console.log( event.type + ' just happened on #' + event.target.id );
+  // -> click just happened on #my-elem
+}
+// bind it
+eventie.bind( elem, 'click', onElemClick );
+// unbind it
+eventie.unbind( elem, 'click', onElemClick );
+```
+</div><div id="submitting-issues" class="primary-content">
+
+{{>submitting-issues}}
+
+</div><div class="primary-content">
+
+<h2 id="upgrading-from-v2">Upgrading from v2</h2>
+
+<ul>
+  <li>smartresize jQuery plugin has been removed</li>
+  <li><a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> no longer included, but is still recommended.</li>
+  <li>jQuery animation has been removed. <code>animationOptions</code> has been removed. This means no animation for in IE8 and IE9.</li>
+  <li>Corner stamp is now integrated as <a href="options.html#stamp"><code>stamp</code> option</a> and <a href="methods.html#stamp"><code>stamp</code> method</a></li>
+  <li><code>isRTL</code> option removed, use <a href="options.html#isoriginleft"><code>isOriginLeft: false</code></a> instead</li>
+  <li><code>isResizable</code> option renamed to <a href="options.html#isresizebound"><code>isResizeBound</code></a></li>
+  <li><code>layout</code> method renamed to <a href="methods.html#layoutitems"><code>layoutItems</code></a></li>
+  <li><code>gutterWidth</code> option renamed to <a href="options.html#gutter"><code>gutter</code></a></li>
+</ul>
+
+</div><div class="primary-content">
+
+<h2 id="requirejs">RequireJS</h2>
+
+<p>Masonry is compatible with <a href="http://requirejs.org">RequireJS</a>. Some configuration is required for its dependencies. All dependencies can be installed with <a href="http://bower.io">Bower</a>.</p>
+
+<p>Set <a href="http://requirejs.org/docs/api.html#config-paths">config paths</a> for all Masonry's dependencies.</p>
+
+``` js
+requirejs.config({
+  paths: {
+    eventie: 'bower_components/eventie',
+    'doc-ready': 'bower_components/doc-ready',
+    eventEmitter: 'bower_components/eventEmitter',
+    'get-style-property': 'bower_components/get-style-property',
+    'get-size': 'bower_components/get-size',
+    'matches-selector': 'bower_components/matches-selector',
+    outlayer: 'bower_components/outlayer',
+    masonry: 'bower_components/masonry'
+  }
+});
+
+requirejs( [ 'masonry/masonry' ], function( Masonry ) {
+  new Masonry( /*...*/ )
+});
+```
+
+<p>Or, you can set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to bower_components and set a path config for all your application code.</p>
+
+``` js
+requirejs.config({
+  baseUrl: 'bower_components/',
+  paths: {
+    app: '../'
+  }
+});
+
+requirejs( [ 'masonry/masonry', 'app/my-component.js' ], function( Masonry, myComp ) {
+  new Masonry( /*...*/ )
+});
+```
+
+</div><div class="primary-content">
+
+<h2 id="additional-resources">Additional resources</h2>
+
+<ul>
+  <li>The <a href="http://metafizzy.co/blog/">Metafizzy blog</a> has posts that cover specialized use cases</li>
+  <li><a href="http://stackoverflow.com/users/182183/desandro?tab=answers">My answers on Stack Overflow</a></li>
+  <li><a href="http://www.delicious.com/desandro/jquerymasonry">Sites using Masonry on Delicious</a></li>
+  <li><a href="http://zootool.com/user/desandro/tag:masonry">Sites using Masonry on Zootool</a> (has screenshots)</li>
+  <li><a href="http://stackoverflow.com/search?q=masonry">Stack Overflow questions about Masonry</a></li>
+  <li><a href="http://www.delicious.com/desandro/re:masonry">Related Masonry links</a></li>
+  <li>Other resources that are <a href="http://www.delicious.com/desandro/likemasonrybutnot">like Masonry but not</a></li>
+</ul>
+
+</div>

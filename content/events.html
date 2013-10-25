@@ -1,0 +1,127 @@
+---
+{
+  "title": "Events",
+  "nav": [
+    "layoutComplete",
+    "removeComplete"
+  ]
+}
+---
+
+<div id="notification"></div>
+
+<div class="primary-content">
+
+<p>Masonry is an Event Emitter. You can bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
+
+```js
+var msnry = new Masonry( elem );
+
+function onLayout() {
+  console.log('layout done');
+}
+// bind event listener
+msnry.on( 'layoutComplete', onLayout );
+// un-bind event listener
+msnry.off( 'layoutComplete', onLayout );
+// return true to trigger an event listener just once
+msnry.on( 'layoutComplete', function() {
+  console.log('layout done, just this one time');
+  return true;
+});
+```
+
+</div><div class="primary-content">
+
+<h2 id="layoutcomplete">layoutComplete</h2>
+
+``` js
+msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) { //...
+// or with jQuery
+$container.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItems ) {} )
+```
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>msnryInstance</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Masonry</i></span>
+    </p>
+    <p class="description param-bit">the Masonry instance</p>
+  </li>
+  <li class="param">
+    <h5 class="param-name param-bit"><code>laidOutItems</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Array</i> of <i>Masonry.Item</i>s</span>
+    </p>
+    <p class="description param-bit">items that were laid out</p>
+  </li>
+</ul>
+
+<p>Triggered after a layout and all positioning transitions have been completed.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
+  console.log('Masonry layout completed on ' + laidOutItems.length + ' items');
+});
+```
+  </div>
+  <div id="layout-complete-demo" class="cell demo">
+    <p class="instruction">Resize browser or click item to toggle size</p>
+    <div class="masonry clickable">
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/htsui">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="removecomplete">removeComplete</h2>
+
+``` js
+msnry.on( 'removeComplete', function( msnryInstance, removedItems ) { //...
+// or with jQuery
+$container.masonry( 'on', 'removeComplete', function( msnryInstance, removedItems ) {} )
+```
+
+<p>Triggered after an item element has been removed.</p>
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>msnryInstance</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Masonry</i></span>
+    </p>
+    <p class="description param-bit">the Masonry instance</p>
+  </li>
+  <li class="param">
+    <h5 class="param-name param-bit"><code>removedItems</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Array</i> of <i>Masonry.Item</i>s</span>
+    </p>
+    <p class="description param-bit">items that were removed</p>
+  </li>
+</ul>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+msnry.on( 'removeComplete', function( msnryInstance, removedItems ) {
+  console.log( 'Removed ' + removedItems.length + ' items' );
+});
+```
+  </div>
+  <div id="remove-complete-demo" class="cell demo">
+    <p class="instruction">Click items to remove them</p>
+    <div class="masonry clickable">
+      {{>basic-demo-items}}
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/JknEe">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div>
