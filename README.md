@@ -1,12 +1,12 @@
-# Masonry Docs
+# Isotope Docs
 
-Documentation for Masonry, cascading grid layout library.
+Documentation for Isotope, the filtering & sorting magical layout library.
 
-This project does _not_ include the source for Masonry. That's over in [github.com/desandro/masonry](https://github.com/desandro/masonry).
+This project does _not_ include the source for Isotope. That's over in [github.com/metafizzy/isotope](https://github.com/metafizzy/isotope).
 
 ## Build
 
-Building these docs requires [Bower](http://twitter.github.com/bower), [Grunt](http://gruntjs.com) and [NPM](http://npmjs.org).
+Building these docs requires [Bower](http://bower.io), [Grunt](http://gruntjs.com) and [NPM](http://npmjs.org).
 
 ``` bash
 npm install
