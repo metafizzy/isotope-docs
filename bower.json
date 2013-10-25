@@ -1,15 +1,15 @@
 {
-  "name": "masonry-docs",
-  "version": "3.1.1",
+  "name": "isotope-docs",
+  "version": "0.1.0",
   "author": "David DeSandro",
   "dependencies": {
-    "classie": "desandro/classie#>=0.0.4",
-    "doc-ready": "desandro/doc-ready#>=0.0.3",
+    "classie": "desandro/classie",
+    "doc-ready": "desandro/doc-ready",
     "eventie": "desandro/eventie",
-    "imagesloaded": "latest",
     "get-style-property": "desandro/get-style-property",
+    "imagesloaded": "latest",
+    "isotope": "../isotope#2.0.0-beta.1",
     "jquery": "~1",
-    "normalize-css": "~2",
-    "masonry": "latest"
+    "normalize-css": "~2"
   }
 }
