@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width" />
   <meta name="description" content="Cascading grid layout library" />
 
-  <title>Masonry{{#unless page.is_homepage}} {{page.title}}{{/unless}}</title>
+  <title>Isotope{{#unless page.is_homepage}} {{page.title}}{{/unless}}</title>
 
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans:400,700,400italic" />
 
@@ -18,15 +18,15 @@
     {{/each}}
   {{else}}
     {{! in production, just include concat CSS }}
-    <link rel="stylesheet" href="css/masonry-docs.css" />
+    <link rel="stylesheet" href="css/isotope-docs.css" />
   {{/if}}
 
   {{! Twitter Cards }}
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@desandro" />
-  <meta name="twitter:url" content="http://masonry.desandro.com/{{basename}}.html" />
-  <meta name="twitter:title" content="Masonry{{#unless page.is_homepage}} {{page.title}}{{/unless}}" />
-  <meta name="twitter:description" content="Cascading grid layout library" />
+  <meta name="twitter:site" content="@metafizzyco" />
+  <meta name="twitter:url" content="http://isotope.metafizzy.co/{{basename}}.html" />
+  <meta name="twitter:title" content="Isotope{{#unless page.is_homepage}} {{page.title}}{{/unless}}" />
+  <meta name="twitter:description" content="filtering &amp; sorting magical layout library" />
 
   {{#unless isDev}}
     <!-- Mint Analytics - Remove this if you copy/pasted this page -->
@@ -38,11 +38,14 @@
 
   <div id="site-nav">
     <div class="primary-content">
-      <h1><a href=".">Masonry</a></h1>
+      <h1><a href=".">Isotope</a></h1>
       <ol>
+        <li class="nav-filtering"><a href="filtering.html">Filtering</a></li>
+        <li class="nav-sorting"><a href="sorting.html">Sorting</a></li>
         <li class="nav-options"><a href="options.html">Options</a></li>
         <li class="nav-methods"><a href="methods.html">Methods</a></li>
         <li class="nav-events"><a href="events.html">Events</a></li>
+        <li class="nav-license"><a href="license.html">License</a></li>
         <li class="nav-appendix"><a href="appendix.html">Appendix</a></li>
         <li class="nav-faq"><a href="faq.html">FAQ</a></li>
       </ol>
@@ -77,14 +80,16 @@
   </div>
 
   <div id="footer">
-    <div class="primary-content">
-      Masonry by <a href="http://desandro.com">David DeSandro</a>. Make something rad with it.
+    <div class="footer-content">
+      {{! logo is broken up so font renders just the logo in M }}
+      <a class="metafizzy-logo" href="http://metafizzy.co">M<span class="etafizzy">etafizzy</span></a>
+      <span class="copyright">&copy; 2013</span>
     </div>
   </div>
 
-<!-- Masonry does NOT require jQuery.
-     jQuery is only used to demonstrate Masonry as a jQuery plugin -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+<!-- Isotope does NOT require jQuery.
+     jQuery is only used to demonstrate Isotope as a jQuery plugin -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.min.js"><\/script>')</script>
 
 {{#if isDev}}
@@ -94,13 +99,13 @@
   {{/each}}
 {{else}}
   {{! in production, just include concat/minified js }}
-  <script src="js/masonry-docs.min.js"></script>
+  <script src="js/isotope-docs.min.js"></script>
 {{/if}}
 
 {{#unless isDev}}
   <!-- Google Analytics - Remove this if you copy/pasted this page -->
   <script>
-    var _gaq=[['_setAccount','UA-592624-5'],['_trackPageview'],['_setDomainName', 'desandro.com']];
+    var _gaq=[['_setAccount','UA-592624-6'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
