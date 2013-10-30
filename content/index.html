@@ -28,7 +28,7 @@
 
 <h3 id="bower">Bower</h3>
 
-<p>If you are familiar with the command line and build processes, Isotope can be installed with <a href="http://twitter.github.com/bower">Bower</a>. Isotope is built on dependencies. Bower takes care of these.</p>
+<p>If you are familiar with the command line and build processes, Isotope can be installed with <a href="http://bower.io">Bower</a>. Isotope is built on dependencies. Bower takes care of these.</p>
 
 ```
 bower install isotope
@@ -49,6 +49,15 @@ bower install isotope
 <p>Purchasing accepts most credit cards and takes seconds. Once purchased, you&rsquo;ll receive a commercial license PDF and you will be all set to use Isotope in your commercial applications.</p>
 
 <p>For non-commercial, personal, or open source projects and applications, you may use Isotope under the terms of the <a href="http://choosealicense.com/licenses/gpl-v3/">GPL v3 License</a>. You may use Isotope for free.</p>
+
+<h3 id="purchase-paypal">Purchase with PayPal</h3>
+
+<p>PayPal is also accepted to purchase an Isotope commercial license.</p>
+
+<ul>
+  <li><a href="http://pul.ly/b/13620">Buy Developer License via PayPal</a></li>
+  <li><a href="http://pul.ly/b/36595">Buy Organization License via PayPal</a></li>
+</ul>
 
 </div><div class="primary-content">
 
@@ -84,56 +93,43 @@ bower install isotope
 
 <h3 id="javascript">Initialize with JavaScript</h3>
 
-<p>Initialize a Isotope instance with <code><span class="keyword">new</span> Isotope( element, options )</code>. The <code>Isotope</code> constructor accepts two arguments: the container element and an <a href="options.html">options</a> object.</p>
+<p>Initialize an Isotope instance as a jQuery plugin:  <code>$('#container').isotope()</code>.</p>
 
 ``` js
-var container = document.querySelector('#container');
-var msnry = new Isotope( container, {
+var $container = $('#container');
+// init
+$container.isotope({
   // options
-  columnWidth: 200,
-  itemSelector: '.item'
+  itemSelector: '.item',
+  layoutMode: 'fitRows'
 });
 ```
 
-<h3 id="init-with-html">Initialize in HTML</h3>
-
-<p>You can initialize Isotope in HTML, without writing any JavaScript. Simply add <code>js-isotope</code> to the class of the container element. <a href="options.html">Options</a> can be set with a <code>data-isotope-options</code> attribute.</p>
-
-``` html
-<div id="container" class="js-isotope"
-  data-isotope-options='{ "columnWidth": 200, "itemSelector": ".item" }'>
-```
-
-<p><strong>Options set in HTML must be valid JSON.</strong> Keys need to be quoted, for example <code><span class="string">"itemSelector"</span>:</code>. Note that the attribute value uses single quotes <code>'</code>, but the JSON entities use double-quotes <code>"</code>.</p>
+<p>There are a number of <a href="options.html">options</a> you can specify. Within the options is where you can <a href="filtering.html">filter items</a>, <a href="sorting.html">sort items</a>, or <a href="layout-modes.html">set the layout mode</a>.</p>
 
 <p>That&rsquo;s it! Now let&rsquo;s do some fun stuff with <a href="options.html">options</a> and <a href="methods.html">methods</a>.</p>
 
 </div><div class="primary-content">
 
-<h2 id="jquery">jQuery</h2>
+<h2 id="vanilla-js">Vanilla JavaScript</h2>
 
-<p>jQuery is <strong>not</strong> required to use Isotope. But if you do enjoy jQuery, Isotope works with it as a jQuery plugin.</p>
+<p>jQuery is <strong>not</strong> required to use Isotope. Given its popularity, jQuery will be used for all example code in these docs. But you can still use Isotope with vanilla JS.</p>
+
+<p>Initialize an Isotope instance with <code><span class="keyword">new</span> Isotope( element, options )</code>. The <code>Isotope</code> constructor accepts two arguments: the container element and an <a href="options.html">options</a> object.</p>
 
 ``` js
-var $container = $('#container');
-// initialize
-$container.isotope({
-  columnWidth: 200,
-  itemSelector: '.item'
+var container = document.querySelector('#container');
+// init
+var iso = new Isotope( container, {
+  // options
+  itemSelector: '.item',
+  layoutMode: 'fitRows'
 });
-```
-
-<p>Get the Isotope instance with <code>.data(<span class="string">'isotope'</span>)</code>.</p>
-
-``` js
-var msnry = $container.data('isotope');
 ```
 
 </div><div class="primary-content">
 
-<h2 id="mit-license">MIT License</h2>
 
-<p>Isotope is released under the <a href="http://desandro.mit-license.org/">MIT License</a>. Have at it.</p>
 
 </div>
 

@@ -43,15 +43,20 @@ h1, h2, h3, h4, h5,
 
 a,
 a code {
-  color: #A2C;
+  color: #FB4;
   text-decoration: none;
 }
 
 a:hover,
 a:hover code {
-  color: #D26;
+  color: #4BF;
 }
 
+a:active,
+a:active code {
+  color: #1FB;
+  background: black;
+}
 
 /* ---- headers ---- */
 
