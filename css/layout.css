@@ -22,6 +22,7 @@
   font-size: 1.7em;
   font-weight: 400;
   padding: 0.4em 0;
+  clear: both;
 }
 
 #content h2:target {
@@ -74,6 +75,11 @@
 /* tablet-ish */
 @media screen and ( min-width: 800px ) {
 
+  .primary-content {
+    margin-left: 180px;
+  }
+
+  /* content primary-content */
   #content .primary-content {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -132,7 +138,6 @@
 @media screen and ( min-width: 960px ) {
 
   .primary-content {
-    margin-left: 6%;
     margin-right: 200px;
   }
 

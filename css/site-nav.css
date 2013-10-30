@@ -11,14 +11,13 @@
 
 /* clear fix */
 #site-nav:after {
-  content: ' ';
+  content: '';
   display: table;
   clear: both;
 }
 
 #site-nav h1 {
   float: left;
-  text-align: center;
   font-size: 1.5em;
   margin: 0;
 }
@@ -26,11 +25,11 @@
 #site-nav h1 a {
   padding: 0 0.8em;
   display: block;
-  color: #D26;
+  color: #4FB;
 }
 
 #site-nav h1 a:hover {
-  background: #A2C;
+  background: #D26;
   color: white;
 }
 
@@ -42,6 +41,7 @@
   list-style: none;
   font-size: 15px;
   margin-bottom: 0;
+  padding: 0;
 }
 
 #site-nav ol:after {
@@ -54,13 +54,13 @@
   float: left;
 }
 
-#site-nav ol a {
+#site-nav li a {
   display: block;
   padding: 0 1.0em;
 }
 
-#site-nav ol a:hover {
-  background: #D26;
+#site-nav li a:hover {
+  background: black;
   color: white;
 }
 
@@ -72,30 +72,47 @@
 .license-page #site-nav .nav-license a,
 .appendix-page #site-nav .nav-appendix a,
 .faq-page #site-nav .nav-faq a {
-  color: white;
+  color: #4Bf;
+  background: black;
 }
 
+@media screen and ( min-width: 800px ) {
 
-@media screen and ( min-width: 960px ) {
-
-  /* hide h1 on index */
-  .index-page #site-nav h1 {
-    visibility: hidden;
+  #site-nav {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 160px;
   }
 
   #site-nav,
   #site-nav h1 {
-    line-height: 60px;
-    margin-left: -0.5em;
+    line-height: 1.25;
+  }
+
+  #site-nav h1,
+  #site-nav li {
+    float: none;
   }
 
   #site-nav h1 {
-    height: 60px;
-    font-size: 2.0em;
+    font-size: 32px;
   }
 
-  #site-nav ol {
-    font-size: 17px;
+  #site-nav li {
+    float: none;
+    font-size: 16px;
+  }
+
+  #site-nav h1 a,
+  #site-nav li a {
+    padding: 7px 20px;
+  }
+
+
+  /* hide h1 on index */
+  .index-page #site-nav h1 {
+    visibility: hidden;
   }
 
 }
