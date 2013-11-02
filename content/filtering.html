@@ -1,0 +1,94 @@
+---
+{
+  "title": "Filtering",
+  "nav": [
+    "foo",
+    "bar"
+  ]
+}
+---
+<div class="primary-content">
+
+<p>Isotope can hide and show item elements via the <a href='options.html#filter'><code>filter</code> option</a>. <code>filter</code> accepts a jQuery selector. Items that match that selector will be shown. Items that do not match will be hidden.</p>
+
+</div><div class="primary-content">
+  
+<h2 id="selectors">Selectors</h2>
+
+<p>The simplest way to filter items is with selectors, like classes. Each item element can have several identifying classes: <code>transition</code>, <code>metal</code>, <code>lanthanoid</code>, <code>alkali</code>, etc.</p>
+
+``` html
+<div id="container">
+  <div class="item transition metal">...</div>
+  <div class="item post-transition metal">...</div>
+  <div class="item alkali metal">...</div>
+  <div class="item transition metal">...</div>
+  <div class="item lanthanoid metal inner-transition">...</div> 
+  <div class="item halogen nonmetal">...</div> 
+  <div class="item alkaline-earth metal">...</div>
+  ...
+</div>
+```
+
+<p>Set a selector with the <a href="optoins.html#filter">filter option</a>. Items that match the selector will be shown. Items that do not match will be hidden. To filter <code>.metal</code> items:</p>
+
+``` js
+$container.isotope({ filter: '.metal' });
+```
+
+<ul>
+  <li><code>.alkali, .alkaline-earth</code> will show <code>.alkali</code> <strong>and</strong> <code> .alkaline-earth</code> item elements.</li>
+  <li><code>.metal.transition</code> will show item elements that have <strong>both</strong> <code>.metal</code> and <code>.transition</code> classes.</li>
+</ul>
+
+<h3 id="jquery-selectors">jQuery selectors</h3>
+
+<p>If jQuery is present, Isotope uses jQuery to filter items. You can filter items with <a href="http://api.jquery.com/category/selectors/">jQuery selectors</a>. For example:</p>
+
+<ul>
+  <li><code>.metal:not(.transition)</code> will show <code>.metal</code> item elements that are NOT <code>.transition</code>.</li>
+</ul>
+
+</div><div class="primary-content">
+
+<h2 id="functions">Functions</h2>
+
+<p>You can filter items with functions. This allows you to filter with a bit more logic.</p>
+
+``` html
+<div id="container">
+  <div class="item ..."><p class="number">80</p></div>
+  <div class="item ..."><p class="number">52</p></div>
+  <div class="item ..."><p class="number">20</p></div>
+  <div class="item ..."><p class="number">75</p></div>
+  ...
+</div>
+```
+
+<p>If you use jQuery, you can filter with <a href="http://api.jquery.com/is/#is-functionindex">functions in jQuery</a></p>
+
+``` js
+$container.isotope({
+  // filter element with numbers greater than 60
+  filter: function() {
+    // `this` is the item element. Get text of element's .number
+    var number = $(this).find('.number').text();
+    // return true to show, false to hide
+    return parseInt( number, 10 ) > 60;
+  }
+})
+```
+
+<p>You can still filter with functions if you don&rsquo;t use jQuery.</p>
+
+``` js
+iso.arrange({
+  // item element provided as argument
+  filter: function( itemElem ) {
+    var number = itemElem.querySelector('.number').innerText;
+    return parseInt( number, 10 ) > 60;
+  }
+});
+```
+
+</div>

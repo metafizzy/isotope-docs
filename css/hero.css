@@ -5,6 +5,12 @@
   padding-bottom: 20px;
 }
 
+#hero .primary-content:after  {
+  content: '';
+  display: block;
+  clear: both;
+}
+
 #hero h1 {
   font-size: 70px;
   line-height: 1.2;
