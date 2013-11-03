@@ -44,7 +44,7 @@ code .kd, /* storage */
 code .attribute { color: #DC8; } /* markup attribute */
 code .title { color: #9CF; }
 code .params { color: #98D; }
-code .p  { color: #EDB; } /* punctuation */
+code .regexp  { color: #FC8; } /* regex */
 code .o  { color: #F63; }   /* operator */
 code .nb { color: #AA97AC;} /* support */
 

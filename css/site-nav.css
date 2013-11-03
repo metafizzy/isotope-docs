@@ -65,6 +65,8 @@
 }
 
 /* selected */
+.filtering-page #site-nav .nav-filtering a,
+.sorting-page #site-nav .nav-sorting a,
 .options-page #site-nav .nav-options a,
 .methods-page #site-nav .nav-methods a,
 .events-page #site-nav .nav-events a,

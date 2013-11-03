@@ -2,20 +2,21 @@
 {
   "title": "Filtering",
   "nav": [
-    "foo",
-    "bar"
+    "Selectors",
+    "Functions",
+    "Creating interactive buttons"
   ]
 }
 ---
 <div class="primary-content">
 
-<p>Isotope can hide and show item elements via the <a href='options.html#filter'><code>filter</code> option</a>. <code>filter</code> accepts a jQuery selector. Items that match that selector will be shown. Items that do not match will be hidden.</p>
+<p>Isotope can hide and show item elements via the <a href='options.html#filter'><code>filter</code> option</a>. Items that match that filter will be shown. Items that do not match will be hidden.</p>
 
 </div><div class="primary-content">
   
 <h2 id="selectors">Selectors</h2>
 
-<p>The simplest way to filter items is with selectors, like classes. Each item element can have several identifying classes: <code>transition</code>, <code>metal</code>, <code>lanthanoid</code>, <code>alkali</code>, etc.</p>
+<p>The simplest way to filter items is with selectors, like classes. For example, each item element can have several identifying classes: <code>transition</code>, <code>metal</code>, <code>lanthanoid</code>, <code>alkali</code>, etc.</p>
 
 ``` html
 <div id="container">
@@ -37,8 +38,9 @@ $container.isotope({ filter: '.metal' });
 ```
 
 <ul>
-  <li><code>.alkali, .alkaline-earth</code> will show <code>.alkali</code> <strong>and</strong> <code> .alkaline-earth</code> item elements.</li>
-  <li><code>.metal.transition</code> will show item elements that have <strong>both</strong> <code>.metal</code> and <code>.transition</code> classes.</li>
+  <li><code><span class="string">'.alkali, .alkaline-earth'</span></code> will show <code>.alkali</code> <strong>and</strong> <code> .alkaline-earth</code> item elements.</li>
+  <li><code><span class="string">'.metal.transition'</span></code> will show item elements that have <strong>both</strong> <code>.metal</code> and <code>.transition</code> classes.</li>
+  <li><code><span class="string">'*'</span></code> will show all items.</li>
 </ul>
 
 <h3 id="jquery-selectors">jQuery selectors</h3>
@@ -46,7 +48,7 @@ $container.isotope({ filter: '.metal' });
 <p>If jQuery is present, Isotope uses jQuery to filter items. You can filter items with <a href="http://api.jquery.com/category/selectors/">jQuery selectors</a>. For example:</p>
 
 <ul>
-  <li><code>.metal:not(.transition)</code> will show <code>.metal</code> item elements that are NOT <code>.transition</code>.</li>
+  <li><code><span class="string">'.metal:not(.transition)'</span></code> will show <code>.metal</code> item elements that are NOT <code>.transition</code>.</li>
 </ul>
 
 </div><div class="primary-content">
@@ -58,7 +60,7 @@ $container.isotope({ filter: '.metal' });
 ``` html
 <div id="container">
   <div class="item ..."><p class="number">80</p></div>
-  <div class="item ..."><p class="number">52</p></div>
+  <div class="item ..."><p class="number">42</p></div>
   <div class="item ..."><p class="number">20</p></div>
   <div class="item ..."><p class="number">75</p></div>
   ...
@@ -69,12 +71,12 @@ $container.isotope({ filter: '.metal' });
 
 ``` js
 $container.isotope({
-  // filter element with numbers greater than 60
+  // filter element with numbers greater than 50
   filter: function() {
     // `this` is the item element. Get text of element's .number
     var number = $(this).find('.number').text();
     // return true to show, false to hide
-    return parseInt( number, 10 ) > 60;
+    return parseInt( number, 10 ) > 50;
   }
 })
 ```
@@ -86,9 +88,83 @@ iso.arrange({
   // item element provided as argument
   filter: function( itemElem ) {
     var number = itemElem.querySelector('.number').innerText;
-    return parseInt( number, 10 ) > 60;
+    return parseInt( number, 10 ) > 50;
   }
 });
 ```
+
+</div><div class="primary-content">
+
+<h2 id="creating-interactive-buttons">Creating interactive buttons</h2>
+
+<p>Let&rsquo;s use a group of buttons for the UI.</p>
+
+``` html
+<div id="filters" class="button-group">
+  <button data-filter="*">show all</button>
+  <button data-filter=".metal">metal</button>
+  <button data-filter=".transition">transition</button>
+  <button data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+  <button data-filter=":not(.transition)">not transition</button>
+  <button data-filter=".metal:not(.transition)">metal but not transition</button>
+</div>
+```
+
+<p>Each button has its filter set in the <code>data-filter</code> attribute. In the JS, we can use that filter when a button is clicked.</p>
+
+``` js
+var $container = $('#container');
+// init Isotope
+$container.isotope({
+  // options
+});
+// filter items on button click
+$('#filters').on( 'click', 'button', function( event ) {
+  var filter = $(this).attr('data-filter');
+  $container.isotope({ filter: filter });
+});
+```
+
+<h3>Filter functions</h3>
+
+<p>To filter with a function, use a keyword and map it to an object.</p>
+
+``` html
+  <!-- in button group -->
+  <button data-filter="numberGreaterThan50">number > 50</button>
+  <button data-filter="ium">name ends with &ndash;ium</button>
+```
+
+``` js
+// hash of functions that match data-filter values
+var filterFns = {
+  // show if number is greater than 50
+  numberGreaterThan50: function() {
+    var number = $(this).find('.number').text();
+    return parseInt( number, 10 ) > 50;
+  },
+  // show if name ends with -ium
+  ium: function() {
+    var name = $(this).find('.name').text();
+    return name.match( /ium$/ );
+  }
+};
+// filter items on button click
+$('#filters').on( 'click', 'button', function( event ) {
+  var filter = $(this).attr('data-filter');
+  // see if filter function is matched
+  filter = filterFns[ filter ] || filter;
+  $container.isotope({ filter: filter });
+});
+```
+
+<h3>Other UI</h3>
+
+<p>Your UI does not have to be buttons. You can use <code>&lt;select&gt;</code>s, radio buttons, and other options.</p>
+
+<ul>
+  <li>Example with select</li>
+  <li>Example with radio buttons</li>
+</ul>
 
 </div>

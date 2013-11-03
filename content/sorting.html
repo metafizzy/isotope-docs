@@ -1,0 +1,97 @@
+---
+{
+  "title": "Sorting",
+  "nav": [
+    "Markup",
+    "getSortData"
+  ]
+}
+---
+<div class="primary-content">
+
+<p>Isotope can rearrange the order of item elements based on their data.</p>
+
+</div><div class="primary-content">
+
+<h2 id="markup">Markup</h2>
+
+<p>All the data used for sorting can be kept in the markup. It could be a text value, like a title or tag. Or it could be a number, like a price, measurement, or rating.</p>
+
+<p> For our example, each item element has several data points that can be used for sorting. There&rsquo;s the elemental symbol, number, name of the element, weight, and category.</p>
+
+``` html
+<div id="container">
+  <div class="item transition metal" data-category="transition"> 
+    <p class="number">79</p> 
+    <h3 class="symbol">Au</h3> 
+    <h2 class="name">Gold</h2> 
+    <p class="weight">196.966569</p> 
+  </div> 
+  <div class="item metalloid" data-category="metalloid"> 
+    <p class="number">51</p> 
+    <h3 class="symbol">Sb</h3> 
+    <h2 class="name">Antimony</h2> 
+    <p class="weight">121.76</p> 
+  </div>
+  ...
+</div>
+```
+
+</div><div class="primary-content">
+
+<h2 id="getsortdata">getSortData</h2>
+
+<p>Isotope reads data from markup with the <a href="options.html#getsortdata">getSortData option</a>. This option accepts an object. The object&rsquo;s keys are keywords used to sort by. Object values are either a shortcut string or function to retrieve the data.</p>
+
+``` js
+var $container = $('#container').isotope({
+  getSortData: {
+    name: '.name',
+    category: '[data-category]',
+    weight: function( itemElem ) {
+      var weight = $( itemElem ).find('.weight').text();
+      return parseFloat( weight.replace( /[\(\)]/g, '') );
+    }
+  }
+});
+```
+
+<h3>getSortData strings</h3>
+
+<p>Isotope provides shortcut strings to get sort data. By default, a string will be used to get the text of a child element.</p>
+
+``` js
+name: '.name', // use text of .name element
+symbol: '.symbol' // use text of .symbol
+```
+
+<p>A string wrapped in brackets, like <code>[attribute]</code>, will be used to get the value of an attribute.</p>
+
+``` js
+// use value of data-category attribute
+category: '[data-category]'
+```
+
+<p>There are two additional parser keywords you can add to parse text.</p>
+
+``` js
+// parse text of .number as an integer
+number: '.number parseInt',
+// parse text of .weight as a float
+weight: '.weight parseFloat'
+```
+
+<h3>getSortData functions</h3>
+
+<p>You can pass in a function as method. The function provides one argument <code>itemElem</code>, which is the item element. The function needs to return the data point.</p>
+
+``` js
+weight: function( itemElem ) {
+  // get text of .weight element
+  var weight = $( itemElem ).find('.weight').text();
+  // replace parens (), and parse as float
+  return parseFloat( weight.replace( /[\(\)]/g, '') );
+}
+```
+
+</div>

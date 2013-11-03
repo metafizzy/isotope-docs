@@ -79,11 +79,17 @@
     margin-left: 180px;
   }
 
+  #content {
+    padding-top: 20px;
+  }
+
   /* content primary-content */
   #content .primary-content {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+
+  #content .primary-content:first-child { border: none; }
 
   #content .primary-content > * {
     max-width: 700px;
