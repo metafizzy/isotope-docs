@@ -84,7 +84,7 @@
     position: absolute;
     left: 0;
     top: 40px;
-    width: 160px;
+    width: 200px;
   }
 
   #site-nav,
@@ -106,9 +106,24 @@
     font-size: 16px;
   }
 
+  #site-nav li ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  #site-nav li li {
+    font-size: 15px;
+  }
+
   #site-nav h1 a,
   #site-nav li a {
     padding: 7px 20px;
+  }
+
+  #site-nav li li a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
   }
 
 
@@ -116,5 +131,20 @@
   .index-page #site-nav h1 {
     visibility: hidden;
   }
+  /* expand sub nav */
+  .nav-layout-modes {
+    max-height: 2em;
+    overflow: hidden;
+    -webkit-transition: max-height 0.4s;
+  }
+
+  
+
+  .nav-layout-modes:hover {
+    max-height: 16em;
+  }
+
+  .nav-layout-modes > a:after { content: '...'; }
+  .nav-layout-modes:hover > a:after { content: none; }
 
 }

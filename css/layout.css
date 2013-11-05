@@ -76,7 +76,7 @@
 @media screen and ( min-width: 800px ) {
 
   .primary-content {
-    margin-left: 180px;
+    margin-left: 220px;
   }
 
   #content {
@@ -144,7 +144,7 @@
 @media screen and ( min-width: 960px ) {
 
   .primary-content {
-    margin-right: 200px;
+    margin-right: 180px;
   }
 
   #page-nav {
@@ -153,8 +153,9 @@
     top: 60px;
     list-style: none;
     padding: 0;
-    width: 200px;
+    width: 180px;
     padding: 10px;
+    text-align: right;
   }
 
   #page-nav li {
