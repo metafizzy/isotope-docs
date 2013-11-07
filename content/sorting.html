@@ -179,8 +179,8 @@ var $container = $container.isotope({
 });
 // sort items on button click
 $('#sorts').on( 'click', 'button', function() {
-  var sortBy = $(this).attr('data-sort-by');
-  $container.isotope({ sortBy: sortBy });
+  var sorter = $(this).attr('data-sort-by');
+  $container.isotope({ sortBy: sorter });
 });
 ```
 

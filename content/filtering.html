@@ -120,8 +120,8 @@ $container.isotope({
 });
 // filter items on button click
 $('#filters').on( 'click', 'button', function( event ) {
-  var filter = $(this).attr('data-filter');
-  $container.isotope({ filter: filter });
+  var filtr = $(this).attr('data-filter');
+  $container.isotope({ filter: filtr });
 });
 ```
 
@@ -151,10 +151,10 @@ var filterFns = {
 };
 // filter items on button click
 $('#filters').on( 'click', 'button', function( event ) {
-  var filter = $(this).attr('data-filter');
+  var filtr = $(this).attr('data-filter');
   // see if filter function is matched
-  filter = filterFns[ filter ] || filter;
-  $container.isotope({ filter: filter });
+  filtr = filterFns[ filtr ] || filtr;
+  $container.isotope({ filter: filtr });
 });
 ```
 
