@@ -1,0 +1,166 @@
+---
+{
+  "title": "Masonry"
+}
+---
+
+<div class="primary-content">
+
+<p>Masonry works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall. You&rsquo;ve probably seen it in use all over the Internet. Isotope&rsquo;s masonry layout mode works just like <a href="http://masonry.desandro.com">regular Masonry</a>.</p>
+
+</div><div class="primary-content">
+
+<h2>Options</h2>
+
+<h3>columnWidth</h3>
+
+<p>The width of a column of a horizontal grid.</p>
+
+<p>If <code>columnWidth</code> is not set, Masonry will use the outer width of the first element.</p>
+
+``` js
+columnWidth: 60
+```
+
+<h3>isFitWidth</h3>
+
+<h3>gutter</h3>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>The horizontal space between item elements.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+"gutter": 10
+```
+  </div>
+  <div class="cell demo">
+    <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/iIbgC">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>To set vertical space between elements, use <code>margin</code> CSS.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+"gutter": 10
+```
+``` css
+#gutter-opt-demo2 .item {
+  margin-bottom: 10px;
+}
+```
+  </div>
+  <div id="gutter-opt-demo2" class="cell demo">
+    <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/gbnko">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` html
+<div id="gutter-opt-demo3">
+  <div class="gutter-sizer"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  ...
+</div>
+```
+``` css
+#gutter-opt-demo3 .gutter-sizer { width: 3%; }
+```
+``` js
+"gutter": ".gutter-sizer",
+"itemSelector": ".item"
+```
+  </div>
+  <div class="cell demo" >
+    <div id="gutter-opt-demo3" class="masonry js-masonry" data-masonry-options='{ "gutter": ".gutter-sizer", "itemSelector": ".item" }'>
+      <div class="gutter-sizer"></div>
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/BAJKn">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+
+<h3>stamp</h3>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Element</i>, <i>NodeList</i>, <i>Array</i> of Elements, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>Specifies which elements are <a href="methods.html#stamp">stamped</a> within the layout. These are special layout elements which will not be laid out by Masonry. Rather, Masonry will layout item elements <em>below</em> stamped elements.</p>
+
+<p>The <code>stamp</code> option stamps elements only when the Masonry instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` html
+<div id="stamp-opt-demo">
+  <div class="stamp stamp1"></div>
+  <div class="stamp stamp2"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  ....
+</div>
+```
+``` js
+"itemSelector": ".item",
+"stamp": ".stamp"
+```
+``` css
+/* position stamp elements with CSS */
+#stamp-opt-demo {
+  position: relative;
+}
+#stamp-opt-demo .stamp {
+  position: absolute;
+  background: orange;
+  border: 4px dotted black;
+}
+#stamp-opt-demo .stamp1 {
+  left: 30%;
+  top: 10px;
+  width: 20%;
+  height: 100px;
+}
+#stamp-opt-demo .stamp2 {
+  right: 10%;
+  top: 20px;
+  width: 70%;
+  height: 30px;
+}
+```
+  </div>
+  <div class="cell demo">
+    <div id="stamp-opt-demo" class="masonry has-stamp js-masonry" data-masonry-options='{ "itemSelector": ".item", "stamp": ".stamp" }'>
+      <div class="stamp stamp1"></div>
+      <div class="stamp stamp2"></div>
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/hsine">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+
+</div>
