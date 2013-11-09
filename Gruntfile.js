@@ -60,7 +60,8 @@ module.exports = function( grunt ) {
         },
         options: {
           templates: 'templates/*.mustache',
-          defaultTemplate: 'page'
+          defaultTemplate: 'page',
+          dataFiles: "data/*.json"
         }
       }
     },

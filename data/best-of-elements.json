@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Mercury",
+    "symbol": "Hg",
+    "number": 80,
+    "weight": 200.59,
+    "categories": [ "transition", "metal" ]
+  },
+  {
+    "name": "Tellurium",
+    "symbol": "Te",
+    "number": 52,
+    "weight": 127.6,
+    "categories": [ "metalloid" ]
+  },
+  {
+    "name": "Bismuth",
+    "symbol": "Bi",
+    "number": 83,
+    "weight": "208.980",
+    "categories": [ "post-transition", "metal" ]
+  },
+  {
+    "name": "Lead",
+    "symbol": "Pb",
+    "number": 82,
+    "weight": 207.2,
+    "categories": [ "post-transition", "metal" ]
+  },
+  {
+    "name": "Gold",
+    "symbol": "Au",
+    "number": 79,
+    "weight": 196.967,
+    "categories": [ "transition", "metal" ]
+  },
+  { 
+    "name": "Potassium",
+    "symbol": "K",
+    "number": 19,
+    "weight": "39.100",
+    "categories": [ "alkali", "metal" ]
+  },
+  {
+    "name": "Sodium",
+    "symbol": "Na",
+    "number": 11,
+    "weight": 22.990,
+    "categories": [ "alkali", "metal" ]
+  },
+  {
+    "name": "Cadmium",
+    "symbol": "Cd",
+    "number": 48,
+    "weight": 112.411,
+    "categories": [ "transition", "metal" ]
+  },
+  {
+    "name": "Calcium",
+    "symbol": "Ca",
+    "number": 20,
+    "weight": 40.078,
+    "categories": [ "alkaline-earth", "metal" ]
+  },
+  {
+    "name": "Rhenium",
+    "symbol": "Re",
+    "number": 75,
+    "weight": 186.207,
+    "categories": [ "transition", "metal" ]
+  },
+  {
+    "name": "Thallium",
+    "symbol": "Tl",
+    "number": 81,
+    "weight": 204.383,
+    "categories": [ "post-transition", "metal" ]
+  },
+  {
+    "name": "Antimony",
+    "symbol": "Sb",
+    "number": 51,
+    "weight": 121.76,
+    "categories": [ "metalloid" ]
+  },
+  {
+    "name": "Cobalt",
+    "symbol": "Co",
+    "number": 27,
+    "weight": 58.933,
+    "categories": [ "transition", "metal" ]
+  },
+  {
+    "name": "Ytterbium",
+    "symbol": "Yb",
+    "number": 70,
+    "weight": 173.054,
+    "categories": [ "lanthanoid", "metal", "inner-transition" ]
+   },
+  {
+    "name": "Argon",
+    "symbol": "Ar",
+    "number": 18,
+    "weight": 39.948,
+    "categories": [ "noble-gas", "nonmetal" ]
+  },
+  {
+    "name": "Nitrogen",
+    "symbol": "N",
+    "number": 7,
+    "weight": 14.007,
+    "categories": [ "other", "nonmetal" ]
+  },
+  {
+    "name": "Uranium",
+    "symbol": "U",
+    "number": 92,
+    "weight": 238.029,
+    "categories": [ "actinoid", "metal", "inner-transition" ]
+  },
+  {
+    "name": "Plutonium",
+    "symbol": "Pu",
+    "number": 94,
+    "weight": "(244)",
+    "categories": [ "actinoid", "metal", "inner-transition" ]
+  } 
+]
