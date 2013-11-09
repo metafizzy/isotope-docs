@@ -31,6 +31,10 @@ handlebars.registerHelper( 'slug', function( str ) {
   return str.replace( /[?]/, '' ).replace( /[\., ]+/gi, '-' ).toLowerCase();
 });
 
+handlebars.registerHelper( 'firstValue', function( ary ) {
+  return ary[0];
+});
+
 // --------------------------  -------------------------- //
 
 module.exports = function( grunt ) {
@@ -72,7 +76,7 @@ module.exports = function( grunt ) {
       isDev: grunt.option('dev')
     };
     // add data
-    siteContext = expand( siteContext, data );
+    siteContext = extend( siteContext, data );
 
     this.files.forEach( function( file ) {
       file.src.forEach( function( filepath ) {

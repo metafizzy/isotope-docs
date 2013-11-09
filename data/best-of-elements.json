@@ -109,7 +109,7 @@
     "symbol": "N",
     "number": 7,
     "weight": 14.007,
-    "categories": [ "other", "nonmetal" ]
+    "categories": [ "diatomic", "nonmetal" ]
   },
   {
     "name": "Uranium",

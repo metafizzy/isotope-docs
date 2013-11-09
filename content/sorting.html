@@ -13,6 +13,17 @@
 
 <p>Isotope can rearrange the order of item elements based on their data.</p>
 
+<div class="isotope">
+  {{#best-of-elements}}
+    <div class="item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">
+      <h4 class="name">{{name}}</h4>
+      <p class="symbol">{{symbol}}</p>
+      <p class="number">{{number}}</p>
+      <p class="weight">{{weight}}</p>
+    </div>
+  {{/best-of-elements}}
+</div>
+
 </div><div class="primary-content">
 
 <h2 id="markup">Markup</h2>
