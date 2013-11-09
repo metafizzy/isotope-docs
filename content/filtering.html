@@ -12,6 +12,45 @@
 
 <p>Isotope can hide and show item elements via the <a href='options.html#filter'><code>filter</code> option</a>. Items that match that filter will be shown. Items that do not match will be hidden.</p>
 
+<div id="filtering-demo" class="demo">
+  <div class="button-group js-radio-button-group">
+    <label class="button">
+      <input type="radio" name="filter" value="*" checked="checked" /> show all
+    </label>
+    <label class="button">
+      <input type="radio" name="filter" value=".metal" /> metal
+    </label>
+    <label class="button">
+      <input type="radio" name="filter" value=".transition" /> transition
+    </label>
+    <label class="button">
+      <input type="radio" name="filter" value=".alkali, .alkaline-earth" /> alkali and alkaline-earth
+    </label>
+    <label class="button">
+      <input type="radio" name="filter" value=":not(.transition)" /> not transition
+    </label>
+    <label class="button">
+      <input type="radio" name="filter" value=".metal:not(.transition)" /> metal but not transition
+    </label>
+    <label class="button">
+      <input type="radio" name="filter" value="numberGreaterThan50" /> number > 50
+    </label>
+    <label class="button">
+      <input type="radio" name="filter" value="ium" /> name ends with &ndash;ium
+    </label>
+  </div>
+  <div class="isotope">
+    {{#best-of-elements}}
+      <div class="item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">
+        <h3 class="name">{{name}}</h3>
+        <p class="symbol">{{symbol}}</p>
+        <p class="number">{{number}}</p>
+        <p class="weight">{{weight}}</p>
+      </div>
+    {{/best-of-elements}}
+  </div>
+</div>
+
 </div><div class="primary-content">
   
 <h2 id="selectors">Selectors</h2>

@@ -10,7 +10,7 @@
   display: inline-block;
   background: #EEE;
   border: none;
-  padding: 0.8em 1.0em;
+  padding: 0.5em 1.0em;
   color: #222;
   text-shadow: 0 1px white;
   cursor: pointer;
@@ -51,7 +51,7 @@
 .button-group .button {
   float: left;
   border-radius: 0;
-  margin-right: 2px;
+  margin-right: 1px;
 }
 
 .button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }

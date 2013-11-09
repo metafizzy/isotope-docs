@@ -15,6 +15,7 @@ ID.sorting = function() {
     var $container = $('#sorting-demo .isotope').isotope({
       itemSelector: '.item',
       layoutMode: 'fitRows',
+      transitionDuration: '0.6s',
       getSortData: {
         name: '.name',
         symbol: '.symbol',

@@ -99,6 +99,7 @@ ID.hideNotify = function() {
 $.fn.radioButtonGroup = function() {
   this.each( function( i, buttonGroup ) {
     var $buttonGroup = $( buttonGroup );
+    $buttonGroup.find(':checked').parent().addClass('is-checked');
     $buttonGroup.on( 'click', 'input', function() {
       $buttonGroup.find('.is-checked').removeClass('is-checked');
       $( this ).parent().addClass('is-checked');
