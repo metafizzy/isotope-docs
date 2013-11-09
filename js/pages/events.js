@@ -6,7 +6,7 @@
 
 'use strict';
 
-var MD = window.MD;
+var ID = window.ID;
 
 
 // -------------------------- notify -------------------------- //
@@ -21,10 +21,10 @@ function timeStamp() {
 }
 
 function notify( message ) {
-  MD.notify( message + ' at ' + timeStamp(), true );
+  ID.notify( message + ' at ' + timeStamp(), true );
 }
 
-MD.events = function() {
+ID.events = function() {
 
   // ----- layoutComplete demo ----- //
 

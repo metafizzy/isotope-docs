@@ -6,10 +6,10 @@
 
 'use strict';
 
-// global namespace, MD = Masonry Docs
-var MD = window.MD = {};
+// global namespace, MD = Isotope Docs
+var ID = window.ID = {};
 // hash of page controllers
-MD.pages = {};
+ID.pages = {};
 var notifElem;
 
 // -------------------------- page controller -------------------------- //
@@ -21,14 +21,14 @@ docReady( function() {
   // get name of page
   var pageAttr = document.body.getAttribute('data-page');
   // trigger controller if there
-  if ( pageAttr && typeof MD[ pageAttr ] === 'function' ) {
-    MD[ pageAttr ]();
+  if ( pageAttr && typeof ID[ pageAttr ] === 'function' ) {
+    ID[ pageAttr ]();
   }
 });
 
 // -------------------------- helpers -------------------------- //
 
-MD.getSomeItemElements = function() {
+ID.getSomeItemElements = function() {
   var fragment = document.createDocumentFragment();
   var items = [];
   for ( var i=0; i < 3; i++ ) {
@@ -63,7 +63,7 @@ var transitionProp = getStyleProperty('transition');
 var notifyTimeout;
 var hideTime = transitionProp ? 1000 : 1500;
 
-MD.notify = function( message, isGonnaHide ) {
+ID.notify = function( message, isGonnaHide ) {
   setText( notifElem, message );
 
   if ( transitionProp ) {
@@ -78,11 +78,11 @@ MD.notify = function( message, isGonnaHide ) {
       clearTimeout( notifyTimeout );
     }
 
-    notifyTimeout = setTimeout( MD.hideNotify, hideTime );
+    notifyTimeout = setTimeout( ID.hideNotify, hideTime );
   }
 };
 
-MD.hideNotify = function() {
+ID.hideNotify = function() {
   if ( transitionProp ) {
     notifElem.style[ transitionProp ] = 'opacity 1.0s';
     notifElem.style.opacity = '0';

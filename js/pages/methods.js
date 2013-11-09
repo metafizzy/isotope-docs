@@ -6,7 +6,7 @@
 
 'use strict';
 
-var MD = window.MD;
+var ID = window.ID;
 
 function getItemElement() {
   var elem = document.createElement('div');
@@ -18,7 +18,7 @@ function getItemElement() {
   return elem;
 }
 
-MD.methods = function() {
+ID.methods = function() {
 
   // ----- appended ----- //
 

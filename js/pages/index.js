@@ -6,7 +6,7 @@
 
 'use strict';
 
-var MD = window.MD;
+var ID = window.ID;
 var $ = window.jQuery;
 
 var heroContainer;
@@ -16,7 +16,7 @@ var loadMoreButton;
 // --------------------------  -------------------------- //
 
 
-MD.index = function() {
+ID.index = function() {
 
   // ----- hero ----- //
 
@@ -47,7 +47,7 @@ function getExamples() {
     return;
   }
 
-  MD.notify('Loading examples...');
+  ID.notify('Loading examples...');
 
   isLoading = true;
   $.getJSON('http://zootool.com/api/users/items/?' +
@@ -65,18 +65,18 @@ function getExamples() {
 }
 
 function getExamplesFail() {
-  MD.notify( 'could not load examples :(', true );
+  ID.notify( 'could not load examples :(', true );
 }
 
 function getExamplesSuccess( data ) {
   // nothing more to load
   if ( !data || !data.length ) {
     loadMoreButton.style.display = 'none';
-    MD.notify( 'No more examples', true );
+    ID.notify( 'No more examples', true );
     return;
   }
 
-  MD.hideNotify();
+  ID.hideNotify();
   exampleOffset += data.length;
   var items = [];
   var fragment = document.createDocumentFragment();
