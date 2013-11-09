@@ -79,7 +79,7 @@
       {{#if page.nav}}
         <ul id="page-nav">
           {{#each page.nav}}
-            <li><a href="#{{slug this}}">{{this}}</a></li>
+            <li><a href="#{{ID this}}">{{this}}</a></li>
           {{/each}}
         </ul>
       {{/if}}
@@ -98,8 +98,7 @@
     </div>
   </div>
 
-<!-- Isotope does NOT require jQuery.
-     jQuery is only used to demonstrate Isotope as a jQuery plugin -->
+<!-- Isotope does NOT require jQuery. But it does make things easier -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.min.js"><\/script>')</script>
 

@@ -2,7 +2,7 @@
  * Masonry Docs site scripts
  */
 
-( function( window ) {
+( function( window, $ ) {
 
 'use strict';
 
@@ -17,6 +17,8 @@ var notifElem;
 docReady( function() {
   // get some elements
   notifElem = document.querySelector('#notification');
+
+  $('.js-radio-button-group').radioButtonGroup();
 
   // get name of page
   var pageAttr = document.body.getAttribute('data-page');
@@ -91,4 +93,18 @@ ID.hideNotify = function() {
   }
 };
 
-})( window );
+// -------------------------- radioButtonGroup -------------------------- //
+
+// add is-checked classes to labels
+$.fn.radioButtonGroup = function() {
+  this.each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'input', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $( this ).parent().addClass('is-checked');
+    });
+  });
+  return this;
+};
+
+})( window, jQuery );

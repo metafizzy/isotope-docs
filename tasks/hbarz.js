@@ -27,7 +27,7 @@ handlebars.registerHelper( 'if_equal', function( a, b, options ) {
   }
 });
 
-handlebars.registerHelper( 'slug', function( str ) {
+handlebars.registerHelper( 'ID', function( str ) {
   return str.replace( /[?]/, '' ).replace( /[\., ]+/gi, '-' ).toLowerCase();
 });
 

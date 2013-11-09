@@ -8,24 +8,54 @@
 
 .button {
   display: inline-block;
-  background: #A2C;
+  background: #EEE;
   border: none;
   padding: 0.8em 1.0em;
-  color: white;
-  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.3);
+  color: #222;
+  text-shadow: 0 1px white;
   cursor: pointer;
   border-radius: 7px;
+  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
 }
 
 .button:hover {
-  background: #C3E;
+  background-color: #8CF;
+  text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
+}
+
+.button:active,
+.button.is-checked {
+  background-color: #28F;
+}
+
+.button.is-checked {
   color: white;
+  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
 }
 
 .button:active {
-  background: #91B;
-  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.6);
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
 }
+
+/* hide radio inputs */
+.button input[type="radio"] { display: none; }
+
+/* ---- button-group ---- */
+
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.button-group .button {
+  float: left;
+  border-radius: 0;
+  margin-right: 2px;
+}
+
+.button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
+.button-group .button:last-child { border-radius: 0 0.5em 0.5em 0; }
 
 /* ---- #content ---- */
 

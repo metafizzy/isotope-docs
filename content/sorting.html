@@ -13,15 +13,45 @@
 
 <p>Isotope can rearrange the order of item elements based on their data.</p>
 
-<div class="isotope">
-  {{#best-of-elements}}
-    <div class="item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">
-      <h3 class="name">{{name}}</h3>
-      <p class="symbol">{{symbol}}</p>
-      <p class="number">{{number}}</p>
-      <p class="weight">{{weight}}</p>
-    </div>
-  {{/best-of-elements}}
+<div id="sorting-demo" class="demo">
+  <!-- <div class="button-group">
+    <button data-sort-by="original-order">original order</button>
+    <button data-sort-by="name">name</button>
+    <button data-sort-by="symbol">symbol</button>
+    <button data-sort-by="number">number</button>
+    <button data-sort-by="weight">weight</button>
+    <button data-sort-by="category">category</button>
+  </div> -->
+  <div class="button-group js-radio-button-group">
+    <label class="button">
+      <input type="radio" name="sort-by" value="original-order" checked="checked" /> original order
+    </label>
+    <label class="button">
+      <input type="radio" name="sort-by" value="name" /> name
+    </label>
+    <label class="button">
+      <input type="radio" name="sort-by" value="symbol" /> symbol
+    </label>
+    <label class="button">
+      <input type="radio" name="sort-by" value="number" /> number
+    </label>
+    <label class="button">
+      <input type="radio" name="sort-by" value="weight" /> weight
+    </label>
+    <label class="button">
+      <input type="radio" name="sort-by" value="category" /> category
+    </label>
+  </div>
+  <div class="isotope">
+    {{#best-of-elements}}
+      <div class="item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">
+        <h3 class="name">{{name}}</h3>
+        <p class="symbol">{{symbol}}</p>
+        <p class="number">{{number}}</p>
+        <p class="weight">{{weight}}</p>
+      </div>
+    {{/best-of-elements}}
+  </div>
 </div>
 
 </div><div class="primary-content">
@@ -187,6 +217,7 @@ var $container = $container.isotope({
       var weight = $( itemElem ).find('.weight').text();
       return parseFloat( weight.replace( /[\(\)]/g, '') );
     }
+  }
 });
 // sort items on button click
 $('#sorts').on( 'click', 'button', function() {

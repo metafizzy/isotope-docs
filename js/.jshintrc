@@ -2,6 +2,7 @@
   "browser": true,
   "devel": true,
   "strict": true,
+  "jquery": true,
   "undef": true,
   "unused": true,
   "predef": {
