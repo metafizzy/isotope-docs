@@ -4,14 +4,16 @@
     "symbol": "Hg",
     "number": 80,
     "weight": 200.59,
-    "categories": [ "transition", "metal" ]
+    "categories": [ "transition", "metal" ],
+    "classes": "width2"
   },
   {
     "name": "Tellurium",
     "symbol": "Te",
     "number": 52,
     "weight": 127.6,
-    "categories": [ "metalloid" ]
+    "categories": [ "metalloid" ],
+    "classes": "height2"
   },
   {
     "name": "Bismuth",
@@ -32,21 +34,24 @@
     "symbol": "Au",
     "number": 79,
     "weight": 196.967,
-    "categories": [ "transition", "metal" ]
+    "categories": [ "transition", "metal" ],
+    "classes": "width2"
   },
   { 
     "name": "Potassium",
     "symbol": "K",
     "number": 19,
     "weight": "39.0983",
-    "categories": [ "alkali", "metal" ]
+    "categories": [ "alkali", "metal" ],
+    "classes": "height2"
   },
   {
     "name": "Sodium",
     "symbol": "Na",
     "number": 11,
     "weight": 22.990,
-    "categories": [ "alkali", "metal" ]
+    "categories": [ "alkali", "metal" ],
+    "classes": "width2 height2"
   },
   {
     "name": "Cadmium",
@@ -67,14 +72,16 @@
     "symbol": "Re",
     "number": 75,
     "weight": 186.207,
-    "categories": [ "transition", "metal" ]
+    "categories": [ "transition", "metal" ],
+    "classes": "width2"
   },
   {
     "name": "Thallium",
     "symbol": "Tl",
     "number": 81,
     "weight": 204.383,
-    "categories": [ "post-transition", "metal" ]
+    "categories": [ "post-transition", "metal" ],
+    "classes": "height2"
   },
   {
     "name": "Antimony",
@@ -88,7 +95,8 @@
     "symbol": "Co",
     "number": 27,
     "weight": 58.933,
-    "categories": [ "transition", "metal" ]
+    "categories": [ "transition", "metal" ],
+    "classes": "width2 height2"
   },
   {
     "name": "Ytterbium",
@@ -102,14 +110,16 @@
     "symbol": "Ar",
     "number": 18,
     "weight": 39.948,
-    "categories": [ "noble-gas", "nonmetal" ]
+    "categories": [ "noble-gas", "nonmetal" ],
+    "classes": "height2"
   },
   {
     "name": "Nitrogen",
     "symbol": "N",
     "number": 7,
     "weight": 14.007,
-    "categories": [ "diatomic", "nonmetal" ]
+    "categories": [ "diatomic", "nonmetal" ],
+    "classes": "width2"
   },
   {
     "name": "Uranium",

@@ -72,6 +72,10 @@
 .item.halogen         { background: #F0F; background: hsl( 288, 100%, 50%); }
 .item.noble-gas       { background: #F08; background: hsl( 324, 100%, 50%); }
 
+/* varying sizes */
+.is-varying-sizes .item.width2 { width: 210px; }
+.is-varying-sizes .item.height2 { height: 210px; }
+
 /* ---- fit width ---- */
 
 #fit-width {
