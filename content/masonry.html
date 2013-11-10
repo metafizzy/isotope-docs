@@ -31,12 +31,12 @@
   <div class="cell example-code">
 ``` js
 masonry: {
-  columnWidth: 60
+  columnWidth: 50
 }
 ```
   </div>
   <div class="cell demo">
-    <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 60 } }'>
+    <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
       {{>mini-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
@@ -92,14 +92,17 @@ itemSelector: '.mini-item'
 <div class="row example">
   <div class="cell example-code">
 ``` js
-"gutter": 10
+masonry: {
+  columnWidth: 50,
+  gutter: 10
+}
 ```
   </div>
   <div class="cell demo">
-    <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
-      {{>basic-demo-items}}
+    <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+      {{>mini-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/iIbgC">Edit this example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
   </div>
 </div>
 
@@ -108,19 +111,22 @@ itemSelector: '.mini-item'
 <div class="row example">
   <div class="cell example-code">
 ``` js
-"gutter": 10
+masonry: {
+  columnWidth: 50,
+  gutter: 10
+}
 ```
 ``` css
-#gutter-opt-demo2 .item {
+#masonry-bottom-spaced .mini-item {
   margin-bottom: 10px;
 }
 ```
   </div>
-  <div id="gutter-opt-demo2" class="cell demo">
-    <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
-      {{>basic-demo-items}}
+  <div class="cell demo">
+    <div id="masonry-bottom-spaced" class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+      {{>mini-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/gbnko">Edit this example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
   </div>
 </div>
 
@@ -129,25 +135,28 @@ itemSelector: '.mini-item'
 <div class="row example">
   <div class="cell example-code">
 ``` html
-<div id="gutter-opt-demo3">
+<div id="masonry-flex-gutter">
   <div class="gutter-sizer"></div>
-  <div class="item"></div>
-  <div class="item"></div>
+  <div class="mini-item"></div>
+  <div class="mini-item"></div>
   ...
 </div>
 ```
 ``` css
-#gutter-opt-demo3 .gutter-sizer { width: 3%; }
+#masonry-flex-gutter .gutter-sizer { width: 3%; }
 ```
 ``` js
-"gutter": ".gutter-sizer",
-"itemSelector": ".item"
+masonry: {
+  columnWidth: 50,
+  gutter: '.gutter-sizer'
+},
+itemSelector: '.mini-item'
 ```
   </div>
   <div class="cell demo" >
-    <div id="gutter-opt-demo3" class="masonry js-masonry" data-masonry-options='{ "gutter": ".gutter-sizer", "itemSelector": ".item" }'>
+    <div id="masonry-flex-gutter" class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": ".gutter-sizer" }, "itemSelector": ".mini-item" }'>
       <div class="gutter-sizer"></div>
-      {{>basic-demo-items}}
+      {{>mini-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/BAJKn">Edit this example on CodePen</a></p>
   </div>

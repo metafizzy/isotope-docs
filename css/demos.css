@@ -92,22 +92,30 @@
 /* ---- mini items ---- */
 
 .mini-item {
-  width: 60px;
-  height: 40px;
-  background: red;
-  border: 4px solid #111;
-  border-color: hsla(0, 0%, 0%, 0.3);
+  width: 50px;
+  height: 50px;
+  background: #e6e5e4;
+  border: 2px solid #b6b5b4;
 }
 
-.mini-item.w2 { width: 120px; background: #CF0; }
-.mini-item.h2 { height: 80px; background: #06F; }
-.mini-item.w2.h2 { background: #0FF; }
+.mini-item.w2 { width: 100px; }
+.mini-item.h2 { height: 100px; }
 
 /* ---- flexible 5 columns ---- */
 
 .flex-5-col .grid-sizer,
 .flex-5-col .mini-item { width: 20%; }
 .flex-5-col .mini-item.w2 { width: 40%; }
+
+/* ----  ---- */
+
+#masonry-bottom-spaced .mini-item {
+  margin-bottom: 10px;
+}
+
+#masonry-flex-gutter .gutter-sizer {
+  width: 3%;
+}
 
 /* ---- fit width ---- */
 
