@@ -95,6 +95,8 @@
     max-width: 700px;
   }
 
+  #content .primary-content > .demo { max-width: none; }
+
   /* stuff that can go extra wide */
   #content .primary-content .row,
   #content #notification,

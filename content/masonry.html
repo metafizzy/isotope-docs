@@ -10,21 +10,75 @@
 
 </div><div class="primary-content">
 
-<h2>Options</h2>
+<h1>Options</h1>
 
-<h3>columnWidth</h3>
+</div><div class="primary-content">
+
+<h2 id="columnwidth">columnWidth</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
 
 <p>The width of a column of a horizontal grid.</p>
 
 <p>If <code>columnWidth</code> is not set, Masonry will use the outer width of the first element.</p>
 
+<div class="row example">
+  <div class="cell example-code">
 ``` js
-columnWidth: 60
+masonry: {
+  columnWidth: 60
+}
 ```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 60 } }'>
+      {{>mini-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
+  </div>
+</div>
 
-<h3>isFitWidth</h3>
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
 
-<h3>gutter</h3>
+<div class="row example">
+  <div class="cell example-code">
+``` html
+<div class="flex-5-col">
+  <div class="grid-sizer"></div>
+  <div class="mini-item"></div>
+  <div class="mini-item"></div>
+  ...
+</div>
+```
+``` css
+.flex-5-col .grid-sizer,
+.flex-5-col .mini-item { width: 20%; }
+.flex-5-col .mini-item.w2 { width: 40%; }
+```
+``` js
+masonry: {
+  columnWidth: '.grid-sizer'
+},
+itemSelector: '.mini-item'
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope flex-5-col" data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".mini-item" }'>
+      <div class="grid-sizer"></div>
+      {{>mini-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/JFpeg">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2>gutter</h2>
 
 <div class="param">
   <p class="param-bit type">
@@ -99,68 +153,8 @@ columnWidth: 60
   </div>
 </div>
 
+</div><div class="primary-content">
 
-<h3>stamp</h3>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Element</i>, <i>NodeList</i>, <i>Array</i> of Elements, or Selector <i>String</i></span>
-  </p>
-</div>
-
-<p>Specifies which elements are <a href="methods.html#stamp">stamped</a> within the layout. These are special layout elements which will not be laid out by Masonry. Rather, Masonry will layout item elements <em>below</em> stamped elements.</p>
-
-<p>The <code>stamp</code> option stamps elements only when the Masonry instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` html
-<div id="stamp-opt-demo">
-  <div class="stamp stamp1"></div>
-  <div class="stamp stamp2"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  ....
-</div>
-```
-``` js
-"itemSelector": ".item",
-"stamp": ".stamp"
-```
-``` css
-/* position stamp elements with CSS */
-#stamp-opt-demo {
-  position: relative;
-}
-#stamp-opt-demo .stamp {
-  position: absolute;
-  background: orange;
-  border: 4px dotted black;
-}
-#stamp-opt-demo .stamp1 {
-  left: 30%;
-  top: 10px;
-  width: 20%;
-  height: 100px;
-}
-#stamp-opt-demo .stamp2 {
-  right: 10%;
-  top: 20px;
-  width: 70%;
-  height: 30px;
-}
-```
-  </div>
-  <div class="cell demo">
-    <div id="stamp-opt-demo" class="masonry has-stamp js-masonry" data-masonry-options='{ "itemSelector": ".item", "stamp": ".stamp" }'>
-      <div class="stamp stamp1"></div>
-      <div class="stamp stamp2"></div>
-      {{>basic-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/hsine">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
+<h2>isFitWidth</h2>
 
 </div>

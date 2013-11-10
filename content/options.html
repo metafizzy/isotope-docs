@@ -64,66 +64,6 @@ $('#container').masonry({
 
 </div><div class="primary-content">
 
-<h2 id="columnwidth">columnWidth</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
-
-<p>The width of a column of a horizontal grid.</p>
-
-<p>If <code>columnWidth</code> is not set, Masonry will use the outer width of the first element.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-"columnWidth": 60
-```
-  </div>
-  <div class="cell demo">
-    <div class="masonry js-masonry"  data-masonry-options='{ "columnWidth": 60 }'>
-      {{>basic-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` html
-<div id="column-width-demo2">
-  <div class="grid-sizer"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  ...
-</div>
-```
-``` css
-#column-width-demo2 .grid-sizer { width: 20%; }
-#column-width-demo2 .item { width: 20%; }
-#column-width-demo2 .item.w2 { width: 40%; }
-```
-``` js
-"columnWidth": ".grid-sizer",
-"itemSelector": ".item"
-```
-  </div>
-  <div class="cell demo">
-    <div id="column-width-demo2" class="masonry js-masonry" data-masonry-options='{ "columnWidth": ".grid-sizer", "itemSelector": ".item" }'>
-      <div class="grid-sizer"></div>
-      {{>basic-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/JFpeg">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-</div><div class="primary-content">
-
 <h2 id="gutter">gutter</h2>
 
 <div class="param">

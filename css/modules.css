@@ -76,7 +76,7 @@
 }
 
 .param {
-  background: hsla(0, 0%, 0%, 0.075);
+  background: hsla(0, 0%, 100%, 0.1);
   padding: 0.4em 0.8em;
   margin: 0;
   border-radius: 5px;
@@ -112,49 +112,7 @@ div.param {
 }
 
 .param-bit.type .value {
-  color: #279;
-}
-
-/* ---- masonry ---- */
-
-.masonry {
-}
-
-/* clearfix */
-.masonry:before,
-.masonry:after {
-  content: " ";
-  display: table;
-}
-
-.masonry:after {
-  clear: both;
-}
-
-/* ---- masonry items ---- */
-
-.masonry .item {
-  width:  60px;
-  height: 40px;
-  float: left;
-  background: #D26;
-  border: 2px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.5);
-  border-radius: 5px;
-}
-
-.masonry .item.w2 { width:  120px; }
-.masonry .item.w3 { width:  180px; }
-.masonry .item.w4 { width:  240px; }
-
-.masonry .item.h2 { height:  70px; }
-.masonry .item.h3 { height: 100px; }
-.masonry .item.h4 { height: 150px; }
-
-.masonry .item.gigante {
-  width: 180px;
-  height: 180px;
-  z-index: 10; /* keep it above other items */
+  color: #ADF;
 }
 
 /* ---- instruction ---- */

@@ -26,7 +26,7 @@ module.exports = function( grunt ) {
   grunt.registerTask( 'bower-list-map', function() {
     var done = this.async();
 
-    cli( 'bower list --json', function( mapSrc ) {
+    cli( 'bower list --json --offline', function( mapSrc ) {
       var bowerMap = JSON.parse( mapSrc );
 
       // set bowerMap

@@ -1,14 +1,27 @@
 /* ---- demos ---- */
 
-.demo .masonry,
-.demo.masonry {
-  background: white;
-  border-radius: 5px;
+.demo .isotope,
+.demo.isotope {
+  background: #111;
+  background: hsla(0, 0%, 100%, 0.15);
 }
 
 .demo .button {
   margin-bottom: 0.8em;
 }
+
+
+/* clearfix */
+.isotope:before,
+.isotope:after {
+  content: " ";
+  display: table;
+}
+
+.isotope:after {
+  clear: both;
+}
+
 
 /* ---- item elements ---- */
 
@@ -75,6 +88,26 @@
 /* varying sizes */
 .is-varying-sizes .item.width2 { width: 210px; }
 .is-varying-sizes .item.height2 { height: 210px; }
+
+/* ---- mini items ---- */
+
+.mini-item {
+  width: 60px;
+  height: 40px;
+  background: red;
+  border: 4px solid #111;
+  border-color: hsla(0, 0%, 0%, 0.3);
+}
+
+.mini-item.w2 { width: 120px; background: #CF0; }
+.mini-item.h2 { height: 80px; background: #06F; }
+.mini-item.w2.h2 { background: #0FF; }
+
+/* ---- flexible 5 columns ---- */
+
+.flex-5-col .grid-sizer,
+.flex-5-col .mini-item { width: 20%; }
+.flex-5-col .mini-item.w2 { width: 40%; }
 
 /* ---- fit width ---- */
 
