@@ -35,6 +35,10 @@ handlebars.registerHelper( 'firstValue', function( ary ) {
   return ary[0];
 });
 
+handlebars.registerHelper( 'plusOne', function( str ) {
+  return parseInt( str, 10 ) + 1;
+});
+
 // --------------------------  -------------------------- //
 
 module.exports = function( grunt ) {

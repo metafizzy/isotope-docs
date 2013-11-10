@@ -50,10 +50,7 @@
     <div class="isotope is-varying-sizes">
       {{#best-of-elements}}
         <div class="item {{#categories}}{{this}} {{/categories}} {{classes}}" data-category="{{firstValue categories}}">
-          <h3 class="name">{{name}}</h3>
-          <p class="symbol">{{symbol}}</p>
-          <p class="number">{{number}}</p>
-          <p class="weight">{{weight}}</p>
+          <p class="symbol">{{plusOne @index}}</p>
         </div>
       {{/best-of-elements}}
     </div>

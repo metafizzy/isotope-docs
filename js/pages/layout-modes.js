@@ -8,6 +8,8 @@
 
 var ID = window.ID;
 
+var $window = $(window);
+
 ID['layout-modes'] = function() {
 
   // demo at the top
@@ -29,17 +31,27 @@ ID['layout-modes'] = function() {
       cellsByColumn: {
         columnWidth: 220,
         rowHeight: 220
-      
       }
     });
 
+    var isHorizontal = false;
 
     $('#layout-modes-demo .button-group').on( 'click', 'input', function() {
-      var $this = $(this);
-      var isHorizontal = $this.attr('data-is-horizontal');
-      $container[ isHorizontal ? 'addClass' : 'removeClass' ]('is-horizontal');
+      // adjust container sizing if layout mode is changing from vertical or horizontal
+      var isHorizontalMode = !!$(this).attr('data-is-horizontal');
+      if ( isHorizontal !== isHorizontalMode ) {
+        var containerStyle = isHorizontalMode ? {
+          height: $window.height() * 0.7
+        } : {
+          width: 'auto'
+        };
+        $container.css( containerStyle );
+        isHorizontal = isHorizontalMode;
+      }
+      // change layout mode
       $container.isotope({ layoutMode: this.value });
     });
+
   })();
 
 
