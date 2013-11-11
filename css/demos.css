@@ -6,6 +6,11 @@
   background: hsla(0, 0%, 0%, 0.15);
 }
 
+/* horizontal examples need height */
+.isotope.horizontal {
+  height: 334px;
+}
+
 .demo .button {
   margin-bottom: 0.8em;
 }
@@ -101,6 +106,9 @@
 .mini-item.w2 { width: 100px; }
 .mini-item.h2 { height: 100px; }
 
+.mini-item.w3 { width: 150px; }
+.mini-item.h3 { height: 150px; }
+
 /* ---- flexible 5 columns ---- */
 
 .flex-5-col .grid-sizer,
@@ -130,15 +138,16 @@
 
 /* ---- counting ---- */
 
-.masonry.counting {
+.isotope.counting {
   counter-reset: item;
 }
 
-.masonry.counting .item:before {
+.isotope.counting .mini-item:before,
+.isotope.counting .item:before {
   counter-increment: item;
   content: counter(item);
   display: block;
-  color: white;
+  color: #555;
   padding-top: 0.2em;
   text-align: center;
   font-size: 18px;
