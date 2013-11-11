@@ -2,8 +2,8 @@
 
 .demo .isotope,
 .demo.isotope {
-  background: #111;
-  background: hsla(0, 0%, 100%, 0.15);
+  border: 2px solid #484542;
+  background: hsla(0, 0%, 0%, 0.15);
 }
 
 .demo .button {
@@ -119,12 +119,12 @@
 
 /* ---- fit width ---- */
 
-#fit-width {
+#masonry-fit-width {
   border: 2px solid white;
-  border-radius: 6px;
 }
 
-#fit-width .masonry {
+/* center container with CSS */
+#masonry-fit-width .isotope {
   margin: 10px auto;
 }
 

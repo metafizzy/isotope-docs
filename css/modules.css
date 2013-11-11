@@ -129,11 +129,14 @@ div.param {
   position: relative;
   min-height: 40px;
   background: #FF8;
+  color: #333;
   border-radius: 5px;
   margin-bottom: 0.8em;
   padding: 10px;
   padding-left: 60px;
 }
+
+.warning a { color: #09F; }
 
 .warning p:last-child {
   margin-bottom: 0;
