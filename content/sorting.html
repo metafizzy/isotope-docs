@@ -81,9 +81,9 @@
 ``` js
 var $container = $('#container').isotope({
   getSortData: {
-    name: '.name',
-    category: '[data-category]',
-    weight: function( itemElem ) {
+    name: '.name', // text from querySelector
+    category: '[data-category]', // value of attribute
+    weight: function( itemElem ) { // function
       var weight = $( itemElem ).find('.weight').text();
       return parseFloat( weight.replace( /[\(\)]/g, '') );
     }
@@ -93,14 +93,14 @@ var $container = $('#container').isotope({
 
 <h3>getSortData strings</h3>
 
-<p>Isotope provides shortcut strings to get sort data. By default, a string will be used to get the text of a child element.</p>
+<p>Isotope provides shortcut strings to get sort data. By default, a string will be used as a query selector to get the text of a child element.</p>
 
 ``` js
 name: '.name', // use text of .name element
 symbol: '.symbol' // use text of .symbol
 ```
 
-<p>A string wrapped in brackets, like <code>[attribute]</code>, will be used to get the value of an attribute.</p>
+<p>A string wrapped in brackets, like <code><span class="string">'[attribute]'</span></code>, will be used to get the value of an attribute.</p>
 
 ``` js
 // use value of data-category attribute
@@ -118,7 +118,7 @@ weight: '.weight parseFloat'
 
 <h3>getSortData functions</h3>
 
-<p>You can pass in a function as method. The function provides one argument <code>itemElem</code>, which is the item element. The function needs to return the data point.</p>
+<p>You can pass in a function as method. This function is used on each item element to get data. The function provides one parameter <code>itemElem</code>, which is the item element. The function needs to return the data point.</p>
 
 ``` js
 weight: function( itemElem ) {

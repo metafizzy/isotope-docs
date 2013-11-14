@@ -1,0 +1,95 @@
+---
+{
+  "title": "cellsByRow",
+  "nav": [
+    "columnWidth",
+    "rowHeight"
+  ]
+}
+---
+
+<div class="primary-content">
+
+<p>A vertical grid layout where items are centered inside each cell. The grid is defined by columnWidth and rowHeight options.</p>
+
+<div class="demo">
+  <div class="isotope js-isotope is-varying-sizes rainbowed" data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 220, "rowHeight": 220 } }'>
+    {{>feature-layout-mode-demo-items}}
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h1>Options</h1>
+
+</div><div class="primary-content">
+
+<h2 id="columnwidth">columnWidth</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>The width of a column of the horizontal grid.</p>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths or media queries to change the size of items.</p>
+
+<p>If <code>columnWidth</code> is not set, the outer width of the first element will be used.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+layoutMode: 'cellsByRow',
+masonry: {
+  columnWidth: 110,
+  rowHeight: 110
+}
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
+      {{>layout-mode-demo-items}}
+    </div>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p> -->
+  </div>
+</div>
+
+</div><div class="primary-content">
+  
+<h2 id="columnwidth">rowHeight</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>The width of a column of the vertical grid.</p>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the height of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>rowHeight</code> with element sizing is recommended if you are using media queries to change the size of items.</p>
+
+<p>If <code>rowHeight</code> is not set, the outer width of the first element will be used.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+layoutMode: 'cellsByRow',
+masonry: {
+  columnWidth: 110,
+  rowHeight: 110
+}
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
+      {{>layout-mode-demo-items}}
+    </div>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p> -->
+  </div>
+</div>
+
+</div>

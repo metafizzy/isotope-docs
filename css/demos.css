@@ -101,6 +101,7 @@
   height: 50px;
   background: #e6e5e4;
   border: 2px solid #b6b5b4;
+  border-color: hsla(0, 0%, 0%, 0.4);
 }
 
 .mini-item.w2 { width: 100px; }
@@ -114,6 +115,19 @@
 .flex-5-col .grid-sizer,
 .flex-5-col .mini-item { width: 20%; }
 .flex-5-col .mini-item.w2 { width: 40%; }
+
+/* ----  ---- */
+
+.rainbowed > *:nth-child(10n+0) { background: hsl(   0, 100%, 50%); }
+.rainbowed > *:nth-child(10n+1) { background: hsl(  36, 100%, 50%); }
+.rainbowed > *:nth-child(10n+2) { background: hsl(  72, 100%, 50%); }
+.rainbowed > *:nth-child(10n+3) { background: hsl( 108, 100%, 50%); }
+.rainbowed > *:nth-child(10n+4) { background: hsl( 144, 100%, 50%); }
+.rainbowed > *:nth-child(10n+5) { background: hsl( 180, 100%, 50%); }
+.rainbowed > *:nth-child(10n+6) { background: hsl( 216, 100%, 50%); }
+.rainbowed > *:nth-child(10n+7) { background: hsl( 252, 100%, 50%); }
+.rainbowed > *:nth-child(10n+8) { background: hsl( 288, 100%, 50%); }
+.rainbowed > *:nth-child(10n+9) { background: hsl( 324, 100%, 50%); }
 
 /* ----  ---- */
 

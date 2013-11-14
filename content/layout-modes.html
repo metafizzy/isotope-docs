@@ -53,12 +53,8 @@ $('#container').isotope({ layoutMode : 'fitRows' });
       </label>
     </div>
 
-    <div class="isotope is-varying-sizes">
-      {{#best-of-elements}}
-        <div class="item {{#categories}}{{this}} {{/categories}} {{classes}}" data-category="{{firstValue categories}}">
-          <p class="symbol">{{plusOne @index}}</p>
-        </div>
-      {{/best-of-elements}}
+    <div class="isotope is-varying-sizes rainbowed">
+      {{>feature-layout-mode-demo-items}}
     </div>
 
 </div>
@@ -183,7 +179,7 @@ cellsByRow: {
 
 <h2 id="vertical">vertical</h2>
 
-<p>Items are arranged vertically.</p>
+<p>Items are stacked vertically.</p>
 
 <div class="row example">
   <div class="cell example-code">
