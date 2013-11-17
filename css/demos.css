@@ -231,6 +231,39 @@
   cursor: pointer;
 }
 
+/* ---- vertical table-like ---- */
+
+.table-like {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.table-like > li {
+  width: 100%;
+  clear: both;
+  border-top: 1px solid;
+  border-color: hsla(0, 0%, 100%, 0.2);
+}
+
+/* clearfix */
+.table-like > li:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.table-like > li > * {
+  float: left;
+  padding: 2px 4px;
+}
+
+.table-like .name { width: 30%; }
+.table-like .symbol { width: 10%; }
+.table-like .weight { width: 15%; }
+.table-like .number { width: 10%; }
+.table-like .category { width: 20%; }
+
 /* ---- animate-item-size ---- */
 
 /* item is invisible, but used for layout */

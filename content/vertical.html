@@ -1,0 +1,87 @@
+---
+{
+  "title": "vertical",
+  "nav": [
+    "horizontalAlignment"
+  ]
+}
+---
+
+<div class="primary-content">
+
+<p>Items are arranged vertically. Useful for simple lists and table-like views.</p>
+
+<div id="vertical-feature-demo" class="demo">
+  <div class="button-group js-radio-button-group">
+    <label class="button">
+      <input type="radio" name="sort-by" value="original-order" checked="checked" /> original order
+    </label>
+    <label class="button">
+      <input type="radio" name="sort-by" value="name" /> name
+    </label>
+    <label class="button">
+      <input type="radio" name="sort-by" value="symbol" /> symbol
+    </label>
+    <label class="button">
+      <input type="radio" name="sort-by" value="number" /> number
+    </label>
+    <label class="button">
+      <input type="radio" name="sort-by" value="weight" /> weight
+    </label>
+    <label class="button">
+      <input type="radio" name="sort-by" value="category" /> category
+    </label>
+  </div>
+  <ul class="isotope table-like">
+    {{#best-of-elements}}
+      <li>
+        <div class="name">{{name}}</div>
+        <div class="symbol">{{symbol}}</div>
+        <div class="number">{{number}}</div>
+        <div class="weight">{{weight}}</div>
+        <div class="category">{{firstValue categories}}</div>
+      </li>
+    {{/best-of-elements}}
+  </ul>
+</div>
+
+</div><div class="primary-content">
+
+<h1>Options</h1>
+
+</div><div class="primary-content">
+
+<h2 id="horizontalalignment">horizontalAlignment</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i> a decimal 0 to 1</span>
+  </p>
+</div>
+
+<p>Aligns items horizontally. <code>0</code> will align the origin edge. <code>1</code> will align the opposite edge. <code>0.5</code> will align center.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+layoutMode: 'vertical',
+vertical: {
+  horizontalAlignment: 0.5,
+}
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "vertical", "vertical": { "horizontalAlignment": 0.5 } }'>
+      <div class="mini-item w2"></div>
+      <div class="mini-item"></div>
+      <div class="mini-item w3"></div>
+      <div class="mini-item"></div>
+      <div class="mini-item w3"></div>
+      <div class="mini-item w3"></div>
+      <div class="mini-item w2"></div>
+    </div>
+  </div>
+</div>
+
+</div>
