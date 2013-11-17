@@ -264,6 +264,12 @@
 .table-like .number { width: 10%; }
 .table-like .category { width: 20%; }
 
+/* ----  ---- */
+
+#fit-columns-feature-demo {
+  height: 448px;
+}
+
 /* ---- animate-item-size ---- */
 
 /* item is invisible, but used for layout */

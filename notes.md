@@ -1,19 +1,19 @@
 ## Pages
 
-filtering
-sorting
+<!-- filtering -->
+<!-- sorting -->
 options
 methods
 
 layout modes
-  masonry
-  vertical
-  fitRows
-  cellsByRow
+  <!-- masonry -->
+  <!-- vertical -->
+  <!-- fitRows -->
+  <!-- cellsByRow -->
   masonryHorizontal
   horizontal
   fitColumns
-  cellsByColumn
+  <!-- cellsByColumn -->
 
 license
 

@@ -1,0 +1,64 @@
+---
+{
+  "title": "horizontal",
+  "nav": [
+    "verticalAlignment"
+  ]
+}
+---
+
+<div class="primary-content">
+
+<p>Items are arranged horizontally.</p>
+
+<div class="demo">
+  <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "horizontal" }'>
+    <div class="mini-item h2"></div>
+    <div class="mini-item"></div>
+    <div class="mini-item h3"></div>
+    <div class="mini-item w2"></div>
+    <div class="mini-item h2"></div>
+    <div class="mini-item h3"></div>
+    <div class="mini-item"></div>
+    <div class="mini-item h2"></div>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h1>Options</h1>
+
+</div><div class="primary-content">
+
+<h2 id="horizontalalignment">verticalAlignment</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i> a decimal 0 to 1</span>
+  </p>
+</div>
+
+<p>Aligns items vertically. <code>0</code> will align the origin edge. <code>1</code> will align the opposite edge. <code>0.5</code> will align center.</p>
+
+``` js
+layoutMode: 'horizontal',
+horizontal: {
+  verticalAlignment: 0.5,
+}
+```
+
+<div class="demo">
+  <div class="isotope js-isotope horizontal" data-isotope-options='{ "layoutMode": "horizontal", "horizontal": { "verticalAlignment": 0.5 } }'>
+    <div class="mini-item h2"></div>
+    <div class="mini-item"></div>
+    <div class="mini-item h3"></div>
+    <div class="mini-item w2"></div>
+    <div class="mini-item h2"></div>
+    <div class="mini-item h3"></div>
+    <div class="mini-item"></div>
+    <div class="mini-item h2"></div>
+  </div>
+</div>
+
+</div>
