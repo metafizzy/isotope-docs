@@ -24,6 +24,17 @@ pre {
 /* Fonts
 ------------------------- */
 
+/* metafizzy logo */
+@font-face {
+  font-family: 'Metafizzy Logo';
+  src: url('../fonts/metafizzylogo-regular.eot');
+  src: url('../fonts/metafizzylogo-regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/metafizzylogo-regular.woff') format('woff'),
+       url('../fonts/metafizzylogo-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Montserrat */
 h1, h2, h3, h4, h5,
 #site-nav,
