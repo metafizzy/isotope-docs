@@ -21,6 +21,7 @@
 .button:hover {
   background-color: #8CF;
   text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
+  color: #222;
 }
 
 .button:active,
@@ -56,6 +57,35 @@
 
 .button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
 .button-group .button:last-child { border-radius: 0 0.5em 0.5em 0; }
+
+/* ---- .buy-button ---- */
+
+.buy-button {
+  padding: 0;
+  font-size: 1.05em;
+}
+
+.buy-button > * {
+  display: inline-block;
+  padding: 0.6em 1.0em;
+}
+
+.buy-button .price {
+  background-color: #2c6;
+  border-radius: 0 7px 7px 0;
+  color: white;
+  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
+  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+}
+
+.buy-button:hover .price { background-color: #2A5; }
+
+.buy-button:active .price { background: transparent; }
+
+.buy-button .dollar { font-size: 0.95em; }
+.buy-button .amount { font-size: 1.2em; }
+
+.buy-button ~ .buy-button { margin-left: 2.0em; }
 
 /* ---- #content ---- */
 

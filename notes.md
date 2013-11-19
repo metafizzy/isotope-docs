@@ -11,11 +11,11 @@ layout modes
   <!-- fitRows -->
   <!-- cellsByRow -->
   masonryHorizontal
-  horizontal
-  fitColumns
+  <!-- horizontal -->
+  <!-- fitColumns -->
   <!-- cellsByColumn -->
 
-license
+<!-- license -->
 
 hash history?
 
