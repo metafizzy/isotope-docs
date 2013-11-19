@@ -2,115 +2,54 @@
  * methods page
  */
 
-( function( window ) {
+( function( window, $ ) {
 
 'use strict';
 
 var ID = window.ID;
-var $ = window.jQuery;
-
-var heroContainer;
-var heroMasonry;
-var loadMoreButton;
-
-// --------------------------  -------------------------- //
 
 
 ID.index = function() {
 
-  // ----- hero ----- //
-
   ( function() {
-    var hero = document.querySelector('#hero');
-    heroContainer = hero.querySelector('.hero-masonry');
-    heroMasonry = new Masonry( heroContainer, {
-      itemSelector: '.hero-item',
-      columnWidth: '.grid-sizer'
+    var $container = $('#hero .isotope').isotope({
+      itemSelector: '.item',
+      layoutMode: 'fitRows',
+      transitionDuration: '0.6s',
+      getSortData: {
+        name: '.name',
+        symbol: '.symbol',
+        number: '.number parseInt',
+        category: '[data-category]',
+        weight: function( itemElem ) {
+          var weight = $( itemElem ).find('.weight').text();
+          return parseFloat( weight.replace( /[\(\)]/g, '') );
+        }
+      }
     });
 
-    getExamples();
+    var filterFns = {
+      numberGreaterThan50: function() {
+        var number = $(this).find('.number').text();
+        return parseInt( number, 10 ) > 50;
+      },
+      ium: function() {
+        var name = $(this).find('.name').text();
+        return name.match( /ium$/ );
+      }
+    };
+
+    $('#hero .sort-by').on( 'click', 'input', function() {
+      $container.isotope({ sortBy: this.value });
+    });
+
+    $('#hero .filters').on( 'click', 'input', function() {
+      var filtr = filterFns[ this.value ] || this.value;
+      $container.isotope({ filter: filtr });
+    });
 
   })();
 
-  loadMoreButton = document.querySelector('#load-more-examples');
-  eventie.bind( loadMoreButton, 'click', getExamples );
-
 };
 
-
-var exampleOffset = 0;
-var isLoading = false;
-
-function getExamples() {
-  // don't load more stuff if already loading
-  if ( isLoading ) {
-    return;
-  }
-
-  ID.notify('Loading examples...');
-
-  isLoading = true;
-  $.getJSON('http://zootool.com/api/users/items/?' +
-      'username=desandro' +
-      '&apikey=8b604e5d4841c2cd976241dd90d319d7' +
-      '&tag=bestofmasonry' +
-      '&offset=' + exampleOffset +
-      '&callback=?'
-    )
-    .always( function() {
-      isLoading = false;
-    })
-    .fail( getExamplesFail )
-    .done( getExamplesSuccess );
-}
-
-function getExamplesFail() {
-  ID.notify( 'could not load examples :(', true );
-}
-
-function getExamplesSuccess( data ) {
-  // nothing more to load
-  if ( !data || !data.length ) {
-    loadMoreButton.style.display = 'none';
-    ID.notify( 'No more examples', true );
-    return;
-  }
-
-  ID.hideNotify();
-  exampleOffset += data.length;
-  var items = [];
-  var fragment = document.createDocumentFragment();
-  for ( var i=0, len = data.length; i < len; i++ ) {
-    var item = makeExampleItem( data[i] );
-    items.push( item );
-    fragment.appendChild( item );
-  }
-
-  imagesLoaded( fragment )
-    .on( 'progress', function( imgLoad, image ) {
-      var item = image.img.parentNode.parentNode;
-      // debugger
-      // console.dir( image.img.parentNode );
-      heroContainer.appendChild( item );
-      heroMasonry.appended( item );
-    });
-
-}
-
-function makeExampleItem( dataObj ) {
-  var item = document.createElement('div');
-  item.className = 'hero-item has-example is-hidden';
-  var link = document.createElement('a');
-  link.href = dataObj.url;
-  var img = document.createElement('img');
-  img.src = dataObj.image.replace('/l.', '/m.');
-  var title = document.createElement('p');
-  title.className = 'example-title';
-  title.textContent = dataObj.title;
-  link.appendChild( img );
-  link.appendChild( title );
-  item.appendChild( link );
-  return item;
-}
-
-})( window );
+})( window, jQuery );

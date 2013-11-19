@@ -30,4 +30,63 @@
 
   </div> {{! .primary-content }}
 
+  <div class="primary-content">
+    <div class="demo">
+      <h3>Filter</h3>
+      <div class="filters button-group js-radio-button-group">
+        <label class="button">
+          <input type="radio" name="filter" value="*" checked="checked" /> show all
+        </label>
+        <label class="button">
+          <input type="radio" name="filter" value=".metal" /> metal
+        </label>
+        <label class="button">
+          <input type="radio" name="filter" value=".transition" /> transition
+        </label>
+        <label class="button">
+          <input type="radio" name="filter" value=":not(.transition)" /> not transition
+        </label>
+        <label class="button">
+          <input type="radio" name="filter" value="numberGreaterThan50" /> number > 50
+        </label>
+        <label class="button">
+          <input type="radio" name="filter" value="ium" /> name ends with &ndash;ium
+        </label>
+      </div>
+      <h3>Sort</h3>
+      <div class="sort-by button-group js-radio-button-group">
+        <label class="button">
+          <input type="radio" name="sort-by" value="original-order" checked="checked" /> original order
+        </label>
+        <label class="button">
+          <input type="radio" name="sort-by" value="name" /> name
+        </label>
+        <label class="button">
+          <input type="radio" name="sort-by" value="symbol" /> symbol
+        </label>
+        <label class="button">
+          <input type="radio" name="sort-by" value="number" /> number
+        </label>
+        <label class="button">
+          <input type="radio" name="sort-by" value="weight" /> weight
+        </label>
+        <label class="button">
+          <input type="radio" name="sort-by" value="category" /> category
+        </label>
+      </div>
+      <div class="isotope">
+        {{#best-of-elements}}
+          <div class="item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">
+            <h3 class="name">{{name}}</h3>
+            <p class="symbol">{{symbol}}</p>
+            <p class="number">{{number}}</p>
+            <p class="weight">{{weight}}</p>
+          </div>
+        {{/best-of-elements}}
+      </div>
+    </div>
+
+
+  </div> {{! .primary-content }}
+
 </div> {{! #hero }}
