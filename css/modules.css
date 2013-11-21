@@ -67,7 +67,7 @@
 
 .buy-button > * {
   display: inline-block;
-  padding: 0.6em 1.0em;
+  padding: 8px 1.0em;
 }
 
 .buy-button .price {
