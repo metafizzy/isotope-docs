@@ -17,8 +17,10 @@ layout modes
 
 <!-- license -->
 
+examples
+
 hash history?
 
 combination filters
 
-
+requirejs optimize

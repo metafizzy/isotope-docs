@@ -1,15 +1,9 @@
 
+var getBannerComment = require('./tasks/utils/get-banner-comment.js');
+
 // -------------------------- grunt -------------------------- //
 
 module.exports = function( grunt ) {
-
-  // get banner comment from draggabilly.js
-  var banner = ( function() {
-    var src = grunt.file.read('bower_components/isotope/js/isotope.js');
-    var re = new RegExp('^\\s*(?:\\/\\*[\\s\\S]*?\\*\\/)\\s*');
-    var matches = src.match( re );
-    return matches[0].replace( 'Isotope', 'Isotope PACKAGED' );
-  })();
 
   grunt.initConfig({
 
@@ -32,13 +26,6 @@ module.exports = function( grunt ) {
         ],
         dest: 'build/js/isotope-docs.js'
       },
-      pkgd: {
-        // src will be set in package-sources task
-        dest: 'build/isotope.pkgd.js',
-        options: {
-          banner: banner
-        }
-      },
       css: {
         src: [ 'bower_components/normalize-css/normalize.css', 'css/*.css', '!css/isotope-docs.css' ],
         dest: 'build/css/isotope-docs.css'
@@ -51,7 +38,7 @@ module.exports = function( grunt ) {
           'build/isotope.pkgd.min.js': [ 'build/isotope.pkgd.js' ]
         },
         options: {
-          banner: banner
+          banner: getBannerComment( grunt )
         }
       },
       js: {
