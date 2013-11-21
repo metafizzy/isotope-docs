@@ -1,26 +1,39 @@
 /**
  * package sources
  * creates isotope.pkgd.js
- * concats and minifies all .js for Masonry
+ * built with RequireJS
  */
 
-var organizeSources = require('./utils/organize-sources');
+var requirejs = require('requirejs');
+var getBannerComment = require('./utils/get-banner-comment.js');
+
+var config = {
+  baseUrl: 'bower_components',
+  include: [
+    "isotope/js/isotope",
+    'isotope/js/layout-modes/masonry',
+    'isotope/js/layout-modes/fit-rows',
+    'isotope/js/layout-modes/cells-by-row',
+    'isotope/js/layout-modes/vertical'
+  ],
+  out: 'build/isotope.pkgd.js',
+  optimize: 'none',
+  wrap: {}
+};
 
 module.exports = function( grunt ) {
+  // get banner comment at top of package file
+  config.wrap.start = getBannerComment( grunt );
 
   // create isotope.pkgd.js
   grunt.registerTask( 'package-sources', function() {
-    // copy over just the isotope obj
-    var bowerMap = grunt.config.get('bowerMap');
-
-    var isotopeSources = organizeSources( bowerMap, 'isotope' );
-    // console.log( isotopeSources );
-    var srcs = isotopeSources['.js'];
-    // filter out minified files, like EventEmitter.min.js
-    srcs = srcs.filter( function( src ) {
-      return src.indexOf('.min.js') === -1;
+    var done = this.async();
+    requirejs.optimize( config, function() {
+      done();
+    }, function( err ) {
+      grunt.log( err );
+      done();
     });
-    grunt.config.set( 'concat.pkgd.src', srcs );
   });
 
 };
