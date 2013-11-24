@@ -2,3 +2,5 @@ build/
 components/
 bower_components/
 node_modules/
+tasks/data/
+isotope.require.js

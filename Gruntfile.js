@@ -5,15 +5,39 @@ var getBannerComment = require('./tasks/utils/get-banner-comment.js');
 
 module.exports = function( grunt ) {
 
+  var banner = getBannerComment( grunt );
+
   grunt.initConfig({
+    // ----- global settings ----- //
+    namespace: 'isotope',
+    dataDir: 'tasks/data',
+
+    // ----- tasks settings ----- //
 
     jshint: {
       docs: [ 'js/controller.js', 'js/*/*.js'  ],
       options: grunt.file.readJSON('js/.jshintrc')
     },
 
+    requirejs: {
+      pkgd: {
+        options: {
+          baseUrl: 'bower_components',
+          include: [
+            'isotope/js/isotope',
+            'isotope/js/layout-modes/masonry',
+            'isotope/js/layout-modes/fit-rows',
+            'isotope/js/layout-modes/cells-by-row',
+            'isotope/js/layout-modes/vertical'
+          ],
+          out: 'isotope.require.js',
+          optimize: 'none'
+        }
+      }
+    },
+
     concat: {
-      js: {
+      'docs-js': {
         src: [
           // additional layout modes
           'bower_components/isotope/js/layout-modes/masonry-horizontal.js',
@@ -26,9 +50,21 @@ module.exports = function( grunt ) {
         ],
         dest: 'build/js/isotope-docs.js'
       },
-      css: {
-        src: [ 'bower_components/normalize-css/normalize.css', 'css/*.css', '!css/isotope-docs.css' ],
+
+      'docs-css': {
+        src: [ 'css/*.css', '!css/isotope-docs.css' ],
         dest: 'build/css/isotope-docs.css'
+      },
+
+      pkgd: {
+        src: [
+          'bower_components/jquery-bridget/jquery.bridget.js',
+          'isotope.require.js'
+        ],
+        dest: 'build/isotope.pkgd.js',
+        options: {
+          banner: banner
+        }
       }
     },
 
@@ -38,18 +74,18 @@ module.exports = function( grunt ) {
           'build/isotope.pkgd.min.js': [ 'build/isotope.pkgd.js' ]
         },
         options: {
-          banner: getBannerComment( grunt )
+          banner: banner
         }
       },
-      js: {
+      'docs': {
         files: {
-          // 'build/js/isotope-site.min.js' will be set in bower-list-map
+          'build/js/isotope-docs.min.js': [ 'build/js/isotope-docs.js' ]
         }
       }
     },
 
     // ----- handlebars templating ----- //
-    hbarz: {
+    template: {
       docs: {
         files: {
           'build/': 'content/*'
@@ -57,7 +93,18 @@ module.exports = function( grunt ) {
         options: {
           templates: 'templates/*.mustache',
           defaultTemplate: 'page',
-          dataFiles: "data/*.json"
+          dataFiles: "data/*.json",
+          partialFiles: {
+            'submitting-issues': 'bower_components/isotope/CONTRIBUTING.mdown'
+          },
+          helpers: {
+            firstValue: function( ary ) {
+              return ary[0];
+            },
+            plusOne: function( str ) {
+              return parseInt( str, 10 ) + 1;
+            }
+          }
         }
       }
     },
@@ -111,7 +158,7 @@ module.exports = function( grunt ) {
     watch: {
       content: {
         files: [ 'content/*', 'templates/*.mustache' ],
-        tasks: [ 'bower-list-map', 'hbarz' ]
+        tasks: [ 'template' ]
       },
       "public": {
         files: [ 'public/**' ],
@@ -134,16 +181,16 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  // load all tasks in tasks/
-  grunt.loadTasks('tasks/');
+  grunt.loadNpmTasks('grunt-requirejs');
+  grunt.loadNpmTasks('grunt-fizzy-docs');
 
   grunt.registerTask( 'default', [
     'jshint',
-    'bower-list-map',
-    'package-sources',
+    'requirejs',
+    'int-bower',
     'concat',
     'uglify',
-    'hbarz',
+    'template',
     'copy'
   ]);
 
