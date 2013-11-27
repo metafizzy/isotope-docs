@@ -129,7 +129,7 @@
 .rainbowed > *:nth-child(10n+8) { background: hsl( 288, 100%, 50%); }
 .rainbowed > *:nth-child(10n+9) { background: hsl( 324, 100%, 50%); }
 
-/* ----  ---- */
+/* ---- individual demos ---- */
 
 #masonry-bottom-spaced .mini-item {
   margin-bottom: 10px;
@@ -137,6 +137,10 @@
 
 #masonry-flex-gutter .gutter-sizer {
   width: 3%;
+}
+
+#masonry-horizontal-right-spaced .mini-item {
+  margin-right: 10px;
 }
 
 /* ---- fit width ---- */
