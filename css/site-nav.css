@@ -52,6 +52,7 @@
 
 #site-nav li {
   float: left;
+  font-weight: 500;
 }
 
 #site-nav li a {

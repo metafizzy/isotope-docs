@@ -8,14 +8,15 @@
 
 .button {
   display: inline-block;
+  padding: 0.5em 1.0em;
   background: #EEE;
   border: none;
-  padding: 0.5em 1.0em;
-  color: #222;
-  text-shadow: 0 1px white;
-  cursor: pointer;
   border-radius: 7px;
   background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+  color: #222;
+  font-weight: 500;
+  text-shadow: 0 1px white;
+  cursor: pointer;
 }
 
 .button:hover {
