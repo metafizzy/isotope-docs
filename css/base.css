@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Avenir Next', 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Arial, sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: #EEE;
@@ -34,22 +34,6 @@ pre {
   font-weight: normal;
   font-style: normal;
 }
-
-/* Montserrat */
-/*h1, h2, h3, h4, h5,
-#site-nav,
-#page-nav,
-.tagline,
-#what,
-.item,
-.masonry.counting .item:before,
-.param-bit b,
-.button,
-.instruction,
-#notification,
-#footer .copyright {
-  font-family: 'Montserrat', Gotham, 'Proxima Nova', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
-}*/
 
 /* ---- links ---- */
 
