@@ -12,20 +12,21 @@
 
 <div class="primary-content">
 
-<p>Masonry is an Event Emitter. You can bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
+<p>Isotope is an Event Emitter. You can bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
 
 ```js
-var msnry = new Masonry( elem );
+var $container = $('#container').isotope({...});
+var iso = new Isotope( elem );
 
 function onLayout() {
   console.log('layout done');
 }
 // bind event listener
-msnry.on( 'layoutComplete', onLayout );
+$container.isotope( 'on', 'layoutComplete', onLayout );
 // un-bind event listener
-msnry.off( 'layoutComplete', onLayout );
+$container.isotope( 'off', 'layoutComplete', onLayout );
 // return true to trigger an event listener just once
-msnry.on( 'layoutComplete', function() {
+$container.isotope( 'on', 'layoutComplete', function() {
   console.log('layout done, just this one time');
   return true;
 });
@@ -36,23 +37,24 @@ msnry.on( 'layoutComplete', function() {
 <h2 id="layoutcomplete">layoutComplete</h2>
 
 ``` js
-msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) { //...
+$container.masonry( 'on', 'layoutComplete', function( isoInstance, laidOutItems ) {} )
+// or with vanilla JS
+iso.on( 'layoutComplete', function( isoInstance, laidOutItems ) {} )
 // or with jQuery
-$container.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItems ) {} )
 ```
 
 <ul class="params">
   <li class="param">
-    <h5 class="param-name param-bit"><code>msnryInstance</code></h5>
+    <h5 class="param-name param-bit"><code>isoInstance</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Masonry</i></span>
+      <b>Type:</b> <span class="value"><i>Isotope</i></span>
     </p>
-    <p class="description param-bit">the Masonry instance</p>
+    <p class="description param-bit">the Isotope instance</p>
   </li>
   <li class="param">
     <h5 class="param-name param-bit"><code>laidOutItems</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Array</i> of <i>Masonry.Item</i>s</span>
+      <b>Type:</b> <span class="value"><i>Array</i> of <i>Isotope.Item</i>s</span>
     </p>
     <p class="description param-bit">items that were laid out</p>
   </li>
@@ -63,17 +65,20 @@ $container.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItem
 <div class="row example">
   <div class="cell example-code">
 ``` js
-msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
-  console.log('Masonry layout completed on ' + laidOutItems.length + ' items');
-});
+$container.isotope( 'on', 'layoutComplete',
+  function( isoInstance, laidOutItems ) {
+    console.log( 'Isotope layout completed on ' +
+      laidOutItems.length + ' items' );
+  }
+);
 ```
   </div>
   <div id="layout-complete-demo" class="cell demo">
     <p class="instruction">Resize browser or click item to toggle size</p>
-    <div class="masonry clickable">
-      {{>basic-demo-items}}
+    <div class="isotope clickable">
+      {{>mini-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/htsui">Edit this example on CodePen</a></p>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/htsui">Edit this example on CodePen</a></p> -->
   </div>
 </div>
 
@@ -82,25 +87,25 @@ msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
 <h2 id="removecomplete">removeComplete</h2>
 
 ``` js
-msnry.on( 'removeComplete', function( msnryInstance, removedItems ) { //...
+iso.on( 'removeComplete', function( isoInstance, removedItems ) { //...
 // or with jQuery
-$container.masonry( 'on', 'removeComplete', function( msnryInstance, removedItems ) {} )
+$container.masonry( 'on', 'removeComplete', function( isoInstance, removedItems ) {} )
 ```
 
 <p>Triggered after an item element has been removed.</p>
 
 <ul class="params">
   <li class="param">
-    <h5 class="param-name param-bit"><code>msnryInstance</code></h5>
+    <h5 class="param-name param-bit"><code>isoInstance</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Masonry</i></span>
+      <b>Type:</b> <span class="value"><i>Isotope</i></span>
     </p>
-    <p class="description param-bit">the Masonry instance</p>
+    <p class="description param-bit">the Isotope instance</p>
   </li>
   <li class="param">
     <h5 class="param-name param-bit"><code>removedItems</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Array</i> of <i>Masonry.Item</i>s</span>
+      <b>Type:</b> <span class="value"><i>Array</i> of <i>Isotope.Item</i>s</span>
     </p>
     <p class="description param-bit">items that were removed</p>
   </li>
@@ -109,18 +114,19 @@ $container.masonry( 'on', 'removeComplete', function( msnryInstance, removedItem
 <div class="row example">
   <div class="cell example-code">
 ``` js
-msnry.on( 'removeComplete', function( msnryInstance, removedItems ) {
-  console.log( 'Removed ' + removedItems.length + ' items' );
-});
+$container.isotope( 'on', 'removeComplete',
+  function( isoInstance, removedItems ) {
+    notify( 'Removed ' + removedItems.length + ' items' );
+  }
+);
 ```
   </div>
   <div id="remove-complete-demo" class="cell demo">
     <p class="instruction">Click items to remove them</p>
-    <div class="masonry clickable">
-      {{>basic-demo-items}}
-      {{>basic-demo-items}}
+    <div class="isotope clickable">
+      {{>mini-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/JknEe">Edit this example on CodePen</a></p>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/JknEe">Edit this example on CodePen</a></p> -->
   </div>
 </div>
 

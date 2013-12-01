@@ -2,7 +2,7 @@
  * events page
  */
 
-( function( window ) {
+( function( window, $ ) {
 
 'use strict';
 
@@ -29,48 +29,44 @@ ID.events = function() {
   // ----- layoutComplete demo ----- //
 
   ( function() {
-    var container = document.querySelector('#layout-complete-demo .masonry');
-    var msnry = new Masonry( container, {
-      columnWidth: 60
+    var $container = $('#layout-complete-demo .isotope').isotope({
+      masonry: {
+        columnWidth: 50
+      }
     });
-    msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
-      notify( 'Masonry layout completed on ' + laidOutItems.length + ' items' );
+    // bind listener
+    $container.isotope( 'on', 'layoutComplete', function( isoInstance, laidOutItems ) {
+      notify( 'Isotope layout completed on ' + laidOutItems.length + ' items' );
     });
 
-    eventie.bind( container, 'click', function( event ) {
-      // don't proceed if item was not clicked on
-      if ( !classie.has( event.target, 'item' ) ) {
-        return;
-      }
+    $container.on( 'click', '.mini-item', function() {
       // change size of item via class
-      classie.toggle( event.target, 'gigante' );
-      // trigger layout
-      msnry.layout();
+      $( this ).toggleClass('gigante');
+      $container.isotope('layout');
     });
   })();
 
   // ----- removeComplete demo ----- //
 
   ( function() {
-    var container = document.querySelector('#remove-complete-demo .masonry');
-    var msnry = new Masonry( container, {
-      columnWidth: 60
-    });
-
-    msnry.on( 'removeComplete', function( msnryInstance, items ) {
-      notify( 'Removed ' + items.length + ' items' );
-    });
-
-    eventie.bind( container, 'click', function( event ) {
-      // don't proceed if item was not clicked on
-      if ( !classie.has( event.target, 'item' ) ) {
-        return;
+    var $container = $('#remove-complete-demo .isotope').isotope({
+      masonry: {
+        columnWidth: 50
       }
+    });
+    // bind listener
+    $container.isotope( 'on', 'removeComplete', function( isoInstance, removedItems ) {
+      notify( 'Removed ' + removedItems.length + ' items' );
+    });
+
+    $container.on( 'click', '.mini-item', function() {
       // remove clicked element
-      msnry.remove( event.target );
+      $container.isotope( 'remove', this )
+        // layout remaining item elements
+        .isotope('layout');
     });
   })();
 
 };
 
-})( window );
+})( window, jQuery );
