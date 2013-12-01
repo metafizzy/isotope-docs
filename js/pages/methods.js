@@ -75,7 +75,7 @@ ID.methods = function() {
         columnWidth: 50
       },
       // filter items with odd numbers
-      filter: function( itemElem ) {
+      filter: function() {
         var number = $( this ).find('.number').text();
         return parseInt( number, 10 ) % 2;
       },
@@ -107,22 +107,15 @@ ID.methods = function() {
   // ----- layout demo ----- //
 
   ( function() {
-    var container = document.querySelector('#layout-demo .isotope');
-    var msnry = new Masonry( container, {
-      columnWidth: 60
-    });
-
-    
-
-    eventie.bind( container, 'click', function( event ) {
-      // don't proceed if item was not clicked on
-      if ( !classie.has( event.target, 'item' ) ) {
-        return;
+    var $container = $('#layout-demo .isotope').isotope({
+      masonry: {
+        columnWidth: 50
       }
-      // change size of item via class
-      classie.toggle( event.target, 'gigante' );
-      // trigger layout
-      msnry.layout();
+    });
+    // change size of item by toggling gigante class
+    $container.on( 'click', '.mini-item', function() {
+      $(this).toggleClass('gigante');
+      $container.isotope('layout');
     });
   })();
 

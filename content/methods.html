@@ -360,7 +360,7 @@ var $container = $demo.find('.isotope').isotope({
     columnWidth: 50
   },
   // filter items with odd numbers
-  filter: function( itemElem ) {
+  filter: function() {
     var number = $( this ).find('.number').text();
     return parseInt( number, 10 ) % 2;
   },
@@ -406,39 +406,34 @@ $demo.find('button').on( 'click', function() {
 <h2 id="layout">layout</h2>
 
 ``` js
-$container.isotope()
+$container.isotope('layout')
 // or with vanilla JS
 iso.layout()
 ```
 
-<p>Lay out all item elements. <code>layout</code> is useful when an item has changed size, and all items need to be laid out again.</p>
+<p>Lay out all item elements. <code>layout</code> is useful when an item has changed size, and all items need to be laid out again. <code>layout</code> does not apply filtering or sorting.</p>
 
 <div class="row example">
   <div class="cell example-code">
 ``` js
-var container = document.querySelector('#layout-demo .masonry');
-var msnry = new Isotope( container, {
-  columnWidth: 60
-});
-
-eventie.bind( container, 'click', function( event ) {
-  // don't proceed if item was not clicked on
-  if ( !classie.has( event.target, 'item' ) ) {
-    return;
+var $container = $('#layout-demo .isotope').isotope({
+  masonry: {
+    columnWidth: 50
   }
-  // change size of item via class
-  classie.toggle( event.target, 'gigante' );
-  // trigger layout
-  iso.layout();
+});
+// change size of item by toggling gigante class
+$container.on( 'click', '.mini-item', function() {
+  $(this).toggleClass('gigante');
+  $container.isotope('layout');
 });
 ```
   </div>
   <div id="layout-demo" class="cell demo">
     <p class="instruction">Click item to toggle size</p>
-    <div class="masonry clickable">
-      {{>basic-demo-items}}
+    <div class="isotope clickable">
+      {{>mini-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/vdkJn">Edit this example on CodePen</a></p>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/vdkJn">Edit this example on CodePen</a></p> -->
   </div>
 </div>
 

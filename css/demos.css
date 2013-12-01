@@ -111,6 +111,17 @@
 .mini-item.w3 { width: 150px; }
 .mini-item.h3 { height: 150px; }
 
+.mini-item.gigante {
+  width: 150px;
+  height: 200px;
+}
+
+.clickable .mini-item:hover {
+  border-color: #28F;
+  background: #8CF;
+  cursor: pointer;
+}
+
 /* ---- flexible 5 columns ---- */
 
 .flex-5-col .grid-sizer,
