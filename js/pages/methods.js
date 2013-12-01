@@ -2,7 +2,7 @@
  * methods page
  */
 
-( function( window ) {
+( function( window, $ ) {
 
 'use strict';
 
@@ -12,9 +12,9 @@ function getItemElement() {
   var elem = document.createElement('div');
   var wRand = Math.random();
   var hRand = Math.random();
-  var widthClass = wRand > 0.92 ? 'w4' : wRand > 0.8 ? 'w3' : wRand > 0.6 ? 'w2' : '';
-  var heightClass = hRand > 0.85 ? 'h4' : hRand > 0.6 ? 'h3' : hRand > 0.35 ? 'h2' : '';
-  elem.className = 'item ' + widthClass + ' ' + heightClass;
+  var widthClass = wRand > 0.8 ? 'w3' : wRand > 0.6 ? 'w2' : '';
+  var heightClass = hRand > 0.8 ? 'h3' : hRand > 0.5 ? 'h2' : '';
+  elem.className = 'mini-item ' + widthClass + ' ' + heightClass;
   return elem;
 }
 
@@ -23,57 +23,96 @@ ID.methods = function() {
   // ----- appended ----- //
 
   ( function() {
-    var demo = document.querySelector('#appended-demo');
-    var container = demo.querySelector('.masonry');
-    var button = demo.querySelector('button');
-    var msnry = new Masonry( container, {
-      columnWidth: 60
+    var $demo = $('#appended-demo');
+    var $container = $demo.find('.isotope').isotope({
+      masonry: {
+        columnWidth: 50
+      }
     });
 
-    eventie.bind( button, 'click', function() {
+    $demo.find('button').on( 'click', function() {
       // create new item elements
       var elems = [];
-      var fragment = document.createDocumentFragment();
       for ( var i = 0; i < 3; i++ ) {
         var elem = getItemElement();
-        fragment.appendChild( elem );
         elems.push( elem );
       }
       // append elements to container
-      container.appendChild( fragment );
-      // add and lay out newly appended elements
-      msnry.appended( elems );
+      $container.append( elems )
+        // add and lay out newly appended elements
+        .isotope( 'appended', elems );
     });
   })();
 
   // ----- destroy demo ----- //
 
   ( function() {
-    var demo = document.querySelector('#destroy-demo');
-    var container = demo.querySelector('.masonry');
-    var button = demo.querySelector('button');
-    var msnry = new Masonry( container, {
-      columnWidth: 60
-    });
+    var $demo = $('#destroy-demo');
+    var isoOptions = {
+      masonry: {
+        columnWidth: 50
+      }
+    };
+    var $container = $demo.find('.isotope').isotope( isoOptions );
     var isActive = true;
 
-    eventie.bind( button, 'click', function() {
+    $demo.find('button').on( 'click', function() {
       if ( isActive ) {
-        msnry.destroy();
+        $container.isotope('destroy');
       } else {
-        msnry = new Masonry( container );
+        $container.isotope( isoOptions );
       }
       isActive = !isActive;
     });
   })();
 
+  // ----- appended ----- //
+
+  ( function() {
+    var $demo = $('#insert-demo');
+    var $container = $demo.find('.isotope').isotope({
+      masonry: {
+        columnWidth: 50
+      },
+      // filter items with odd numbers
+      filter: function( itemElem ) {
+        var number = $( this ).find('.number').text();
+        return parseInt( number, 10 ) % 2;
+      },
+      // sort by number
+      sortBy: 'number',
+      getSortData: {
+        'number': '.number parseInt'
+      }
+    });
+
+    $demo.find('button').on( 'click', function() {
+      // create new item elements
+      var elems = [];
+      for ( var i = 0; i < 3; i++ ) {
+        var elem = getItemElement();
+        // set number
+        var number = Math.floor( Math.random() * 100 );
+        $( elem ).append( '<p class="number">' + number + '</p>' );
+        elems.push( elem );
+      }
+      // append elements to container
+      $container.append( elems )
+        // insert in isotope instance
+        .isotope( 'insert', elems );
+    });
+  })();
+
+
   // ----- layout demo ----- //
 
   ( function() {
-    var container = document.querySelector('#layout-demo .masonry');
+    var container = document.querySelector('#layout-demo .isotope');
     var msnry = new Masonry( container, {
       columnWidth: 60
     });
+
+    
 
     eventie.bind( container, 'click', function( event ) {
       // don't proceed if item was not clicked on
@@ -161,4 +200,4 @@ ID.methods = function() {
 
 };
 
-})( window );
+})( window, jQuery );

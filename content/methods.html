@@ -4,14 +4,16 @@
   "nav": [
     "addItems",
     "appended",
+    "arrange / .isotope()",
     "bindResize",
     "destroy",
     "getItemElements",
     "getItem",
     "hide",
+    "insert",
     "layout",
     "layoutItems",
-    "Masonry.data",
+    "Isotope.data",
     "off",
     "on",
     "prepended",
@@ -27,37 +29,39 @@
 
 <div class="primary-content">
 
-<p>Methods are actions taken on Masonry instances.</p>
+<p>Methods are actions taken on Isotope instances.</p>
+
+<p>If you are using jQuery, methods follow the jQuery UI pattern <code>.isotope( <span class="string">'methodName'</span> <span class="comment">/* arguments */</span> )</code>.</p>
 
 ``` js
-var container = document.querySelector('#container');
-var msnry = new Masonry( container );
-container.appendChild( elem );
-msnry.appended( elem );
-msnry.layout();
-```
-
-<p>If you are using jQuery, methods follow the jQuery UI pattern <code>.masonry( <span class="string">'methodName'</span> <span class="comment">/* arguments */</span> )</code>.</p>
-
-``` js
-$('#container').masonry()
+$container.isotope()
   .append( elem )
-  .masonry( 'appended', elem );
-  // no method is same as layout -> .masonry('layout')
-  .masonry();
+  .isotope( 'appended', elem )
+  .isotope('layout');
 ```
 
-<p>jQuery chaining is broken by methods that return values (i.e. 
-  <a href="#getitemelements"><code>getItemElements</code></a>,
-  <a href="#getitem"><code>getItem</code></a>,
-  <a href="#on"><code>on</code></a>, and
-  <a href="#off"><code>off</code></a>).</p>
+``` js
+// vanilla JS
+var container = document.querySelector('#container');
+var iso = new Isotope( container );
+container.appendChild( elem );
+iso.appended( elem );
+iso.layout();
+```
+
+<div class="warning">
+  <p>jQuery chaining is broken by methods that return values (i.e. 
+    <a href="#getitemelements"><code>getItemElements</code></a>,
+    <a href="#getitem"><code>getItem</code></a>,
+    <a href="#on"><code>on</code></a>, and
+    <a href="#off"><code>off</code></a>).</p>
+</div>
 
 ``` js
 // chaining works with 'appended' method
-$container.masonry( 'appended', elem ).fadeIn();
+$container.isotope( 'appended', elem ).fadeIn();
 // 'on' method breaks jQuery chaining
-$container.masonry( 'on', 'layoutComplete', function() {...} );
+$container.isotope( 'on', 'layoutComplete', function() {...} );
 $container.fadeIn();
 ```
 
@@ -66,9 +70,9 @@ $container.fadeIn();
 <h2 id="additems">addItems</h2>
 
 ``` js
-msnry.addItems( elements )
-// or with jQuery
-$container.masonry( 'addItems', elements )
+$container.isotope( 'addItems', elements )
+// or with vanilla JS
+iso.addItems( elements )
 ```
 
 <ul class="params">
@@ -85,16 +89,16 @@ $container.masonry( 'addItems', elements )
   </li>
 </ul>
 
-<p>Add item elements to the Masonry instance.</p>
+<p>Add item elements to the Isotope instance. <code>addItems</code> does not lay out items like <a href="#appended"><code>appended</code></a>, <a href="#insert"><code>insert</code></a>, <a href="#prepended"><code>prepended</code></a>.</p>
 
 </div><div class="primary-content">
 
 <h2 id="appended">appended</h2>
 
 ``` js
-msnry.appended( elements )
-// or with jQuery
-$container.masonry( 'appended', elements )
+$container.isotope( 'appended', elements )
+// or with vanilla JS
+iso.appended( elements )
 ```
 
 <ul class="params">
@@ -111,42 +115,40 @@ $container.masonry( 'appended', elements )
   </li>
 </ul>
 
-<p>Add and lay out newly appended item elements. See also <a href="#prepended">prepended</a>.</p>
+<p>Add and lay out newly appended item elements to the end of the layout. See also <a href="#insert">insert</a> and <a href="#prepended">prepended</a>.</p>
 
 <div class="row example">
   <div class="cell example-code">
 ``` js
-var demo = document.querySelector('#appended-demo');
-var container = demo.querySelector('.masonry');
-var button = demo.querySelector('button');
-var msnry = new Masonry( container, {
-  columnWidth: 60
+var $demo = $('#appended-demo');
+var $container = $demo.find('.isotope').isotope({
+  masonry: {
+    columnWidth: 50
+  }
 });
 
-eventie.bind( button, 'click', function() {
+$demo.find('button').on( 'click', function() {
   // create new item elements
   var elems = [];
-  var fragment = document.createDocumentFragment();
   for ( var i = 0; i < 3; i++ ) {
     var elem = getItemElement();
-    fragment.appendChild( elem );
     elems.push( elem );
   }
   // append elements to container
-  container.appendChild( fragment );
-  // add and lay out newly appended elements
-  msnry.appended( elems );
+  $container.append( elems )
+    // add and lay out newly appended elements
+    .isotope( 'appended', elems );
 });
 ```
   </div>
   <div id="appended-demo" class="cell demo">
     <button class="button">Append items</button>
-    <div class="masonry">
-      <div class="item w4"></div>
-      <div class="item h4"></div>
-      <div class="item w2"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
+    <div class="isotope">
+      <div class="mini-item w3"></div>
+      <div class="mini-item h3"></div>
+      <div class="mini-item w2"></div>
+      <div class="mini-item"></div>
+      <div class="mini-item h2"></div>
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/JzDis">Edit example on CodePen</a></p>
   </div>
@@ -154,12 +156,54 @@ eventie.bind( button, 'click', function() {
 
 </div><div class="primary-content">
 
+<h2 id="arrange-isotope">arrange / .isotope()</h2>
+
+``` js
+$container.isotope( options )
+// or with vanilla JS
+iso.arrange( options )
+```
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>options</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Object</i></span>
+    </p>
+  </li>
+</ul>
+
+<p>Filters, sorts, and lays out items. <code>arrange</code> is the principle method of Isotope. It is the default method with jQuery <code>.isotope()</code>. Pass in <a href="options.html"><code>options</code></a> to apply filtering and sorting.</p>
+
+``` js
+// filter metal, sort by number, and layout
+$container.isotope({
+  filter: '.metal',
+  sortBy: 'number'
+});
+// triggering method without options will
+// re-apply filtering, sorting, and layout
+$container.isotope();
+```
+``` js
+// with vanilla JS
+iso.arrange({
+  filter: '.metal',
+  sortBy: 'number'
+})
+// re-apply filtering, sorting, and layout
+iso.arrange();
+```
+
+</div><div class="primary-content">
+
 <h2 id="bindresize">bindResize</h2>
 
 ``` js
-msnry.bindResize()
-// or with jQuery
-$container.masonry('bindResize')
+$container.isotope('bindResize')
+// or with vanilla JS
+iso.bindResize()
+
 ```
 
 <p>Binds event listener to window <code>resize</code>, so layout is triggered when the browser window is resized.</p>
@@ -169,38 +213,40 @@ $container.masonry('bindResize')
 <h2 id="destroy">destroy</h2>
 
 ``` js
-msnry.destroy()
-// or with jQuery
-$container.masonry('destroy')
+$container.isotope('destroy')
+// or with vanilla JS
+iso.destroy()
 ```
 
-<p>Removes the Masonry functionality completely. This will return the element back to its pre-initialized state.</p>
+<p>Removes the Isotope functionality completely. This will return the element back to its pre-initialized state.</p>
 
 <div class="row example">
   <div class="cell example-code">
 ``` js
-var demo = document.querySelector('#destroy-demo');
-var container = demo.querySelector('.masonry');
-var button = demo.querySelector('button');
-var msnry = new Masonry( container, {
-  columnWidth: 60
-});
+var $demo = $('#destroy-demo');
+var isoOptions = {
+  masonry: {
+    columnWidth: 50
+  }
+};
+// initialize Isotope
+var $container = $demo.find('.isotope').isotope( isoOptions );
 var isActive = true;
 
-eventie.bind( button, 'click', function() {
+$demo.find('button').on( 'click', function() {
   if ( isActive ) {
-    msnry.destroy();
+    $container.isotope('destroy'); // destroy
   } else {
-    msnry = new Masonry( container );
+    $container.isotope( isoOptions ); // re-initialize
   }
   isActive = !isActive;
 });
 ```
   </div>
   <div id="destroy-demo" class="cell demo">
-    <button class="button">Toggle Masonry</button>
-    <div class="masonry">
-      {{>basic-demo-items}}
+    <button class="button">Toggle Isotope</button>
+    <div class="isotope">
+      {{>mini-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/EogCw">Edit this example on CodePen</a></p>
   </div>
@@ -211,9 +257,9 @@ eventie.bind( button, 'click', function() {
 <h2 id="getitemelements">getItemElements</h2>
 
 ``` js
-var elems = msnry.getItemElements()
-// or with jQuery
-var elems = $container.masonry('getItemElements')
+var elems = $container.isotope('getItemElements')
+// or with vanilla JS
+var elems = iso.getItemElements()
 ```
 
 <ul class="params">
@@ -226,16 +272,16 @@ var elems = $container.masonry('getItemElements')
   </li>
 </ul>
 
-<p>Get an array of elements used as the Masonry instance's items.</p>
+<p>Get an array of elements used as the Isotope instance's items.</p>
 
 </div><div class="primary-content">
 
 <h2 id="getitem">getItem</h2>
 
 ``` js
-var item = msnry.getItem( element )
-// or with jQuery
-var item = $container.masonry( 'getItem', element )
+var item = $container.isotope( 'getItem', element )
+// or with vanilla JS
+var item = iso.getItem( element )
 ```
 
 <ul class="params">
@@ -249,21 +295,21 @@ var item = $container.masonry( 'getItem', element )
     <h5 class="param-name param-bit">returns</h5>
     <h5 class="param-name param-bit"><code>item</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Masonry.Item</i></span>
+      <b>Type:</b> <span class="value"><i>Isotope.Item</i></span>
     </p>
   </li>
 </ul>
 
-<p>Get a <i>Masonry.Item</i> from an element.</p>
+<p>Get an <i>Isotope.Item</i> from an element.</p>
 
 </div><div class="primary-content">
 
 <h2 id="hide">hide</h2>
 
 ``` js
-msnry.hide( items )
-// or with jQuery
-$container.masonry( 'hide', items )
+$container.isotope( 'hide', items )
+// or with vanilla JS
+iso.hide( items )
 ```
 
 <ul class="params">
@@ -272,7 +318,7 @@ $container.masonry( 'hide', items )
     <p class="type param-bit">
       <b>Type:</b>
       <span class="value">
-        <i>Array</i> of <i>Masonry.Item</i>s
+        <i>Array</i> of <i>Isotope.Item</i>s
       </span>
     </p>
   </li>
@@ -280,23 +326,98 @@ $container.masonry( 'hide', items )
 
 <p>Hides items.</p>
 
+
+</div><div class="primary-content">
+
+<h2 id="insert">insert</h2>
+
+``` js
+$container.isotope( 'insert', elements )
+// or with vanilla jS
+iso.insert( elements )
+```
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>elements</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b>
+      <span class="value">
+        <i>Element</i>,
+        <i>NodeList</i>, or
+        <i>Array</i> of Elements
+      </span>
+    </p>
+  </li>
+</ul>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+var $demo = $('#insert-demo');
+var $container = $demo.find('.isotope').isotope({
+  masonry: {
+    columnWidth: 50
+  },
+  // filter items with odd numbers
+  filter: function( itemElem ) {
+    var number = $( this ).find('.number').text();
+    return parseInt( number, 10 ) % 2;
+  },
+  // sort by number
+  sortBy: 'number',
+  getSortData: {
+    'number': '.number parseInt'
+  }
+});
+
+$demo.find('button').on( 'click', function() {
+  // create new item elements
+  var elems = [];
+  for ( var i = 0; i < 3; i++ ) {
+    var elem = getItemElement();
+    // set number
+    var number = Math.floor( Math.random() * 100 );
+    $( elem ).append( '<p class="number">' + number + '</p>' );
+    elems.push( elem );
+  }
+  // append elements to container
+  $container.append( elems )
+    // insert in isotope instance
+    .isotope( 'insert', elems );
+});
+```
+  </div>
+  <div id="insert-demo" class="cell demo">
+    <button class="button">Insert items</button>
+    <div class="isotope">
+      <div class="mini-item w3"><p class="number">59</p></div>
+      <div class="mini-item h3"><p class="number">41</p></div>
+      <div class="mini-item w2"><p class="number">93</p></div>
+      <div class="mini-item"><p class="number">5</p></div>
+      <div class="mini-item h2"><p class="number">17</p></div>
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/JzDis">Edit example on CodePen</a></p>
+  </div>
+</div>
+
 </div><div class="primary-content">
 
 <h2 id="layout">layout</h2>
 
 ``` js
-msnry.layout()
-// or with jQuery
-$container.masonry()
+$container.isotope()
+// or with vanilla JS
+iso.layout()
 ```
 
-<p>Lay out all item elements.</p>
+<p>Lay out all item elements. <code>layout</code> is useful when an item has changed size, and all items need to be laid out again.</p>
 
 <div class="row example">
   <div class="cell example-code">
 ``` js
 var container = document.querySelector('#layout-demo .masonry');
-var msnry = new Masonry( container, {
+var msnry = new Isotope( container, {
   columnWidth: 60
 });
 
@@ -308,7 +429,7 @@ eventie.bind( container, 'click', function( event ) {
   // change size of item via class
   classie.toggle( event.target, 'gigante' );
   // trigger layout
-  msnry.layout();
+  iso.layout();
 });
 ```
   </div>
@@ -326,16 +447,16 @@ eventie.bind( container, 'click', function( event ) {
 <h2 id="layoutitems">layoutItems</h2>
 
 ``` js
-msnry.layoutItems( items, isStill )
-// or with jQuery
-$container.masonry( 'layoutItems', items, isStill )
+iso.layoutItems( items, isStill )
+// or with vanilla JS
+$container.isotope( 'layoutItems', items, isStill )
 ```
 
 <ul class="params">
   <li class="param">
     <h5 class="param-name param-bit"><code>items</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Array</i> of <i>Masonry.Item</i>s</span>
+      <b>Type:</b> <span class="value"><i>Array</i> of <i>Isotope.Item</i>s</span>
     </p>
   </li>
   <li class="param">
@@ -351,10 +472,10 @@ $container.masonry( 'layoutItems', items, isStill )
 
 </div><div class="primary-content">
 
-<h2 id="masonry-data">Masonry.data</h2>
+<h2 id="masonry-data">Isotope.data</h2>
 
 ``` js
-var msnry = Masonry.data( element )
+var msnry = Isotope.data( element )
 ```
 
 <ul class="params">
@@ -368,14 +489,14 @@ var msnry = Masonry.data( element )
     <h5 class="param-name param-bit">returns</h5>
     <p class="param-name param-bit"><code>msnry</code></p>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Masonry</i></span>
+      <b>Type:</b> <span class="value"><i>Isotope</i></span>
     </p>
   </li>
 </ul>
 
-<p>Get the Masonry instance from an element. Note this method is of <code>Masonry</code>, rather than of a Masonry instance.</p>
+<p>Get the Isotope instance from an element. Note this method is of <code>Isotope</code>, rather than of a Isotope instance.</p>
 
-<p>This method is useful to access the Masonry instance after it was initialized via HTML.</p>
+<p>This method is useful to access the Isotope instance after it was initialized via HTML.</p>
 
 ``` html
 <div id="container" class="js-masonry" data-masonry-options='{...}'>
@@ -386,9 +507,9 @@ var msnry = Masonry.data( element )
 ```
 ``` js
 var container = document.querySelector('#container');
-var msnry = Masonry.data( container );
-// do stuff with Masonry instance
-msnry.layout();
+var msnry = Isotope.data( container );
+// do stuff with Isotope instance
+iso.layout();
 ```
 
 </div><div class="primary-content">
@@ -396,9 +517,9 @@ msnry.layout();
 <h2 id="off">off</h2>
 
 ``` js
-msnry.off( eventName, listener )
-// or with jQuery
-var msnry = $container.masonry( 'off', eventName, listener )
+iso.off( eventName, listener )
+// or with vanilla JS
+var msnry = $container.isotope( 'off', eventName, listener )
 ```
 
 <ul class="params">
@@ -407,7 +528,7 @@ var msnry = $container.masonry( 'off', eventName, listener )
     <p class="type param-bit">
       <b>Type:</b> <span class="value"><i>String</i></span>
     </p>
-    <p class="description param-bit">name of a <a href="events.html">Masonry event</a></p>
+    <p class="description param-bit">name of a <a href="events.html">Isotope event</a></p>
   </li>
   <li class="param">
     <h5 class="param-name param-bit"><code>listener</code></h5>
@@ -419,7 +540,7 @@ var msnry = $container.masonry( 'off', eventName, listener )
     <h5 class="param-name param-bit">returns</h5>
     <p class="param-name param-bit"><code>msnry</code></p>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Masonry</i></span>
+      <b>Type:</b> <span class="value"><i>Isotope</i></span>
     </p>
   </li>
 </ul>
@@ -431,9 +552,9 @@ var msnry = $container.masonry( 'off', eventName, listener )
 <h2 id="on">on</h2>
 
 ``` js
-msnry.on( eventName, listener )
-// or with jQuery
-var msnry = $container.masonry( 'on', eventName, listener )
+iso.on( eventName, listener )
+// or with vanilla JS
+var msnry = $container.isotope( 'on', eventName, listener )
 ```
 
 <ul class="params">
@@ -442,7 +563,7 @@ var msnry = $container.masonry( 'on', eventName, listener )
     <p class="type param-bit">
       <b>Type:</b> <span class="value"><i>String</i></span>
     </p>
-    <p class="description param-bit">name of a <a href="events.html">Masonry event</a></p>
+    <p class="description param-bit">name of a <a href="events.html">Isotope event</a></p>
   </li>
   <li class="param">
     <h5 class="param-name param-bit"><code>listener</code></h5>
@@ -454,19 +575,19 @@ var msnry = $container.masonry( 'on', eventName, listener )
     <h5 class="param-name param-bit">returns</h5>
     <p class="param-name param-bit"><code>msnry</code></p>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Masonry</i></span>
+      <b>Type:</b> <span class="value"><i>Isotope</i></span>
     </p>
   </li>
 </ul>
 
 <p>Add an event listener for <a href="events.html">certain events</a>.</p>
 
-<p>Unlike jQuery's <code>on</code>, Masonry's <code>on</code> only works with the specified events. <code>msnry.on( 'click', function() {...})</code> will not work.</p>
+<p>Unlike jQuery's <code>on</code>, Isotope's <code>on</code> only works with the specified events. <code>iso.on( 'click', function() {...})</code> will not work.</p>
 
 <p>To listen for an event just once, <code>return <span class="literal">true</span></code> in the event listener.</p>
 
 ``` js
-msnry.on( 'layoutComplete', function() {
+iso.on( 'layoutComplete', function() {
   console.log('layout is complete, just once');
   return true;
 });
@@ -477,9 +598,9 @@ msnry.on( 'layoutComplete', function() {
 <h2 id="prepended">prepended</h2>
 
 ``` js
-msnry.prepended( elements )
-// or with jQuery
-$container.masonry( 'prepended', elements )
+iso.prepended( elements )
+// or with vanilla JS
+$container.isotope( 'prepended', elements )
 ```
 
 <ul class="params">
@@ -504,7 +625,7 @@ $container.masonry( 'prepended', elements )
 var demo = document.querySelector('#prepended-demo');
 var container = demo.querySelector('.masonry');
 var button = demo.querySelector('button');
-var msnry = new Masonry( container, {
+var msnry = new Isotope( container, {
   columnWidth: 60
 });
 
@@ -521,7 +642,7 @@ eventie.bind( button, 'click', function() {
   // prepend elements to container
   container.insertBefore( fragment, container.firstChild );
   // add and lay out newly prepended elements
-  msnry.prepended( elems );
+  iso.prepended( elems );
 });
 ```
   </div>
@@ -543,9 +664,9 @@ eventie.bind( button, 'click', function() {
 <h2 id="reloaditems">reloadItems</h2>
 
 ``` js
-msnry.reloadItems()
-// or with jQuery
-$container.masonry('reloadItems')
+iso.reloadItems()
+// or with vanilla JS
+$container.isotope('reloadItems')
 ```
 
 <p>Recollect all item elements.</p>
@@ -555,9 +676,9 @@ $container.masonry('reloadItems')
 <h2 id="remove">remove</h2>
 
 ``` js
-msnry.remove( elements )
-// or with jQuery
-$container.masonry( 'remove', elements )
+iso.remove( elements )
+// or with vanilla JS
+$container.isotope( 'remove', elements )
 ```
 
 <ul class="params">
@@ -574,13 +695,13 @@ $container.masonry( 'remove', elements )
   </li>
 </ul>
 
-<p>Remove elements from the Masonry instance, then from the DOM.</p>
+<p>Remove elements from the Isotope instance, then from the DOM.</p>
 
 <div class="row example">
   <div class="cell example-code">
 ``` js
 var container = document.querySelector('#remove-demo .masonry');
-var msnry = new Masonry( container, {
+var msnry = new Isotope( container, {
   columnWidth: 60
 });
 
@@ -590,9 +711,9 @@ eventie.bind( container, 'click', function( event ) {
     return;
   }
   // remove clicked element
-  msnry.remove( event.target );
+  iso.remove( event.target );
   // layout remaining item elements
-  msnry.layout();
+  iso.layout();
 });
 ```
   </div>
@@ -610,9 +731,9 @@ eventie.bind( container, 'click', function( event ) {
 <h2 id="reveal">reveal</h2>
 
 ``` js
-msnry.reveal( items )
-// or with jQuery
-$container.masonry( 'reveal', items )
+iso.reveal( items )
+// or with vanilla JS
+$container.isotope( 'reveal', items )
 ```
 
 <ul class="params">
@@ -621,7 +742,7 @@ $container.masonry( 'reveal', items )
     <p class="type param-bit">
       <b>Type:</b>
       <span class="value">
-        <i>Array</i> of <i>Masonry.Item</i>s
+        <i>Array</i> of <i>Isotope.Item</i>s
       </span>
     </p>
   </li>
@@ -634,9 +755,9 @@ $container.masonry( 'reveal', items )
 <h2 id="stamp">stamp</h2>
 
 ``` js
-msnry.stamp( elements )
-// or with jQuery
-$container.masonry( 'stamp', elements )
+iso.stamp( elements )
+// or with vanilla JS
+$container.isotope( 'stamp', elements )
 ```
 
 <ul class="params">
@@ -653,7 +774,7 @@ $container.masonry( 'stamp', elements )
   </li>
 </ul>
 
-<p>Stamp the elements in the layout. Masonry will lay out item elements <em>around</em> stamped elements.</p>
+<p>Stamp the elements in the layout. Isotope will lay out item elements <em>around</em> stamped elements.</p>
 
 <div class="row example">
   <div class="cell example-code">
@@ -661,7 +782,7 @@ $container.masonry( 'stamp', elements )
 var demo = document.querySelector('#stamp-demo');
 var stampElem = demo.querySelector('.stamp');
 var button = demo.querySelector('button');
-var msnry = new Masonry( demo.querySelector('.masonry'), {
+var msnry = new Isotope( demo.querySelector('.masonry'), {
   columnWidth: 60,
   itemSelector: '.item'
 });
@@ -670,12 +791,12 @@ var isStamped = false;
 eventie.bind( button, 'click', function() {
   // stamp or unstamp element
   if ( isStamped ) {
-    msnry.unstamp( stampElem );
+    iso.unstamp( stampElem );
   } else {
-    msnry.stamp( stampElem );
+    iso.stamp( stampElem );
   }
   // trigger layout
-  msnry.layout();
+  iso.layout();
   isStamped = !isStamped;
 });
 ```
@@ -695,9 +816,9 @@ eventie.bind( button, 'click', function() {
 <h2 id="unbindresize">unbindResize</h2>
 
 ``` js
-msnry.unbindResize()
-// or with jQuery
-$container.masonry('unbindResize')
+iso.unbindResize()
+// or with vanilla JS
+$container.isotope('unbindResize')
 ```
 
 <p>Un-bind layout to window <code>resize</code> event.</p>
@@ -707,9 +828,9 @@ $container.masonry('unbindResize')
 <h2 id="unstamp">unstamp</h2>
 
 ``` js
-msnry.unstamp( elements )
-// or with jQuery
-$container.masonry( 'unstamp', elements )
+iso.unstamp( elements )
+// or with vanilla JS
+$container.isotope( 'unstamp', elements )
 ```
 
 <ul class="params">
@@ -726,6 +847,6 @@ $container.masonry( 'unstamp', elements )
   </li>
 </ul>
 
-<p>Un-<a href="#stamp">stamp</a> the elements, so that Masonry will no longer layout item elements around them.</p>
+<p>Un-<a href="#stamp">stamp</a> the elements, so that Isotope will no longer layout item elements around them.</p>
 
 </div>
