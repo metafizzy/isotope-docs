@@ -66,7 +66,7 @@ ID.methods = function() {
     });
   })();
 
-  // ----- appended ----- //
+  // ----- insert ----- //
 
   ( function() {
     var $demo = $('#insert-demo');
@@ -122,26 +122,24 @@ ID.methods = function() {
   // ----- prepended ----- //
 
   ( function() {
-    var demo = document.querySelector('#prepended-demo');
-    var container = demo.querySelector('.masonry');
-    var button = demo.querySelector('button');
-    var msnry = new Masonry( container, {
-      columnWidth: 60
+    var $demo = $('#prepended-demo');
+    var $container = $demo.find('.isotope').isotope({
+      masonry: {
+        columnWidth: 50
+      }
     });
 
-    eventie.bind( button, 'click', function() {
+    $demo.find('button').on( 'click', function() {
       // create new item elements
       var elems = [];
-      var fragment = document.createDocumentFragment();
       for ( var i = 0; i < 3; i++ ) {
         var elem = getItemElement();
-        fragment.appendChild( elem );
         elems.push( elem );
       }
       // prepend elements to container
-      container.insertBefore( fragment, container.firstChild );
-      // add and lay out newly prepended elements
-      msnry.prepended( elems );
+      $container.prepend( elems )
+        // add and lay out newly prepended elements
+        .isotope( 'prepended', elems );
     });
   })();
 
@@ -149,24 +147,25 @@ ID.methods = function() {
   // ----- stamp demo ----- //
 
   ( function() {
-    var demo = document.querySelector('#stamp-demo');
-    var stampElem = demo.querySelector('.stamp');
-    var button = demo.querySelector('button');
-    var msnry = new Masonry( demo.querySelector('.masonry'), {
-      columnWidth: 60,
-      itemSelector: '.item'
+    var $demo = $('#stamp-demo');
+    var $container = $demo.find('.isotope').isotope({
+      itemSelector: '.mini-item',
+      masonry: {
+        columnWidth: 50
+      }
     });
+    var $stampElem = $demo.find('.stamp');
     var isStamped = false;
 
-    eventie.bind( button, 'click', function() {
+    $demo.find('button').on( 'click', function() {
       // stamp or unstamp element
       if ( isStamped ) {
-        msnry.unstamp( stampElem );
+        $container.isotope( 'unstamp', $stampElem );
       } else {
-        msnry.stamp( stampElem );
+        $container.isotope( 'stamp', $stampElem );
       }
       // trigger layout
-      msnry.layout();
+      $container.isotope('layout');
       isStamped = !isStamped;
     });
   })();
@@ -174,20 +173,17 @@ ID.methods = function() {
   // ----- remove demo ----- //
 
   ( function() {
-    var container = document.querySelector('#remove-demo .masonry');
-    var msnry = new Masonry( container, {
-      columnWidth: 60
+    var $container = $('#remove-demo .isotope').isotope({
+      masonry: {
+        columnWidth: 50
+      }
     });
 
-    eventie.bind( container, 'click', function( event ) {
-      // don't proceed if item was not clicked on
-      if ( !classie.has( event.target, 'item' ) ) {
-        return;
-      }
+    $container.on( 'click', '.mini-item', function() {
       // remove clicked element
-      msnry.remove( event.target );
-      // layout remaining item elements
-      msnry.layout();
+      $container.isotope( 'remove', this )
+        // layout remaining item elements
+        .isotope('layout');
     });
   })();
 
