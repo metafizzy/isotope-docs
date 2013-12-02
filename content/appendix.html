@@ -4,7 +4,6 @@
   "nav": [
     "imagesLoaded",
     "Web fonts",
-    "Component libraries",
     "Submitting issues",
     "Upgrading from v2",
     "RequireJS",
@@ -17,42 +16,49 @@
 
 <h2 id="imagesloaded">imagesLoaded</h2>
 
-<p>Unloaded images can throw off Masonry layouts and cause item elements to overlap. <a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback after all child images have been loaded.</p>
+<p>Unloaded images can throw off Isotope layouts and cause item elements to overlap. <a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback after all child images have been loaded.</p>
 
 ``` js
+// initialize Isotope after all images have loaded  
+var $container = $('#container').imagesLoaded( function() {
+  $container.isotope({
+    // options
+  });
+});
+```
+``` js
+// or with vanilla JS
 var container = document.querySelector('#container');
-var msnry;
-// initialize Masonry after all images have loaded
+var iso;
+// initialize Isotope after all images have loaded
 imagesLoaded( container, function() {
-  msnry = new Masonry( container );
-});
-```
-``` js
-// or with jQuery
-var $container = $('#container');
-// initialize Masonry after all images have loaded  
-$container.imagesLoaded( function() {
-  $container.masonry();
+  iso = new Isotope( container {
+    // options
+  });
 });
 ```
 
-<p>Or initialize Masonry first, then trigger <a href="methods.html#layout"><code>layout</code></a> after images have loaded.</p>
+<p>Or initialize Isotope first, then trigger <a href="methods.html#layout"><code>layout</code></a> after images have loaded.</p>
 
 ``` js
-// initialize Masonry
-var msnry = new Masonry( container );
-// layout Masonry again after all images have loaded
-imagesLoaded( container, function() {
-  msnry.layout();
+// initialize Isotope
+var $container = $('#container').isotope({
+  // options
+});
+// layout Isotope again after all images have loaded
+$container.imagesLoaded( function() {
+  $container.isotope('layout');
 });
 ```
 ``` js
-// or with jQuery
-// initialize Masonry
-var $container = $('#container').masonry();
-// layout Masonry again after all images have loaded
-$container.imagesLoaded( function() {
-  $container.masonry();
+// or with vanilla JS
+// initialize Isotope
+var iso = new Isotope( container, {
+  // options
+});
+// layout Isotope again after all images have loaded
+imagesLoaded( container, function() {
+  iso.layout();
 });
 ```
 
@@ -60,7 +66,7 @@ $container.imagesLoaded( function() {
 
 <h2 id="web-fonts">Web fonts</h2>
 
-<p>Like images, unloaded web fonts can throw off Masonry. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
+<p>Like images, unloaded web fonts can throw off Isotope. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
 
 <ul>
   <li><a href="http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/">Typekit font events</a></li>
@@ -69,76 +75,160 @@ $container.imagesLoaded( function() {
 
 <h3 id="typekit">Typekit</h3>
 
-<p>Try the script below when using Masonry on a page with Typekit. This will trigger Masonry when the document is ready and again when fonts have loaded. Be sure to remove Typekit’s default script, <code>try{Typekit.load();}catch(e){}</code>.</p>
+<p>Try the script below when using Isotope on a page with Typekit. This will trigger Isotope when the document is ready and again when fonts have loaded. Be sure to remove Typekit’s default script, <code>try{Typekit.load();}catch(e){}</code>.</p>
 
 ``` js
-var msnry;
-
-function triggerMasonry() {
-  // don't proceed if masonry has not been initialized
-  if ( !msnry ) {
-    return;
-  }
-  msnry.layout();
-}
-// initialize masonry on document ready
-docReady( function() {
-  var container = document.querySelector('#container');
-  msnry = new Masonry( container, {
-    // options...
-  });
-});
-// trigger masonry when fonts have loaded
-Typekit.load({
-  active: triggerMasonry,
-  inactive: triggerMasonry
-});
-```
-
-``` js
-// or with jQuery
 var $container;
 
-function triggerMasonry() {
+function triggerIsotope() {
   // don't proceed if $container has not been selected
   if ( !$container ) {
     return;
   }
-  // init Masonry
-  $container.masonry({
-    // options...
+  // init Isotope
+  $container.isotope({
+    // options
   });
 }
-// trigger masonry on document ready
+// trigger Isotope on document ready
 $(function(){
   $container = $('#container');
-  triggerMasonry();
+  triggerIsotope();
 });
-// trigger masonry when fonts have loaded
+// trigger Isotope when fonts have loaded
 Typekit.load({
-  active: triggerMasonry,
-  inactive: triggerMasonry
+  active: triggerIsotope,
+  inactive: triggerIsotope
 });
 ```
 
-</div><div class="primary-content">
+``` js
+// or with vanilla JS
+var container, iso;
 
-<h3 id="init-with-html">Initialize in HTML</h3>
-
-<p>You can initialize Isotope in HTML, without writing any JavaScript. Simply add <code>js-isotope</code> to the class of the container element. <a href="options.html">Options</a> can be set with a <code>data-isotope-options</code> attribute.</p>
-
-``` html
-<div id="container" class="js-isotope"
-  data-isotope-options='{ "columnWidth": 200, "itemSelector": ".item" }'>
+function triggerIsotope() {
+  // don't proceed if doc isn't ready
+  if ( !container ) {
+    return;
+  }
+  // init Isotope
+  iso = new Isotope( container, {
+    // options
+  });
+}
+// initialize Isotope on document ready
+docReady( function() {
+  var container = document.querySelector('#container');
+  triggerIsotope();
+});
+// trigger Isotope when fonts have loaded
+Typekit.load({
+  active: triggerIsotope,
+  inactive: triggerIsotope
+});
 ```
 
-<p><strong>Options set in HTML must be valid JSON.</strong> Keys need to be quoted, for example <code><span class="string">"itemSelector"</span>:</code>. Note that the attribute value uses single quotes <code>'</code>, but the JSON entities use double-quotes <code>"</code>.</p>
+<!-- 
+</div><div id="submitting-issues" class="primary-content">
+
+{{>submitting-issues}}
+ -->
 
 </div><div class="primary-content">
 
+<h2 id="upgrading-from-v2">Upgrading from v1</h2>
+
+<ul>
+  <li><a href="https://github.com/louisremi/jquery-smartresize">smartresize jQuery plugin</a> removed.</li>
+  <li><a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> no longer included, but is still recommended.</li>
+  <li><code>animationOptions</code> removed. jQuery animation removed. <code>animationOptions</code> removed. This means no animation for in IE8 and IE9.</li>  
+  <li><code>isResizable</code> option renamed to <a href="options.html#isresizebound"><code>isResizeBound</code></a></li>
+  <li><code>layout</code> method renamed to <a href="methods.html#layoutitems"><code>layoutItems</code></a></li>
+  <li><code>transformsEnabled</code> option removed. Transforms are still used, but only for transitions.</li>
+  <li><code>itemPositionDataEnabled</code> option removed. Item position is now accessible as it is set with <code>left</code> and <code>top</code>.</li>
+  <li><code>onLayout</code> option removed. Use the <a href="events.html#layoutcomplete"><code>layoutComplete</code> event</a>.</li>
+  <li>Custom CSS no longer required.</li>
+  <li>jQuery no longer required. Isotope works with vanilla JavaScript.</li>
+</ul>
+
+<h3>Upgrades to <a href="masonry.html">masonry layout mode</a></h3>
+
+<ul>
+  <li>Corner stamp for masonry is now integrated as <a href="options.html#stamp"><code>stamp</code> option</a> and <a href="methods.html#stamp"><code>stamp</code> method</a></li>
+  <li>Centering integrated as the <a href="masonry.html#isfitwidth"><code>isFitWidth</code> option</a>.</li>
+  <li><code>gutterWidth</code> option renamed to <a href="masonry.html#gutter"><code>gutter</code></a></li>
+</ul>
+
+</div><div class="primary-content">
+
+<h2 id="requirejs">RequireJS</h2>
+
+<p>Isotope is compatible with <a href="http://requirejs.org">RequireJS</a>.</p>
+
+<p>You can require <a href="isotope.pkgd.js">isotope.pkgd.js</a>. It provides a named module <code>isotope/js/isotope</code>, which will need to be required as well.</p>
+
+``` js
+requirejs( [
+  // require the file
+  'path/to/isotope.pkgd.js',
+  // require the named module
+  'isotope/js/isotope'
+  // two parameters, isotopePkg is undefined
+  // Isotope is the working module
+], function( isotopePkg, Isotope ) {
+  var iso = new Isotope( '#container', {...});
+});
+```
+
+<p>Or, you can manage dependencies with <a href="http://bower.io">Bower</a>. Set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to <code>bower_components</code> and set a path config for all your application code.</p>
+
+``` js
+requirejs.config({
+  baseUrl: 'bower_components/',
+  paths: {
+    app: '../'
+  }
+});
+
+requirejs( [
+  'isotope/js/isotope',
+  'app/my-component.js'
+], function( Isotope, myComp ) {
+  var iso = new Isotope( '#container', {...});
+});
+```
+
+<h3 id="requirejs-and-jquery">RequireJS and jQuery</h3>
+
+<p>To use Packery with <a href="http://requirejs.org/docs/jquery.html#modulename">jQuery via RequireJS</a>, require <code>jquery-bridget/jquery.bridget</code>:</p>
+
+``` js
+requirejs.config({
+  // change base_path to bower_components
+  baseUrl: '../bower_components/',
+  // add path config for jQuery
+  paths: {
+    jquery: 'jquery/jquery'
+  }
+});
+
+// require jQuery bridget, which will enable $.fn.packery
+requirejs( [
+    'jquery-bridget/jquery.bridget',
+    'packery/js/packery'
+  ],
+  function() {
+    var $ = window.jQuery
+    $('#container').isotope({...});
+  }
+);
+```
+
+</div><div class="primary-content">
+  
 <h2 id="component-libraries">Component libraries</h2>
 
-<p>Masonry includes several component libraries. You might have seen these used in the example code. You can use some of these libraries in your own code.</p>
+<p>Isotope includes several component libraries. You might have seen these used in the example code. You can use some of these libraries in your own code.</p>
 
 <h3 id="docready">docReady</h3>
 
@@ -148,13 +238,13 @@ Typekit.load({
 docReady( function() {
   // document is ready, let's do some fun stuff!
   var container = document.querySelector('#container');
-  var msnry = new Masonry( container );
+  var iso = new Isotope( container );
 });
 ```
 
 <h3 id="classie">classie</h3>
 
-<p><a href="https://github.com/desandro/classie">classie has class helper functions.</a> classie is not included with Masonry.</p>
+<p><a href="https://github.com/desandro/classie">classie has class helper functions.</a> classie is not included with Isotope.</p>
 
 ``` js
 classie.has( element, 'my-class' ) // returns true/false
@@ -178,79 +268,19 @@ eventie.bind( elem, 'click', onElemClick );
 // unbind it
 eventie.unbind( elem, 'click', onElemClick );
 ```
-</div><div id="submitting-issues" class="primary-content">
-
-{{>submitting-issues}}
 
 </div><div class="primary-content">
 
-<h2 id="upgrading-from-v2">Upgrading from v2</h2>
-
-<ul>
-  <li>smartresize jQuery plugin has been removed</li>
-  <li><a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> no longer included, but is still recommended.</li>
-  <li>jQuery animation has been removed. <code>animationOptions</code> has been removed. This means no animation for in IE8 and IE9.</li>
-  <li>Corner stamp is now integrated as <a href="options.html#stamp"><code>stamp</code> option</a> and <a href="methods.html#stamp"><code>stamp</code> method</a></li>
-  <li><code>isRTL</code> option removed, use <a href="options.html#isoriginleft"><code>isOriginLeft: false</code></a> instead</li>
-  <li><code>isResizable</code> option renamed to <a href="options.html#isresizebound"><code>isResizeBound</code></a></li>
-  <li><code>layout</code> method renamed to <a href="methods.html#layoutitems"><code>layoutItems</code></a></li>
-  <li><code>gutterWidth</code> option renamed to <a href="options.html#gutter"><code>gutter</code></a></li>
-</ul>
-
-</div><div class="primary-content">
-
-<h2 id="requirejs">RequireJS</h2>
-
-<p>Masonry is compatible with <a href="http://requirejs.org">RequireJS</a>. Some configuration is required for its dependencies. All dependencies can be installed with <a href="http://bower.io">Bower</a>.</p>
-
-<p>Set <a href="http://requirejs.org/docs/api.html#config-paths">config paths</a> for all Masonry's dependencies.</p>
-
-``` js
-requirejs.config({
-  paths: {
-    eventie: 'bower_components/eventie',
-    'doc-ready': 'bower_components/doc-ready',
-    eventEmitter: 'bower_components/eventEmitter',
-    'get-style-property': 'bower_components/get-style-property',
-    'get-size': 'bower_components/get-size',
-    'matches-selector': 'bower_components/matches-selector',
-    outlayer: 'bower_components/outlayer',
-    masonry: 'bower_components/masonry'
-  }
-});
-
-requirejs( [ 'masonry/masonry' ], function( Masonry ) {
-  new Masonry( /*...*/ )
-});
-```
-
-<p>Or, you can set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to bower_components and set a path config for all your application code.</p>
-
-``` js
-requirejs.config({
-  baseUrl: 'bower_components/',
-  paths: {
-    app: '../'
-  }
-});
-
-requirejs( [ 'masonry/masonry', 'app/my-component.js' ], function( Masonry, myComp ) {
-  new Masonry( /*...*/ )
-});
-```
-
-</div><div class="primary-content">
 
 <h2 id="additional-resources">Additional resources</h2>
 
 <ul>
   <li>The <a href="http://metafizzy.co/blog/">Metafizzy blog</a> has posts that cover specialized use cases</li>
   <li><a href="http://stackoverflow.com/users/182183/desandro?tab=answers">My answers on Stack Overflow</a></li>
-  <li><a href="http://www.delicious.com/desandro/jquerymasonry">Sites using Masonry on Delicious</a></li>
-  <li><a href="http://zootool.com/user/desandro/tag:masonry">Sites using Masonry on Zootool</a> (has screenshots)</li>
-  <li><a href="http://stackoverflow.com/search?q=masonry">Stack Overflow questions about Masonry</a></li>
-  <li><a href="http://www.delicious.com/desandro/re:masonry">Related Masonry links</a></li>
-  <li>Other resources that are <a href="http://www.delicious.com/desandro/likemasonrybutnot">like Masonry but not</a></li>
+  <li><a href="https://delicious.com/desandro/using%3Aisotope">Sites using Isotope on Delicious</a></li>
+  <li><a href="http://zootool.com/user/desandro/tag:isotope">Sites using Isotope on Zootool</a> (has screenshots)</li>
+  <li><a href="http://stackoverflow.com/search?q=isotope">Stack Overflow questions about Isotope</a></li>
+  <li><a href="https://delicious.com/desandro/re:isotope">Related Isotope links</a></li>
 </ul>
 
 </div>
