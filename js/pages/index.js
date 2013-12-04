@@ -13,7 +13,7 @@ ID.index = function() {
 
   ( function() {
     var $container = $('#hero .isotope').isotope({
-      itemSelector: '.item',
+      itemSelector: '.element-item',
       layoutMode: 'fitRows',
       transitionDuration: '0.6s',
       getSortData: {
