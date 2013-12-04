@@ -26,7 +26,7 @@ ID.filtering = function() {
     };
 
     var $container = $('#filtering-demo .isotope').isotope({
-      itemSelector: '.item',
+      itemSelector: '.element-item',
       layoutMode: 'fitRows',
       isJQueryFiltering: true,
       transitionDuration: '0.6s'

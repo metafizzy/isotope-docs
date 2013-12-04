@@ -13,7 +13,7 @@ ID.sorting = function() {
   // demo at the top
   ( function() {
     var $container = $('#sorting-demo .isotope').isotope({
-      itemSelector: '.item',
+      itemSelector: '.element-item',
       layoutMode: 'fitRows',
       transitionDuration: '0.6s',
       getSortData: {
