@@ -96,6 +96,7 @@
 
 /* ---- mini items ---- */
 
+.item,
 .mini-item {
   float: left;
   width: 50px;
@@ -300,13 +301,13 @@
 /* ---- animate-item-size ---- */
 
 /* item is invisible, but used for layout */
-.masonry.animate-item-size-demo .item,
-.masonry.animate-item-size-demo .item-content {
+.isotope.animate-item-size-demo .item,
+.isotope.animate-item-size-demo .item-content {
   width: 60px;
   height: 60px;
 }
 
-.masonry.animate-item-size-demo .item {
+.isotope.animate-item-size-demo .item {
   border: none;
   background: transparent;
 }
@@ -315,10 +316,9 @@
 .animate-item-size-demo .item-content {
   width: 60px;
   height: 60px;
-  background: #D26;
+  background: #8DF;
   border: 2px solid #333;
   border-color: hsla(0, 0%, 0%, 0.5);
-  border-radius: 5px;
   -webkit-transition: width 0.4s, height 0.4s;
      -moz-transition: width 0.4s, height 0.4s;
        -o-transition: width 0.4s, height 0.4s;
@@ -327,7 +327,7 @@
 
 .animate-item-size-demo .item:hover .item-content {
   border-color: white;
-  background: #A2C;
+  background: #4BF;
 }
 
 /* both item and item content change size */

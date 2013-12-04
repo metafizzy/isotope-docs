@@ -18,45 +18,39 @@ var transitionEndEvent = {
 
 // -------------------------- faq -------------------------- //
 
-ID.faq = function() {
+ID.appendix = function() {
+
+  console.log('hello world', transitionEndEvent );
 
   // ----- animate item size ----- //
 
   ( function() {
-    var container = document.querySelector('#animate-item-size .masonry');
-    var msnry = new Masonry( container, {
-      columnWidth: 60
-    });
-
-    eventie.bind( container, 'click', function( event ) {
-      // don't proceed if item content was not clicked on
-      var target = event.target;
-      if ( !classie.has( target, 'item-content' )  ) {
-        return;
+    var $container = $('#animate-item-size .isotope').isotope({
+      masonry: {
+        columnWidth: 60
       }
-      var itemElem = target.parentNode;
-      classie.toggleClass( itemElem, 'is-expanded' );
-
-      msnry.layout();
     });
+  
+    $container.on( 'click', '.item', function() {
+      $(this).toggleClass('is-expanded');
+      $container.isotope('layout');
+    });
+  
   })();
 
   // ----- animate item size responsive ----- //
 
   ( function() {
-    var container = document.querySelector('#animate-item-size-responsive .masonry');
-    var msnry = new Masonry( container, {
-      columnWidth: '.grid-sizer',
-      itemSelector: '.item'
+
+    var $container = $('#animate-item-size-responsive .isotope').isotope({
+      itemSelector: '.item',
+      masonry: {
+        columnWidth: '.grid-sizer'
+      }
     });
 
-    eventie.bind( container, 'click', function( event ) {
-      // don't proceed if item content was not clicked on
-      var target = event.target;
-      if ( !classie.has( target, 'item-content' )  ) {
-        return;
-      }
-
+    $container.on( 'click', '.item-content', function() {
+      var target = this;
       var previousContentSize = getSize( target );
       // disable transition
       target.style[ transitionProp ] = 'none';
@@ -88,8 +82,9 @@ ID.faq = function() {
       target.style.height = size.height + 'px';
       redraw = null; // for JSHint
 
-      msnry.layout();
+      $container.isotope('layout');
     });
+
   })();
 
 };
