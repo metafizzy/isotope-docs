@@ -24,14 +24,21 @@ module.exports = function( grunt ) {
         options: {
           baseUrl: 'bower_components',
           include: [
+            'jquery-bridget/jquery.bridget',
             'isotope/js/isotope',
             'isotope/js/layout-modes/masonry',
             'isotope/js/layout-modes/fit-rows',
             'isotope/js/layout-modes/cells-by-row',
             'isotope/js/layout-modes/vertical'
           ],
-          out: 'isotope.require.js',
-          optimize: 'none'
+          out: 'build/isotope.pkgd.js',
+          optimize: 'none',
+          paths: {
+            jquery: 'empty:'
+          },
+          wrap: {
+            start: banner
+          }
         }
       }
     },
@@ -54,18 +61,8 @@ module.exports = function( grunt ) {
       'docs-css': {
         src: [ 'css/*.css', '!css/isotope-docs.css' ],
         dest: 'build/css/isotope-docs.css'
-      },
-
-      pkgd: {
-        src: [
-          'bower_components/jquery-bridget/jquery.bridget.js',
-          'isotope.require.js'
-        ],
-        dest: 'build/isotope.pkgd.js',
-        options: {
-          banner: banner
-        }
       }
+
     },
 
     uglify: {
@@ -183,6 +180,14 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-requirejs');
   grunt.loadNpmTasks('grunt-fizzy-docs');
+
+  // grunt.registerTask( 'pkgd-fix', function() {
+  //   var outFile = grunt.config.get('requirejs.pkgd.options.out');
+  //   var contents = grunt.file.read( outFile );
+  //   contents = contents.replace( "'masonry/masonry',", '' );
+  //   grunt.file.write( outFile, contents );
+  //   grunt.log.writeln( 'Edited ' + outFile );
+  // });
 
   grunt.registerTask( 'default', [
     'jshint',
