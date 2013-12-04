@@ -15,7 +15,7 @@ ID['layout-modes'] = function() {
   // demo at the top
   ( function() {
     var $container = $('#layout-modes-demo .isotope').isotope({
-      itemSelector: '.item',
+      itemSelector: '.element-item',
       layoutMode: 'masonry',
       transitionDuration: '0.6s',
       masonry: {
