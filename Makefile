@@ -6,8 +6,8 @@ zip:
 	zip -rq build/isotope-docs.zip isotope-docs/
 	rm -rf isotope-docs
 
-# deploy:
-# 	s3cmd sync build/. s3://isotope.metafizzy.co
+deploy:
+	s3cmd sync build/. s3://isotope.metafizzy.co/beta/
 
 grunt:
 	grunt
