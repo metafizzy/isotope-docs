@@ -152,9 +152,8 @@ iso.arrange({
 <p>Each button has its filter set in the <code>data-filter</code> attribute. In the JS, we can use that filter when a button is clicked.</p>
 
 ``` js
-var $container = $('#container');
 // init Isotope
-$container.isotope({
+var $container = $('#container').isotope({
   // options
 });
 // filter items on button click
@@ -171,7 +170,7 @@ $('#filters').on( 'click', 'button', function( event ) {
 ``` html
   <!-- in button group -->
   <button data-filter="numberGreaterThan50">number > 50</button>
-  <button data-filter="ium">name ends with &ndash;ium</button>
+  <button data-filter="ium">name ends with -ium</button>
 ```
 
 ``` js
