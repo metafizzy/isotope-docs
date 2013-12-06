@@ -205,6 +205,25 @@ div.param {
   pointer-events: none;
 }
 
+/* ---- top-banner ---- */
+
+#top-banner {
+  background: #FF0;
+  padding: 0.6em 0;
+  color: #222;
+}
+
+#top-banner h2 {
+  margin-bottom: 0.4em;
+}
+
+#top-banner a {
+  color: #06F;
+  font-weight: 500;
+}
+
+#top-banner a:hover { color: #F06; }
+
 /* ---- desktop media query ---- */
 
 @media screen and ( min-width: 960px ) {

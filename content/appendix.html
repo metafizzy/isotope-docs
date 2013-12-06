@@ -139,6 +139,18 @@ Typekit.load({
 
 <h2 id="upgrading-from-v1">Upgrading from v1</h2>
 
+<h3>New features</h3>
+
+<ul>
+  <li>Custom CSS no longer required.</li>
+  <li>jQuery no longer required. Isotope works with vanilla JavaScript.</li>
+  <li><a href="events.html#layoutcomplete"><code>layoutComplete</code> event</a>.</li>
+  <li><a href="sorting.html#getsortdata"><code>getSortData</code> shortcut strings</a>.</li>
+  <li>Way better support for responsive web design with <a href="options.html#element-sizing">element sizing options</a>.</li>
+</ul>
+
+<h3>Changes</h3>
+
 <ul>
   <li><a href="https://github.com/louisremi/jquery-smartresize">smartresize jQuery plugin</a> removed.</li>
   <li><a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> no longer included, but is still recommended.</li>
@@ -148,8 +160,6 @@ Typekit.load({
   <li><code>transformsEnabled</code> option removed. Transforms are still used, but only for transitions.</li>
   <li><code>itemPositionDataEnabled</code> option removed. Item position is now accessible as it is set with <code>left</code> and <code>top</code>.</li>
   <li><code>onLayout</code> option removed. Use the <a href="events.html#layoutcomplete"><code>layoutComplete</code> event</a>.</li>
-  <li>Custom CSS no longer required.</li>
-  <li>jQuery no longer required. Isotope works with vanilla JavaScript.</li>
 </ul>
 
 <h3>Upgrades to <a href="masonry.html">masonry layout mode</a></h3>
