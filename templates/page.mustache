@@ -12,11 +12,11 @@
   {{#if isDev}}
     <!-- DEV MODE - including each .css file -->
     {{#each site.css}}
-      <link rel="stylesheet" href="{{this}}" />
+      <link rel="stylesheet" href="{{../root_path}}{{this}}" />
     {{/each}}
   {{else}}
     {{! in production, just include concat CSS }}
-    <link rel="stylesheet" href="css/isotope-docs.css" />
+    <link rel="stylesheet" href="{{root_path}}css/isotope-docs.css" />
   {{/if}}
 
   {{! Twitter Cards }}
@@ -48,27 +48,27 @@
   <div id="site-nav">
     <h1><a href=".">Isotope</a></h1>
     <ol>
-      <li class="nav-filtering"><a href="filtering.html">Filtering</a></li>
-      <li class="nav-sorting"><a href="sorting.html">Sorting</a></li>
+      <li class="nav-filtering"><a href="{{root_path}}filtering.html">Filtering</a></li>
+      <li class="nav-sorting"><a href="{{root_path}}sorting.html">Sorting</a></li>
       <li class="nav-layout-modes">
-        <a href="layout-modes.html">Layout modes</a>
+        <a href="{{root_path}}layout-modes.html">Layout modes</a>
         <ul>
-          <li class="nav-masonry"><a href="masonry.html">masonry</a></li>
-          <li class="nav-fitrows"><a href="fitrows.html">fitRows</a></li>
-          <li class="nav-cellsbyrow"><a href="cellsbyrow.html">cellsByRow</a></li>
-          <li class="nav-vertical"><a href="vertical.html">vertical</a></li>
-          <li class="nav-masonryhorizontal"><a href="masonryhorizontal.html">masonryHorizontal</a></li>
-          <li class="nav-fitcolumns"><a href="fitcolumns.html">fitColumns</a></li>
-          <li class="nav-cellsbycolumn"><a href="cellsbycolumn.html">cellsByColumn</a></li>
-          <li class="nav-horizontal"><a href="horizontal.html">horizontal</a></li>
+          <li class="nav-masonry"><a href="{{root_path}}layout-modes/masonry.html">masonry</a></li>
+          <li class="nav-fitrows"><a href="{{root_path}}layout-modes/fitrows.html">fitRows</a></li>
+          <li class="nav-cellsbyrow"><a href="{{root_path}}layout-modes/cellsbyrow.html">cellsByRow</a></li>
+          <li class="nav-vertical"><a href="{{root_path}}layout-modes/vertical.html">vertical</a></li>
+          <li class="nav-masonryhorizontal"><a href="{{root_path}}layout-modes/masonryhorizontal.html">masonryHorizontal</a></li>
+          <li class="nav-fitcolumns"><a href="{{root_path}}layout-modes/fitcolumns.html">fitColumns</a></li>
+          <li class="nav-cellsbycolumn"><a href="{{root_path}}layout-modes/cellsbycolumn.html">cellsByColumn</a></li>
+          <li class="nav-horizontal"><a href="{{root_path}}layout-modes/horizontal.html">horizontal</a></li>
         </ul>
       </li>
-      <li class="nav-options"><a href="options.html">Options</a></li>
-      <li class="nav-methods"><a href="methods.html">Methods</a></li>
-      <li class="nav-events"><a href="events.html">Events</a></li>
-      <li class="nav-license"><a href="license.html">License</a></li>
-      <li class="nav-appendix"><a href="appendix.html">Appendix</a></li>
-      <li class="nav-faq"><a href="faq.html">FAQ</a></li>
+      <li class="nav-options"><a href="{{root_path}}options.html">Options</a></li>
+      <li class="nav-methods"><a href="{{root_path}}methods.html">Methods</a></li>
+      <li class="nav-events"><a href="{{root_path}}events.html">Events</a></li>
+      <li class="nav-license"><a href="{{root_path}}license.html">License</a></li>
+      <li class="nav-appendix"><a href="{{root_path}}appendix.html">Appendix</a></li>
+      <li class="nav-faq"><a href="{{root_path}}faq.html">FAQ</a></li>
     </ol>
   </div>
 
@@ -109,16 +109,16 @@
 
 <!-- Isotope does NOT require jQuery. But it does make things easier -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="{{root_path}}bower_components/jquery/jquery.min.js"><\/script>')</script>
 
 {{#if isDev}}
   <!-- DEV MODE - including each .js file -->
   {{#each site.js}}
-    <script src="{{this}}"></script>
+    <script src="{{../root_path}}{{this}}"></script>
   {{/each}}
 {{else}}
   {{! in production, just include concat/minified js }}
-  <script src="js/isotope-docs.min.js"></script>
+  <script src="{{root_path}}js/isotope-docs.min.js"></script>
 {{/if}}
 
 {{#unless isDev}}

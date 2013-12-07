@@ -85,7 +85,7 @@ module.exports = function( grunt ) {
     template: {
       docs: {
         files: {
-          'build/': 'content/*'
+          'build/': 'content/**/*.*'
         },
         options: {
           templates: 'templates/*.mustache',
@@ -154,7 +154,7 @@ module.exports = function( grunt ) {
 
     watch: {
       content: {
-        files: [ 'content/*', 'templates/*.mustache' ],
+        files: [ 'content/**/*.*', 'templates/*.mustache' ],
         tasks: [ 'template' ]
       },
       "public": {
