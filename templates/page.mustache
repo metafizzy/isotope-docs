@@ -9,7 +9,7 @@
 
   <title>Isotope{{#unless page.is_homepage}} {{page.title}}{{/unless}}</title>
 
-  {{#if isDev}}
+  {{#if is_dev}}
     <!-- DEV MODE - including each .css file -->
     {{#each site.css}}
       <link rel="stylesheet" href="{{../root_path}}{{this}}" />
@@ -26,7 +26,7 @@
   <meta name="twitter:title" content="Isotope{{#unless page.is_homepage}} {{page.title}}{{/unless}}" />
   <meta name="twitter:description" content="filtering &amp; sorting magical layout library" />
 
-  {{#unless isDev}}
+  {{#unless is_dev}}
     <!-- Mint Analytics - Remove this if you copy/pasted this page -->
     <!-- <script src="http://desandro.com/mint/?js"></script> -->
   {{/unless}}
@@ -111,7 +111,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{root_path}}bower_components/jquery/jquery.min.js"><\/script>')</script>
 
-{{#if isDev}}
+{{#if is_dev}}
   <!-- DEV MODE - including each .js file -->
   {{#each site.js}}
     <script src="{{../root_path}}{{this}}"></script>
@@ -121,7 +121,7 @@
   <script src="{{root_path}}js/isotope-docs.min.js"></script>
 {{/if}}
 
-{{#unless isDev}}
+{{#unless is_dev}}
   <script src="https://www.simplegoods.co/assets/embed.js"></script>
   <!-- Google Analytics - Remove this if you copy/pasted this page -->
   <script>
