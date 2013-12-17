@@ -9,3 +9,5 @@ combination filters
 check requiring jQuery
 
 check requiring jQuery with pkgd
+
+filtering & quick search
