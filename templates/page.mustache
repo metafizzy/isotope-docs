@@ -26,11 +26,6 @@
   <meta name="twitter:title" content="Isotope{{#unless page.is_homepage}} {{page.title}}{{/unless}}" />
   <meta name="twitter:description" content="filtering &amp; sorting magical layout library" />
 
-  {{#unless is_dev}}
-    <!-- Mint Analytics - Remove this if you copy/pasted this page -->
-    <!-- <script src="http://desandro.com/mint/?js"></script> -->
-  {{/unless}}
-
 </head>
 <body class="{{basename}}-page" data-page="{{basename}}">
 
@@ -46,7 +41,7 @@
   </div>
 
   <div id="site-nav">
-    <h1><a href=".">Isotope</a></h1>
+    <h1><a href="{{root_path}}.">Isotope</a></h1>
     <ol>
       <li class="nav-filtering"><a href="{{root_path}}filtering.html">Filtering</a></li>
       <li class="nav-sorting"><a href="{{root_path}}sorting.html">Sorting</a></li>
