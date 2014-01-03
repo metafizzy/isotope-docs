@@ -8,7 +8,7 @@
     "eventie": "desandro/eventie",
     "get-style-property": "desandro/get-style-property",
     "imagesloaded": "latest",
-    "isotope": "../isotope#2.0.0-beta.4",
+    "isotope": "../isotope#2.0.0-beta.6",
     "jquery": "~1",
     "normalize-css": "~2"
   }
