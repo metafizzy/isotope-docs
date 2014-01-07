@@ -28,7 +28,6 @@ module.exports = function( grunt ) {
             'isotope/js/isotope',
             'isotope/js/layout-modes/masonry',
             'isotope/js/layout-modes/fit-rows',
-            'isotope/js/layout-modes/cells-by-row',
             'isotope/js/layout-modes/vertical'
           ],
           out: 'build/isotope.pkgd.js',
@@ -46,11 +45,6 @@ module.exports = function( grunt ) {
     concat: {
       'docs-js': {
         src: [
-          // additional layout modes
-          'bower_components/isotope/js/layout-modes/masonry-horizontal.js',
-          'bower_components/isotope/js/layout-modes/fit-columns.js',
-          'bower_components/isotope/js/layout-modes/cells-by-column.js',
-          'bower_components/isotope/js/layout-modes/horizontal.js',
           // docs js
           'js/controller.js',
           'js/pages/*.js'
@@ -141,11 +135,7 @@ module.exports = function( grunt ) {
       bowerSources: {
         // additional sources will be set in bower-list-map
         src: [
-          'bower_components/jquery/jquery.min.js',
-          'bower_components/isotope/js/layout-modes/masonry-horizontal.js',
-          'bower_components/isotope/js/layout-modes/fit-columns.js',
-          'bower_components/isotope/js/layout-modes/cells-by-column.js',
-          'bower_components/isotope/js/layout-modes/horizontal.js'
+          'bower_components/jquery/jquery.min.js'
         ],
         dest: 'build/'
       }

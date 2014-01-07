@@ -8,7 +8,12 @@
     "eventie": "desandro/eventie",
     "get-style-property": "desandro/get-style-property",
     "imagesloaded": "latest",
-    "isotope": "../isotope#2.0.0-beta.6",
+    "isotope": ">=2.0.0-beta.6 <3",
+    "isotope-cells-by-column": "metafizzy/isotope-cells-by-column",
+    "isotope-cells-by-row": "metafizzy/isotope-cells-by-row",
+    "isotope-fit-columns": "metafizzy/isotope-fit-columns",
+    "isotope-horizontal": "metafizzy/isotope-horizontal",
+    "isotope-masonry-horizontal": "metafizzy/isotope-masonry-horizontal",
     "jquery": "~1",
     "normalize-css": "~2"
   }
