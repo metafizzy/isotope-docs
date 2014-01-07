@@ -24,7 +24,7 @@
 
 <div class="primary-content">
 
-<p>All options are optional, but <a href="#itemselector"><code>itemSelector</code></a> is recommended. <a href="layout-modes.html#layout-mode-options">Layout modes have their own seperate options</a>.</p>
+<p>All options are optional, but <a href="#itemselector"><code>itemSelector</code></a> is recommended. <a href="layout-modes.html#layout-mode-options">Layout modes have their own separate options</a>.</p>
 
 ``` js
 // with jQuery
@@ -32,7 +32,7 @@ $('#container').isotope({
   itemSelector: '.item',
   getSortData: {
     name: '.name',
-    cateogry: '[data-category]'
+    category: '[data-category]'
   },
   // layout mode options
   masonry: {
@@ -46,7 +46,7 @@ var iso = new Isotope( '#container', {
   itemSelector: '.item',
   getSortData: {
     name: '.name',
-    cateogry: '[data-category]'
+    category: '[data-category]'
   },
   masonry: {
     columnWidth: 200
@@ -326,7 +326,7 @@ itemSelector: '.item'
   </p>
 </div>
 
-<p>Sorts items ascendingly if <code><span class="literal">true</span></code> &ldquo;A, B, C&hellip;&rdquo;, &ldquo;1, 2, 3&hellip;&rdquo;, or descendingly if <code><span class="literal">false</span></code>, &ldquo;Z, Y, X&hellip;&rdquo;, &ldquo;9, 8, 7&hellip;&rdquo;.</p>
+<p>Sorts items ascending if <code><span class="literal">true</span></code> &ldquo;A, B, C&hellip;&rdquo;, &ldquo;1, 2, 3&hellip;&rdquo;, or descending if <code><span class="literal">false</span></code>, &ldquo;Z, Y, X&hellip;&rdquo;, &ldquo;9, 8, 7&hellip;&rdquo;.</p>
 
 ``` js
 // sort by number, highest number first
