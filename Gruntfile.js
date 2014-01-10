@@ -171,17 +171,12 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-requirejs');
   grunt.loadNpmTasks('grunt-fizzy-docs');
 
-  // grunt.registerTask( 'pkgd-fix', function() {
-  //   var outFile = grunt.config.get('requirejs.pkgd.options.out');
-  //   var contents = grunt.file.read( outFile );
-  //   contents = contents.replace( "'masonry/masonry',", '' );
-  //   grunt.file.write( outFile, contents );
-  //   grunt.log.writeln( 'Edited ' + outFile );
-  // });
+  grunt.loadTasks('tasks/');
 
   grunt.registerTask( 'default', [
     'jshint',
     'requirejs',
+    'pkgd-edit',
     'int-bower',
     'concat',
     'uglify',
