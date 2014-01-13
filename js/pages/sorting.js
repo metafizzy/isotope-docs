@@ -12,6 +12,8 @@ ID.sorting = function() {
 
   // demo at the top
   ( function() {
+    var $buttonGroup = $('#sorting-demo .button-group');
+
     var $container = $('#sorting-demo .isotope').isotope({
       itemSelector: '.element-item',
       layoutMode: 'fitRows',
@@ -25,15 +27,16 @@ ID.sorting = function() {
           var weight = $( itemElem ).find('.weight').text();
           return parseFloat( weight.replace( /[\(\)]/g, '') );
         }
-      }
+      },
+      // initial sortBy from button group
+      sortBy: $buttonGroup.find(':checked').val()
     });
     
-    $('#sorting-demo .button-group').on( 'click', 'input', function() {
+    $buttonGroup.on( 'click', 'input', function() {
       $container.isotope({ sortBy: this.value });
     });
 
   })();
-
 
 };
 
