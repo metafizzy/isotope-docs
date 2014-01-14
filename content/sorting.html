@@ -152,11 +152,15 @@ $container.isotope({ sortBy : 'symbol' });
   <li><code><span class="string">'random'</span></code> is a random order.</li>
 </ul>
 
+<h3>Multiple sortBy</h3>
+
+
+
 </div><div class="primary-content">
 
-<h2 id="sortBy">sortAscending</h2>
+<h2 id="sortascending">sortAscending</h2>
 
-<p>By default, Isotope sorts ascendingly: A, B, C and 1, 2, 3. To reverse this, set the <a href="options.html#sortascending"><code>sortAscending</code> option</a> to <code><span class="literal">false</span></code></p>
+<p>By default, Isotope sorts ascendingly: A, B, C and 1, 2, 3. To reverse this, set the <code>sortAscending: <span class="literal">false</span></code>.</p>
 
 ``` js
 // sort by number, highest number first
@@ -175,6 +179,16 @@ $container.isotope({
     category: true,
     number: false
   }
+```
+
+</div><div class="primary-content">
+
+<h2 id="updateSortData">updateSortData</h2>
+
+<p>To update sort data after a change has been made to item elements, use the <a href="methods.html#updatesortdata"><code>updateSortData</code> method</a>.</p>
+
+``` js
+$container.isotope('updateSortData').isotope();
 ```
 
 </div><div class="primary-content">

@@ -22,7 +22,8 @@
     "reveal",
     "stamp",
     "unbindResize",
-    "unstamp"
+    "unstamp",
+    "updateSortData"
   ]
 }
 ---
@@ -852,5 +853,30 @@ iso.unstamp( elements )
 </ul>
 
 <p>Un-<a href="#stamp">stamp</a> the elements, so that Isotope will no longer layout item elements around them.</p>
+
+</div><div class="primary-content">
+
+<h2 id="updatesortdata">updateSortData</h2>
+
+``` js
+$container.isotope( 'updateSortData', elements )
+// or with vanilla JS
+iso.updateSortData( elements )
+```
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>elements</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b>
+      <span class="value">
+        <i>Element</i>,
+        <i>NodeList</i>, or
+        <i>Array</i> of Elements
+      </span>
+    </p>
+    <p class="param-bit">Optional</p>
+  </li>
+</ul>
 
 </div>
