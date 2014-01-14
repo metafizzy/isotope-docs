@@ -298,6 +298,20 @@
   line-height: 50px;
 }
 
+/* ---- multiple-sort-by ---- */
+
+#multiple-sort-by-demo .mini-item .number {
+  font-size: 50px;
+  font-weight: 600;
+  color: #222;
+  padding-top: 0.1em;
+  text-align: center;
+}
+
+#multiple-sort-by-demo [data-color="blue"] { background: blue; }
+#multiple-sort-by-demo [data-color="red"] { background: red; }
+#multiple-sort-by-demo [data-color="yellow"] { background: yellow; }
+
 /* ---- animate-item-size ---- */
 
 /* item is invisible, but used for layout */

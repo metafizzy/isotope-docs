@@ -31,9 +31,34 @@ ID.sorting = function() {
       // initial sortBy from button group
       sortBy: $buttonGroup.find(':checked').val()
     });
-    
+
     $buttonGroup.on( 'click', 'input', function() {
       $container.isotope({ sortBy: this.value });
+    });
+
+  })();
+
+  ( function() {
+    function getMultiSortBy( val ) {
+      return val.split(',')
+    }
+
+    var $buttonGroup = $('#multiple-sort-by-demo .button-group');
+
+    var $container = $('#multiple-sort-by-demo .isotope').isotope({
+      layoutMode: 'fitRows',
+      itemSelector: '.mini-item',
+      getSortData: {
+        color: '[data-color]',
+        number: '.number parseInt'
+      },
+      sortBy: getMultiSortBy( $buttonGroup.find(':checked').val() )
+    });
+
+    $buttonGroup.on( 'click', 'input', function() {
+      $container.isotope({
+        sortBy: getMultiSortBy( this.value )
+      });
     });
 
   })();
