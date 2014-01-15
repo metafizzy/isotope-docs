@@ -40,7 +40,7 @@ ID.sorting = function() {
 
   ( function() {
     function getMultiSortBy( val ) {
-      return val.split(',')
+      return val.split(',');
     }
 
     var $buttonGroup = $('#multiple-sort-by-demo .button-group');
