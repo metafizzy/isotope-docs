@@ -96,10 +96,8 @@ ID.methods = function() {
         $( elem ).append( '<p class="number">' + number + '</p>' );
         elems.push( elem );
       }
-      // append elements to container
-      $container.append( elems )
-        // insert in isotope instance
-        .isotope( 'insert', elems );
+      // insert new elements
+      $container.isotope( 'insert', elems );
     });
   })();
 
