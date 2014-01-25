@@ -36,9 +36,10 @@ ID['layout-modes'] = function() {
 
     var isHorizontal = false;
 
-    $('#layout-modes-demo .button-group').on( 'click', 'input', function() {
+    $('#layout-modes-demo .button-group').on( 'click', 'button', function() {
       // adjust container sizing if layout mode is changing from vertical or horizontal
-      var isHorizontalMode = !!$(this).attr('data-is-horizontal');
+      var $this = $(this);
+      var isHorizontalMode = !!$this.attr('data-is-horizontal');
       if ( isHorizontal !== isHorizontalMode ) {
         var containerStyle = isHorizontalMode ? {
           height: $window.height() * 0.7
@@ -49,7 +50,8 @@ ID['layout-modes'] = function() {
         isHorizontal = isHorizontalMode;
       }
       // change layout mode
-      $container.isotope({ layoutMode: this.value });
+      var layoutModeValue = $this.attr('data-layout-mode-value');
+      $container.isotope({ layoutMode: layoutModeValue });
     });
 
   })();
