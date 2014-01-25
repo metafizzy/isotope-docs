@@ -100,9 +100,12 @@ $.fn.radioButtonGroup = function() {
   this.each( function( i, buttonGroup ) {
     var $buttonGroup = $( buttonGroup );
     $buttonGroup.find(':checked').parent().addClass('is-checked');
-    $buttonGroup.on( 'click', 'input', function() {
+    $buttonGroup.on( 'click', 'input, button', function() {
       $buttonGroup.find('.is-checked').removeClass('is-checked');
-      $( this ).parent().addClass('is-checked');
+      var $this = $( this );
+      var $clickedButton = $this.hasClass('button') ? $this :
+        $this.parents('.button');
+      $clickedButton.addClass('is-checked');
     });
   });
   return this;

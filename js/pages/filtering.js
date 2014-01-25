@@ -12,6 +12,13 @@ ID.filtering = function() {
 
   // demo at the top
   ( function() {
+
+    var $container = $('#filtering-demo .isotope').isotope({
+      itemSelector: '.element-item',
+      layoutMode: 'fitRows',
+      transitionDuration: '0.6s'
+    });
+
     var filterFns = {
       // show if number is greater than 50
       numberGreaterThan50: function() {
@@ -25,20 +32,13 @@ ID.filtering = function() {
       }
     };
 
-    var $container = $('#filtering-demo .isotope').isotope({
-      itemSelector: '.element-item',
-      layoutMode: 'fitRows',
-      isJQueryFiltering: true,
-      transitionDuration: '0.6s'
-    });
-
-    $('#filtering-demo .button-group').on( 'click', 'input', function() {
-      var filtr = filterFns[ this.value ] || this.value;
-      $container.isotope({ filter: filtr });
+    $('#filtering-demo .button-group').on( 'click', 'button', function() {
+      var filterValue = $(this).attr('data-filter-value');
+      filterValue = filterFns[ filterValue ] || filterValue;
+      $container.isotope({ filter: filterValue });
     });
 
   })();
-
 
 };
 

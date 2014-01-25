@@ -13,31 +13,15 @@
 <p>Isotope can hide and show item elements via the <a href='options.html#filter'><code>filter</code> option</a>. Items that match that filter will be shown. Items that do not match will be hidden.</p>
 
 <div id="filtering-demo" class="demo">
-  <div class="button-group js-radio-button-group">
-    <label class="button">
-      <input type="radio" name="filter" value="*" checked="checked" /> show all
-    </label>
-    <label class="button">
-      <input type="radio" name="filter" value=".metal" /> metal
-    </label>
-    <label class="button">
-      <input type="radio" name="filter" value=".transition" /> transition
-    </label>
-    <label class="button">
-      <input type="radio" name="filter" value=".alkali, .alkaline-earth" /> alkali and alkaline-earth
-    </label>
-    <label class="button">
-      <input type="radio" name="filter" value=":not(.transition)" /> not transition
-    </label>
-    <label class="button">
-      <input type="radio" name="filter" value=".metal:not(.transition)" /> metal but not transition
-    </label>
-    <label class="button">
-      <input type="radio" name="filter" value="numberGreaterThan50" /> number > 50
-    </label>
-    <label class="button">
-      <input type="radio" name="filter" value="ium" /> name ends with &ndash;ium
-    </label>
+  <div id="filters" class="button-group js-radio-button-group">
+    <button class="button is-checked" data-filter-value="*">show all</button>
+    <button class="button" data-filter-value=".metal">metal</button>
+    <button class="button" data-filter-value=".transition">transition</button>
+    <button class="button" data-filter-value=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+    <button class="button" data-filter-value=":not(.transition)">not transition</button>
+    <button class="button" data-filter-value=".metal:not(.transition)">metal but not transition</button>
+    <button class="button" data-filter-value="numberGreaterThan50">number > 50</button>
+    <button class="button" data-filter-value="ium">name ends with &ndash;ium</button>
   </div>
   <div class="isotope">
     {{#best-of-elements}}
@@ -49,6 +33,7 @@
       </div>
     {{/best-of-elements}}
   </div>
+  <p class="edit"><a href="http://codepen.io/desandro/pen/Ehgij">Edit this example on CodePen</a></p>
 </div>
 
 </div><div class="primary-content">
@@ -140,12 +125,12 @@ iso.arrange({
 
 ``` html
 <div id="filters" class="button-group">
-  <button data-filter="*">show all</button>
-  <button data-filter=".metal">metal</button>
-  <button data-filter=".transition">transition</button>
-  <button data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
-  <button data-filter=":not(.transition)">not transition</button>
-  <button data-filter=".metal:not(.transition)">metal but not transition</button>
+  <button data-filter-value="*">show all</button>
+  <button data-filter-value=".metal">metal</button>
+  <button data-filter-value=".transition">transition</button>
+  <button data-filter-value=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+  <button data-filter-value=":not(.transition)">not transition</button>
+  <button data-filter-value=".metal:not(.transition)">metal but not transition</button>
 </div>
 ```
 
@@ -158,8 +143,8 @@ var $container = $('#container').isotope({
 });
 // filter items on button click
 $('#filters').on( 'click', 'button', function( event ) {
-  var filtr = $(this).attr('data-filter');
-  $container.isotope({ filter: filtr });
+  var filterValue = $(this).attr('data-filter-value');
+  $container.isotope({ filter: filterValue });
 });
 ```
 
@@ -169,8 +154,8 @@ $('#filters').on( 'click', 'button', function( event ) {
 
 ``` html
   <!-- in button group -->
-  <button data-filter="numberGreaterThan50">number > 50</button>
-  <button data-filter="ium">name ends with -ium</button>
+  <button data-filter-value="numberGreaterThan50">number > 50</button>
+  <button data-filter-value="ium">name ends with -ium</button>
 ```
 
 ``` js
@@ -189,10 +174,10 @@ var filterFns = {
 };
 // filter items on button click
 $('#filters').on( 'click', 'button', function( event ) {
-  var filtr = $(this).attr('data-filter');
-  // see if filter function is matched
-  filtr = filterFns[ filtr ] || filtr;
-  $container.isotope({ filter: filtr });
+  var filterValue = $(this).attr('data-filter-value');
+  // use filter function if value matches
+  filterValue = filterFns[ filterValue ] || filterValue;
+  $container.isotope({ filter: filterValue });
 });
 ```
 
