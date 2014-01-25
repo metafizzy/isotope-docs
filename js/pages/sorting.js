@@ -27,13 +27,14 @@ ID.sorting = function() {
           var weight = $( itemElem ).find('.weight').text();
           return parseFloat( weight.replace( /[\(\)]/g, '') );
         }
-      },
+      }
       // initial sortBy from button group
-      sortBy: $buttonGroup.find(':checked').val()
+      // sortBy: $buttonGroup.find(':checked').val()
     });
 
-    $buttonGroup.on( 'click', 'input', function() {
-      $container.isotope({ sortBy: this.value });
+    $buttonGroup.on( 'click', 'button', function() {
+      var sortValue = $(this).attr('data-sort-value');
+      $container.isotope({ sortBy: sortValue });
     });
 
   })();
@@ -52,12 +53,13 @@ ID.sorting = function() {
         color: '[data-color]',
         number: '.number parseInt'
       },
-      sortBy: getMultiSortBy( $buttonGroup.find(':checked').val() )
+      sortBy: [ 'color', 'number' ]
+      // sortBy: getMultiSortBy( $buttonGroup.find(':checked').val() )
     });
 
-    $buttonGroup.on( 'click', 'input', function() {
+    $buttonGroup.on( 'click', 'button', function() {
       $container.isotope({
-        sortBy: getMultiSortBy( this.value )
+        sortBy: getMultiSortBy( this.getAttribute('data-sort-value') )
       });
     });
 

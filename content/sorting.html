@@ -5,7 +5,9 @@
     "Markup",
     "getSortData",
     "sortBy",
-    "sortAscending"
+    "sortAscending",
+    "updateSortData",
+    "Creating interactive buttons"
   ]
 }
 ---
@@ -15,24 +17,12 @@
 
 <div id="sorting-demo" class="demo">
   <div class="button-group js-radio-button-group">
-    <label class="button">
-      <input type="radio" name="sort-by" value="original-order" checked="checked" /> original order
-    </label>
-    <label class="button">
-      <input type="radio" name="sort-by" value="name" /> name
-    </label>
-    <label class="button">
-      <input type="radio" name="sort-by" value="symbol" /> symbol
-    </label>
-    <label class="button">
-      <input type="radio" name="sort-by" value="number" /> number
-    </label>
-    <label class="button">
-      <input type="radio" name="sort-by" value="weight" /> weight
-    </label>
-    <label class="button">
-      <input type="radio" name="sort-by" value="category" /> category
-    </label>
+    <button class="button is-checked" data-sort-value="original-order">original order</button>
+    <button class="button" data-sort-value="name">name</button>
+    <button class="button" data-sort-value="symbol">symbol</button>
+    <button class="button" data-sort-value="number">number</button>
+    <button class="button" data-sort-value="weight">weight</button>
+    <button class="button" data-sort-value="category">category</button>
   </div>
   <div class="isotope">
     {{#best-of-elements}}
@@ -44,6 +34,7 @@
       </div>
     {{/best-of-elements}}
   </div>
+  <p class="edit"><a href="http://codepen.io/desandro/pen/lzCqe">Edit this example on CodePen</a></p>
 </div>
 
 </div><div class="primary-content">
@@ -56,17 +47,17 @@
 
 ``` html
 <div id="container">
-  <div class="item transition metal" data-category="transition"> 
-    <p class="number">79</p> 
-    <h3 class="symbol">Au</h3> 
-    <h2 class="name">Gold</h2> 
-    <p class="weight">196.966569</p> 
-  </div> 
-  <div class="item metalloid" data-category="metalloid"> 
-    <p class="number">51</p> 
-    <h3 class="symbol">Sb</h3> 
-    <h2 class="name">Antimony</h2> 
-    <p class="weight">121.76</p> 
+  <div class="item transition metal" data-category="transition">
+    <p class="number">79</p>
+    <h3 class="symbol">Au</h3>
+    <h2 class="name">Gold</h2>
+    <p class="weight">196.966569</p>
+  </div>
+  <div class="item metalloid" data-category="metalloid">
+    <p class="number">51</p>
+    <h3 class="symbol">Sb</h3>
+    <h2 class="name">Antimony</h2>
+    <p class="weight">121.76</p>
   </div>
   ...
 </div>
@@ -76,7 +67,7 @@
 
 <h2 id="getsortdata">getSortData</h2>
 
-<p>Isotope reads data from markup with the <a href="options.html#getsortdata">getSortData option</a>. This option accepts an object. The object&rsquo;s keys are keywords used to sort by. Object values are either a shortcut string or function to retrieve the data.</p>
+<p>Isotope reads data from markup with the <code>getSortData</code> option. This option accepts an object. The object&rsquo;s keys are keywords used to sort by. Object values are either a shortcut string or function to retrieve the data.</p>
 
 ``` js
 var $container = $('#container').isotope({
@@ -93,7 +84,7 @@ var $container = $('#container').isotope({
 
 <h3>getSortData strings</h3>
 
-<p>Isotope provides shortcut strings to get sort data. By default, a string will be used as a query selector to get the text of a child element.</p>
+<p>Isotope provides shortcut strings to get sort data. By default, a string will be used as a query selector to get the text of a child element for each item element.</p>
 
 ``` js
 name: '.name', // use text of .name element
@@ -182,12 +173,8 @@ var $container = $('#multiple-sort-by .isotope').isotope({
   </div>
   <div id="multiple-sort-by-demo" class="cell demo">
     <div class="button-group js-radio-button-group">
-      <label class="button">
-        <input type="radio" name="sort-by" value="color,number" checked="checked" /> color, number
-      </label>
-      <label class="button">
-        <input type="radio" name="sort-by" value="number,color" /> number, color
-      </label>
+      <button class="button is-checked" data-sort-value="color,number" />color, number</button>
+      <button class="button" data-sort-value="number,color" />number, color</button>
     </div>
     <div class="isotope">
       <div class="mini-item w2 h2" data-color="yellow">
@@ -199,7 +186,7 @@ var $container = $('#multiple-sort-by .isotope').isotope({
       <div class="mini-item w2 h2" data-color="blue">
         <p class="number">1</p>
       </div>
-      <div class="mini-item w2 h2" data-color="red">
+      <div class="mini-item w2 h2" data-color="yellow">
         <p class="number">1</p>
       </div>
       <div class="mini-item w2 h2" data-color="yellow">
@@ -209,7 +196,7 @@ var $container = $('#multiple-sort-by .isotope').isotope({
         <p class="number">3</p>
       </div>
       <div class="mini-item w2 h2" data-color="yellow">
-        <p class="number">1</p>
+        <p class="number">2</p>
       </div>
       <div class="mini-item w2 h2" data-color="red">
         <p class="number">2</p>
@@ -218,7 +205,7 @@ var $container = $('#multiple-sort-by .isotope').isotope({
         <p class="number">3</p>
       </div>
     </div>
-    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/hsine">Edit this example on CodePen</a></p> -->
+    <p class="edit"><a href="http://codepen.io/desandro/pen/sxAJL">Edit this example on CodePen</a></p>
   </div>
 </div>
 
@@ -250,7 +237,7 @@ $container.isotope({
 
 </div><div class="primary-content">
 
-<h2 id="updateSortData">updateSortData</h2>
+<h2 id="updatesortdata">updateSortData</h2>
 
 <p>To update sort data after a change has been made to item elements, use the <a href="methods.html#updatesortdata"><code>updateSortData</code> method</a>.</p>
 
@@ -266,12 +253,12 @@ $container.isotope('updateSortData').isotope();
 
 ``` html
 <div id="sorts" class="button-group">
-  <button data-sort-by="original-order">original order</button>
-  <button data-sort-by="name">name</button>
-  <button data-sort-by="symbol">symbol</button>
-  <button data-sort-by="number">number</button>
-  <button data-sort-by="weight">weight</button>
-  <button data-sort-by="category">category</button>
+  <button data-sort-value="original-order">original order</button>
+  <button data-sort-value="name">name</button>
+  <button data-sort-value="symbol">symbol</button>
+  <button data-sort-value="number">number</button>
+  <button data-sort-value="weight">weight</button>
+  <button data-sort-value="category">category</button>
 </div>
 ```
 
@@ -293,8 +280,8 @@ var $container = $container.isotope({
 });
 // sort items on button click
 $('#sorts').on( 'click', 'button', function() {
-  var sorter = $(this).attr('data-sort-by');
-  $container.isotope({ sortBy: sorter });
+  var sortValue = $(this).attr('data-sort-value');
+  $container.isotope({ sortBy: sortValue });
 });
 ```
 
