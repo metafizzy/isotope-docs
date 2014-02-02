@@ -123,11 +123,6 @@
   cursor: pointer;
 }
 
-/* ---- flexible 5 columns ---- */
-
-.flex-5-col .grid-sizer,
-.flex-5-col .mini-item { width: 20%; }
-.flex-5-col .mini-item.w2 { width: 40%; }
 
 /* ----  ---- */
 
@@ -144,10 +139,30 @@
 
 /* ---- individual demos ---- */
 
+/* flexible 5 columns */
+.flex-5-col .grid-sizer,
+.flex-5-col .mini-item { width: 20%; }
+.flex-5-col .mini-item.w2 { width: 40%; }
+.flex-5-col .gutter-sizer { width: 5%; }
+
+/* masonry gutter */
+.masonry-gutter .mini-item.w2 { width: 110px; }
+
+/* masonry bottom spaced */
 #masonry-bottom-spaced .mini-item {
   margin-bottom: 10px;
 }
+#masonry-bottom-spaced .mini-item.h2 {
+  height: 110px;
+}
 
+/* flexible 4 columns w/ gutter */
+.flex-4-col-gutter .grid-sizer,
+.flex-4-col-gutter .mini-item { width: 22%; }
+.flex-4-col-gutter .mini-item.w2 { width: 48%; }
+.flex-4-col-gutter .gutter-sizer { width: 4%; }
+
+/* masonry flex gutter */
 #masonry-flex-gutter .gutter-sizer {
   width: 3%;
 }

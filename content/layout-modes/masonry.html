@@ -53,7 +53,7 @@ masonry: {
     <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
       {{>mini-demo-items}}
     </div>
-    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p> -->
+    <p class="edit"><a href="http://codepen.io/desandro/pen/mEinp">Edit this example on CodePen</a></p>
   </div>
 </div>
 
@@ -111,12 +111,17 @@ masonry: {
   gutter: 10
 }
 ```
+``` css
+.masonry-gutter .mini-item.w2 {
+  width: 110px;
+}
+```
   </div>
-  <div class="cell demo">
+  <div class="cell demo masonry-gutter">
     <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
       {{>mini-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/dHsCJ">Edit this example on CodePen</a></p>
   </div>
 </div>
 
@@ -134,13 +139,16 @@ masonry: {
 #masonry-bottom-spaced .mini-item {
   margin-bottom: 10px;
 }
+#masonry-bottom-spaced .mini-item.h2 {
+  height: 110px;
+}
 ```
   </div>
-  <div class="cell demo">
-    <div id="masonry-bottom-spaced" class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+  <div class="cell demo masonry-gutter">
+    <div id="masonry-bottom-spaced" class="isotope js-isotope " data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
       {{>mini-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/sqrwo">Edit this example on CodePen</a></p>
   </div>
 </div>
 
@@ -149,7 +157,8 @@ masonry: {
 <div class="row example">
   <div class="cell example-code">
 ``` html
-<div id="masonry-flex-gutter">
+<div class="flex-4-col-gutter">
+  <div class="grid-sizer"></div>
   <div class="gutter-sizer"></div>
   <div class="mini-item"></div>
   <div class="mini-item"></div>
@@ -157,22 +166,26 @@ masonry: {
 </div>
 ```
 ``` css
-#masonry-flex-gutter .gutter-sizer { width: 3%; }
+.flex-4-col-gutter .grid-sizer,
+.flex-4-col-gutter .mini-item { width: 22%; }
+.flex-4-col-gutter .mini-item.w2 { width: 48%; }
+.flex-4-col-gutter .gutter-sizer { width: 4%; }
 ```
 ``` js
 masonry: {
-  columnWidth: 50,
+  columnWidth: 'grid-sizer',
   gutter: '.gutter-sizer'
 },
 itemSelector: '.mini-item'
 ```
   </div>
-  <div class="cell demo" >
-    <div id="masonry-flex-gutter" class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": ".gutter-sizer" }, "itemSelector": ".mini-item" }'>
+  <div class="cell demo">
+    <div class="isotope js-isotope flex-4-col-gutter" data-isotope-options='{ "itemSelector": ".mini-item", "masonry": { "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer" } }'>
+      <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
       {{>mini-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/BAJKn">Edit this example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/aEmkl">Edit this example on CodePen</a></p>
   </div>
 </div>
 
@@ -194,7 +207,7 @@ itemSelector: '.mini-item'
 <p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
 
 <div class="warning">
-  <p>This option does not work with <a href="options.html#element-sizing">element sizing</a> with percentage width. Either columnWidth needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
+  <p>isFitWidth does not work with <a href="options.html#element-sizing">element sizing</a> <em>and</em> percentage width. Either columnWidth needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
 </div>
 
 <div class="row example">
@@ -223,7 +236,7 @@ masonry: {
       <div class="mini-item w2"></div>
       <div class="mini-item w2 h2"></div>
     </div>
-    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p> -->
+    <p class="edit"><a href="http://codepen.io/desandro/pen/BptxJ">Edit this example on CodePen</a></p>
   </div>
 </div>
 
