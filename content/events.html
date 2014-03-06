@@ -25,10 +25,9 @@ function onLayout() {
 $container.isotope( 'on', 'layoutComplete', onLayout );
 // un-bind event listener
 $container.isotope( 'off', 'layoutComplete', onLayout );
-// return true to trigger an event listener just once
-$container.isotope( 'on', 'layoutComplete', function() {
+// bind event listener to be triggered just once
+$container.isotope( 'once', 'layoutComplete', function() {
   console.log('layout done, just this one time');
-  return true;
 });
 ```
 

@@ -16,6 +16,7 @@
     "layoutItems",
     "off",
     "on",
+    "once",
     "prepended",
     "reloadItems",
     "remove",
@@ -580,24 +581,33 @@ iso.on( eventName, listener )
 
 <p>Add an event listener for <a href="events.html">certain events</a>.</p>
 
-<p>To listen for an event just once, <code>return <span class="literal">true</span></code> in the event listener.</p>
-
-``` js
-$container.isotope( 'on', 'layoutComplete', function() {
-  console.log('layout is complete, just once');
-  return true;
-})
-```
-
 <p>Isotope's <code>on</code> method only works with the specified events.</p>
 
 ``` js
-// no
-$container.isotope( 'on', 'click', function() {... })
-// yes
+// yes, layoutComplete is an Isotope event
 $container.isotope( 'on', 'layoutComplete', function() {...})
-// yes
+// no, click is not an Isotope event
+$container.isotope( 'on', 'click', function() {... })
+// yes, click is a jQuery event
 $container.on( 'click', function() {... })
+```
+
+</div><div class="primary-content">
+
+<h2 id="once">once</h2>
+
+``` js
+var iso = $container.isotope( 'once', eventName, listener )
+// or with vanilla JS
+iso.once( eventName, listener )
+```
+
+<p>Add an event listener for <a href="events.html">certain events</a>, to be triggered once.</p>
+
+``` js
+$container.isotope( 'once', 'layoutComplete', function() {
+  console.log('layout is complete, just once')
+})
 ```
 
 </div><div class="primary-content">
