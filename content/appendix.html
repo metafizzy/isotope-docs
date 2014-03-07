@@ -4,6 +4,7 @@
   "nav": [
     "imagesLoaded",
     "Web fonts",
+    "Submitting issues",
     "Upgrading from v1",
     "RequireJS",
     "Animating item size",
@@ -20,7 +21,7 @@
 <p>Unloaded images can throw off Isotope layouts and cause item elements to overlap. <a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback after all child images have been loaded.</p>
 
 ``` js
-// initialize Isotope after all images have loaded  
+// initialize Isotope after all images have loaded
 var $container = $('#container').imagesLoaded( function() {
   $container.isotope({
     // options
@@ -129,11 +130,9 @@ Typekit.load({
 });
 ```
 
-<!-- 
 </div><div id="submitting-issues" class="primary-content">
 
 {{>submitting-issues}}
- -->
 
 </div><div class="primary-content">
 
@@ -154,7 +153,7 @@ Typekit.load({
 <ul>
   <li><a href="https://github.com/louisremi/jquery-smartresize">smartresize jQuery plugin</a> removed.</li>
   <li><a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> no longer included, but is still recommended.</li>
-  <li><code>animationOptions</code> removed. jQuery animation removed. This means no animation for IE8 and IE9.</li>  
+  <li><code>animationOptions</code> removed. jQuery animation removed. This means no animation for IE8 and IE9.</li>
   <li><code>isResizable</code> option renamed to <a href="options.html#isresizebound"><code>isResizeBound</code></a></li>
   <li><code>reLayout</code> method renamed to <a href="methods.html#layout"><code>layout</code></a></li>
   <li><code>layout</code> method renamed to <a href="methods.html#layoutitems"><code>layoutItems</code></a></li>
@@ -175,24 +174,51 @@ Typekit.load({
 
 <h2 id="requirejs">RequireJS</h2>
 
-<p>Isotope is compatible with <a href="http://requirejs.org">RequireJS</a>.</p>
+<p>Isotope supports <a href="http://requirejs.org">RequireJS</a>.</p>
 
-<p>You can require <a href="isotope.pkgd.js">isotope.pkgd.js</a>. It provides a named module <code>isotope/js/isotope</code>, which will need to be required as well.</p>
+<p>You can require <a href="isotope.pkgd.js">isotope.pkgd.js</a>.</p>
 
 ``` js
 requirejs( [
-  // require the file
   'path/to/isotope.pkgd.js',
-  // require the named module
-  'isotope/js/isotope'
-  // two parameters, isotopePkg is undefined
-  // Isotope is the working module
-], function( isotopePkg, Isotope ) {
+], function( Isotope ) {
   var iso = new Isotope( '#container', {...});
 });
 ```
 
-<p>Or, you can manage dependencies with <a href="http://bower.io">Bower</a>. Set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to <code>bower_components</code> and set a path config for all your application code.</p>
+<p id="requirejs-layout-modes">Any <a href="layout-modes.html#included-modes">layout mode that&rsquo;s not included</a>, will need to be required separately</p>
+
+``` js
+requirejs( [
+  'path/to/isotope.pkgd.js',
+  'path/to/masonry-horizontal.js'
+], function( Isotope ) {
+  var iso = new Isotope( '#container', {
+    layoutMode: 'masonryHorizontal'
+  });
+});
+```
+
+<p id="requirejs-pkgd-jquery">To use Isotope as a jQuery plugin with RequireJS and isotope.pkgd.js, you need to run jQuery bridget.</p>
+
+
+``` js
+// require the require function
+requirejs( [ 'require', 'jquery', 'path/to/isotope.pkgd.js' ],
+  function( require, $, Isotope ) {
+    // require jquery-bridget, it's included in isotope.pkgd.js
+    require( [ 'jquery-bridget/jquery.bridget' ],
+    function() {
+      // make Isotope a jQuery plugin
+      $.bridget( 'isotope', Isotope );
+      // now you can use $().isotope()
+      $('#container').isotope({...});
+    }
+  );
+});
+```
+
+<p id="requirejs-bower">Or, you can manage dependencies with <a href="http://bower.io">Bower</a>. Set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to <code>bower_components</code> and set a path config for all your application code.</p>
 
 ``` js
 requirejs.config({
@@ -210,30 +236,27 @@ requirejs( [
 });
 ```
 
-<h3 id="requirejs-and-jquery">RequireJS and jQuery</h3>
-
-<p>To use Isotope with <a href="http://requirejs.org/docs/jquery.html#modulename">jQuery via RequireJS</a>, require <code>jquery-bridget/jquery.bridget</code>:</p>
+<p id="requirejs-bower-jquery">You can require Bower dependencies and use Isotope as a jQuery plugin with jQuery Bridget.</p>
 
 ``` js
 requirejs.config({
-  // change base_path to bower_components
-  baseUrl: '../bower_components/',
-  // add path config for jQuery
+  baseUrl: '../bower_components',
   paths: {
     jquery: 'jquery/jquery'
   }
 });
 
-// require jQuery bridget, which will enable $.fn.isotope
 requirejs( [
-    'jquery-bridget/jquery.bridget',
-    'isotope/js/isotope'
+    'jquery',
+    'isotope/js/isotope',
+    'jquery-bridget/jquery.bridget'
   ],
-  function() {
-    var $ = window.jQuery
+  function( $, Isotope ) {
+    // make Isotope a jQuery plugin
+    $.bridget( 'isotope', Isotope );
+    // now you can use $().isotope()
     $('#container').isotope({...});
-  }
-);
+});
 ```
 
 </div><div class="primary-content">
@@ -321,10 +344,10 @@ item-content is visible, and transitions size */
 
 
 </div><div class="primary-content">
-  
+
 <h2 id="component-libraries">Component libraries</h2>
 
-<p>Isotope includes several component libraries. You might have seen these used in the example code. You can use some of these libraries in your own code.</p>
+<p>Isotope includes several vanilla JS component libraries. You might have seen these used in the example code. You can use some of these libraries in your own code.</p>
 
 <h3 id="docready">docReady</h3>
 
@@ -336,17 +359,6 @@ docReady( function() {
   var container = document.querySelector('#container');
   var iso = new Isotope( container );
 });
-```
-
-<h3 id="classie">classie</h3>
-
-<p><a href="https://github.com/desandro/classie">classie has class helper functions.</a> classie is not included with Isotope.</p>
-
-``` js
-classie.has( element, 'my-class' ) // returns true/false
-classie.add( element, 'my-new-class' ) // add new class
-classie.remove( element, 'my-unwanted-class' ) // remove class
-classie.toggle( element, 'my-class' ) // toggle class
 ```
 
 <h3 id="eventie">eventie</h3>
