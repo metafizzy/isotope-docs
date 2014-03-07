@@ -25,10 +25,7 @@ module.exports = function( grunt ) {
           baseUrl: 'bower_components',
           include: [
             'jquery-bridget/jquery.bridget',
-            'isotope/js/isotope',
-            'isotope/js/layout-modes/masonry',
-            'isotope/js/layout-modes/fit-rows',
-            'isotope/js/layout-modes/vertical'
+            'isotope/js/isotope'
           ],
           out: 'build/isotope.pkgd.js',
           optimize: 'none',
