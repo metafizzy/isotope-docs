@@ -16,7 +16,7 @@ green #1FB
 }
 
 body {
-  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: #EEE;
@@ -34,6 +34,18 @@ pre {
 
 /* Fonts
 ------------------------- */
+
+/* montserrat */
+
+h1, h2, h3, h4, h5, h6,
+#site-nav li,
+.tagline,
+.element-item,
+.buy-button,
+.param-bit b,
+#multiple-sort-by-demo {
+  font-family: 'Montserrat', Gotham, 'Proxima Nova', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+}
 
 /* metafizzy logo */
 @font-face {
@@ -82,7 +94,7 @@ h2 {
 }
 
 h3 {
-  font-weight: 600;
+  font-weight: normal;
   font-size: 1.4em;
   margin-bottom: 0.5em;
 }
