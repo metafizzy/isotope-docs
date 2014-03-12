@@ -1,52 +1,38 @@
-/* ---- site nav ---- */
-
-#site-nav {
-}
-
-#site-nav,
-#site-nav h1 {
-  line-height: 44px;
-}
+/* ---- nav h1 ---- */
 
 
-/* clear fix */
-#site-nav:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-#site-nav h1 {
+#nav h1 {
   float: left;
-  font-size: 1.5em;
   margin: 0;
+  line-height: 44px;
+  font-size: 1.5em;
 }
 
-#site-nav h1 a {
+#nav h1 a {
   padding: 0 0.8em;
   display: block;
   color: #4FB;
 }
 
-#site-nav h1 a:hover {
+#nav h1 a:hover {
   background: #D26;
   color: white;
 }
 
-#site-nav a {
-  background: none;
-}
+/* ---- site-nav ---- */
 
-#site-nav ol {
+#site-nav {
   list-style: none;
   font-size: 15px;
   margin-bottom: 0;
   padding: 0;
 }
 
-#site-nav ol:after {
-  content: ' ';
-  display: table;
+
+/* clear fix */
+#site-nav:after {
+  content: '';
+  display: block;
   clear: both;
 }
 
@@ -79,9 +65,39 @@
   background: black;
 }
 
+/* ---- #page-nav ---- */
+
+#page-nav {
+  padding: 1.0em 0;
+  font-size: 13px;
+  z-index: 2; /* above packeries */
+}
+
+#page-nav li {
+  display: inline-block;
+}
+
+#page-nav li:after {
+  content: ' •';
+  margin: 0 0.3em;
+  opacity: 0.5;
+}
+
+#page-nav li:last-child:after {
+  content: none;
+}
+
+#page-nav a {
+  color: #4BF;
+}
+
+#page-nav a:hover {
+  color: #FB4;
+}
+
 @media screen and ( min-width: 800px ) {
 
-  #site-nav {
+  #nav {
     position: absolute;
     left: 0;
     top: 92px;
@@ -89,17 +105,21 @@
   }
 
   #site-nav,
-  #site-nav h1 {
+  #nav h1 {
     line-height: 1.25;
   }
 
-  #site-nav h1,
+  #nav h1,
   #site-nav li {
     float: none;
   }
 
-  #site-nav h1 {
+  #nav h1 {
     font-size: 32px;
+  }
+
+  #site-nav {
+    margin-bottom: 2.0em;
   }
 
   #site-nav li {
@@ -116,8 +136,8 @@
     font-size: 15px;
   }
 
-  #site-nav h1 a,
-  #site-nav li a {
+  #nav h1 a,
+  #nav li a {
     padding: 7px 20px;
   }
 
@@ -129,7 +149,7 @@
 
 
   /* hide h1 on index */
-  .index-page #site-nav h1 {
+  .index-page #nav h1 {
     visibility: hidden;
   }
   /* expand sub nav */
@@ -139,13 +159,31 @@
     -webkit-transition: max-height 0.4s;
   }
 
-  
-
   .nav-layout-modes:hover {
     max-height: 16em;
   }
 
   .nav-layout-modes > a:after { content: '...'; }
   .nav-layout-modes:hover > a:after { content: none; }
+
+  #page-nav {
+    list-style: none;
+    padding: 0;
+  }
+
+  #page-nav li {
+    display: block;
+    margin: 0;
+  }
+
+  #page-nav li:after {
+    content: none;
+  }
+
+  #page-nav li a {
+    display: block;
+    padding-top:    3px;
+    padding-bottom: 3px;
+  }
 
 }

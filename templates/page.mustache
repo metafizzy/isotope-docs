@@ -42,9 +42,9 @@
     </div>
   </div>
 
-  <div id="site-nav">
+  <div id="nav">
     <h1><a href="{{root_path}}.">Isotope</a></h1>
-    <ol>
+    <ol id="site-nav">
       <li class="nav-filtering"><a href="{{root_path}}filtering.html">Filtering</a></li>
       <li class="nav-sorting"><a href="{{root_path}}sorting.html">Sorting</a></li>
       <li class="nav-layout-modes">
@@ -67,6 +67,16 @@
       <li class="nav-appendix"><a href="{{root_path}}appendix.html">Appendix</a></li>
       <li class="nav-faq"><a href="{{root_path}}faq.html">FAQ</a></li>
     </ol>
+
+      {{! page nav }}
+      {{#if page.nav}}
+        <ul id="page-nav">
+          {{#each page.nav}}
+            <li><a href="#{{slug this}}">{{this}}</a></li>
+          {{/each}}
+        </ul>
+      {{/if}}
+
   </div>
 
   {{! display hero only on index page }}
@@ -80,15 +90,6 @@
       {{#unless page.is_homepage}}
         <h1>{{page.title}}</h1>
         {{/unless}}
-
-      {{! page nav }}
-      {{#if page.nav}}
-        <ul id="page-nav">
-          {{#each page.nav}}
-            <li><a href="#{{slug this}}">{{this}}</a></li>
-          {{/each}}
-        </ul>
-      {{/if}}
     </div>
 
     {{! all page content goes here }}
