@@ -168,7 +168,7 @@
     top: 0;
     list-style: none;
     width: 0;
-    overflow: ahidden;
+    overflow: hidden;
     opacity: 0;
     -webkit-transition: width 0.2s, opacity 0.2s;
   }
