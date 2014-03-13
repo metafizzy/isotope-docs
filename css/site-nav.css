@@ -51,6 +51,10 @@
   color: white;
 }
 
+.sub-nav ul {
+  display: none;
+}
+
 /* selected */
 .filtering-page #site-nav .nav-filtering a,
 .sorting-page #site-nav .nav-sorting a,
@@ -144,7 +148,6 @@
   #site-nav li li a {
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 30px;
   }
 
 
@@ -152,19 +155,40 @@
   .index-page #nav h1 {
     visibility: hidden;
   }
+
   /* expand sub nav */
-  .nav-layout-modes {
+
+  .sub-nav {
+    position: relative;
     max-height: 2em;
-    overflow: hidden;
-    -webkit-transition: max-height 0.4s;
   }
 
-  .nav-layout-modes:hover {
-    max-height: 16em;
+  .sub-nav ul {
+    display: block; /* visible on desktop */
+    position: absolute;
+    left: 100%;
+    top: 0;
+    list-style: none;
+    width: 0;
+    overflow: ahidden;
+    opacity: 0;
+    -webkit-transition: width 0.2s, opacity 0.2s;
   }
 
-  .nav-layout-modes > a:after { content: '...'; }
-  .nav-layout-modes:hover > a:after { content: none; }
+  .sub-nav:hover ul {
+    opacity: 1;
+    width: 190px;
+    z-index: 2; /* on top of stuff */
+  }
+
+  .sub-nav:hover,
+  .sub-nav ul {
+    background: black;
+    background: hsl(30, 3%, 10%);
+  }
+
+  .sub-nav > a:after { content: '...'; }
+  .sub-nav:hover > a:after { content: none; }
 
   #page-nav {
     list-style: none;
