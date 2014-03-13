@@ -170,7 +170,7 @@
     width: 0;
     overflow: hidden;
     opacity: 0;
-    -webkit-transition: width 0.2s, opacity 0.2s;
+    transition: width 0.2s, opacity 0.2s;
   }
 
   .sub-nav:hover ul {

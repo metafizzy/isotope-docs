@@ -167,6 +167,7 @@ function throttleProto( _class, methodName, threshold ) {
     method.apply( this, arguments );
     var _this = this;
     this[ timeoutName ] = setTimeout( function() {
+      method.apply( _this, arguments );
       delete _this[ timeoutName ];
     }, threshold || 100 );
   };

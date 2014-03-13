@@ -8,6 +8,7 @@ head { font-family: 'base'; }
 .primary-content {
   margin-left: 10px;
   margin-right: 10px;
+  max-width: 1200px;
 }
 
 #content .primary-content > * {
