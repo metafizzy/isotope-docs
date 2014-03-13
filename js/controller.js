@@ -12,6 +12,8 @@ var ID = window.ID = {};
 ID.pages = {};
 var notifElem;
 
+var getSize = window.getSize;
+
 // -------------------------- page controller -------------------------- //
 
 docReady( function() {
@@ -26,6 +28,15 @@ docReady( function() {
   if ( pageAttr && typeof ID[ pageAttr ] === 'function' ) {
     ID[ pageAttr ]();
   }
+
+  // init stick page nav
+
+  // get conditional class http://adactio.com/journal/5429/
+  var condClass = getComputedStyle( document.head ).fontFamily.replace( /['"]/g, '');
+  if ( condClass === 'desktop-ish' || condClass === 'tablet-ish' ) {
+    stickifyPageNav();
+  }
+
 });
 
 // -------------------------- helpers -------------------------- //
@@ -45,8 +56,6 @@ ID.getSomeItemElements = function() {
     fragment.appendChild( item );
     items.push( item );
   }
-  // ex7.appendChild( fragment );
-  // return
 };
 
 // ----- text helper ----- //
@@ -110,5 +119,70 @@ $.fn.radioButtonGroup = function() {
   });
   return this;
 };
+
+// -------------------------- stickynav -------------------------- //
+
+function stickifyPageNav() {
+  var pageNav = document.querySelector('#page-nav');
+  var navHeight = getSize( pageNav ).outerHeight;
+
+  // don't proceed if navHeight is bigger than window
+  if ( navHeight >= window.innerHeight ) {
+    return;
+  }
+
+  new Stickeroo( pageNav );
+
+}
+
+// -------------------------- Stickeroo -------------------------- //
+
+// sticky elements, like the page nav
+function Stickeroo( element ) {
+  this.element = element;
+  this.originalY = this.element.getBoundingClientRect().top + window.pageYOffset;
+  eventie.bind( window, 'scroll', this );
+  this.isFixed = false;
+  this.onscroll();
+}
+
+Stickeroo.prototype.handleEvent = function( event ) {
+  var methodName = 'on' + event.type;
+  if ( this[ methodName ] ) {
+    this[ methodName ]( event );
+  }
+};
+
+
+function throttleProto( _class, methodName, threshold ) {
+  // original method
+  var method = _class.prototype[ methodName ];
+  var timeoutName = methodName + 'Timeout';
+
+  _class.prototype[ methodName ] = function() {
+    if ( this[ timeoutName ] ) {
+      return;
+    }
+
+    method.apply( this, arguments );
+    var _this = this;
+    this[ timeoutName ] = setTimeout( function() {
+      delete _this[ timeoutName ];
+    }, threshold || 100 );
+  };
+}
+
+Stickeroo.prototype.onscroll = function() {
+  var isFixed = window.pageYOffset >= this.originalY;
+  if ( isFixed === this.isFixed ) {
+    return;
+  }
+
+  classie.toggle( this.element, 'is-fixed' );
+  this.isFixed = isFixed;
+};
+
+throttleProto( Stickeroo, 'onscroll', 50 );
+
 
 })( window, jQuery );

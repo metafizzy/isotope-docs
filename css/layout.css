@@ -1,3 +1,7 @@
+/* conditional css class
+  http://adactio.com/journal/5429/ */
+head { font-family: 'base'; }
+
 /* ---- primary-content ---- */
 
 /* stuff that isn't in the gutter */
@@ -54,6 +58,8 @@
 
 /* tablet-ish */
 @media screen and ( min-width: 800px ) {
+
+  head { font-family: 'desktop'; }
 
   .primary-content {
     margin-left: 220px;
@@ -122,6 +128,8 @@
 
 /* desktop */
 @media screen and ( min-width: 960px ) {
+
+  head { font-family: 'desktop-ish'; }
 
   .primary-content {
     margin-right: 6%;

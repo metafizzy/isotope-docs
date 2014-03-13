@@ -7,6 +7,7 @@
     "doc-ready": "desandro/doc-ready",
     "eventie": "desandro/eventie",
     "get-style-property": "desandro/get-style-property",
+    "get-size": "desandro/get-size",
     "imagesloaded": "latest",
     "isotope": ">=2.0.0-beta.9 <3",
     "isotope-cells-by-column": "metafizzy/isotope-cells-by-column",
