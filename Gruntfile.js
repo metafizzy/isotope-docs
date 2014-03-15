@@ -1,11 +1,8 @@
-
-var getBannerComment = require('./tasks/utils/get-banner-comment.js');
+/*jhint node: true, usued: true, undef: true */
 
 // -------------------------- grunt -------------------------- //
 
 module.exports = function( grunt ) {
-
-  var banner = getBannerComment( grunt );
 
   grunt.initConfig({
     // ----- global settings ----- //
@@ -17,26 +14,6 @@ module.exports = function( grunt ) {
     jshint: {
       docs: [ 'js/controller.js', 'js/*/*.js'  ],
       options: grunt.file.readJSON('js/.jshintrc')
-    },
-
-    requirejs: {
-      pkgd: {
-        options: {
-          baseUrl: 'bower_components',
-          include: [
-            'jquery-bridget/jquery.bridget',
-            'isotope/js/isotope'
-          ],
-          out: 'build/isotope.pkgd.js',
-          optimize: 'none',
-          paths: {
-            jquery: 'empty:'
-          },
-          wrap: {
-            start: banner
-          }
-        }
-      }
     },
 
     concat: {
@@ -57,14 +34,6 @@ module.exports = function( grunt ) {
     },
 
     uglify: {
-      pkgd: {
-        files: {
-          'build/isotope.pkgd.min.js': [ 'build/isotope.pkgd.js' ]
-        },
-        options: {
-          banner: banner
-        }
-      },
       'docs': {
         files: {
           'build/js/isotope-docs.min.js': [ 'build/js/isotope-docs.js' ]
@@ -129,6 +98,16 @@ module.exports = function( grunt ) {
           }
         ]
       },
+      pkgd: {
+        files: [
+          {
+            expand: true, // enable dynamic options
+            cwd: 'bower_components/isotope/dist/', // set cwd, excludes it in build path
+            src: [ '*' ],
+            dest: 'build/'
+          }
+        ]
+      },
       bowerSources: {
         // additional sources will be set in bower-list-map
         src: [
@@ -165,15 +144,12 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-requirejs');
   grunt.loadNpmTasks('grunt-fizzy-docs');
 
   grunt.loadTasks('tasks/');
 
   grunt.registerTask( 'default', [
     'jshint',
-    'requirejs',
-    'pkgd-edit',
     'int-bower',
     'concat',
     'uglify',
