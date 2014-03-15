@@ -27,3 +27,13 @@ Pass `--dev` to build the site with JS and CSS files included separately, un-con
 ``` bash
 grunt --dev
 ```
+
+## Isotope vs Masonry vs Packery
+
+                     Masonry Isotope Packery
+    Masonry Layouts     x        x       x
+    no gaps                              x
+    draggable                            x
+    filtering                    x
+    sorting                      x
+    multiple layout              x
