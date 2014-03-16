@@ -40,8 +40,8 @@ ID.index = function() {
     };
 
     $('#hero .sort-by').on( 'click', 'button', function() {
-      var sortValue = $(this).attr('data-sort-by');
-      $container.isotope({ sortBy: sortValue });
+      var sortByValue = $(this).attr('data-sort-by');
+      $container.isotope({ sortBy: sortByValue });
     });
 
     $('#hero .filters').on( 'click', 'button', function() {

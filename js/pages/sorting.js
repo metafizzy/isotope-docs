@@ -33,8 +33,8 @@ ID.sorting = function() {
     });
 
     $buttonGroup.on( 'click', 'button', function() {
-      var sortValue = $(this).attr('data-sort-value');
-      $container.isotope({ sortBy: sortValue });
+      var sortByValue = $(this).attr('data-sort-by');
+      $container.isotope({ sortBy: sortByValue });
     });
 
   })();
@@ -59,7 +59,7 @@ ID.sorting = function() {
 
     $buttonGroup.on( 'click', 'button', function() {
       $container.isotope({
-        sortBy: getMultiSortBy( this.getAttribute('data-sort-value') )
+        sortBy: getMultiSortBy( this.getAttribute('data-sort-by') )
       });
     });
 

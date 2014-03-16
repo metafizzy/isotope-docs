@@ -17,12 +17,12 @@
 
 <div id="sorting-demo" class="demo">
   <div class="button-group js-radio-button-group">
-    <button class="button is-checked" data-sort-value="original-order">original order</button>
-    <button class="button" data-sort-value="name">name</button>
-    <button class="button" data-sort-value="symbol">symbol</button>
-    <button class="button" data-sort-value="number">number</button>
-    <button class="button" data-sort-value="weight">weight</button>
-    <button class="button" data-sort-value="category">category</button>
+    <button class="button is-checked" data-sort-by="original-order">original order</button>
+    <button class="button" data-sort-by="name">name</button>
+    <button class="button" data-sort-by="symbol">symbol</button>
+    <button class="button" data-sort-by="number">number</button>
+    <button class="button" data-sort-by="weight">weight</button>
+    <button class="button" data-sort-by="category">category</button>
   </div>
   <div class="isotope">
     {{#best-of-elements}}
@@ -173,8 +173,8 @@ var $container = $('#multiple-sort-by .isotope').isotope({
   </div>
   <div id="multiple-sort-by-demo" class="cell demo">
     <div class="button-group js-radio-button-group">
-      <button class="button is-checked" data-sort-value="color,number" />color, number</button>
-      <button class="button" data-sort-value="number,color" />number, color</button>
+      <button class="button is-checked" data-sort-by="color,number" />color, number</button>
+      <button class="button" data-sort-by="number,color" />number, color</button>
     </div>
     <div class="isotope">
       <div class="mini-item w2 h2" data-color="yellow">
@@ -253,12 +253,12 @@ $container.isotope('updateSortData').isotope();
 
 ``` html
 <div id="sorts" class="button-group">
-  <button data-sort-value="original-order">original order</button>
-  <button data-sort-value="name">name</button>
-  <button data-sort-value="symbol">symbol</button>
-  <button data-sort-value="number">number</button>
-  <button data-sort-value="weight">weight</button>
-  <button data-sort-value="category">category</button>
+  <button data-sort-by="original-order">original order</button>
+  <button data-sort-by="name">name</button>
+  <button data-sort-by="symbol">symbol</button>
+  <button data-sort-by="number">number</button>
+  <button data-sort-by="weight">weight</button>
+  <button data-sort-by="category">category</button>
 </div>
 ```
 
@@ -280,8 +280,8 @@ var $container = $container.isotope({
 });
 // sort items on button click
 $('#sorts').on( 'click', 'button', function() {
-  var sortValue = $(this).attr('data-sort-value');
-  $container.isotope({ sortBy: sortValue });
+  var sortByValue = $(this).attr('data-sort-by');
+  $container.isotope({ sortBy: sortByValue });
 });
 ```
 

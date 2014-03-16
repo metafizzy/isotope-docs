@@ -33,7 +33,7 @@ ID.filtering = function() {
     };
 
     $('#filtering-demo .button-group').on( 'click', 'button', function() {
-      var filterValue = $(this).attr('data-filter-value');
+      var filterValue = $(this).attr('data-filter');
       filterValue = filterFns[ filterValue ] || filterValue;
       $container.isotope({ filter: filterValue });
     });

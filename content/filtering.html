@@ -14,14 +14,14 @@
 
 <div id="filtering-demo" class="demo">
   <div id="filters" class="button-group js-radio-button-group">
-    <button class="button is-checked" data-filter-value="*">show all</button>
-    <button class="button" data-filter-value=".metal">metal</button>
-    <button class="button" data-filter-value=".transition">transition</button>
-    <button class="button" data-filter-value=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
-    <button class="button" data-filter-value=":not(.transition)">not transition</button>
-    <button class="button" data-filter-value=".metal:not(.transition)">metal but not transition</button>
-    <button class="button" data-filter-value="numberGreaterThan50">number > 50</button>
-    <button class="button" data-filter-value="ium">name ends with &ndash;ium</button>
+    <button class="button is-checked" data-filter="*">show all</button>
+    <button class="button" data-filter=".metal">metal</button>
+    <button class="button" data-filter=".transition">transition</button>
+    <button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+    <button class="button" data-filter=":not(.transition)">not transition</button>
+    <button class="button" data-filter=".metal:not(.transition)">metal but not transition</button>
+    <button class="button" data-filter="numberGreaterThan50">number > 50</button>
+    <button class="button" data-filter="ium">name ends with &ndash;ium</button>
   </div>
   <div class="isotope">
     {{#best-of-elements}}
@@ -125,12 +125,12 @@ iso.arrange({
 
 ``` html
 <div id="filters" class="button-group">
-  <button data-filter-value="*">show all</button>
-  <button data-filter-value=".metal">metal</button>
-  <button data-filter-value=".transition">transition</button>
-  <button data-filter-value=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
-  <button data-filter-value=":not(.transition)">not transition</button>
-  <button data-filter-value=".metal:not(.transition)">metal but not transition</button>
+  <button data-filter="*">show all</button>
+  <button data-filter=".metal">metal</button>
+  <button data-filter=".transition">transition</button>
+  <button data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+  <button data-filter=":not(.transition)">not transition</button>
+  <button data-filter=".metal:not(.transition)">metal but not transition</button>
 </div>
 ```
 
@@ -143,7 +143,7 @@ var $container = $('#container').isotope({
 });
 // filter items on button click
 $('#filters').on( 'click', 'button', function( event ) {
-  var filterValue = $(this).attr('data-filter-value');
+  var filterValue = $(this).attr('data-filter');
   $container.isotope({ filter: filterValue });
 });
 ```
@@ -154,8 +154,8 @@ $('#filters').on( 'click', 'button', function( event ) {
 
 ``` html
   <!-- in button group -->
-  <button data-filter-value="numberGreaterThan50">number > 50</button>
-  <button data-filter-value="ium">name ends with -ium</button>
+  <button data-filter="numberGreaterThan50">number > 50</button>
+  <button data-filter="ium">name ends with -ium</button>
 ```
 
 ``` js
@@ -174,7 +174,7 @@ var filterFns = {
 };
 // filter items on button click
 $('#filters').on( 'click', 'button', function( event ) {
-  var filterValue = $(this).attr('data-filter-value');
+  var filterValue = $(this).attr('data-filter');
   // use filter function if value matches
   filterValue = filterFns[ filterValue ] || filterValue;
   $container.isotope({ filter: filterValue });
