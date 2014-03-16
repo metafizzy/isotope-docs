@@ -1,6 +1,6 @@
 {
   "browser": true,
-  "devel": true,
+  "devel": false,
   "strict": true,
   "jquery": true,
   "undef": true,

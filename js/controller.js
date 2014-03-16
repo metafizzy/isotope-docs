@@ -14,6 +14,15 @@ var notifElem;
 
 var getSize = window.getSize;
 
+var getComputedStyle = window.getComputedStyle;
+var getStyle = getComputedStyle ?
+  function( elem ) {
+    return getComputedStyle( elem, null );
+  } :
+  function( elem ) {
+    return elem.currentStyle;
+  };
+
 // -------------------------- page controller -------------------------- //
 
 docReady( function() {
@@ -32,7 +41,8 @@ docReady( function() {
   // init stick page nav
 
   // get conditional class http://adactio.com/journal/5429/
-  var condClass = getComputedStyle( document.head ).fontFamily.replace( /['"]/g, '');
+  var head = document.querySelector('head');
+  var condClass = getStyle( head ).fontFamily.replace( /['"]/g, '');
   if ( condClass === 'desktop-ish' || condClass === 'tablet-ish' ) {
     stickifyPageNav();
   }

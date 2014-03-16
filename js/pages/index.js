@@ -39,13 +39,15 @@ ID.index = function() {
       }
     };
 
-    $('#hero .sort-by').on( 'click', 'input', function() {
-      $container.isotope({ sortBy: this.value });
+    $('#hero .sort-by').on( 'click', 'button', function() {
+      var sortValue = $(this).attr('data-sort-by');
+      $container.isotope({ sortBy: sortValue });
     });
 
-    $('#hero .filters').on( 'click', 'input', function() {
-      var filtr = filterFns[ this.value ] || this.value;
-      $container.isotope({ filter: filtr });
+    $('#hero .filters').on( 'click', 'button', function() {
+      var filterValue = $(this).attr('data-filter');
+      filterValue = filterFns[ filterValue ] || filterValue;
+      $container.isotope({ filter: filterValue });
     });
 
   })();

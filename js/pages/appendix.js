@@ -20,8 +20,6 @@ var transitionEndEvent = {
 
 ID.appendix = function() {
 
-  console.log('hello world', transitionEndEvent );
-
   // ----- animate item size ----- //
 
   ( function() {

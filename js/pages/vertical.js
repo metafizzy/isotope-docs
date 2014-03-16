@@ -28,7 +28,6 @@ ID.vertical = function() {
     });
     
     $('#vertical-feature-demo .button-group').on( 'click', 'input', function() {
-      console.log('hi');
       $container.isotope({ sortBy: this.value });
     });
   })();
