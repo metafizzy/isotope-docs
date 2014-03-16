@@ -27,8 +27,9 @@ ID.vertical = function() {
       }
     });
     
-    $('#vertical-feature-demo .button-group').on( 'click', 'input', function() {
-      $container.isotope({ sortBy: this.value });
+    $('#vertical-feature-demo .button-group').on( 'click', 'button', function() {
+      var sortByValue = $(this).attr('data-sort-by');
+      $container.isotope({ sortBy: sortByValue });
     });
   })();
 

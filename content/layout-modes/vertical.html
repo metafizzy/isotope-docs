@@ -13,24 +13,12 @@
 
 <div id="vertical-feature-demo" class="demo">
   <div class="button-group js-radio-button-group">
-    <label class="button">
-      <input type="radio" name="sort-by" value="original-order" checked="checked" /> original order
-    </label>
-    <label class="button">
-      <input type="radio" name="sort-by" value="name" /> name
-    </label>
-    <label class="button">
-      <input type="radio" name="sort-by" value="symbol" /> symbol
-    </label>
-    <label class="button">
-      <input type="radio" name="sort-by" value="number" /> number
-    </label>
-    <label class="button">
-      <input type="radio" name="sort-by" value="weight" /> weight
-    </label>
-    <label class="button">
-      <input type="radio" name="sort-by" value="category" /> category
-    </label>
+    <button class="button is-checked" data-sort-by="original-order">original order</button>
+    <button class="button" data-sort-by="name">name</button>
+    <button class="button" data-sort-by="symbol">symbol</button>
+    <button class="button" data-sort-by="number">number</button>
+    <button class="button" data-sort-by="weight">weight</button>
+    <button class="button" data-sort-by="category">category</button>
   </div>
   <ul class="isotope table-like">
     {{#best-of-elements}}
