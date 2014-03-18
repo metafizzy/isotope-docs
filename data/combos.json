@@ -1,0 +1,5 @@
+{
+  "colors": [ {"color": "red"}, {"color": "blue"}, {"color": "yellow"} ],
+  "sizes": [ {"size": "small"}, {"size": "wide"}, {"size": "big"}, {"size": "tall"} ],
+  "shapes": [ {"shape": "round"}, {"shape": "square"} ]
+}

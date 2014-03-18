@@ -1,5 +1,5 @@
 /**
- * faq page
+ * appendix page
  */
 
 ( function( window ) {
@@ -16,7 +16,7 @@ var transitionEndEvent = {
   transition: 'transitionend'
 }[ transitionProp ];
 
-// -------------------------- faq -------------------------- //
+// -------------------------- appendix -------------------------- //
 
 ID.appendix = function() {
 

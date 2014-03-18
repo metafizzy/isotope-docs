@@ -134,6 +134,10 @@ $.fn.radioButtonGroup = function() {
 
 function stickifyPageNav() {
   var pageNav = document.querySelector('#page-nav');
+  if ( !pageNav ) {
+    return;
+  }
+
   var navHeight = getSize( pageNav ).outerHeight;
 
   // don't proceed if navHeight is bigger than window

@@ -1,0 +1,61 @@
+---
+{
+  "title": "Combination filters",
+  "nav": [
+  ]
+}
+---
+
+<div class="primary-content">
+
+  <p>Filters can be combined. In addition to filtering for just <code>.red</code> or <code>.tall</code>, you can pass in a filter selector of both: <code>.red.tall</code>.</p>
+
+  <div id="combination-filters-demo" class="demo">
+
+    <div class="ui-group">
+      <h3>Color</h3>
+      <div class="button-group js-radio-button-group" data-filter-group="color">
+        <button class="button is-checked" data-filter="">any</button>
+        {{#combos.colors}}
+          <button class="button" data-filter=".{{color}}">{{color}}</button>
+        {{/combos.colors}}
+      </div>
+    </div>
+
+    <div class="ui-group">
+      <h3>Size</h3>
+      <div class="button-group js-radio-button-group" data-filter-group="size">
+        <button class="button is-checked" data-filter="">any</button>
+        {{#combos.sizes}}
+          <button class="button" data-filter=".{{size}}">{{size}}</button>
+        {{/combos.sizes}}
+      </div>
+    </div>
+
+    <div class="ui-group">
+      <h3>Shape</h3>
+      <div class="button-group js-radio-button-group" data-filter-group="shape">
+        <button class="button is-checked" data-filter="">any</button>
+        {{#combos.shapes}}
+          <button class="button" data-filter=".{{shape}}">{{shape}}</button>
+        {{/combos.shapes}}
+      </div>
+    </div>
+
+    <pre class="code-display"><code>&nbsp;</code></pre>
+
+    <div class="isotope">
+      {{#with combos}}
+        {{#each sizes}}
+          {{#each ../shapes}}
+            {{#each ../../colors}}
+              <div class="color-shape {{../../size}} {{../shape}} {{color}}"></div>
+            {{/each}}
+          {{/each}}
+        {{/each}}
+      {{/with}}
+    </div>
+  </div>
+
+</div>
+

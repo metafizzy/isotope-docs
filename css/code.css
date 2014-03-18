@@ -18,6 +18,7 @@ code {
   line-height: 1.2;
   border-radius: 3px;
 }
+
 pre code {
   padding: 0;
   line-height: 1.5;
@@ -60,3 +61,7 @@ code .m  { color: #DE8E50; } /* CSS value */
 code .nd { color: #9FAD7E; } /* CSS pseudo selector */
 code .hexcolor { color: #F63; }
 code .at_rule { color: #088; }
+
+.code-display code {
+  font-size: 18px;
+}
