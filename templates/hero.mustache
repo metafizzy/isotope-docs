@@ -4,29 +4,32 @@
     <h1>Isotope</h1>
     <p class="tagline">Filtering, sorting, magical layout library</p>
 
-    <div class="hero-item">
-      <a class="button download-js" href="isotope.pkgd.min.js">
-        <i class="icon icon-file-download"></i>
-        Download isotope.&#8203;pkgd.&#8203;min.js
-      </a>
-    </div>
-
-    {{! show download docs only in production }}
-    {{#unless is_dev}}
-      <div class="hero-item">
-        <a class="button download-docs" href="isotope-docs.zip">
-          <i class="icon icon-folder-download"></i>
-          Download these docs
+    <div class="big-ol-buttons row row3">
+      <div class="hero-item cell">
+        <a class="button download-js" href="isotope.pkgd.min.js">
+          <i class="icon icon-file-download"></i>
+          Download isotope.&#8203;pkgd.&#8203;min.js
         </a>
       </div>
-    {{/unless}}
 
-    <div class="hero-item">
-      <a class="button github" href="https://github.com/desandro/isotope">
-        <i class="icon icon-github"></i>
-        Isotope on GitHub
-      </a>
-    </div>
+      {{! show download docs only in production }}
+      {{#unless is_dev}}
+        <div class="hero-item cell">
+          <a class="button download-docs" href="isotope-docs.zip">
+            <i class="icon icon-folder-download"></i>
+            Download these docs
+          </a>
+        </div>
+      {{/unless}}
+
+      <div class="hero-item cell">
+        <a class="button github" href="https://github.com/desandro/isotope">
+          <i class="icon icon-github"></i>
+          Isotope on GitHub
+        </a>
+      </div>
+
+    </div> {{! .big-ol-buttons }}
 
   </div> {{! .primary-content }}
 

@@ -25,107 +25,38 @@
 }
 
 
-/* ---- big ol buttons ---- */
+/* ---- hero buttons ---- */
 
-.hero-masonry .button {
-  display: block;
-  font-size: 1.3em;
-  line-height: 1.2em;
-  position: relative;
-  padding-left: 50px;
-  background: #D26;
-}
-
-.hero-masonry .button:hover { background: #A2C; }
-
-.hero-masonry .button .icon {
-  font-size: 32px;
-  position: absolute;
-  left: 10px;
-  top: 10px;
-}
-
-/* ---- hero masonry ---- */
-
-.hero-masonry {
-  background: white;
-  border-radius: 10px;
-  padding: 10px 1%;
-  margin-bottom: 20px;
-}
-
-.hero-masonry:after {
+.big-ol-buttons:after {
   content: '';
   display: block;
   clear: both;
 }
 
-.hero-item,
-.hero-masonry .grid-sizer {
-  width: 46.9%; /* juse a lil under  47 */
-  margin: 10px 1%;
-  float: left;
-  border-radius: 8px;
+.big-ol-buttons .button {
+  position: relative;
+  padding-left: 50px;
+  min-height: 52px;
+  font-size: 18px;
+  background: black;
+  background: hsla(0, 0%, 0%, 0.4);
+  color: #FB4;
+  text-shadow: none;
 }
 
-/* necessary for proper sizing with margins */
-.hero-masonry .grid-sizer {
+.big-ol-buttons .button:hover {
+  background: #4FB;
+  color: #222;
+  text-shadow: none;
+}
+
+.big-ol-buttons .icon {
   position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 32px;
 }
 
-.hero-item.texty {
-  background: #D8D6D2;
-  padding: 10px;
-}
-
-
-.hero-item.has-title,
-.hero-item.w2 {
-  width: 96%;
-}
-
-.hero-item.has-example {
-}
-
-.hero-item.has-example a {
-  font-size: 13px;
-  font-weight: bold;
-  background: #D26;
-  color: white;
-  display: block;
-  border-radius: 10px 10px 8px 8px;
-}
-
-.hero-item.has-example a:hover {
-  background: #A2C;
-  color: white;
-}
-
-.hero-item.has-example img {
-  display: block;
-  max-width: 100%;
-  border-radius: 8px 8px 0 0;
-}
-
-.hero-item.has-example .example-title {
-  padding: 5px 10px;
-  margin: 0;
-}
-
-/* enough width for 4 columns */
-@media screen and ( min-width: 720px ) {
-
-  .hero-item,
-  .hero-masonry .grid-sizer {
-    width: 22.5%;
-  }
-
-  .hero-item.has-title,
-  .hero-item.w2 {
-    width: 46.9%; /* just a lil under 47 */
-  }
-
-}
 
 /* ---- desktop ---- */
 
@@ -139,15 +70,10 @@
     font-size: 32px;
   }
 
-  /* just a little under 71.5 */
-  .hero-item.has-title {
-    width: 71.4%;
-  }
-
   /* buttons */
 
   .big-ol-buttons .button {
-    font-size: 1.6em;
+    font-size: 22px;
     padding-left: 86px;
     min-height: 94px;
   }
