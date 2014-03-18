@@ -224,6 +224,12 @@ div.param {
 
 #top-banner a:hover { color: #F06; }
 
+/* ---- support button ---- */
+
+.support-button {
+  font-size: 20px;
+}
+
 /* ---- desktop media query ---- */
 
 @media screen and ( min-width: 960px ) {
