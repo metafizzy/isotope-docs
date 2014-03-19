@@ -130,6 +130,20 @@ $.fn.radioButtonGroup = function() {
   return this;
 };
 
+// -------------------------- displayIsotopeCode -------------------------- //
+
+// disable class prefix on highlight.js
+hljs.configure({ classPrefix: '' });
+
+$.fn.displayIsotopeCode = function( key, value ) {
+  value = typeof value === 'string' ? "'" + value + "'" : value;
+  var codeHTML = "$container.isotope({ " +
+    key + ": " + value + " })";
+  // syntax highlight
+  codeHTML = hljs.highlight( 'js', codeHTML ).value;
+  this.html( codeHTML );
+};
+
 // -------------------------- stickynav -------------------------- //
 
 function stickifyPageNav() {

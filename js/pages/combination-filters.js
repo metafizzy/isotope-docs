@@ -37,7 +37,7 @@ ID['combination-filters'] = function() {
     }
 
     $container.isotope({ filter: filterValue });
-    $codeDisplay.text( "$container.isotope({ filter: '" + filterValue + "' })" );
+    $codeDisplay.displayIsotopeCode( 'filter', filterValue );
   });
 
 };

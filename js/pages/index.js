@@ -8,9 +8,6 @@
 
 var ID = window.ID;
 
-// disable class prefix on highlight.js
-hljs.configure({ classPrefix: '' });
-
 ID.index = function() {
 
   ( function() {
@@ -41,29 +38,22 @@ ID.index = function() {
 }
     };
 
+
+    var $codeDisplay = $('#hero .code-display code');
+
+
     $('#hero .sort-by').on( 'click', 'button', function() {
       var sortByValue = $(this).attr('data-sort-by');
       $container.isotope({ sortBy: sortByValue });
-      displayCode( 'sortBy', sortByValue );
+      $codeDisplay.displayIsotopeCode( 'sortBy', sortByValue );
     });
 
     $('#hero .filters').on( 'click', 'button', function() {
       var filterValue = $(this).attr('data-filter');
       filterValue = filterFns[ filterValue ] || filterValue;
       $container.isotope({ filter: filterValue });
-      displayCode( 'filter', filterValue );
+      $codeDisplay.displayIsotopeCode( 'filter', filterValue );
     });
-
-    var $codeDisplay = $('#hero .code-display code');
-
-    function displayCode( key, value ) {
-      value = typeof value === 'string' ? "'" + value + "'" : value;
-      var codeHTML = "$container.isotope({ " +
-        key + ": " + value + " })";
-      // syntax highlight
-      codeHTML = hljs.highlight( 'js', codeHTML ).value;
-      $codeDisplay.html( codeHTML );
-    }
 
   })();
 
