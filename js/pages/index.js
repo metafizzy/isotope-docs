@@ -8,6 +8,8 @@
 
 var ID = window.ID;
 
+// disable class prefix on highlight.js
+hljs.configure({ classPrefix: '' });
 
 ID.index = function() {
 
@@ -56,8 +58,11 @@ ID.index = function() {
 
     function displayCode( key, value ) {
       value = typeof value === 'string' ? "'" + value + "'" : value;
-      $codeDisplay.text( "$container.isotope({ " +
-        key + ": " + value + " })" );
+      var codeHTML = "$container.isotope({ " +
+        key + ": " + value + " })";
+      // syntax highlight
+      codeHTML = hljs.highlight( 'js', codeHTML ).value;
+      $codeDisplay.html( codeHTML );
     }
 
   })();

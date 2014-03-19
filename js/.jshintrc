@@ -11,6 +11,7 @@
     "eventie": false,
     "getSize": false,
     "getStyleProperty": false,
+    "hljs": false,
     "imagesLoaded": false,
     "Masonry": false
   }

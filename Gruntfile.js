@@ -12,13 +12,14 @@ module.exports = function( grunt ) {
     // ----- tasks settings ----- //
 
     jshint: {
-      docs: [ 'js/controller.js', 'js/*/*.js'  ],
+      docs: [ 'js/controller.js', 'js/pages/*.js'  ],
       options: grunt.file.readJSON('js/.jshintrc')
     },
 
     concat: {
       'docs-js': {
         src: [
+          'js/vendor/*.js',
           // docs js
           'js/controller.js',
           'js/pages/*.js'
