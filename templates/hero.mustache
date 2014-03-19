@@ -35,24 +35,32 @@
 
   <div class="primary-content">
     <div class="demo">
-      <h3>Filter</h3>
-      <div class="filters button-group js-radio-button-group">
-        <button class="button is-checked" data-filter="*">show all</button>
-        <button class="button" data-filter=".metal">metal</button>
-        <button class="button" data-filter=".transition">transition</button>
-        <button class="button" data-filter=":not(.transition)">not transition</button>
-        <button class="button" data-filter="numberGreaterThan50">number > 50</button>
-        <button class="button" data-filter="ium">name ends with &ndash;ium</button>
+
+      <div class="ui-group">
+        <h3>Filter</h3>
+        <div class="filters button-group js-radio-button-group">
+          <button class="button is-checked" data-filter="*">show all</button>
+          <button class="button" data-filter=".metal">metal</button>
+          <button class="button" data-filter=".transition">transition</button>
+          <button class="button" data-filter="ium">&ndash;ium</button>
+        </div>
       </div>
-      <h3>Sort</h3>
-      <div class="sort-by button-group js-radio-button-group">
-        <button class="button is-checked" data-sort-by="original-order">original order</button>
-        <button class="button" data-sort-by="name">name</button>
-        <button class="button" data-sort-by="symbol">symbol</button>
-        <button class="button" data-sort-by="number">number</button>
-        <button class="button" data-sort-by="weight">weight</button>
-        <button class="button" data-sort-by="category">category</button>
+      <div class="ui-group">
+        <h3>Sort</h3>
+        <div class="sort-by button-group js-radio-button-group">
+          <button class="button is-checked" data-sort-by="original-order">original order</button>
+          <button class="button" data-sort-by="name">name</button>
+          <button class="button" data-sort-by="symbol">symbol</button>
+          <button class="button" data-sort-by="number">number</button>
+        </div>
       </div>
+
+<pre class="code-display"><code>$container.isotope({
+  itemSelector: '.element-item',
+  layoutMode: 'fitRows',
+  ...
+})</code></pre>
+
       <div class="isotope">
         {{#best-of-elements}}
           <div class="element-item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">

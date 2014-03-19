@@ -34,21 +34,31 @@ ID.index = function() {
         return parseInt( number, 10 ) > 50;
       },
       ium: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /ium$/ );
-      }
+  var name = $(this).find('.name').text();
+  return name.match( /ium$/ );
+}
     };
 
     $('#hero .sort-by').on( 'click', 'button', function() {
       var sortByValue = $(this).attr('data-sort-by');
       $container.isotope({ sortBy: sortByValue });
+      displayCode( 'sortBy', sortByValue );
     });
 
     $('#hero .filters').on( 'click', 'button', function() {
       var filterValue = $(this).attr('data-filter');
       filterValue = filterFns[ filterValue ] || filterValue;
       $container.isotope({ filter: filterValue });
+      displayCode( 'filter', filterValue );
     });
+
+    var $codeDisplay = $('#hero .code-display code');
+
+    function displayCode( key, value ) {
+      value = typeof value === 'string' ? "'" + value + "'" : value;
+      $codeDisplay.text( "$container.isotope({ " +
+        key + ": " + value + " })" );
+    }
 
   })();
 
