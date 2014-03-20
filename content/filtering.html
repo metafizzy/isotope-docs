@@ -4,7 +4,8 @@
   "nav": [
     "Selectors",
     "Functions",
-    "Creating interactive buttons"
+    "UI",
+    "Combination filters"
   ]
 }
 ---
@@ -17,7 +18,7 @@
     <button class="button is-checked" data-filter="*">show all</button>
     <button class="button" data-filter=".metal">metal</button>
     <button class="button" data-filter=".transition">transition</button>
-    <button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+    <button class="button" data-filter=".alkali, .alkaline-earth">alkali &amp; alkaline-earth</button>
     <button class="button" data-filter=":not(.transition)">not transition</button>
     <button class="button" data-filter=".metal:not(.transition)">metal but not transition</button>
     <button class="button" data-filter="numberGreaterThan50">number > 50</button>
@@ -82,7 +83,7 @@ $container.isotope({ filter: '.metal' });
 
 <h2 id="functions">Functions</h2>
 
-<p>You can filter items with functions. This allows you to filter with a bit more logic.</p>
+<p>You can filter items with functions. The example above uses a function to filter items when the item&rsquo;s number is greater than 50.</p>
 
 ``` html
 <div id="container">
@@ -122,22 +123,22 @@ iso.arrange({
 
 </div><div class="primary-content">
 
-<h2 id="creating-interactive-buttons">Creating interactive buttons</h2>
+<h2 id="ui">UI</h2>
 
-<p>Let&rsquo;s use a group of buttons for the UI.</p>
+<p>The example above uses buttons for UI. Each button has its filter set in the <code>data-filter</code> attribute.</p>
 
 ``` html
 <div id="filters" class="button-group">
   <button data-filter="*">show all</button>
   <button data-filter=".metal">metal</button>
   <button data-filter=".transition">transition</button>
-  <button data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+  <button data-filter=".alkali, .alkaline-earth">alkali & alkaline-earth</button>
   <button data-filter=":not(.transition)">not transition</button>
   <button data-filter=".metal:not(.transition)">metal but not transition</button>
 </div>
 ```
 
-<p>Each button has its filter set in the <code>data-filter</code> attribute. In the JS, we can use that filter when a button is clicked.</p>
+<p>In the JS, we can use that filter when a button is clicked.</p>
 
 ``` js
 // init Isotope
@@ -145,7 +146,7 @@ var $container = $('#container').isotope({
   // options
 });
 // filter items on button click
-$('#filters').on( 'click', 'button', function( event ) {
+$('#filters').on( 'click', 'button', function() {
   var filterValue = $(this).attr('data-filter');
   $container.isotope({ filter: filterValue });
 });
@@ -176,7 +177,7 @@ var filterFns = {
   }
 };
 // filter items on button click
-$('#filters').on( 'click', 'button', function( event ) {
+$('#filters').on( 'click', 'button', function() {
   var filterValue = $(this).attr('data-filter');
   // use filter function if value matches
   filterValue = filterFns[ filterValue ] || filterValue;
@@ -192,5 +193,102 @@ $('#filters').on( 'click', 'button', function( event ) {
   <li><a href="http://codepen.io/desandro/pen/jubmr">Select example</a></li>
   <li><a href="http://codepen.io/desandro/pen/qlwyL">Radio input example</a></li>
 </ul>
+
+</div><div class="primary-content">
+
+<h2 id="combination-filters">Combination filters</h2>
+
+<p>Filters can be combined. In addition to filtering for just <code>.red</code> or <code>.tall</code>, you can pass in a filter selector of both: <code>.red.tall</code>.</p>
+
+<div id="combination-filters-demo" class="demo">
+
+  <div class="ui-group">
+    <h3>Color</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="color">
+      <button class="button is-checked" data-filter="">any</button>
+      {{#combos.colors}}
+        <button class="button" data-filter=".{{color}}">{{color}}</button>
+      {{/combos.colors}}
+    </div>
+  </div>
+
+  <div class="ui-group">
+    <h3>Size</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="size">
+      <button class="button is-checked" data-filter="">any</button>
+      {{#combos.sizes}}
+        <button class="button" data-filter=".{{size}}">{{size}}</button>
+      {{/combos.sizes}}
+    </div>
+  </div>
+
+  <div class="ui-group">
+    <h3>Shape</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="shape">
+      <button class="button is-checked" data-filter="">any</button>
+      {{#combos.shapes}}
+        <button class="button" data-filter=".{{shape}}">{{shape}}</button>
+      {{/combos.shapes}}
+    </div>
+  </div>
+
+  <pre class="code-display"><code>$container.isotope({...})</code></pre>
+
+  <div class="isotope">
+    {{#with combos}}
+      {{#each sizes}}
+        {{#each ../shapes}}
+          {{#each ../../colors}}
+            <div class="color-shape {{../../size}} {{../shape}} {{color}}"></div>
+          {{/each}}
+        {{/each}}
+      {{/each}}
+    {{/with}}
+  </div>
+</div>
+
+<h3 id="combination-filters-ui">Combination filters UI</h3>
+
+<p>In this example, buttons are collected in a <code>button-group</code>. Each <code>button-group</code> has a <code>data-filter-group</code>.</p>
+
+``` html
+<div class="button-group" data-filter-group="color">
+  <button data-filter="">any</button>
+  <button data-filter=".red">red</button>
+  <button data-filter=".blue">blue</button>
+  <button data-filter=".yellow">yellow</button>
+</div>
+
+<div class="button-group" data-filter-group="size">
+  <button data-filter="">any</button>
+  <button data-filter=".small">small</button>
+  <button data-filter=".wide">wide</button>
+  ...
+</div>
+```
+
+<p>In the JavaScript, these filters are stored in an object, <code>filters</code>. When a button is clicked, it changes the filter for that group. The object&rsquo;s values are then combined into one filter <code>'.red.small'</code>.</p>
+
+``` js
+// store filter for each group
+var filters = {};
+
+$demo.on( 'click', '.button', function() {
+  var $this = $(this);
+  // get group key
+  var $buttonGroup = $this.parents('.button-group');
+  var filterGroup = $buttonGroup.attr('data-filter-group');
+  // set filter for group
+  filters[ filterGroup ] = $this.attr('data-filter');
+  // combine filters
+  var filterValue = '';
+  for ( var prop in filters ) {
+    filterValue += filters[ prop ];
+  }
+  // set filter for Isotope
+  $container.isotope({ filter: filterValue });
+});
+```
+
 
 </div>

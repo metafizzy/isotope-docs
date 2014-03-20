@@ -1,5 +1,9 @@
 /* ---- demos ---- */
 
+.demo {
+  margin-bottom: 0.8em;
+}
+
 .demo .isotope,
 .demo.isotope {
   border: 2px solid #484542;
