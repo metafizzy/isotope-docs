@@ -23,6 +23,9 @@
     <button class="button" data-filter="numberGreaterThan50">number > 50</button>
     <button class="button" data-filter="ium">name ends with &ndash;ium</button>
   </div>
+
+  <pre class="code-display"><code>$container.isotope({...})</code></pre>
+
   <div class="isotope">
     {{#best-of-elements}}
       <div class="element-item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">
