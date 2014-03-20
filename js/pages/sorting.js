@@ -32,9 +32,12 @@ ID.sorting = function() {
       // sortBy: $buttonGroup.find(':checked').val()
     });
 
+    var $codeDisplay = $('#sorting-demo .code-display code');
+
     $buttonGroup.on( 'click', 'button', function() {
       var sortByValue = $(this).attr('data-sort-by');
       $container.isotope({ sortBy: sortByValue });
+      $codeDisplay.displayIsotopeCode( 'sortBy', sortByValue );
     });
 
   })();

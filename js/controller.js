@@ -136,7 +136,9 @@ $.fn.radioButtonGroup = function() {
 hljs.configure({ classPrefix: '' });
 
 $.fn.displayIsotopeCode = function( key, value ) {
-  value = typeof value === 'string' ? "'" + value + "'" : value;
+  // add quotes for string value
+  value = typeof value === 'string' && value.indexOf('function') === -1 ?
+    "'" + value + "'" : value;
   var codeHTML = "$container.isotope({ " +
     key + ": " + value + " })";
   // syntax highlight

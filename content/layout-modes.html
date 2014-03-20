@@ -22,10 +22,6 @@
 
 <p>Isotope has a versatile layout engine allowing you to position items with different layout logic. Set and change layout mode with the <code>layoutMode</code> option.</p>
 
-``` js
-$('#container').isotope({ layoutMode : 'fitRows' });
-```
-
 <div id="layout-modes-demo" class="demo">
 
     <div class="button-group js-radio-button-group">
@@ -38,6 +34,8 @@ $('#container').isotope({ layoutMode : 'fitRows' });
       <button class="button" data-layout-mode-value="cellsByColumn" data-is-horizontal="true">cellsByColumn</button>
       <button class="button" data-layout-mode-value="horizontal" data-is-horizontal="true">horizontal</button>
     </div>
+
+    <pre class="code-display"><code>$container.isotope({...})</code></pre>
 
     <div class="isotope is-varying-sizes rainbowed">
       {{>feature-layout-mode-demo-items}}

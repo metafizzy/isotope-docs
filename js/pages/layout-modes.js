@@ -36,6 +36,8 @@ ID['layout-modes'] = function() {
 
     var isHorizontal = false;
 
+    var $codeDisplay = $('#layout-modes-demo .code-display code');
+
     $('#layout-modes-demo .button-group').on( 'click', 'button', function() {
       // adjust container sizing if layout mode is changing from vertical or horizontal
       var $this = $(this);
@@ -52,6 +54,7 @@ ID['layout-modes'] = function() {
       // change layout mode
       var layoutModeValue = $this.attr('data-layout-mode-value');
       $container.isotope({ layoutMode: layoutModeValue });
+      $codeDisplay.displayIsotopeCode( 'layoutMode', layoutModeValue );
     });
 
   })();
