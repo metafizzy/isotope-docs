@@ -52,9 +52,6 @@ module.exports = function( grunt ) {
           templates: 'templates/*.mustache',
           defaultTemplate: 'page',
           dataFiles: "data/*.json",
-          partialFiles: {
-            'submitting-issues': 'bower_components/isotope/CONTRIBUTING.mdown'
-          },
           helpers: {
             firstValue: function( ary ) {
               return ary[0];
