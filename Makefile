@@ -15,4 +15,7 @@ grunt:
 grunt-dev:
 	grunt --dev
 
-prod: grunt-dev zip grunt deploy
+grunt-template:
+	grunt template
+
+prod: grunt-dev zip grunt-template deploy
