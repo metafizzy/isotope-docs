@@ -55,26 +55,10 @@ bower install metafizzy/isotope-cells-by-column
 
 <p>If <code>columnWidth</code> is not set, the outer width of the first element will be used.</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` js
-layoutMode: 'cellsByColumn',
-masonry: {
-  columnWidth: 110,
-  rowHeight: 110
-}
-```
-  </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "cellsByColumn", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
-      {{>layout-mode-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/qAlEy">Edit this example on CodePen</a></p>
-  </div>
-</div>
+<p>See examples below.</p>
 
 </div><div class="primary-content">
-  
+
 <h2 id="columnwidth">rowHeight</h2>
 
 <div class="param">
@@ -86,15 +70,13 @@ masonry: {
 
 <p>The width of a column of the vertical grid.</p>
 
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the height of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>rowHeight</code> with element sizing is recommended if you are using media queries to change the size of items.</p>
-
 <p>If <code>rowHeight</code> is not set, the outer width of the first element will be used.</p>
 
 <div class="row example">
   <div class="cell example-code">
 ``` js
 layoutMode: 'cellsByColumn',
-masonry: {
+cellsByColumn: {
   columnWidth: 110,
   rowHeight: 110
 }
@@ -105,6 +87,37 @@ masonry: {
       {{>layout-mode-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/qAlEy">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the height of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>rowHeight</code> with element sizing is recommended if you are using media queries to change the size of items.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+layoutMode: 'cellsByColumn',
+itemSelector: '.mini-item',
+cellsByColumn: {
+  columnWidth: 110,
+  rowHeight: 110
+}
+```
+``` css
+.mini-item { height: 10.5%; }
+.mini-item.h2 { height: 23%; }
+/* isotope element option sizing */
+.grid-sizer {
+  width: 110px;
+  height: 25%;
+}
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope horizontal counting cells-by-column-element-sizing" data-isotope-options='{ "layoutMode": "cellsByColumn", "itemSelector": ".mini-item", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
+      <div class="grid-sizer"></div>
+      {{>layout-mode-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/qfatn">Edit this example on CodePen</a></p>
   </div>
 </div>
 

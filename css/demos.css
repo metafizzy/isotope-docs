@@ -186,6 +186,28 @@
   margin: 10px auto;
 }
 
+/* ---- cells-by-row-element-sizing ---- */
+
+.cells-by-row-element-sizing .mini-item { width: 10.5%; }
+
+.cells-by-row-element-sizing .mini-item.w2 { width: 23%; }
+
+.cells-by-row-element-sizing .grid-sizer {
+  width: 25%;
+  height: 110px;
+}
+
+/* ---- cells-by-column-element-sizing ---- */
+
+.cells-by-row-column-sizing .mini-item { height: 10.5%; }
+
+.cells-by-row-column-sizing .mini-item.w2 { height: 23%; }
+
+.cells-by-row-column-sizing .grid-sizer {
+  width: 110px;
+  height: 25%;
+}
+
 /* ---- counting ---- */
 
 .isotope.counting {

@@ -51,15 +51,13 @@ bower install metafizzy/isotope-cells-by-row
 
 <p>The width of a column of the horizontal grid.</p>
 
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths or media queries to change the size of items.</p>
-
 <p>If <code>columnWidth</code> is not set, the outer width of the first element will be used.</p>
 
 <div class="row example">
   <div class="cell example-code">
 ``` js
 layoutMode: 'cellsByRow',
-masonry: {
+cellsByRow: {
   columnWidth: 110,
   rowHeight: 110
 }
@@ -73,8 +71,39 @@ masonry: {
   </div>
 </div>
 
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths or media queries to change the size of items.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+layoutMode: 'cellsByRow',
+itemSelector: '.item',
+cellsByRow: {
+  columnWidth: '.grid-sizer',
+  rowHeight: '.grid-sizer'
+}
+```
+``` css
+.mini-item { width: 10.5%; }
+.mini-item.w2 { width: 23%; }
+/* isotope element option sizing */
+.grid-sizer {
+  width: 20%;
+  height: 110px;
+}
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope cells-by-row-element-sizing js-isotope" data-isotope-options='{ "layoutMode": "cellsByRow", "itemSelector": ".mini-item", "cellsByRow": { "columnWidth": ".grid-sizer", "rowHeight": ".grid-sizer" } }'>
+      <div class="grid-sizer"></div>
+      {{>layout-mode-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/ybEuz">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
 </div><div class="primary-content">
-  
+
 <h2 id="columnwidth">rowHeight</h2>
 
 <div class="param">
@@ -90,22 +119,6 @@ masonry: {
 
 <p>If <code>rowHeight</code> is not set, the outer width of the first element will be used.</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` js
-layoutMode: 'cellsByRow',
-masonry: {
-  columnWidth: 110,
-  rowHeight: 110
-}
-```
-  </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
-      {{>layout-mode-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/zFart">Edit this example on CodePen</a></p>
-  </div>
-</div>
+<p>See examples above.</p>
 
 </div>
