@@ -69,7 +69,7 @@ ID.index = function() {
 
     var $container = $('#in-use-container');
     // hide by default
-    var $items = $container.find('.in-use-item').hide();
+    $container.find('.in-use-item').hide();
 
     $container.isotope({
       // select none
