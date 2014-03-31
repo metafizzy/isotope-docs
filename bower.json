@@ -1,6 +1,6 @@
 {
   "name": "isotope-docs",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "David DeSandro",
   "dependencies": {
     "classie": "desandro/classie",
@@ -9,7 +9,7 @@
     "get-style-property": "desandro/get-style-property",
     "get-size": "desandro/get-size",
     "imagesloaded": "latest",
-    "isotope": ">=2.0.0-beta.10 <3",
+    "isotope": ">=2.0.0 <3",
     "isotope-cells-by-column": "metafizzy/isotope-cells-by-column",
     "isotope-cells-by-row": "metafizzy/isotope-cells-by-row",
     "isotope-fit-columns": "metafizzy/isotope-fit-columns",

@@ -7,7 +7,7 @@ zip:
 	rm -rf isotope-docs
 
 deploy:
-	s3cmd sync build/. s3://isotope.metafizzy.co/beta/
+	s3cmd sync build/. s3://isotope.metafizzy.co/
 
 grunt:
 	grunt
