@@ -166,4 +166,23 @@ var iso = new Isotope( '#container', {
 
 <p>Isotope is currently v2. See <a href="http://isotope.metafizzy.co/v1">isotope.metafizzy.co/v1</a> for documentation and resources for previous v1 version.</p>
 
+</div><div class="primary-content">
+
+<h2 id="isotope-in-use">Isotope in use</h2>
+
+<p>Justin Bieber, <a href="http://www.tylerperry.com/entertainment/">Tyler Perry</a>, <a href="http://colonelsanders.com">Colonel Sanders</a>: they all have used Isotope.</p>
+
+<p>Are you using Isotope? Tweet <a href="https://twitter.com/metafizzyco">@metafizzyco</a> or email <a href="mailto:yo@metafizzy.co">yo@metafizzy.co</a> to share your work and possibly get it featured here.</p>
+
+<div id="in-use-container">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  {{#each in-use}}
+    <a class="in-use-item" href="{{url}}">
+      <p class="title">{{title}}</p>
+      <img src="{{image}}" />
+    </a>
+  {{/each}}
+</div>
+
 </div>
