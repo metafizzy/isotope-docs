@@ -1,7 +1,7 @@
 {
   "name": "isotope-docs",
   "version": "1.0.0",
-  "author": "David DeSandro",
+  "author": "David DeSandro / Metafizzy",
   "dependencies": {
     "classie": "desandro/classie",
     "doc-ready": "desandro/doc-ready",
