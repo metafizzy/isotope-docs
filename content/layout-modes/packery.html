@@ -1,0 +1,197 @@
+---
+{
+  "title": "packery",
+  "nav": [
+    "Install",
+    "columnWidth",
+    "gutter",
+    "isHorizontal",
+    "rowHeight"
+  ]
+}
+---
+
+<div class="primary-content">
+
+<p>The packery layout mode uses a bin-packing algorithm. This is a fancy way of saying “it fills empty gaps.”</p>
+
+<p><a href="http://packery.metafizzy.co">Packery</a> is available as a stand-alone layout library. See also: <a href="../faq.html#difference-between-isotope-masonry-and-packery">What is the difference between Isotope, Masonry, and Packery?</a></p>
+
+<div class="demo">
+  <div class="isotope js-isotope is-varying-sizes rainbowed" data-isotope-options='{ "layoutMode": "packery" }'>
+    {{>feature-layout-mode-demo-items}}
+  </div>
+  <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/mEinp">Edit this example on CodePen</a></p> -->
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="install">Install</h2>
+
+<p>This layout mode is not included in <a href="../isotope.pkgd.js">isotope.pkgd.js</a> and must be installed separately.</p>
+
+<p>Download a packaged source file for packery layout mode:</p>
+
+<ul>
+  <li><a href="https://raw.githubusercontent.com/metafizzy/isotope-packery/master/packery-mode.pkgd.js">packery-mode.pkgd.js</a></li>
+  <li><a href="https://raw.githubusercontent.com/metafizzy/isotope-packery/master/packery-mode.pkgd.min.js">packery-mode.pkgd.min.js</a></li>
+</ul>
+
+
+<p>Or, install with Bower:</p>
+
+```
+bower install metafizzy/isotope-packery
+```
+
+</div><div class="primary-content">
+
+<h1>Options</h1>
+
+</div><div class="primary-content">
+
+<h2 id="columnwidth">columnWidth</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>The width of a column of a horizontal grid.</p>
+
+<p>Unlike <a href="masonry.html">masonry layout</a>, packery layout does not require <code>columnWidth</code>.</p>
+
+<p>If <code>columnWidth</code> is not set, Isotope will use the outer width of the first element.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+layoutMode: 'packery',
+packery: {
+  columnWidth: 60
+}
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "packery", "packery": { "columnWidth": 60 } }'>
+      {{>mini-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/mEinp">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="../options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` html
+<div class="flex-5-col">
+  <div class="grid-sizer"></div>
+  <div class="mini-item"></div>
+  <div class="mini-item"></div>
+  ...
+</div>
+```
+``` css
+.flex-5-col .grid-sizer,
+.flex-5-col .mini-item { width: 20%; }
+.flex-5-col .mini-item.w2 { width: 40%; }
+```
+``` js
+layoutMode: 'packery',
+packery: {
+  columnWidth: '.grid-sizer'
+},
+itemSelector: '.mini-item'
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope flex-5-col" data-isotope-options='{ "layoutMode": "packery", "packery": { "columnWidth": ".grid-sizer" }, "itemSelector": ".mini-item" }'>
+      <div class="grid-sizer"></div>
+      {{>mini-demo-items}}
+    </div>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/mIkhq">Edit this example on CodePen</a></p> -->
+  </div>
+</div>
+
+
+</div><div class="primary-content">
+  
+<h2 id="gutter">gutter</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>The space between item elements, both vertically and horizontally.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+packery: {
+  gutter: 10
+}
+```
+``` css
+.packery-gutter .mini-item.w2 {
+  width: 110px;
+}
+.packery-gutter .mini-item.h2 {
+  height: 110px;
+}
+```
+  </div>
+  <div class="cell demo packery-gutter">
+    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "packery", "packery": { "gutter": 10 } }'>
+      {{>mini-demo-items}}
+    </div>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/dHsCJ">Edit this example on CodePen</a></p> -->
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="../options.html#element-sizing">Element sizing</a>.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` html
+<div class="flex-4-col-gutter">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  <div class="mini-item"></div>
+  <div class="mini-item"></div>
+  ...
+</div>
+```
+``` css
+.flex-4-col-gutter .grid-sizer,
+.flex-4-col-gutter .mini-item { width: 22%; }
+.flex-4-col-gutter .mini-item.w2 { width: 48%; }
+.flex-4-col-gutter .gutter-sizer { width: 4%; }
+```
+``` js
+layoutMode: 'packery',
+packery: {
+  gutter: '.gutter-sizer'
+},
+itemSelector: '.mini-item'
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope flex-4-col-gutter" data-isotope-options='{ "layoutMode": "packery", "itemSelector": ".mini-item", "packery": { "gutter": ".gutter-sizer" } }'>
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      {{>mini-demo-items}}
+    </div>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/aEmkl">Edit this example on CodePen</a></p> -->
+  </div>
+</div>
+
+  
+</div><div class="primary-content">
+
+</div>

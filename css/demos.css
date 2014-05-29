@@ -150,7 +150,10 @@
 .flex-5-col .gutter-sizer { width: 5%; }
 
 /* masonry gutter */
-.masonry-gutter .mini-item.w2 { width: 110px; }
+.masonry-gutter .mini-item.w2,
+.packery-gutter .mini-item.w2 { width: 110px; }
+
+.packery-gutter .mini-item.h2 { height: 110px; }
 
 /* masonry bottom spaced */
 #masonry-bottom-spaced .mini-item {
