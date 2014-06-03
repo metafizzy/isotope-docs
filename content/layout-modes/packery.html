@@ -87,8 +87,6 @@ stamp: '.stamp'
 
 <p>Unlike <a href="masonry.html">masonry layout</a>, packery layout does not require <code>columnWidth</code>.</p>
 
-<p>If <code>columnWidth</code> is not set, Isotope will use the outer width of the first element.</p>
-
 <div class="row example">
   <div class="cell example-code">
 ``` js
@@ -251,5 +249,37 @@ packery: {
     <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/oCiAD">Edit this example on CodePen</a></p> -->
   </div>
 </div>
+
+</div><div class="primary-content">
+
+<h2 id="rowheight">rowHeight</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>Aligns items to the height of a row of a vertical grid.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+layoutMode: 'packery',
+packery: {
+  rowHeight: 60
+}
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "packery", "packery": { "rowHeight": 60 } }'>
+      {{>mini-demo-items}}
+    </div>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/mEinp">Edit this example on CodePen</a></p> -->
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the height of that element. See <a href="../options.html#element-sizing">Element sizing</a>. Setting <code>rowHeight</code> with element sizing is recommended if you are using media queries.</p>
 
 </div>
