@@ -284,6 +284,13 @@
 
 #stamp-demo .mini-item { opacity: 0.8; }
 
+#packery-stamp-opt-demo .stamp1 {
+  right: 20%;
+  top: 80px;
+  width: 45%;
+  height: 90px;
+}
+
 /* ---- clickable ---- */
 
 .clickable .item:hover {

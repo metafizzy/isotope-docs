@@ -3,6 +3,7 @@
   "title": "packery",
   "nav": [
     "Install",
+    "Stamp",
     "columnWidth",
     "gutter",
     "isHorizontal",
@@ -21,7 +22,7 @@
   <div class="isotope js-isotope is-varying-sizes rainbowed" data-isotope-options='{ "layoutMode": "packery" }'>
     {{>feature-layout-mode-demo-items}}
   </div>
-  <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/mEinp">Edit this example on CodePen</a></p> -->
+  <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/vdwmb">Edit this example on CodePen</a></p> -->
 </div>
 
 </div><div class="primary-content">
@@ -43,6 +44,29 @@
 ```
 bower install metafizzy/isotope-packery
 ```
+
+</div><div class="primary-content">
+
+<h2 id="stamp">Stamp</h2>
+
+<p>Packery layout can <a href="../options.html#stamp">stamp</a> items in place. Packery will layout item elements <em>around</em> stamped elements &mdash; even above, unlike Masonry.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+layoutMode: 'packery',
+itemSelector: '.mini-item',
+stamp: '.stamp'
+```
+  </div>
+  <div class="cell demo">
+    <div id="packery-stamp-opt-demo" class="isotope has-stamp js-isotope" data-isotope-options='{ "layoutMode": "packery", "itemSelector": ".mini-item", "stamp": ".stamp" }'>
+      <div class="stamp stamp1"></div>
+      {{>mini-demo-items}}
+    </div>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/jfhnx">Edit this example on CodePen</a></p> -->
+  </div>
+</div>
 
 </div><div class="primary-content">
 
@@ -193,5 +217,39 @@ itemSelector: '.mini-item'
 
   
 </div><div class="primary-content">
+
+<h2 id="ishorizontal">isHorizontal</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">false</span></code></span>
+  </p>
+</div>
+
+<p>Arranges items horizontally instead of vertically.</p>
+
+<p>Set a <a href="../layout-modes.html#horizontal-layouts">container height</a> for horizontal layouts.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+layoutMode: 'packery',
+packery: {
+  isHorizontal: true
+}
+```
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "packery", "packery": { "isHorizontal": true } }'>
+      {{>mini-demo-items}}
+    </div>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/oCiAD">Edit this example on CodePen</a></p> -->
+  </div>
+</div>
 
 </div>
