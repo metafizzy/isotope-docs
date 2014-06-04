@@ -15,7 +15,7 @@
     "isotope-fit-columns": "metafizzy/isotope-fit-columns",
     "isotope-horizontal": "metafizzy/isotope-horizontal",
     "isotope-masonry-horizontal": "metafizzy/isotope-masonry-horizontal",
-    "isotope-packery": "metafizzy/isotope-packery",
+    "isotope-packery": "latest",
     "jquery": "~1",
     "normalize-css": "~2"
   }
