@@ -5,7 +5,8 @@
     "Overlapping",
     "Browser support",
     "Difference between Isotope, Masonry, and Packery",
-    "First item breaks grid"
+    "First item breaks grid",
+    "Filtered items"
   ]
 }
 ---
@@ -49,6 +50,26 @@ $('#container').isotope({
     columnWidth: 200
   }
 });
+```
+
+</div><div class="primary-content">
+
+<h2 id="filtered-items">How can I access filtered items in current order?</h2>
+
+<p>Use the <code>filteredItems</code> property. <code>filteredItems</code> is an array of <i>Isotope Item</i>s.</p>
+
+``` js
+// init isotope, filter & sort
+var $container = $('#container').isotope({
+  filter: '.selector',
+  sortBy: 'order'
+});
+// get Isotope instance, if using jQuery
+var iso = $container.data('isotope');
+// count how many
+console.log( 'filtered ' + iso.filteredItems.length + ' items' );
+// first element
+console.log( iso.filteredItems[0].element );
 ```
 
 </div>
