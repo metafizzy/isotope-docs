@@ -21,6 +21,7 @@
     "reloadItems",
     "remove",
     "reveal",
+    "shuffle",
     "stamp",
     "unbindResize",
     "unstamp",
@@ -762,6 +763,35 @@ iso.reveal( items )
 </ul>
 
 <p>Reveals hidden items.</p>
+
+</div><div class="primary-content">
+
+<h2 id="shuffle">shuffle</h2>
+
+``` js
+$container.isotope('shuffle')
+// or with vanilla JS
+iso.shuffle()
+```
+
+<p>Shuffles item in a random order.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+$('#shuffle-button').on( 'click', function() {
+  $container.isotope('shuffle');
+});
+```
+  </div>
+  <div id="shuffle-demo" class="cell demo">
+    <button class="button">Shuffle</button>
+    <div class="isotope">
+      {{>mini-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/EluFg">Edit this example on CodePen</a></p>
+  </div>
+</div>
 
 </div><div class="primary-content">
 

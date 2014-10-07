@@ -141,6 +141,20 @@ ID.methods = function() {
     });
   })();
 
+  // ----- shuffle demo ----- //
+
+  ( function() {
+    var $demo = $('#shuffle-demo');
+    var $container = $demo.find('.isotope').isotope({
+      masonry: {
+        columnWidth: 50
+      }
+    });
+
+    $demo.find('.button').on( 'click', function() {
+      $container.isotope('shuffle');
+    });
+  })();
 
   // ----- stamp demo ----- //
 
