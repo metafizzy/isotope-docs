@@ -68,6 +68,7 @@ head { font-family: 'base'; }
 
   #content {
     padding-top: 20px;
+    min-height: 540px; /* space so footer doesn't overlap */
   }
 
   /* content primary-content */
