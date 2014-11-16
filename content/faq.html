@@ -6,7 +6,8 @@
     "Browser support",
     "Difference between Isotope, Masonry, and Packery",
     "First item breaks grid",
-    "Filtered items"
+    "Filtered items",
+    "Call methods error"
   ]
 }
 ---
@@ -71,5 +72,70 @@ console.log( 'filtered ' + iso.filteredItems.length + ' items' );
 // first element
 console.log( iso.filteredItems[0].element );
 ```
+
+</div><div class="primary-content">
+
+<h2 id="call-methods-error">Error: &ldquo;cannot call methods on isotope prior to initialization; attempted to call '___'&rdquo;</h2>
+
+<p>This error occurs when your code attempts to use a <a href="methods.html">method</a> before the Isotope instance has been initialized.</p>
+
+``` js
+// This code will trigger the "cannot call methods" error
+
+$container.append( $items )
+  // isotope method
+  .isotope( 'appended', $items );
+
+// init Isotope
+$container.isotope({
+  // options...
+});
+```
+
+<p>This can happen if you have a race condition — when one piece of logic may occur before another. This could happen with <a href="appendix.html#imagesloaded">imagesLoaded</a>, Infinite Scroll, or Ajaxing content.</p>
+
+``` js
+// race condition with imagesLoaded
+
+$container.imagesLoaded( function() {
+  // init Isotope
+  $container.isotope({
+    // options...
+  });
+});
+
+// imagesLoaded will trigger after this
+$container.append( $items )
+  .isotope( 'appended', $items );
+```
+
+<p>To resolve this, make sure that the Isotope instance has been initialized before the method is called.</p>
+
+``` js
+$container.imagesLoaded( function() {
+  // init Isotope
+  $container.isotope({
+    // options...
+  });
+  // isotope has been initalized, okay to call methods
+  $container.append( $items )
+    .isotope( 'appended', $items );
+});
+```
+
+``` js
+// another fix, init Isotope first, before imagesLoaded
+$container.isotope({
+  // options...
+});
+// okay to call methods
+$container.append( $items )
+  .isotope( 'appended', $items );
+// just do layout on imagesLoaded
+$container.imagesLoaded( function() {
+  $container.isotope('layout');
+});
+```
+
 
 </div>
