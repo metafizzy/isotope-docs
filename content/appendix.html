@@ -8,6 +8,7 @@
     "Submitting issues",
     "Upgrading from v1",
     "RequireJS",
+    "Browserify",
     "Animating item size",
     "Component libraries",
     "Extra examples",
@@ -285,6 +286,57 @@ requirejs( [
     $.bridget( 'isotope', Isotope );
     // now you can use $().isotope()
     $('#container').isotope({...});
+});
+```
+
+<h2 id="browserify">Browserify</h2>
+
+<p>Isotope works with <a href="http://browserify.org">Browserify</a>. <a href="https://www.npmjs.org/package/isotope">Install Isotope with npm</a>.</p>
+
+```
+npm install isotope-layout
+```
+
+``` js
+var Isotope = require('isotope-layout');
+
+var iso = new Isotope( '#container', {
+  // options...
+});
+```
+
+<p>Install and require <a href="layout-modes.html#included-modes">layout modes that are not included</a>.</p>
+
+```
+npm install isotope-cells-by-row
+```
+
+``` js
+var Isotope = require('isotope-layout');
+// add cellsByRow layout mode
+require('isotope-cells-by-row')
+
+var iso = new Isotope( '#container', {
+  layoutMode: 'cellsByRow'
+});
+```
+
+<p id="browserify-jquery">To use Isotope as a jQuery plugin with Browserify, you need to use <a href="https://www.npmjs.org/package/jquery-bridget">jQuery Bridget</a></p>
+
+```
+npm install jquery
+npm install jquery-bridget
+```
+
+``` js
+var $ = require('jquery');
+var jQBridget = require('jquery-bridget');
+var Isotope = require('isotope');
+// make Isotope a jQuery plugin
+$.bridget( 'isotope', Isotope );
+// now you can use $().isotope()
+$('#container').isotope({
+  // options...
 });
 ```
 
