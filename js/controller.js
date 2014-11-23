@@ -15,6 +15,7 @@ var notifElem;
 var getSize = window.getSize;
 
 // make $().isotope() plugin
+var Isotope = window.Isotope;
 $.bridget( 'isotope', Isotope );
 
 var getComputedStyle = window.getComputedStyle;
