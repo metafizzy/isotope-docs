@@ -88,11 +88,31 @@
   </div>
 
   <div id="footer">
-    <div class="footer-content">
+
+    {{#unless is_dev}}
+    <div class="primary-content">
+      <p class="also">Also made by Metafizzy</p>
+
+      <div class="row other-products">
+
+        <div class="cell other-product packery-product">
+          <a href="http://packery.metafizzy.co/">
+            <img src="http://i.imgur.com/uRXPQfm.png" alt="Packery" />
+            <h3>Packery</h3>
+            <p class="description">Bin-packing layout library. Like Masonry, but without gaps. Draggable too!</p>
+          </a>
+        </div>
+
+      </div>
+    </div>
+    {{/unless}}
+
+    <div class="brand">
       {{! logo is broken up so font renders just the logo in M }}
       <a class="metafizzy-logo" href="http://metafizzy.co">M<span class="etafizzy">etafizzy</span></a>
       <span class="copyright">&copy; 2011&ndash;2014</span>
     </div>
+
   </div>
 
 <!-- Isotope does NOT require jQuery. But it does make things easier -->

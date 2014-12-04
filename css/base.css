@@ -2,6 +2,7 @@
 
 COLORS
 
+dark brown #262524
 link orange #FB4
 blue #4BF
 green #1FB
@@ -46,7 +47,9 @@ h1, h2, h3, h4, h5, h6,
 .param-bit b,
 #in-use-container,
 #multiple-sort-by-demo,
-.support-button {
+.support-button,
+#footer .also,
+.other-product {
   font-family: 'Montserrat', Gotham, 'Proxima Nova', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
 }
 

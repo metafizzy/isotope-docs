@@ -96,6 +96,13 @@ head { font-family: 'base'; }
     margin-bottom: 0.8em;
   }
 
+  /* clearfix */
+  .row:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
   /* two column by default*/
   .row .cell {
     float: left;

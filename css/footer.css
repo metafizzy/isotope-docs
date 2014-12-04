@@ -13,10 +13,16 @@
 
 #footer {
   position: relative;
-  padding-bottom: 1.0em;
+  padding: 3.0em 0;
+  background: black;
+  background: hsla(0, 0%, 0%, 0.4);
 }
 
-.footer-content {
+#footer .primary-content {
+  border: none;
+}
+
+#footer .brand {
   bottom: 20px;
   text-align: center;
   font-size: 12px;
@@ -25,27 +31,37 @@
 #footer .metafizzy-logo {
   display: block;
   font-size: 80px;
-  line-height: 1.0;
+  line-height: 1.3;
   background: none;
-  opacity: 0.25;
+  color: #4BF;
+  opacity: 0.5;
 }
 
-#footer .metafizzy-logo:hover { opacity: 1; }
+#footer a.metafizzy-logo {  }
+
+#footer .metafizzy-logo:hover {
+  color: #FB4;
+  opacity: 1;
+}
+
+#footer .also {
+  font-size: 18px;
+}
 
 /* desktop */
 @media screen and ( min-width: 800px ) {
   #footer {
-    height: 50px;
+    min-height: 240px;
   }
 
-  .footer-content {
+  #footer .brand {
     width: 200px;
     position: absolute;
     left: 0;
-    bottom: 1.0em;
+    top: 20px;
   }
 
   #footer .metafizzy-logo {
-    font-size: 110px;
+    font-size: 130px;
   }
 }

@@ -90,8 +90,7 @@
 
 /* ---- #content ---- */
 
-#content .primary-content,
-#footer .primary-content {
+#content .primary-content {
   border-top: 2px solid #484542;
 }
 
@@ -228,6 +227,49 @@ div.param {
 
 .support-button {
   font-size: 20px;
+}
+
+/* ---- other-products ---- */
+
+.other-product > a {
+  position: relative; /* gonna abs */
+  display: block;
+  padding: 0px;
+  background: #262524;
+  border-radius: 5px;
+  color: #4BF;
+}
+
+.other-product > a:hover {
+  background: #1FB;
+  color: #262524;
+}
+
+.other-product > a:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.other-product img {
+  float: left;
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  margin-right: 1.0em;
+  border-radius: 5px 0 0 5px;
+}
+
+.other-product h3 {
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 0.25em;
+  margin-top: 0px;
+  padding-top: 5px;
+}
+
+.other-product .description {
+  font-size: 15px;
 }
 
 /* ---- desktop media query ---- */
