@@ -26,8 +26,10 @@ head { font-family: 'base'; }
 #content .horiz-rule {
   font-size: 1.7em;
   font-weight: 600;
-  padding: 0.4em 0;
+  padding: 20px 0;
   clear: both;
+  margin-top: 2.5em;
+  border-top: 2px solid #484542;
 }
 
 #content h2:target {
@@ -36,7 +38,16 @@ head { font-family: 'base'; }
   color: white;
 }
 
+#content h1:first-child {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #484542;
+}
 
+#content h1:first-child + h2 {
+  border: none;
+  margin-top: 0;
+}
 
 /* ---- row ---- */
 

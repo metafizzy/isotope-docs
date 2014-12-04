@@ -75,16 +75,14 @@
   {{/if}}
 
   <div id="content">
-
     <div class="primary-content">
       {{#unless page.is_homepage}}
         <h1>{{page.title}}</h1>
-        {{/unless}}
+      {{/unless}}
+
+      {{! all page content goes here }}
+      {{{ content }}}
     </div>
-
-    {{! all page content goes here }}
-    {{{ content }}}
-
   </div>
 
   <div id="footer">

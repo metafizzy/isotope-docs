@@ -13,21 +13,17 @@
 ---
 
 
-<div class="primary-content">
-
   <h2 id="overlapping">How do I fix overlapping item elements?</h2>
 
   <p>If your layout has images, you probably need to use <a href="appendix.html#imagesloaded">imagesLoaded</a>.</p>
 
   <p>Overlaping items are caused by items that change size after a layout. This is caused by unloaded media: images, <a href="appendix.html#web-fonts">web fonts</a>, embedded buttons. To fix it, you need to initialize or <a href="methods.html#layout"><code>layout</code></a> after all the items have their proper size.</p>
 
-</div><div class="primary-content">
 
   <h2 id="browser-support">What is Isotope&rsquo;s browser support?</h2>
 
   <p>Isotope works in IE8+ and modern browsers, including mobile browsers on iOS and Android.</p>
 
-</div><div class="primary-content">
 
   <h2 id="difference-between-isotope-masonry-and-packery">What is the difference between Isotope, Masonry, and Packery?</h2>
 
@@ -39,7 +35,6 @@
 
   <p>Masonry is licensed MIT and is freely available for use and distribution. Isotope and Packery have a proprietary license, where you can purchase a license for commercial projects, or use it freely for open-source projects.</p>
 
-</div><div class="primary-content">
 
 <h2 id="first-item-breaks-grid">The first item breaks the grid!</h2>
 
@@ -53,7 +48,6 @@ $('#container').isotope({
 });
 ```
 
-</div><div class="primary-content">
 
 <h2 id="filtered-items">How can I access filtered items in current order?</h2>
 
@@ -73,7 +67,6 @@ console.log( 'filtered ' + iso.filteredItems.length + ' items' );
 console.log( iso.filteredItems[0].element );
 ```
 
-</div><div class="primary-content">
 
 <h2 id="call-methods-error">Error: &ldquo;cannot call methods on isotope prior to initialization; attempted to call '___'&rdquo;</h2>
 
@@ -136,6 +129,3 @@ $container.imagesLoaded( function() {
   $container.isotope('layout');
 });
 ```
-
-
-</div>

@@ -93,7 +93,10 @@ h1 {
   font-weight: bold;
   font-size: 2.65em;
   margin-bottom: 0.2em;
+  margin-top: 2.0em;
 }
+
+h1:first-child { margin-top: 0; }
 
 h2 {
   font-weight: bold;
@@ -102,7 +105,7 @@ h2 {
 h3 {
   font-weight: normal;
   font-size: 1.4em;
-  margin-top: 1.0em;
+  margin-top: 2.0em;
   margin-bottom: 0.8em;
 }
 
