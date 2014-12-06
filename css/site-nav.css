@@ -47,7 +47,7 @@
 }
 
 #site-nav li a:hover {
-  background: black;
+  background: #161615;
   color: white;
 }
 
@@ -66,7 +66,7 @@
 .appendix-page #site-nav .nav-appendix a,
 .faq-page #site-nav .nav-faq a {
   color: #4Bf;
-  background: black;
+  background: #161615;
 }
 
 /* ---- #page-nav ---- */
@@ -182,8 +182,7 @@
 
   .sub-nav:hover,
   .sub-nav ul {
-    background: black;
-    background: hsl(30, 3%, 10%);
+    background: #161615;
   }
 
   .sub-nav > a:after { content: '...'; }

@@ -3,6 +3,7 @@
 COLORS
 
 dark brown #262524
+dark dark brown #161615
 link orange #FB4
 blue #4BF
 green #1FB
@@ -80,7 +81,7 @@ a:hover code {
 a:active,
 a:active code {
   color: #1FB;
-  background: black;
+  background: #161615;
 }
 
 /* ---- headers ---- */

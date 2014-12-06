@@ -8,8 +8,7 @@
 
 .in-use-item {
   display: block;
-  background: black;
-  background: hsla(0, 0%, 0%, 0.5);
+  background: #161615;
   float: left;
   margin-bottom: 20px;
   border-radius: 5px;

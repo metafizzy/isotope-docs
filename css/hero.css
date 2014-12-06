@@ -38,8 +38,7 @@
   padding-left: 50px;
   min-height: 52px;
   font-size: 18px;
-  background: black;
-  background: hsla(0, 0%, 0%, 0.4);
+  background: #161615;
   color: #FB4;
   text-shadow: none;
 }
