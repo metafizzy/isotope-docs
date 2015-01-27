@@ -43,8 +43,12 @@
   opacity: 1;
 }
 
-#footer .also {
+.footer-copy {
   font-size: 18px;
+}
+
+#footer .other-products {
+  margin-bottom: 30px;
 }
 
 /* desktop */
