@@ -5,7 +5,8 @@
     "Selectors",
     "Functions",
     "UI",
-    "Combination filters"
+    "Combination filters",
+    "URL hash"
   ]
 }
 ---
@@ -288,3 +289,52 @@ $demo.on( 'click', '.button', function() {
 });
 ```
 
+<h2 id="url-hash">URL hash</h2>
+
+<p>You can hook filtering into the <code>hashchange</code> event so that Isotope filters can be applied as links. See <a href="http://s.codepen.io/desandro/debug/vErxXj#filter=%3Anot(.transition)">filtering with URL hash example on CodePen</a>, <a href="http://codepen.io/desandro/pen/vErxXj">view code on CodePen</a>.</p>
+
+``` js
+function getHashFilter() {
+  var hash = location.hash;
+  // get filter=filterName
+  var matches = location.hash.match( /filter=([^&]+)/i );
+  var hashFilter = matches && matches[1];
+  return hashFilter && decodeURIComponent( hashFilter );
+}
+
+$( function() {
+
+  var $container = $('.isotope');
+
+  // bind filter button click
+  var $filters = $('#filters').on( 'click', 'button', function() {
+    var filterAttr = $( this ).attr('data-filter');
+    // set filter in hash
+    location.hash = 'filter=' + encodeURIComponent( filterAttr );
+  });
+
+  var isIsotopeInit = false;
+
+  function onHashchange() {
+    var hashFilter = getHashFilter();
+    if ( !hashFilter && isIsotopeInit ) {
+      return;
+    }
+    isIsotopeInit = true;
+    // filter isotope
+    $container.isotope({
+      itemSelector: '.element-item',
+      filter: hashFilter
+    });
+    // set selected class on button
+    if ( hashFilter ) {
+      $filters.find('.is-checked').removeClass('is-checked');
+      $filters.find('[data-filter="' + hashFilter + '"]').addClass('is-checked');
+    }
+  }
+
+  $(window).on( 'hashchange', onHashchange );
+  // trigger event handler to init Isotope
+  onHashchange();
+});
+```
