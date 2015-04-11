@@ -7,18 +7,18 @@ highlightjs.configure({
 
 var hljsJavascript = highlightjs.getLanguage('javascript');
 // highlight Packery
-hljsJavascript.keywords.flickity = 'Packery';
+hljsJavascript.keywords.isotope = 'Isotope';
 // highlight packery variables
-hljsJavascript.keywords.flickity_var = 'pckry';
+hljsJavascript.keywords.isotope_var = 'iso';
 
 hljsJavascript.contains.push({
   className: 'jquery_var',
-  begin: /\$gallery/
+  begin: /\$container/
 });
 
 hljsJavascript.contains.push({
-  className: 'packery',
-  begin: /packery/
+  className: 'isotope',
+  begin: /isotope/
 });
 
 var reFirstLine = /.*\n/;

@@ -4,30 +4,29 @@ is_homepage: true
 
 <h2>Install</h2>
 
-<p>A packaged source file includes everything you need to use Isotope.</p>
+<h3>Download</h3>
 
 <ul>
-  <li>
-    <a href="isotope.pkgd.min.js">isotope.pkgd.min.js</a> for production
-  </li>
-  <li>
-    <a href="isotope.pkgd.js">isotope.pkgd.js</a> for development
-  </li>
+  <li><a href="{{source_url_path}}isotope.pkgd.js">isotope.pkgd.js</a> un-minified, or</li>
+  <li><a href="{{source_url_path}}isotope.pkgd.min.js">isotope.pkgd.min.js</a> minified</li>
 </ul>
+
+<h3>CDN</h3>
+
+<p>Link directly to <a href="https://cdnjs.com/libraries/jquery.isotope">Isotope files on cdnjs</a>.</p>
+
+
+``` html
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/{{isotope_version}}/isotope.pkgd.js"></script>
+<!-- or -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/{{isotope_version}}/isotope.pkgd.min.js"></script>
+```
 
 <h3>Package managers</h3>
 
-<p id="bower">Install with <a href="http://bower.io">Bower</a>.</p>
+<p>Install with Bower: <code>bower install isotope --save</code></p>
 
-```
-bower install isotope
-```
-
-<p id="npm"><a href="https://www.npmjs.org/package/isotope-layout">Install with npm</a>.</p>
-
-```
-npm install isotope-layout
-```
+<p><a href="http://npmjs.com/package/isotope-layout">Install with npm</a>: <code>npm install isotope-layout</code></p>
 
 <h2>License</h2>
 
