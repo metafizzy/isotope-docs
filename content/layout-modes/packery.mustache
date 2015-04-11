@@ -98,7 +98,7 @@ packery: {
 <div class="row example">
   <div class="cell example-code">
 ``` html
-<div class="flex-5-col">
+<div class="isotope">
   <div class="grid-sizer"></div>
   <div class="mini-item"></div>
   <div class="mini-item"></div>
@@ -106,20 +106,21 @@ packery: {
 </div>
 ```
 ``` css
-.flex-5-col .grid-sizer,
-.flex-5-col .mini-item { width: 20%; }
-.flex-5-col .mini-item.w2 { width: 40%; }
+.grid-sizer,
+.mini-item { width: 20%; }
+.mini-item.w2 { width: 40%; }
 ```
 ``` js
 layoutMode: 'packery',
 packery: {
   columnWidth: '.grid-sizer'
 },
-itemSelector: '.mini-item'
+itemSelector: '.mini-item',
+percentPosition: true
 ```
   </div>
   <div class="cell demo">
-    <div class="isotope js-isotope flex-5-col" data-isotope-options='{ "layoutMode": "packery", "packery": { "columnWidth": ".grid-sizer" }, "itemSelector": ".mini-item" }'>
+    <div class="isotope js-isotope flex-5-col" data-isotope-options='{ "layoutMode": "packery", "packery": { "columnWidth": ".grid-sizer" }, "itemSelector": ".mini-item", "percentPosition": true }'>
       <div class="grid-sizer"></div>
       {{>mini-demo-items}}
     </div>
@@ -169,7 +170,7 @@ packery: {
 <div class="row example">
   <div class="cell example-code">
 ``` html
-<div class="flex-4-col-gutter">
+<div class="isotope">
   <div class="grid-sizer"></div>
   <div class="gutter-sizer"></div>
   <div class="mini-item"></div>
@@ -178,21 +179,22 @@ packery: {
 </div>
 ```
 ``` css
-.flex-4-col-gutter .grid-sizer,
-.flex-4-col-gutter .mini-item { width: 22%; }
-.flex-4-col-gutter .mini-item.w2 { width: 48%; }
-.flex-4-col-gutter .gutter-sizer { width: 4%; }
+.grid-sizer,
+.mini-item { width: 22%; }
+.mini-item.w2 { width: 48%; }
+.gutter-sizer { width: 4%; }
 ```
 ``` js
 layoutMode: 'packery',
 packery: {
   gutter: '.gutter-sizer'
 },
-itemSelector: '.mini-item'
+itemSelector: '.mini-item',
+percentPosition: true
 ```
   </div>
   <div class="cell demo">
-    <div class="isotope js-isotope flex-4-col-gutter" data-isotope-options='{ "layoutMode": "packery", "itemSelector": ".mini-item", "packery": { "gutter": ".gutter-sizer" } }'>
+    <div class="isotope js-isotope flex-4-col-gutter" data-isotope-options='{ "layoutMode": "packery", "itemSelector": ".mini-item", "percentPosition": true, "packery": { "gutter": ".gutter-sizer" } }'>
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
       {{>mini-demo-items}}
@@ -200,8 +202,6 @@ itemSelector: '.mini-item'
     <p class="edit"><a href="http://codepen.io/desandro/pen/fGrKe">Edit this example on CodePen</a></p>
   </div>
 </div>
-
-  
 
 <h2>isHorizontal</h2>
 

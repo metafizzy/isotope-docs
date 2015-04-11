@@ -51,7 +51,7 @@ masonry: {
 <div class="row example">
   <div class="cell example-code">
 ``` html
-<div class="flex-5-col">
+<div class="isotope">
   <div class="grid-sizer"></div>
   <div class="mini-item"></div>
   <div class="mini-item"></div>
@@ -59,19 +59,20 @@ masonry: {
 </div>
 ```
 ``` css
-.flex-5-col .grid-sizer,
-.flex-5-col .mini-item { width: 20%; }
-.flex-5-col .mini-item.w2 { width: 40%; }
+.grid-sizer,
+.mini-item { width: 20%; }
+.mini-item.w2 { width: 40%; }
 ```
 ``` js
 masonry: {
   columnWidth: '.grid-sizer'
 },
-itemSelector: '.mini-item'
+itemSelector: '.mini-item',
+percentPosition: true
 ```
   </div>
   <div class="cell demo">
-    <div class="isotope js-isotope flex-5-col" data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".mini-item" }'>
+    <div class="isotope js-isotope flex-5-col" data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".mini-item", "percentPosition": true }'>
       <div class="grid-sizer"></div>
       {{>mini-demo-items}}
     </div>
@@ -145,7 +146,7 @@ masonry: {
 <div class="row example">
   <div class="cell example-code">
 ``` html
-<div class="flex-4-col-gutter">
+<div class="isotope">
   <div class="grid-sizer"></div>
   <div class="gutter-sizer"></div>
   <div class="mini-item"></div>
@@ -154,21 +155,22 @@ masonry: {
 </div>
 ```
 ``` css
-.flex-4-col-gutter .grid-sizer,
-.flex-4-col-gutter .mini-item { width: 22%; }
-.flex-4-col-gutter .mini-item.w2 { width: 48%; }
-.flex-4-col-gutter .gutter-sizer { width: 4%; }
+.grid-sizer,
+.mini-item { width: 22%; }
+.mini-item.w2 { width: 48%; }
+.gutter-sizer { width: 4%; }
 ```
 ``` js
 masonry: {
   columnWidth: '.grid-sizer',
   gutter: '.gutter-sizer'
 },
-itemSelector: '.mini-item'
+itemSelector: '.mini-item',
+percentPosition: true
 ```
   </div>
   <div class="cell demo">
-    <div class="isotope js-isotope flex-4-col-gutter" data-isotope-options='{ "itemSelector": ".mini-item", "masonry": { "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer" } }'>
+    <div class="isotope js-isotope flex-4-col-gutter" data-isotope-options='{ "itemSelector": ".mini-item", "percentPosition": true, "masonry": { "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer" } }'>
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
       {{>mini-demo-items}}
