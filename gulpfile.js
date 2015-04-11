@@ -85,7 +85,10 @@ var jsSrc = [
   'bower_components/packery/js/item.js',
   'bower_components/packery/js/packery.js',
   'bower_components/isotope-packery/packery-mode.js',
+  // imagesloaded
+  'bower_components/imagesloaded/imagesloaded.js',
   // docs
+  'js/vendor/*.js',
   'js/controller.js',
   'js/pages/*.js'
 ];

@@ -93,13 +93,13 @@ $container.isotope({ filter: '.metal' });
 </div>
 ```
 
-<p>If you use jQuery, you can filter with <a href="http://api.jquery.com/is/#is-functionindex">functions in jQuery</a></p>
+<p>If you use jQuery, you can filter with <a href="http://api.jquery.com/is/#is-functionindex">functions in jQuery</a>.</p>
 
 ``` js
 $container.isotope({
   // filter element with numbers greater than 50
   filter: function() {
-    // `this` is the item element. Get text of element's .number
+    // _this_ is the item element. Get text of element's .number
     var number = $(this).find('.number').text();
     // return true to show, false to hide
     return parseInt( number, 10 ) > 50;

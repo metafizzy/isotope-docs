@@ -1,7 +1,7 @@
 {
   "name": "isotope-docs",
-  "version": "1.1.0",
-  "author": "David DeSandro / Metafizzy",
+  "version": "2.2.0",
+  "author": "Metafizzy",
   "dependencies": {
     "classie": "1.x",
     "doc-ready": "1.x",
@@ -18,6 +18,6 @@
     "isotope-packery": "1.x",
     "jquery": "~1",
     "jquery-bridget": "~1.1.0",
-    "normalize-css": "~2"
+    "normalize.css": "~3"
   }
 }
