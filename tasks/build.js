@@ -16,7 +16,8 @@ module.exports = function(data, config) {
   var options = extend({
     layout: null,
     partials: {},
-    helpers: {}
+    helpers: {},
+    rootPathBase: ''
   }, config );
 
   data = data || {};
@@ -45,6 +46,8 @@ module.exports = function(data, config) {
     // add file data, front matter data to data obj
     data.page = file.frontMatter;
     data.file_path = path.relative( file.cwd, file.path );
+    data.root_path = path.relative( file.path, file.cwd + options.rootPathBase )
+      .replace( /\.\.$/, '' );
     data.basename = path.basename( file.path, path.extname( file.path ) );
 
     file.contents = new Buffer( template( data ) );

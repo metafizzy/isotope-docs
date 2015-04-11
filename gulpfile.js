@@ -161,8 +161,8 @@ gulp.task( 'data', function() {
 // ----- content ----- //
 
 var contentSrc = [
-  'content/*.html',
-  'content/*.mustache'
+  'content/**/*.html',
+  'content/**/*.mustache'
 ];
 var highlightCodeBlock = require('./tasks/highlight-code-block');
 var build = require('./tasks/build');
@@ -215,7 +215,7 @@ function buildContent( dataOptions ) {
   dataOptions = dataOptions || {};
   var pageTemplate = fs.readFileSync( pageTemplateSrc, 'utf8' );
   // exclude 404 if export
-  var filterQuery = dataOptions.is_export ? [ '*', '!**/404.*'] : '*';
+  var filterQuery = dataOptions.is_export ? [ '**/*', '!**/404.*'] : '**/*';
 
   // gulp task
   return function() {
@@ -227,7 +227,8 @@ function buildContent( dataOptions ) {
     var buildOptions = {
       layout: pageTemplate,
       partials: partials,
-      helpers: helpers
+      helpers: helpers,
+      rootPathBase: '/content/'
     };
 
     gulp.src( contentSrc )
