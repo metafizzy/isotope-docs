@@ -29,13 +29,32 @@ ID.events = function() {
   // ----- layoutComplete demo ----- //
 
   ( function() {
+    var $container = $('#arrange-complete-demo .isotope').isotope({
+      masonry: {
+        columnWidth: 50
+      }
+    });
+    // bind listener
+    $container.isotope( 'on', 'arrangeComplete', function( filteredItems ) {
+      notify( 'Isotope arrange completed on ' + filteredItems.length + ' items' );
+    });
+
+    $('#arrange-complete-demo .button-group').on( 'click', 'button', function() {
+      var filterValue = $(this).attr('data-filter');
+      $container.isotope({ filter: filterValue });
+    });
+  })();
+
+  // ----- layoutComplete demo ----- //
+
+  ( function() {
     var $container = $('#layout-complete-demo .isotope').isotope({
       masonry: {
         columnWidth: 50
       }
     });
     // bind listener
-    $container.isotope( 'on', 'layoutComplete', function( isoInstance, laidOutItems ) {
+    $container.isotope( 'on', 'layoutComplete', function( laidOutItems ) {
       notify( 'Isotope layout completed on ' + laidOutItems.length + ' items' );
     });
 
@@ -55,7 +74,7 @@ ID.events = function() {
       }
     });
     // bind listener
-    $container.isotope( 'on', 'removeComplete', function( isoInstance, removedItems ) {
+    $container.isotope( 'on', 'removeComplete', function( removedItems ) {
       notify( 'Removed ' + removedItems.length + ' items' );
     });
 

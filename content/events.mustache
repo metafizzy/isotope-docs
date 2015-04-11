@@ -1,11 +1,5 @@
 ---
-{
-  "title": "Events",
-  "nav": [
-    "layoutComplete",
-    "removeComplete"
-  ]
-}
+title: Events
 ---
 
 <div id="notification"></div>
@@ -16,37 +10,75 @@
 var $container = $('#container').isotope({...});
 var iso = new Isotope( elem );
 
-function onLayout() {
+function onArrange() {
   console.log('layout done');
 }
 // bind event listener
-$container.isotope( 'on', 'layoutComplete', onLayout );
+$container.isotope( 'on', 'arrangeComplete', onArrange );
 // un-bind event listener
-$container.isotope( 'off', 'layoutComplete', onLayout );
+$container.isotope( 'off', 'arrangeComplete', onArrange );
 // bind event listener to be triggered just once
-$container.isotope( 'once', 'layoutComplete', function() {
-  console.log('layout done, just this one time');
+$container.isotope( 'once', 'arrangeComplete', function() {
+  console.log('arrange done, just this one time');
 });
 ```
 
 
-<h2>layoutComplete</h2>
+<h2>arrangeComplete</h2>
 
 ``` js
-$container.masonry( 'on', 'layoutComplete', function( isoInstance, laidOutItems ) {} )
+$container.isotope( 'on', 'arrangeComplete', function( filteredItems ) {} )
 // or with vanilla JS
-iso.on( 'layoutComplete', function( isoInstance, laidOutItems ) {} )
+iso.on( 'arrangeComplete', function( filteredItems ) {} )
 // or with jQuery
 ```
 
 <ul class="params">
   <li class="param">
-    <h5 class="param-name param-bit"><code>isoInstance</code></h5>
+    <h5 class="param-name param-bit"><code>filteredItems</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Isotope</i></span>
+      <b>Type:</b> <span class="value"><i>Array</i> of <i>Isotope.Item</i>s</span>
     </p>
-    <p class="description param-bit">the Isotope instance</p>
+    <p class="description param-bit">items that are visible</p>
   </li>
+</ul>
+
+<p>Triggered after <a href="http://localhost/isotope-docs/build/methods.html#arrange-isotope"><code>.isotope({...})</code>/<code>arrange</code></a>, when all layout, hide, and reveal transitions have completeled.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+$container.isotope( 'on', 'arrangeComplete',
+  function( filteredItems ) {
+    console.log( 'Isotope arrange completed on ' +
+      filteredItems.length + ' items' );
+  }
+);
+```
+  </div>
+  <div id="arrange-complete-demo" class="cell demo">
+    <div class="button-group js-radio-button-group">
+      <button class="button is-checked" data-filter="*">show all</button>
+      <button class="button" data-filter=".w2">width 2</button>
+      <button class="button" data-filter=".h2">height 2</button>
+    </div>
+    <div class="isotope">
+      {{>mini-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/scajv">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<h2>layoutComplete</h2>
+
+``` js
+$container.isotope( 'on', 'layoutComplete', function( laidOutItems ) {} )
+// or with vanilla JS
+iso.on( 'layoutComplete', function( laidOutItems ) {} )
+// or with jQuery
+```
+
+<ul class="params">
   <li class="param">
     <h5 class="param-name param-bit"><code>laidOutItems</code></h5>
     <p class="type param-bit">
@@ -62,7 +94,7 @@ iso.on( 'layoutComplete', function( isoInstance, laidOutItems ) {} )
   <div class="cell example-code">
 ``` js
 $container.isotope( 'on', 'layoutComplete',
-  function( isoInstance, laidOutItems ) {
+  function( laidOutItems ) {
     console.log( 'Isotope layout completed on ' +
       laidOutItems.length + ' items' );
   }
@@ -82,21 +114,14 @@ $container.isotope( 'on', 'layoutComplete',
 <h2>removeComplete</h2>
 
 ``` js
-iso.on( 'removeComplete', function( isoInstance, removedItems ) { //...
-// or with jQuery
-$container.masonry( 'on', 'removeComplete', function( isoInstance, removedItems ) {} )
+$container.isotope( 'on', 'removeComplete', function( removedItems ) {} )
+// or with vanilla JS
+iso.on( 'removeComplete', function( removedItems ) { //...
 ```
 
 <p>Triggered after an item element has been removed.</p>
 
 <ul class="params">
-  <li class="param">
-    <h5 class="param-name param-bit"><code>isoInstance</code></h5>
-    <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Isotope</i></span>
-    </p>
-    <p class="description param-bit">the Isotope instance</p>
-  </li>
   <li class="param">
     <h5 class="param-name param-bit"><code>removedItems</code></h5>
     <p class="type param-bit">
@@ -110,7 +135,7 @@ $container.masonry( 'on', 'removeComplete', function( isoInstance, removedItems 
   <div class="cell example-code">
 ``` js
 $container.isotope( 'on', 'removeComplete',
-  function( isoInstance, removedItems ) {
+  function( removedItems ) {
     notify( 'Removed ' + removedItems.length + ' items' );
   }
 );
