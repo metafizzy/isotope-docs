@@ -15,7 +15,7 @@
 }
 ---
 
-<h2 id="install">Install</h2>
+<h2>Install</h2>
 
 <p>A packaged source file includes everything you need to use Isotope.</p>
 
@@ -42,27 +42,35 @@ bower install isotope
 npm install isotope-layout
 ```
 
-<h2 id="commercial-licensing">Commercial licensing</h2>
+<h2>License</h2>
 
-<p>Isotope may be used in commercial projects with the one-time purchase of a commercial license. <a href="license.html">Read more about Isotope commercial licensing.</a></p>
+<h3>Commercial license</h3>
 
-<p>Once purchased, you&rsquo;ll receive a commercial license PDF and you will be all set to use Isotope in your commercial applications.</p>
+<p>If you want to use Isotope to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. <a href="license.html">Read more about Isotope commercial licensing</a>.</p>
 
-<p>
-  {{>developer-buy-button}}
+<p>Once purchased, you&rsquo;ll receive a commercial license PDF and be all set to use Isotope in your commercial applications.</p>
 
-  {{>org-buy-button}}
-</p>
+<div class="buy-button-trio">
+  {{#license_options.developer}}
+    {{> buy_button}}
+  {{/license_options.developer}}
 
-<h3 id="open-source-license">Open source license</h3>
+  {{#license_options.team}}
+    {{> buy_button}}
+  {{/license_options.team}}
 
-<p>For non-commercial, personal, or open source projects and applications, you may use Isotope under the terms of the <a href="http://choosealicense.com/licenses/gpl-v3/">GPL v3 License</a>. You may use Isotope for free.</p>
+  {{#license_options.organization}}
+    {{> buy_button}}
+  {{/license_options.organization}}
+</div>
 
+<h3>Open source license</h3>
 
+<p>If you are creating an open source application under a license compatible with the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL license v3</a>, you may use Isotope under the terms of the GPLv3. <a href="license.html">Read more about Isotope open source licensing</a>.</p>
 
-<h2 id="getting-started">Getting started</h2>
+<h2>Getting started</h2>
 
-<h3 id="html">HTML</h3>
+<h3>HTML</h3>
 
 <p>Isotope works on a container element with a group of similar child items.</p>
 
@@ -81,7 +89,7 @@ npm install isotope-layout
 <script src="/path/to/isotope.pkgd.min.js"></script>
 ```
 
-<h3 id="css">CSS</h3>
+<h3>CSS</h3>
 
 <p>All sizing of items is handled by your CSS.</p>
 
@@ -90,7 +98,7 @@ npm install isotope-layout
 .item.w2 { width: 50%; }
 ```
 
-<h3 id="javascript">Initialize with JavaScript</h3>
+<h3>Initialize with JavaScript</h3>
 
 <p>Initialize an Isotope instance as a jQuery plugin:  <code>$('#container').isotope()</code>.</p>
 
@@ -109,12 +117,12 @@ $container.isotope({
 <p>That&rsquo;s it! Now let&rsquo;s do some fun stuff with <a href="filtering.html">filtering</a> and <a href="sorting.html">sorting</a>.</p>
 
 
-<h2 id="imagesloaded">imagesLoaded</h2>
+<h2>imagesLoaded</h2>
 
 <p>Unloaded images can throw off Isotope layouts and cause item elements to overlap. <a href="http://imagesloaded.desandro.com">imagesLoaded</a> resolves this issue. Read more about <a href="appendix.html#imagesloaded">using imagesLoaded with Isotope</a>.</p>
 
 
-<h2 id="vanilla-javascript">Vanilla JavaScript</h2>
+<h2>Vanilla JavaScript</h2>
 
 <p>jQuery is <strong>not</strong> required to use Isotope. Given its popularity, jQuery will be used for all example code in these docs. But you can still use Isotope with vanilla JS.</p>
 
@@ -139,7 +147,7 @@ var iso = new Isotope( '#container', {
 ```
 
 
-<h2 id="initialize-in-html">Initialize in HTML</h2>
+<h2>Initialize in HTML</h2>
 
 <p>You can initialize Isotope in HTML, without writing any JavaScript. Simply add <code>js-isotope</code> to the class of the container element. <a href="options.html">Options</a> can be set with a <code>data-isotope-options</code> attribute.</p>
 
@@ -151,12 +159,12 @@ var iso = new Isotope( '#container', {
 <p><strong>Options set in HTML must be valid JSON.</strong> Keys need to be quoted, for example <code><span class="string">"itemSelector"</span>:</code>. Note that the attribute value uses single quotes <code>'</code>, but the JSON entities use double-quotes <code>"</code>.</p>
 
 
-<h2 id="v1">v1</h2>
+<h2>v1</h2>
 
 <p>Isotope is currently v2. See <a href="http://isotope.metafizzy.co/v1">isotope.metafizzy.co/v1</a> for documentation and resources for previous v1 version.</p>
 
 
-<h2 id="isotope-in-use">Isotope in use</h2>
+<h2>Isotope in use</h2>
 
 <p>Justin Bieber, <a href="http://www.tylerperry.com/entertainment/">Tyler Perry</a>, <a href="http://colonelsanders.com">Colonel Sanders</a>: they all have used Isotope.</p>
 
@@ -174,7 +182,7 @@ var iso = new Isotope( '#container', {
 </div>
 
 
-<h2 id="twitter-updates">Twitter updates from <a href="https://twitter.com/metafizzyco">@metafizzyco</a></h2>
+<h2>Twitter updates from <a href="https://twitter.com/metafizzyco">@metafizzyco</a></h2>
 
 <p><a class="twitter-timeline" data-dnt="true" href="https://twitter.com/search?q=isotope+from%3Ametafizzyco" data-widget-id="494524574201966592">Tweets about "isotope from:metafizzyco"</a></p>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

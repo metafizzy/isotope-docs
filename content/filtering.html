@@ -30,7 +30,7 @@
   <div class="isotope">
     {{#best-of-elements}}
       <div class="element-item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">
-        <h3 class="name">{{name}}</h3>
+        <h5 class="name">{{name}}</h5>
         <p class="symbol">{{symbol}}</p>
         <p class="number">{{number}}</p>
         <p class="weight">{{weight}}</p>
@@ -41,7 +41,7 @@
 </div>
 
   
-<h2 id="selectors">Selectors</h2>
+<h2>Selectors</h2>
 
 <p>The simplest way to filter items is with selectors, like classes. For example, each item element can have several identifying classes: <code>transition</code>, <code>metal</code>, <code>lanthanoid</code>, <code>alkali</code>, etc.</p>
 
@@ -70,7 +70,7 @@ $container.isotope({ filter: '.metal' });
   <li><code><span class="string">'*'</span></code> will show all items.</li>
 </ul>
 
-<h3 id="jquery-selectors">jQuery selectors</h3>
+<h3>jQuery selectors</h3>
 
 <p>If jQuery is present, Isotope uses jQuery to filter items. You can filter items with <a href="http://api.jquery.com/category/selectors/">jQuery selectors</a>. For example:</p>
 
@@ -79,7 +79,7 @@ $container.isotope({ filter: '.metal' });
 </ul>
 
 
-<h2 id="functions">Functions</h2>
+<h2>Functions</h2>
 
 <p>You can filter items with functions. The example above uses a function to filter items when the item&rsquo;s number is greater than 50.</p>
 
@@ -120,7 +120,7 @@ iso.arrange({
 ```
 
 
-<h2 id="ui">UI</h2>
+<h2>UI</h2>
 
 <p>The example above uses buttons for UI. Each button has its filter set in the <code>data-filter</code> attribute.</p>
 
@@ -193,7 +193,7 @@ $('#filters').on( 'click', 'button', function() {
 </ul>
 
 
-<h2 id="combination-filters">Combination filters</h2>
+<h2>Combination filters</h2>
 
 <p>Filters can be combined. In addition to filtering for just <code>.red</code> or <code>.tall</code>, you can pass in a filter selector of both: <code>.red.tall</code>.</p>
 
@@ -246,7 +246,7 @@ $('#filters').on( 'click', 'button', function() {
   <p class="edit"><a href="http://codepen.io/desandro/pen/JEojz/">Edit this example on CodePen</a></p>
 </div>
 
-<h3 id="combination-filters-ui">Combination filters UI</h3>
+<h3>Combination filters UI</h3>
 
 <p>In this example, buttons are collected in a <code>button-group</code>. Each <code>button-group</code> has a <code>data-filter-group</code>.</p>
 
@@ -289,7 +289,7 @@ $demo.on( 'click', '.button', function() {
 });
 ```
 
-<h2 id="url-hash">URL hash</h2>
+<h2>URL hash</h2>
 
 <p>You can hook filtering into the <code>hashchange</code> event so that Isotope filters can be applied as links. See <a href="http://s.codepen.io/desandro/debug/vErxXj#filter=%3Anot(.transition)">filtering with URL hash example on CodePen</a>, <a href="http://codepen.io/desandro/pen/vErxXj">view code on CodePen</a>.</p>
 

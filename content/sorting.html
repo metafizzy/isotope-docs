@@ -27,7 +27,7 @@
   <div class="isotope">
     {{#best-of-elements}}
       <div class="element-item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">
-        <h3 class="name">{{name}}</h3>
+        <h5 class="name">{{name}}</h5>
         <p class="symbol">{{symbol}}</p>
         <p class="number">{{number}}</p>
         <p class="weight">{{weight}}</p>
@@ -38,7 +38,7 @@
 </div>
 
 
-<h2 id="markup">Markup</h2>
+<h2>Markup</h2>
 
 <p>All the data used for sorting can be kept in the markup. It could be a text value, like a title or tag. Or it could be a number, like a price, measurement, or rating.</p>
 
@@ -63,7 +63,7 @@
 ```
 
 
-<h2 id="getsortdata">getSortData</h2>
+<h2>getSortData</h2>
 
 <p>Isotope reads data from markup with the <code>getSortData</code> option. This option accepts an object. The object&rsquo;s keys are keywords used to sort by. Object values are either a shortcut string or function to retrieve the data.</p>
 
@@ -119,7 +119,7 @@ weight: function( itemElem ) {
 ```
 
 
-<h2 id="sortby">sortBy</h2>
+<h2>sortBy</h2>
 
 <p>For every property set in <code>getSortData</code>, Isotope can use it for sorting with the <a href="options.html#sortby">sortBy option</a>. The value of <code>sortBy</code> needs to match a property name in <code>getSortData</code>. With the properties above, we can set sortBy to
   <code><span class="string">'name'</span></code>,
@@ -140,7 +140,7 @@ $container.isotope({ sortBy : 'symbol' });
   <li><code><span class="string">'random'</span></code> is a random order.</li>
 </ul>
 
-<h3 id="multiple-sortby">Multiple sortBy</h3>
+<h3>Multiple sortBy</h3>
 
 <p>To sort by multiple properties, you can set <code>sortBy</code> to an array of property names. For example, <code>sortBy: [ <span class="string">'color'</span>, <span class="string">'number'</span> ]</code> will sort items by color, <em>then</em> by number.</p>
 
@@ -208,7 +208,7 @@ var $container = $('#multiple-sort-by .isotope').isotope({
 
 
 
-<h2 id="sortascending">sortAscending</h2>
+<h2>sortAscending</h2>
 
 <p>By default, Isotope sorts ascendingly: A, B, C and 1, 2, 3. To reverse this, set the <code>sortAscending: <span class="literal">false</span></code>.</p>
 
@@ -232,7 +232,7 @@ $container.isotope({
 ```
 
 
-<h2 id="updatesortdata">updateSortData</h2>
+<h2>updateSortData</h2>
 
 <p>To update sort data after a change has been made to item elements, use the <a href="methods.html#updatesortdata"><code>updateSortData</code> method</a>.</p>
 
@@ -241,7 +241,7 @@ $container.isotope('updateSortData').isotope();
 ```
 
 
-<h2 id="creating-interactive-buttons">Creating interactive buttons</h2>
+<h2>Creating interactive buttons</h2>
 
 <p>Let&rsquo;s use a group of buttons for the UI.</p>
 

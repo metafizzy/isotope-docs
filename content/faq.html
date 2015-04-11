@@ -13,19 +13,19 @@
 ---
 
 
-  <h2 id="overlapping">How do I fix overlapping item elements?</h2>
+  <h2>How do I fix overlapping item elements?</h2>
 
   <p>If your layout has images, you probably need to use <a href="appendix.html#imagesloaded">imagesLoaded</a>.</p>
 
   <p>Overlaping items are caused by items that change size after a layout. This is caused by unloaded media: images, <a href="appendix.html#web-fonts">web fonts</a>, embedded buttons. To fix it, you need to initialize or <a href="methods.html#layout"><code>layout</code></a> after all the items have their proper size.</p>
 
 
-  <h2 id="browser-support">What is Isotope&rsquo;s browser support?</h2>
+  <h2>What is Isotope&rsquo;s browser support?</h2>
 
   <p>Isotope works in IE8+ and modern browsers, including mobile browsers on iOS and Android.</p>
 
 
-  <h2 id="difference-between-isotope-masonry-and-packery">What is the difference between Isotope, Masonry, and Packery?</h2>
+  <h2>What is the difference between Isotope, Masonry, and Packery?</h2>
 
   <p>Isotope, <a href="http://masonry.desandro.com">Masonry</a>, and <a href="http://packery.metafizzy.co">Packery</a> are all similar in that they are layout libraries. Many of their options and methods are the same.</p>
 
@@ -36,7 +36,7 @@
   <p>Masonry is licensed MIT and is freely available for use and distribution. Isotope and Packery have a proprietary license, where you can purchase a license for commercial projects, or use it freely for open-source projects.</p>
 
 
-<h2 id="first-item-breaks-grid">The first item breaks the grid!</h2>
+<h2>The first item breaks the grid!</h2>
 
 <p>You most likely need to set the <a href="{{root_path}}layout-modes/masonry.html#columnwidth"><code>columnWidth</code> option</a> for <a href="{{root_path}}layout-modes/masonry.html">masonry layout mode</a>. Without <code>columnWidth</code> set, the masonry layout mode will use the width of the first item for the size of its columns.</p>
 
@@ -49,7 +49,7 @@ $('#container').isotope({
 ```
 
 
-<h2 id="filtered-items">How can I access filtered items in current order?</h2>
+<h2>How can I access filtered items in current order?</h2>
 
 <p>Use the <code>filteredItems</code> property. <code>filteredItems</code> is an array of <i>Isotope Item</i>s.</p>
 
@@ -68,7 +68,7 @@ console.log( iso.filteredItems[0].element );
 ```
 
 
-<h2 id="call-methods-error">Error: &ldquo;cannot call methods on isotope prior to initialization; attempted to call '___'&rdquo;</h2>
+<h2>Error: &ldquo;cannot call methods on isotope prior to initialization; attempted to call '___'&rdquo;</h2>
 
 <p>This error occurs when your code attempts to use a <a href="methods.html">method</a> before the Isotope instance has been initialized.</p>
 
