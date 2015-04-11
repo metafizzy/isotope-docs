@@ -26,11 +26,13 @@
 }
 
 .button:active,
-.button.is-checked {
+.button.is-checked,
+.button.is-selected {
   background-color: #28F;
 }
 
-.button.is-checked {
+.button.is-checked,
+.button.is-selected {
   color: white;
   text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
 }
@@ -197,6 +199,12 @@ div.param {
 
 .support-button {
   font-size: 20px;
+}
+
+/* ---- data-license-property ---- */
+
+*[data-license-property] {
+  color: #4BF;
 }
 
 /* ---- other-products ---- */
