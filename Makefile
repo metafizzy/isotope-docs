@@ -9,13 +9,12 @@ zip:
 deploy:
 	s3cmd -c ~/.s3cfg-fizzy sync build/. s3://isotope.metafizzy.co/
 
-grunt:
-	grunt
+gulp:
+	gulp
 
-grunt-dev:
-	grunt --dev
+gulp-export:
+	rm -rf build/
+	gulp export
+	make zip
 
-grunt-template:
-	grunt template
-
-prod: grunt-dev zip grunt-template deploy
+prod: gulp-export gulp deploy
