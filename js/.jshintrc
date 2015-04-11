@@ -13,6 +13,8 @@
     "getStyleProperty": false,
     "hljs": false,
     "imagesLoaded": false,
-    "Masonry": false
+    "Masonry": false,
+    "ID": true,
+    "matchesSelector": false
   }
 }
