@@ -91,7 +91,7 @@ head { font-family: 'base'; }
   #content .primary-content:first-child { border: none; }
 
   #content .primary-content > * {
-    max-width: 700px;
+    max-width: 900px;
   }
 
   #content .primary-content > .demo { max-width: none; }
