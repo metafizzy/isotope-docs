@@ -1,25 +1,5 @@
 ---
-{
-  "title": "Options",
-  "nav": [
-    "containerStyle",
-    "filter",
-    "getSortData",
-    "hiddenStyle",
-    "layoutMode",
-    "isInitLayout",
-    "isOriginLeft",
-    "isOriginTop",
-    "isResizeBound",
-    "itemSelector",
-    "sortAscending",
-    "sortBy",
-    "stamp",
-    "transitionDuration",
-    "visibleStyle",
-    "Element sizing"
-  ]
-}
+title: Options
 ---
 
 <p>All options are optional, but <a href="#itemselector"><code>itemSelector</code></a> is recommended. <a href="layout-modes.html#layout-mode-options">Layout modes have their own separate options</a>.</p>
@@ -97,7 +77,7 @@ $container.isotope({ filter: '.selector' });
 $container.isotope({
   // filter element with numbers greater than 50
   filter: function() {
-    // `this` is the item element. Get text of element's .number
+    // _this_ is the item element. Get text of element's .number
     var number = $(this).find('.number').text();
     // return true to show, false to hide
     return parseInt( number, 10 ) > 50;
@@ -301,6 +281,20 @@ itemSelector: '.item'
 
 <p>Sets the layout mode used to position items. See <a href="layout-modes.html">docs on layout modes</a>.</p>
 
+<h2>percentPosition</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">false</span></code></span>
+  </p>
+</div>
+
+<p>Will set item position in percent values, rather than pixel values. <code>percentPosition</code> works well with percent-width items, as items will not transition their position on resize.</p>
 
 <h2>sortAscending</h2>
 
