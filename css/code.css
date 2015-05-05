@@ -63,6 +63,10 @@ code .nd { color: #9FAD7E; } /* CSS pseudo selector */
 code .hexcolor { color: #F63; }
 code .at_rule { color: #088; }
 
+/* isotope keywords */
+code .isotope_var { color: #F3F; }
+code .isotope_keyword { color: #0FF; text-decoration: underline; }
+
 .code-display code {
   font-size: 18px;
 }

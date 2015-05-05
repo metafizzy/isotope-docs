@@ -7,7 +7,7 @@ highlightjs.configure({
 
 var hljsJavascript = highlightjs.getLanguage('javascript');
 // highlight Packery
-hljsJavascript.keywords.isotope = 'Isotope';
+hljsJavascript.keywords.isotope_keyword = 'Isotope';
 // highlight packery variables
 hljsJavascript.keywords.isotope_var = 'iso';
 
