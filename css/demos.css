@@ -57,7 +57,7 @@
   top: 60px;
   text-transform: none;
   letter-spacing: 0;
-  font-size: 12px;
+  font-size: 0.8em;
   font-weight: normal;
 }
 
@@ -65,7 +65,7 @@
   position: absolute;
   left: 10px;
   top: 0px;
-  font-size: 42px;
+  font-size: 2.8em;
   font-weight: bold;
   color: white;
 }
@@ -80,7 +80,7 @@
   position: absolute;
   left: 10px;
   top: 76px;
-  font-size: 12px;
+  font-size: 0.8em;
 }
 
 .element-item.alkali          { background: #F00; background: hsl(   0, 100%, 50%); }
@@ -217,7 +217,6 @@
   counter-reset: item;
 }
 
-.isotope.counting .mini-item:before,
 .isotope.counting .item:before {
   counter-increment: item;
   content: counter(item);
@@ -342,7 +341,7 @@
 
 #insert-demo .mini-item .number {
   padding: 0px;
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: bold;
   color: #777;
   text-align: center;
@@ -352,7 +351,7 @@
 /* ---- multiple-sort-by ---- */
 
 #multiple-sort-by-demo .mini-item .number {
-  font-size: 50px;
+  font-size: 4.0em;
   font-weight: 600;
   color: #222;
   padding-top: 0.1em;
@@ -439,7 +438,6 @@
   vertical-align: top;
   line-height: 36px;
   margin: 0 0.2em 0 0;
-  font-size: 16px;
 }
 
 .ui-group .button-group {

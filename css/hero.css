@@ -72,7 +72,8 @@
   /* buttons */
 
   .big-ol-buttons .button {
-    font-size: 22px;
+    font-size: 1.3em;
+    line-height: 1.2;
     padding-left: 86px;
     min-height: 94px;
   }

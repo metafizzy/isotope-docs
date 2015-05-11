@@ -24,7 +24,7 @@
 #footer .brand {
   bottom: 20px;
   text-align: center;
-  font-size: 12px;
+  font-size: 0.8em;
 }
 
 #footer .metafizzy-logo {
@@ -44,7 +44,7 @@
 }
 
 .footer-copy {
-  font-size: 18px;
+  font-size: 1.4em;
 }
 
 #footer .other-products {

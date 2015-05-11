@@ -18,11 +18,16 @@ green #1FB
 }
 
 body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
-  font-size: 15px;
+  font-family: Texta, sans-serif;
+  font-size: 17px;
   line-height: 1.5;
   color: #EEE;
   background: #262524;
+}
+
+body.export {
+  font-family: sans-serif;
+  font-size: 15px;
 }
 
 /* margins */
@@ -38,21 +43,6 @@ pre {
 ------------------------- */
 
 /* montserrat */
-
-h1, h2, h3, h4, h5, h6,
-#site-nav li,
-.tagline,
-.element-item,
-.buy-button,
-.big-ol-buttons .button,
-.param-bit b,
-#in-use-container,
-#multiple-sort-by-demo,
-.support-button,
-.footer-copy,
-.other-product {
-  font-family: 'Montserrat', Gotham, 'Proxima Nova', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
-}
 
 /* metafizzy logo */
 @font-face {
@@ -120,4 +110,55 @@ h4 {
 
 ul, ol {
   padding-left: 1.8em;
+}
+
+/* ---- code ---- */
+
+pre, code {
+  font-family: Consolas, Menlo, monospace;
+  font-size: 14px;
+  background: #161615;
+  color: white;
+}
+
+pre {
+  padding: 0.8em;
+  border-radius: 5px;
+  white-space: pre-wrap;
+}
+
+code {
+  padding: 0.2em 0.3em;
+  line-height: 1.2;
+  border-radius: 3px;
+}
+
+pre code {
+  padding: 0;
+  line-height: 1.5;
+  background: none;
+}
+
+a code {
+  background: #A2C;
+  color: white;
+}
+
+a:hover code {
+  color: white;
+  background: #D26;
+}
+
+@media screen and ( min-width: 768px ) {
+
+  body {
+    font-size: 19px;
+  }
+
+  body.export { font-size: 16px; }
+
+  pre, code, kbd {
+    font-size: 15px;
+  }
+
 }

@@ -73,7 +73,7 @@
 
 #page-nav {
   padding: 1.0em 10px;
-  font-size: 13px;
+  font-size: 0.8em;
 }
 
 #page-nav li {
@@ -81,7 +81,7 @@
 }
 
 #page-nav li:after {
-  content: ' •';
+  content: ' â€¢';
   margin: 0 0.3em;
   opacity: 0.5;
 }
@@ -127,7 +127,7 @@
 
   #site-nav li {
     float: none;
-    font-size: 16px;
+    font-size: 1.3em;
   }
 
   #site-nav li ul {
