@@ -1,0 +1,33 @@
+/* main
+------------------------- */
+
+.main h2 {
+  font-size: 1.6em;
+  font-weight: normal;
+  border-top: 2px solid #484542;
+  padding-top: 1.1em;
+  margin-top: 1.4em;
+}
+
+.main h2:target {
+  padding-left: 0.5em;
+  background: #D26;
+  color: white;
+}
+
+.main h3 {
+  font-size: 1.3em;
+  border-top: 1px solid #484542;
+  padding-top: 0.8em;
+  margin: 1.4em 0 0.5em;
+}
+
+
+@media screen and ( min-width: 800px ) {
+
+  .main {
+    padding-top: 20px;
+    min-height: 540px; /* space so footer doesn't overlap */
+  }
+
+}

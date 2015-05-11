@@ -20,35 +20,6 @@ head { font-family: 'base'; }
   max-width: none;
 }
 
-/* ---- #content ---- */
-
-#content h2,
-#content .horiz-rule {
-  font-size: 1.7em;
-  font-weight: 600;
-  padding: 20px 0;
-  clear: both;
-  margin-top: 2.5em;
-  border-top: 2px solid #484542;
-}
-
-#content h2:target {
-  padding-left: 0.5em;
-  background: #D26;
-  color: white;
-}
-
-#content h1:first-child {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #484542;
-}
-
-#content h1:first-child + h2 {
-  border: none;
-  margin-top: 0;
-}
-
 /* ---- row ---- */
 
 .row .cell {
@@ -75,11 +46,6 @@ head { font-family: 'base'; }
 
   .primary-content {
     margin-left: 220px;
-  }
-
-  #content {
-    padding-top: 20px;
-    min-height: 540px; /* space so footer doesn't overlap */
   }
 
   /* content primary-content */

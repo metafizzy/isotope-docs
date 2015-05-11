@@ -37,8 +37,27 @@ var iso = new Isotope( '#container', {
 <div id="container" class="js-isotope" data-isotope-options='{ "itemSelector": ".item", "getSortData": { "name": ".name", "category": "[data-category]" }, "masonry": { "columnWidth": 200 } }'>
 ```
 
+<h2>Setup</h2>
 
-<h2>containerStyle</h2>
+<h3>itemSelector</h3>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value">Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>Specifies which child elements to be used as item elements. Setting <code>itemSelector</code> is always recommended. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a>.</p>
+
+``` js
+itemSelector: '.item'
+```
+
+{{! --------------------------------------------------- }}
+
+
+<h3>containerStyle</h3>
 
 <div class="param">
   <p class="param-bit type">
@@ -53,97 +72,28 @@ var iso = new Isotope( '#container', {
 
 <p>CSS styles that are applied to the container element. To disable Masonry from setting any CSS to the container element, set <code>containerStyle: <span class="literal">null</span></code>.</p>
 
+{{! --------------------------------------------------- }}
 
-<h2>filter</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>String</i> or <i>Function</i></span>
-  </p>
-</div>
-
-<p>Shows items that match the filter and hides items that do not match. See <a href="filtering.html">docs on Filtering</a>.</p>
-
-<p>If set to a string, that value is used as a <a href="filtering.html#selectors">selector</a>.</p>
-
-``` js
-$container.isotope({ filter: '.selector' });
-```
-
-<p>If <a href="filtering.html#functions"><code>filter</code> is set to a function</a>, that function checks each item and returns <code>true</code> or <code>false</code> if the item should be shown or hidden.</p>
-
-``` js
-$container.isotope({
-  // filter element with numbers greater than 50
-  filter: function() {
-    // _this_ is the item element. Get text of element's .number
-    var number = $(this).find('.number').text();
-    // return true to show, false to hide
-    return parseInt( number, 10 ) > 50;
-  }
-});
-```
-
-
-<h2>getSortData</h2>
+<h3>isResizeBound</h3>
 
 <div class="param">
   <p class="param-bit type">
     <b>Type:</b>
-    <span class="value"><i>Object</i></span>
-  </p>
-</div>
-
-<p>Isotope reads data from markup with the <code>getSortData</code> option. See <a href="sorting.html#getsortdata">complete docs on <code>getSortData</code></a>.</p>
-
-<p><code>getSortData</code> accepts an object. The object&rsquo;s keys are keywords used to <a href="#sortby"><code>sortBy</code></a>. Object values are either a shortcut string or function to retrieve the data.</p>
-
-``` js
-var $container = $('#container').isotope({
-  getSortData: {
-    name: '.name', // text from querySelector
-    category: '[data-category]', // value of attribute
-    weight: function( itemElem ) { // function
-      var weight = $( itemElem ).find('.weight').text();
-      return parseFloat( weight.replace( /[\(\)]/g, '') );
-    }
-  }
-});
-```
-
-
-<h2>hiddenStyle</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Object</i></span>
+    <span class="value"><i>Boolean</i></span>
   </p>
   <p class="param-bit default">
     <b>Default:</b>
-    <span class="value"><code>{ opacity: <span class="literal">0</span>, transform: <span class="string">'scale(0.001)'</span> }</code></span>
+    <span class="value"><code><span class="literal">true</span></code></span>
   </p>
 </div>
 
-<p>The style applied to hide items.</p>
+<p>Binds layout to window resizing.</p>
 
-``` js
-$('#container').isotope({
-  // disable scale transform transition when hiding
-  hiddenStyle: {
-    opacity: 0
-  },
-  visibleStyle: {
-    opacity: 1
-  }
-})
-```
+<p><code>isResizeBound</code> binds layout only when the Masonry instance is first initialized. You can bind and unbind resize layout afterwards with the <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
 
-<p><a href="http://codepen.io/desandro/pen/lxzDA">See demo with only opacity transition</a>.</p>
+{{! --------------------------------------------------- }}
 
-
-<h2>isInitLayout</h2>
+<h3>isInitLayout</h3>
 
 <div class="param">
   <p class="param-bit type">
@@ -173,109 +123,9 @@ $container.isotope();
 
 {{! --------------------------------------------------- }}
 
-<h2>isOriginLeft</h2>
+<h2>Layout</h2>
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left. Set to <code><span class="literal">false</span></code> for right-to-left layouts.</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-    ``` js
-    isOriginLeft: false
-    ```
-  </div>
-  <div class="duo__cell example__code">
-    <div class="isotope-demo isotope-demo--counting js-isotope"
-      data-isotope-options='{ "isOriginLeft": false }'>
-      {{> grid-mini-items}}
-    </div>
-    {{#codepens.isOriginLeft}}
-      {{> edit-demo}}
-    {{/codepens.isOriginLeft}}
-  </div>
-</div>
-
-{{! --------------------------------------------------- }}
-
-<h2>isOriginTop</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-    ``` js
-    isOriginTop: false
-    ```
-  </div>
-  <div class="duo__cell example__demo">
-    <div class="isotope-demo isotope-demo--counting js-isotope"
-      data-isotope-options='{ "isOriginTop": false }'>
-      {{> grid-mini-items}}
-    </div>
-    {{#codepens.isOriginTop}}
-      {{> edit-demo}}
-    {{/codepens.isOriginTop}}
-  </div>
-</div>
-
-{{! --------------------------------------------------- }}
-
-<h2>isResizeBound</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Binds layout to window resizing.</p>
-
-<p><code>isResizeBound</code> binds layout only when the Masonry instance is first initialized. You can bind and unbind resize layout afterwards with the <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
-
-
-<h2>itemSelector</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value">Selector <i>String</i></span>
-  </p>
-</div>
-
-<p>Specifies which child elements to be used as item elements. Setting <code>itemSelector</code> is always recommended. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a>.</p>
-
-``` js
-itemSelector: '.item'
-```
-
-
-<h2>layoutMode</h2>
+<h3>layoutMode</h3>
 
 <div class="param">
   <p class="param-bit type">
@@ -290,7 +140,9 @@ itemSelector: '.item'
 
 <p>Sets the layout mode used to position items. See <a href="layout-modes.html">docs on layout modes</a>.</p>
 
-<h2>percentPosition</h2>
+{{! --------------------------------------------------- }}
+
+<h3>percentPosition</h3>
 
 <div class="param">
   <p class="param-bit type">
@@ -305,72 +157,59 @@ itemSelector: '.item'
 
 <p>Will set item position in percent values, rather than pixel values. <code>percentPosition</code> works well with percent-width items, as items will not transition their position on resize.</p>
 
-<h2>sortAscending</h2>
+{{! --------------------------------------------------- }}
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i> or <i>Object</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
+<h3>Element sizing</h3>
+
+<p>For the sizing options, like <a href="{{root_path}}layout-modes/masonry.html#columnwidth"><code>masonry: columnWidth</code></a> and <a href="{{root_path}}layout-modes/masonry.html#gutter"><code>masonry: gutter</code></a>, you may set these options to an <i>Element</i> or <i>String</i>, in addition to a <i>Number</i>.</p>
+
+``` html
+<div id="container">
+  <div class="grid-sizer"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  ...
 </div>
+```
 
-<p>Sorts items ascending if <code><span class="literal">true</span></code> &ldquo;A, B, C&hellip;&rdquo;, &ldquo;1, 2, 3&hellip;&rdquo;, or descending if <code><span class="literal">false</span></code>, &ldquo;Z, Y, X&hellip;&rdquo;, &ldquo;9, 8, 7&hellip;&rdquo;.</p>
+<p>With a <i>String</i>, Isotope will use the string as a selector to get the first matching element within the container element. The size of that element is then used.</p>
 
 ``` js
-// sort by number, highest number first
-$container.isotope({
-  sortBy: 'number',
-  sortAscending: false
+var $container = $('#container').isotope({
+  itemSelector: '.item',
+  masonry: {
+    columnWidth: '.grid-sizer'
+  }
 });
 ```
 
-<p><code>sortAscending</code> can also accept an object, so that you can set ascending order for each <code>sortBy</code> value.</p>
+<div class="warning">
+  <p>If you are using element sizing, be sure to set <a href="#itemselector"><code>itemSelector</code></a> as well, so the sizing element does not get used in the layout.</p>
+</div>
+
+<p>With an <i>Element</i>, Isotope will use its outer width to set the value of the related property.</p>
 
 ``` js
-  sortAscending: {
-    name: true,
-    weight: false,
-    category: true,
-    number: false
+  masonry: {
+    columnWidth: $container.find('.grid-sizer')[0]
   }
 ```
 
+<p>This allows you to control the size of the Isotope layout just with your CSS. This is useful for responsive layouts, keeping control within CSS so you can rely on media queries.</p>
 
-<h2>sortBy</h2>
+``` css
+/* 5 columns by default */
+.grid-sizer { width: 20%; }
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>String</i> or <i>Array</i></span>
-  </p>
-</div>
-
-<p>Specify which property of <code>getSortData</code> to sort items by. The value of <code>sortBy</code> needs to match a property name in <code>getSortData</code>.</p>
-
-``` js
-container.isotope({
-  getSortData: {
-    number: '.number parseInt'
-  },
-  sortBy : 'number'
-});
+@media screen and (min-width: 720px) {
+  /* 10 columns for larger screens */
+  .grid-sizer { width: 10%; }
+}
 ```
 
-<p>Two additional <code>sortBy</code> options are built in.</p>
+{{! --------------------------------------------------- }}
 
-<ul>
-  <li><code><span class="string">'original-order'</span></code> will use the original order of the item elements to arrange them in the layout.</li>
-  <li><code><span class="string">'random'</span></code> is a random order.</li>
-</ul>
-
-<p>To sort by multiple properties, you can set <code>sortBy</code> to an array of property names. For example, <code>sortBy: [ 'color', 'number' ]</code> will sort items by color, <em>then</em> by number.</p>
-
-
-<h2>stamp</h2>
+<h3>stamp</h3>
 
 <div class="param">
   <p class="param-bit type">
@@ -435,7 +274,213 @@ stamp: '.stamp'
 </div>
 
 
-<h2>transitionDuration</h2>
+{{! --------------------------------------------------- }}
+
+<h3>isOriginLeft</h3>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left. Set to <code><span class="literal">false</span></code> for right-to-left layouts.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    isOriginLeft: false
+    ```
+  </div>
+  <div class="duo__cell example__code">
+    <div class="isotope-demo isotope-demo--counting js-isotope"
+      data-isotope-options='{ "isOriginLeft": false }'>
+      {{> grid-mini-items}}
+    </div>
+    {{#codepens.isOriginLeft}}
+      {{> edit-demo}}
+    {{/codepens.isOriginLeft}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>isOriginTop</h3>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    isOriginTop: false
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="isotope-demo isotope-demo--counting js-isotope"
+      data-isotope-options='{ "isOriginTop": false }'>
+      {{> grid-mini-items}}
+    </div>
+    {{#codepens.isOriginTop}}
+      {{> edit-demo}}
+    {{/codepens.isOriginTop}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h2>Filtering</h2>
+
+<h3>filter</h3>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>String</i> or <i>Function</i></span>
+  </p>
+</div>
+
+<p>Shows items that match the filter and hides items that do not match. See <a href="filtering.html">docs on Filtering</a>.</p>
+
+<p>If set to a string, that value is used as a <a href="filtering.html#selectors">selector</a>.</p>
+
+``` js
+$container.isotope({ filter: '.selector' });
+```
+
+<p>If <a href="filtering.html#functions"><code>filter</code> is set to a function</a>, that function checks each item and returns <code>true</code> or <code>false</code> if the item should be shown or hidden.</p>
+
+``` js
+$container.isotope({
+  // filter element with numbers greater than 50
+  filter: function() {
+    // _this_ is the item element. Get text of element's .number
+    var number = $(this).find('.number').text();
+    // return true to show, false to hide
+    return parseInt( number, 10 ) > 50;
+  }
+});
+```
+
+{{! --------------------------------------------------- }}
+
+<h2>Sorting</h2>
+
+<h3>getSortData</h3>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Object</i></span>
+  </p>
+</div>
+
+<p>Isotope reads data from markup with the <code>getSortData</code> option. See <a href="sorting.html#getsortdata">complete docs on <code>getSortData</code></a>.</p>
+
+<p><code>getSortData</code> accepts an object. The object&rsquo;s keys are keywords used to <a href="#sortby"><code>sortBy</code></a>. Object values are either a shortcut string or function to retrieve the data.</p>
+
+``` js
+var $container = $('#container').isotope({
+  getSortData: {
+    name: '.name', // text from querySelector
+    category: '[data-category]', // value of attribute
+    weight: function( itemElem ) { // function
+      var weight = $( itemElem ).find('.weight').text();
+      return parseFloat( weight.replace( /[\(\)]/g, '') );
+    }
+  }
+});
+```
+
+{{! --------------------------------------------------- }}
+
+<h3>sortBy</h3>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>String</i> or <i>Array</i></span>
+  </p>
+</div>
+
+<p>Specify which property of <code>getSortData</code> to sort items by. The value of <code>sortBy</code> needs to match a property name in <code>getSortData</code>.</p>
+
+``` js
+container.isotope({
+  getSortData: {
+    number: '.number parseInt'
+  },
+  sortBy : 'number'
+});
+```
+
+<p>Two additional <code>sortBy</code> options are built in.</p>
+
+<ul>
+  <li><code><span class="string">'original-order'</span></code> will use the original order of the item elements to arrange them in the layout.</li>
+  <li><code><span class="string">'random'</span></code> is a random order.</li>
+</ul>
+
+<p>To sort by multiple properties, you can set <code>sortBy</code> to an array of property names. For example, <code>sortBy: [ 'color', 'number' ]</code> will sort items by color, <em>then</em> by number.</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>sortAscending</h3>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i> or <i>Object</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Sorts items ascending if <code><span class="literal">true</span></code> &ldquo;A, B, C&hellip;&rdquo;, &ldquo;1, 2, 3&hellip;&rdquo;, or descending if <code><span class="literal">false</span></code>, &ldquo;Z, Y, X&hellip;&rdquo;, &ldquo;9, 8, 7&hellip;&rdquo;.</p>
+
+``` js
+// sort by number, highest number first
+$container.isotope({
+  sortBy: 'number',
+  sortAscending: false
+});
+```
+
+<p><code>sortAscending</code> can also accept an object, so that you can set ascending order for each <code>sortBy</code> value.</p>
+
+``` js
+  sortAscending: {
+    name: true,
+    weight: false,
+    category: true,
+    number: false
+  }
+```
+
+{{! --------------------------------------------------- }}
+
+<h2>Transitions</h2>
+
+{{! --------------------------------------------------- }}
+
+<h3>transitionDuration</h3>
 
 <div class="param">
   <p class="param-bit type">
@@ -452,8 +497,40 @@ stamp: '.stamp'
 
 <p>To disable all transitions, set <code>transitionDuration: <span class="literal">0</span></code>.</p>
 
+{{! --------------------------------------------------- }}
 
-<h2>visibleStyle</h2>
+<h3>hiddenStyle</h3>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Object</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code>{ opacity: <span class="literal">0</span>, transform: <span class="string">'scale(0.001)'</span> }</code></span>
+  </p>
+</div>
+
+<p>The style applied to hide items.</p>
+
+``` js
+$('#container').isotope({
+  // disable scale transform transition when hiding
+  hiddenStyle: {
+    opacity: 0
+  },
+  visibleStyle: {
+    opacity: 1
+  }
+})
+```
+
+<p><a href="http://codepen.io/desandro/pen/lxzDA">See demo with only opacity transition</a>.</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>visibleStyle</h3>
 
 <div class="param">
   <p class="param-bit type">
@@ -482,51 +559,4 @@ $('#container').isotope({
 
 <p><a href="http://codepen.io/desandro/pen/lxzDA">See demo with only opacity transition</a>.</p>
 
-
-<h2>Element sizing</h2>
-
-<p>For the sizing options, like <a href="{{root_path}}layout-modes/masonry.html#columnwidth"><code>masonry: columnWidth</code></a> and <a href="{{root_path}}layout-modes/masonry.html#gutter"><code>masonry: gutter</code></a>, you may set these options to an <i>Element</i> or <i>String</i>, in addition to a <i>Number</i>.</p>
-
-``` html
-<div id="container">
-  <div class="grid-sizer"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  ...
-</div>
-```
-
-<p>With a <i>String</i>, Isotope will use the string as a selector to get the first matching element within the container element. The size of that element is then used.</p>
-
-``` js
-var $container = $('#container').isotope({
-  itemSelector: '.item',
-  masonry: {
-    columnWidth: '.grid-sizer'
-  }
-});
-```
-
-<div class="warning">
-  <p>If you are using element sizing, be sure to set <a href="#itemselector"><code>itemSelector</code></a> as well, so the sizing element does not get used in the layout.</p>
-</div>
-
-<p>With an <i>Element</i>, Isotope will use its outer width to set the value of the related property.</p>
-
-``` js
-  masonry: {
-    columnWidth: $container.find('.grid-sizer')[0]
-  }
-```
-
-<p>This allows you to control the size of the Isotope layout just with your CSS. This is useful for responsive layouts, keeping control within CSS so you can rely on media queries.</p>
-
-``` css
-/* 5 columns by default */
-.grid-sizer { width: 20%; }
-
-@media screen and (min-width: 720px) {
-  /* 10 columns for larger screens */
-  .grid-sizer { width: 10%; }
-}
-```
+{{! --------------------------------------------------- }}
