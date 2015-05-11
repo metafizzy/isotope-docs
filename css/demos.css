@@ -246,41 +246,6 @@
   width: 3%;
 }
 
-/* ---- stamp ---- */
-
-.has-stamp {
-  position: relative;
-}
-
-.demo .stamp {
-  position: absolute;
-  width: 30%;
-  height: 60px;
-  background: orange;
-  border: 4px dotted #161615;
-}
-
-#stamp-opt-demo .stamp1 {
-  left: 30%;
-  top: 10px;
-  width: 20%;
-  height: 100px;
-}
-
-#stamp-opt-demo .stamp2 {
-  right: 10%;
-  top: 20px;
-  width: 70%;
-  height: 30px;
-}
-
-#stamp-demo .stamp {
-  right: 10%;
-  top: 10px;
-  width: 35%;
-  height: 70px;
-}
-
 #stamp-demo .mini-item { opacity: 0.8; }
 
 #packery-stamp-opt-demo .stamp1 {

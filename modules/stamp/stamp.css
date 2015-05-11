@@ -1,0 +1,10 @@
+/* stamp
+------------------------- */
+
+.stamp {
+  position: absolute;
+  width: 30%;
+  height: 60px;
+  background: orange;
+  border: 4px dotted #161615;
+}

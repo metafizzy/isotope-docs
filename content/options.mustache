@@ -224,38 +224,40 @@ var $container = $('#container').isotope({
 
 <p>The <code>stamp</code> option stamps elements only when the Isotope instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` html
-<div id="stamp-opt-demo">
+<div class="grid">
   <div class="stamp stamp1"></div>
   <div class="stamp stamp2"></div>
-  <div class="item"></div>
-  <div class="item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
   ....
 </div>
 ```
+
 ``` js
-itemSelector: '.mini-item',
+itemSelector: '.grid-item',
 stamp: '.stamp'
 ```
+
 ``` css
 /* position stamp elements with CSS */
-#stamp-opt-demo {
+.grid {
   position: relative;
 }
-#stamp-opt-demo .stamp {
+.stamp {
   position: absolute;
   background: orange;
   border: 4px dotted black;
 }
-#stamp-opt-demo .stamp1 {
+.stamp1 {
   left: 30%;
   top: 10px;
   width: 20%;
   height: 100px;
 }
-#stamp-opt-demo .stamp2 {
+.stamp2 {
   right: 10%;
   top: 20px;
   width: 70%;
@@ -263,12 +265,12 @@ stamp: '.stamp'
 }
 ```
   </div>
-  <div class="cell demo">
-    <div id="stamp-opt-demo" class="isotope has-stamp js-isotope" data-isotope-options='{ "itemSelector": ".mini-item", "stamp": ".stamp" }'>
-      <div class="stamp stamp1"></div>
-      <div class="stamp stamp2"></div>
-      {{>mini-demo-items}}
-    </div>
+  <div class="duo__cell example__demo">
+    {{> stamp-option-demo}}
+
+    {{#codepens.stampOption}}
+      {{> edit-demo}}
+    {{/codepens.stampOption}}
     <p class="edit"><a href="http://codepen.io/desandro/pen/jfhnx">Edit this example on CodePen</a></p>
   </div>
 </div>
