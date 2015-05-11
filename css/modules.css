@@ -84,11 +84,6 @@
   border-radius: 5px;
 }
 
-.param,
-.param code {
-  font-size: 14px;
-}
-
 /* just one param */
 div.param {
   margin-bottom: 0.8em;

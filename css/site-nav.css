@@ -5,7 +5,7 @@
   float: left;
   margin: 0;
   line-height: 44px;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 #nav h1 a {
@@ -23,7 +23,6 @@
 
 #site-nav {
   list-style: none;
-  font-size: 15px;
   margin-bottom: 0;
   padding: 0;
 }
@@ -73,7 +72,7 @@
 
 #page-nav {
   padding: 1.0em 10px;
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 #page-nav li {
@@ -119,7 +118,7 @@
   }
 
   #nav h1 {
-    font-size: 32px;
+    font-size: 2.0rem;
   }
 
   #site-nav {
@@ -127,7 +126,7 @@
 
   #site-nav li {
     float: none;
-    font-size: 1.3em;
+    font-size: 1.1rem;
   }
 
   #site-nav li ul {
@@ -136,7 +135,7 @@
   }
 
   #site-nav li li {
-    font-size: 15px;
+    font-size: 1.0rem;
   }
 
   #nav h1 a,

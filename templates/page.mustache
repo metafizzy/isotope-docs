@@ -1,6 +1,5 @@
 <!doctype html>
-<!--[if lte IE 8]>     <html class="lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+<html class="{{#if is_export}}export{{/if}}">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -29,7 +28,7 @@
   <meta name="twitter:description" content="filter &amp; sort magical layouts" />
 
 </head>
-<body class="{{basename}}-page {{#if is_export}}export{{/if}}" data-page="{{basename}}">
+<body class="{{basename}}-page" data-page="{{basename}}">
 
   <div id="nav">
     <h1><a href="{{root_path}}.">Isotope</a></h1>

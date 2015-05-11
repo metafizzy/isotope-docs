@@ -17,17 +17,21 @@ green #1FB
           box-sizing: border-box;
 }
 
-body {
+/* font-size on html for rem*/
+html {
   font-family: Texta, sans-serif;
   font-size: 17px;
   line-height: 1.5;
-  color: #EEE;
-  background: #262524;
 }
 
-body.export {
+html.export {
   font-family: sans-serif;
   font-size: 15px;
+}
+
+body {
+  color: #EEE;
+  background: #262524;
 }
 
 /* margins */
@@ -151,11 +155,11 @@ a:hover code {
 
 @media screen and ( min-width: 768px ) {
 
-  body {
+  html {
     font-size: 19px;
   }
 
-  body.export { font-size: 16px; }
+  html.export { font-size: 16px; }
 
   pre, code, kbd {
     font-size: 15px;
