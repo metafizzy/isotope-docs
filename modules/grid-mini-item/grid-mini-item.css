@@ -1,0 +1,29 @@
+/* grid-mini-item
+------------------------- */
+
+.grid-mini-item {
+  float: left;
+  width: 50px;
+  height: 50px;
+  background: #e6e5e4;
+  border: 2px solid #b6b5b4;
+  border-color: hsla(0, 0%, 0%, 0.4);
+}
+
+.grid-mini-item--width2 { width: 100px; }
+.grid-mini-item--height2 { height: 100px; }
+
+.grid-mini-item--width3 { width: 150px; }
+.grid-mini-item--height3 { height: 150px; }
+
+.grid-mini-item--gigante {
+  width: 150px;
+  height: 200px;
+}
+
+.isotope-demo--clickable .grid-mini-item:hover {
+  border-color: #28F;
+  background: #8CF;
+  cursor: pointer;
+}
+

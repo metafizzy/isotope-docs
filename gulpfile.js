@@ -13,14 +13,15 @@ var gulpFilter = require('gulp-filter');
  * @returns {Array} paths
  */
 function getGlobPaths( src ) {
-  // copy src
-  var paths = src.slice(0);
+  var paths = [];
   // replace all glob paths with expanded paths
-  src.forEach( function( path, i ) {
-    if ( glob.hasMagic( path ) ) {
-      var files = glob.sync( path );
+  src.forEach( function( filepath ) {
+    if ( glob.hasMagic( filepath ) ) {
+      var files = glob.sync( filepath );
       // replace glob with paths
-      paths.splice.apply( paths, [ i, 1 ].concat( files ) );
+      paths = paths.concat( files );
+    } else {
+      paths.push( filepath );
     }
   });
   return paths;
@@ -90,6 +91,9 @@ var jsSrc = [
   // docs
   'js/vendor/*.js',
   'js/controller.js',
+  // modules
+  'modules/**/*.js',
+  // pages
   'js/pages/*.js'
 ];
 
@@ -125,6 +129,8 @@ gulp.task( 'hint', [ 'hint-js', 'hint-tasks' ]);
 var cssSrc = [
   // dependencies
   'bower_components/normalize.css/normalize.css',
+  // modules
+  'modules/**/*.css',
   // docs
   'css/*.css'
 ];
@@ -174,7 +180,10 @@ var frontMatter = require('gulp-front-matter');
 var path = require('path');
 var through2 = require('through2');
 
-var partialsSrc = 'templates/partials/*.*';
+var partialsSrc = [
+  'templates/partials/*.*',
+  'modules/**/*.mustache'
+];
 var partials = {};
 
 gulp.task( 'partials', function() {

@@ -171,6 +171,7 @@ $container.isotope( 'on', 'layoutComplete', function() {
 $container.isotope();
 ```
 
+{{! --------------------------------------------------- }}
 
 <h2>isOriginLeft</h2>
 
@@ -187,20 +188,24 @@ $container.isotope();
 
 <p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left. Set to <code><span class="literal">false</span></code> for right-to-left layouts.</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` js
-isOriginLeft: false
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    isOriginLeft: false
+    ```
   </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope counting" data-isotope-options='{ "isOriginLeft": false }'>
-      {{>mini-demo-items}}
+  <div class="duo__cell example__code">
+    <div class="isotope-demo isotope-demo--counting js-isotope"
+      data-isotope-options='{ "isOriginLeft": false }'>
+      {{> grid-mini-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/gadFJ">Edit this example on CodePen</a></p>
+    {{#codepens.isOriginLeft}}
+      {{> edit-demo}}
+    {{/codepens.isOriginLeft}}
   </div>
 </div>
 
+{{! --------------------------------------------------- }}
 
 <h2>isOriginTop</h2>
 
@@ -217,20 +222,24 @@ isOriginLeft: false
 
 <p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` js
-isOriginTop: false
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    isOriginTop: false
+    ```
   </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope counting" data-isotope-options='{ "isOriginTop": false }'>
-      {{>mini-demo-items}}
+  <div class="duo__cell example__demo">
+    <div class="isotope-demo isotope-demo--counting js-isotope"
+      data-isotope-options='{ "isOriginTop": false }'>
+      {{> grid-mini-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/kxFJH">Edit this example on CodePen</a></p>
+    {{#codepens.isOriginTop}}
+      {{> edit-demo}}
+    {{/codepens.isOriginTop}}
   </div>
 </div>
 
+{{! --------------------------------------------------- }}
 
 <h2>isResizeBound</h2>
 

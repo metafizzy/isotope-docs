@@ -2,6 +2,7 @@
 two columns for large devices
 ------------------------- */
 
+/* clearfix */
 .duo:after {
   content: '';
   display: block;
