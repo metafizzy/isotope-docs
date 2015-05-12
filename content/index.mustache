@@ -73,7 +73,7 @@ is_homepage: true
 <p>Isotope works on a container element with a group of similar child items.</p>
 
 ``` html
-<div id="grid">
+<div class="grid">
   <div class="grid-item">...</div>
   <div class="grid-item grid-item--width2">...</div>
   <div class="grid-item">...</div>
@@ -145,41 +145,15 @@ var iso = new Isotope( '.grid', {
   <p>Options set in HTML must be valid JSON. Keys need to be quoted, for example <code><span class="string">"itemSelector"</span>:</code>. Note the HTML attribute <code>data-isotope-options</code> is set with single quotes <code>'</code>, but JSON entities use double-quotes <code>"</code>.</p>
 </div>
 
-<p>There are a number of <a href="options.html">options</a> you can specify.</p>
+<h2>Next</h2>
 
-<p>That&rsquo;s it! Now let&rsquo;s do some fun stuff with <a href="filtering.html">filtering</a> and <a href="sorting.html">sorting</a>.</p>
+<p>Learn more about how to use Isotope:</p>
 
-
-<h2>imagesLoaded</h2>
-
-<p>Unloaded images can throw off Isotope layouts and cause item elements to overlap. <a href="http://imagesloaded.desandro.com">imagesLoaded</a> resolves this issue. Read more about <a href="appendix.html#imagesloaded">using imagesLoaded with Isotope</a>.</p>
-
-
-<h2>Vanilla JavaScript</h2>
-
-<p>jQuery is <strong>not</strong> required to use Isotope. Given its popularity, jQuery will be used for all example code in these docs. But you can still use Isotope with vanilla JS.</p>
-
-<p>Initialize an Isotope instance with <code><span class="keyword">new</span> Isotope( element, options )</code>. The <code>Isotope</code> constructor accepts two arguments: the container element and an <a href="options.html">options</a> object.</p>
-
-``` js
-var container = document.querySelector('#container');
-// init
-var iso = new Isotope( container, {
-  // options
-  itemSelector: '.item',
-  layoutMode: 'fitRows'
-});
-```
-
-<p>The element can be a selector string for a single element.</p>
-
-``` js
-var iso = new Isotope( '#container', {
-  // options
-});
-```
-
-
+<ul>
+  <li><a href="filtering.html">Filtering</a></li>
+  <li><a href="sorting.html">Sorting</a></li>
+  <li><a href="layout.html">Layout</a></li>
+</ul>
 
 <h2>v1</h2>
 
