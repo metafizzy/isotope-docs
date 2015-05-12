@@ -1,0 +1,25 @@
+/* in-use-grid
+------------------------- */
+
+.in-use-grid .grid-sizer,
+.in-use-grid__item { width: 23.5%; }
+.in-use-grid .gutter-sizer { width: 2%; }
+
+.in-use-grid__item {
+  display: block;
+  background: #161615;
+  float: left;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.in-use-grid__item__title {
+  margin: 0;
+  padding: 10px;
+}
+
+.in-use-grid__item__image {
+  display: block;
+  max-width: 100%;
+  border-radius: 0 0 5px 5px;
+}

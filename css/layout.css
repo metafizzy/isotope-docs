@@ -2,24 +2,6 @@
   http://adactio.com/journal/5429/ */
 head { font-family: 'base'; }
 
-/* ---- primary-content ---- */
-
-/* stuff that isn't in the gutter */
-.primary-content {
-  margin-left: 10px;
-  margin-right: 10px;
-  max-width: 1200px;
-}
-
-#content .primary-content > * {
-  max-width: 700px;
-}
-
-#content #notification,
-#content #hero-demos {
-  max-width: none;
-}
-
 /* ---- row ---- */
 
 .row .cell {
@@ -44,31 +26,6 @@ head { font-family: 'base'; }
 
   head { font-family: 'desktop'; }
 
-  .primary-content {
-    margin-left: 220px;
-  }
-
-  /* content primary-content */
-  #content .primary-content {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  #content .primary-content:first-child { border: none; }
-
-  #content .primary-content > * {
-    max-width: 900px;
-  }
-
-  #content .primary-content > .demo { max-width: none; }
-
-  /* stuff that can go extra wide */
-  #content .primary-content .row,
-  #content #notification,
-  #content #hero-demos {
-    max-width: 1200px;
-  }
-
   .row {
     margin-bottom: 0.8em;
   }
@@ -90,12 +47,6 @@ head { font-family: 'base'; }
   /* IE8 doesn't support :last-child */
   .lt-ie9 .row .cell { margin-right: 1.5%; }
 
-  /* no margin */
-/*  .example.row .cell {
-    width: 50%;
-    margin-right: 0;
-  }*/
-
   /* three column */
   .row3 .cell {
     width: 31.6%;
@@ -116,9 +67,5 @@ head { font-family: 'base'; }
 @media screen and ( min-width: 960px ) {
 
   head { font-family: 'desktop-ish'; }
-
-  .primary-content {
-    margin-right: 6%;
-  }
 
 }

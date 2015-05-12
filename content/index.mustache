@@ -155,10 +155,13 @@ var iso = new Isotope( '.grid', {
   <li><a href="layout.html">Layout</a></li>
 </ul>
 
+{{! --------------------------------------------------- }}
+
 <h2>v1</h2>
 
 <p>Isotope is currently v2. See <a href="http://isotope.metafizzy.co/v1">isotope.metafizzy.co/v1</a> for documentation and resources for previous v1 version.</p>
 
+{{! --------------------------------------------------- }}
 
 <h2>Isotope in use</h2>
 
@@ -166,21 +169,13 @@ var iso = new Isotope( '.grid', {
 
 <p>Are you using Isotope? Tweet <a href="https://twitter.com/metafizzyco">@metafizzyco</a> or email <a href="mailto:yo@metafizzy.co">yo@metafizzy.co</a> to share your work and possibly get it featured here.</p>
 
-<div id="in-use-container">
-  <div class="grid-sizer"></div>
-  <div class="gutter-sizer"></div>
-  {{#each in-use}}
-    <a class="in-use-item" href="{{url}}">
-      <p class="title">{{title}}</p>
-      <img src="{{image}}" />
-    </a>
-  {{/each}}
-</div>
+{{> in-use-grid}}
 
+{{! --------------------------------------------------- }}
 
 <h2>Twitter updates from <a href="https://twitter.com/metafizzyco">@metafizzyco</a></h2>
 
 <p><a class="twitter-timeline" data-dnt="true" href="https://twitter.com/search?q=isotope%20from%3Ametafizzyco" data-widget-id="494524574201966592">Tweets about Isotope</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>
 
-
+{{! --------------------------------------------------- }}

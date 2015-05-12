@@ -1,0 +1,38 @@
+/* primary-content
+------------------------- */
+
+.primary-content {
+  margin-left: 10px;
+  margin-right: 10px;
+  max-width: 1200px;
+}
+
+.main .primary-content > * {
+  max-width: 700px;
+}
+
+.main .primary-content > .go-wide {
+  max-width: none;
+}
+
+/* tablet-ish */
+@media screen and ( min-width: 768px ) {
+
+  .primary-content {
+    margin-left: 220px;
+  }
+
+  .main .primary-content > * {
+    max-width: 900px;
+  }
+
+}
+
+/* desktop */
+@media screen and ( min-width: 960px ) {
+
+  .primary-content {
+    margin-right: 6%;
+  }
+
+}
