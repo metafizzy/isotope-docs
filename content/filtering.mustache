@@ -2,36 +2,11 @@
 title: Filtering
 ---
 
-<p>Isotope can hide and show item elements via the <a href='options.html#filter'><code>filter</code> option</a>. Items that match that filter will be shown. Items that do not match will be hidden.</p>
+<p>Isotope can hide and show item elements with the <code>filter</code> option. Items that match that filter will be shown. Items that do not match will be hidden.</p>
 
-<div id="filtering-demo" class="demo">
-  <div id="filters" class="button-group js-radio-button-group">
-    <button class="button is-checked" data-filter="*">show all</button>
-    <button class="button" data-filter=".metal">metal</button>
-    <button class="button" data-filter=".transition">transition</button>
-    <button class="button" data-filter=".alkali, .alkaline-earth">alkali &amp; alkaline-earth</button>
-    <button class="button" data-filter=":not(.transition)">not transition</button>
-    <button class="button" data-filter=".metal:not(.transition)">metal but not transition</button>
-    <button class="button" data-filter="numberGreaterThan50">number > 50</button>
-    <button class="button" data-filter="ium">name ends with &ndash;ium</button>
-  </div>
+{{> filtering-demo}}
 
-  <pre class="code-display"><code>$container.isotope({...})</code></pre>
 
-  <div class="isotope">
-    {{#best-of-elements}}
-      <div class="element-item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">
-        <h5 class="name">{{name}}</h5>
-        <p class="symbol">{{symbol}}</p>
-        <p class="number">{{number}}</p>
-        <p class="weight">{{weight}}</p>
-      </div>
-    {{/best-of-elements}}
-  </div>
-  <p class="edit"><a href="http://codepen.io/desandro/pen/Ehgij">Edit this example</a> or <a href="http://codepen.io/desandro/pen/BgcCD/">example with vanilla JS</a> on CodePen</p>
-</div>
-
-  
 <h2>Selectors</h2>
 
 <p>The simplest way to filter items is with selectors, like classes. For example, each item element can have several identifying classes: <code>transition</code>, <code>metal</code>, <code>lanthanoid</code>, <code>alkali</code>, etc.</p>

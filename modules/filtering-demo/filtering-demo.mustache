@@ -1,0 +1,25 @@
+<div class="big-demo go-wide" data-js-module="filtering-demo">
+  <div class="filter-button-group button-group js-radio-button-group">
+    <button class="button is-checked" data-filter="*">show all</button>
+    <button class="button" data-filter=".metal">metal</button>
+    <button class="button" data-filter=".transition">transition</button>
+    <button class="button" data-filter=".alkali, .alkaline-earth">alkali &amp; alkaline-earth</button>
+    <button class="button" data-filter=":not(.transition)">not transition</button>
+    <button class="button" data-filter=".metal:not(.transition)">metal but not transition</button>
+    <button class="button" data-filter="numberGreaterThan50">number > 50</button>
+    <button class="button" data-filter="ium">name ends with &ndash;ium</button>
+  </div>
+
+  <pre class="code-display"><code>$grid.isotope({...})</code></pre>
+
+  <div class="isotope-demo">
+    {{#best-of-elements}}
+      {{> element-item}}
+    {{/best-of-elements}}
+  </div>
+
+  {{#codepens.filteringDemo}}
+    {{> edit-demo}}
+  {{/codepens.filteringDemo}}
+
+</div>
