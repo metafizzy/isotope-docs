@@ -9,7 +9,9 @@
 // global namespace, MD = Isotope Docs
 var ID = window.ID = {};
 // hash of page controllers
-ID.pages = {};
+// ID.pages = {};
+// hash of modules
+ID.modules = {};
 var notifElem;
 
 var getSize = window.getSize;
@@ -50,6 +52,15 @@ docReady( function() {
   if ( condClass === 'desktop-ish' || condClass === 'tablet-ish' ) {
     stickifyPageNav();
   }
+
+  // init module instance for all elements with data-module attributes
+  $('[data-js-module]').each( function( i, elem ) {
+    var moduleName = elem.getAttribute('data-js-module');
+    var module = ID.modules[ moduleName ];
+    if ( module ) {
+      module( elem );
+    }
+  });
 
 });
 
@@ -143,7 +154,7 @@ $.fn.displayIsotopeCode = function( key, value ) {
   // add quotes for string value
   value = typeof value === 'string' && value.indexOf('function') === -1 ?
     "'" + value + "'" : value;
-  var codeHTML = "$container.isotope({ " +
+  var codeHTML = "$grid.isotope({ " +
     key + ": " + value + " })";
   // syntax highlight
   codeHTML = hljs.highlight( 'js', codeHTML ).value;

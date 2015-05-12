@@ -1,0 +1,35 @@
+<div class="hero">
+  <div class="primary-content">
+
+    <h1 class="hero__title">Isotope</h1>
+
+    <p class="hero__tagline">Filter &amp; sort magical layouts</p>
+
+    <div class="hero__big-buttons clearfix">
+
+      <a class="hero__big-buttons__button"
+         href="{{source_url_path}}isotope.pkgd.min.js">
+        <i class="icon icon-file-download"></i>
+        Download isotope.&#8203;pkgd.&#8203;min.js
+      </a>
+
+      {{! show download docs only in production }}
+      {{#unless is_export}}
+        <a class="hero__big-buttons__button" href="isotope-docs.zip">
+          <i class="icon icon-folder-download"></i>
+          Download these docs
+        </a>
+      {{/unless}}
+
+      <a class="hero__big-buttons__button" href="https://github.com/metafizzy/isotope">
+        <i class="icon icon-github"></i>
+        Isotope on GitHub
+      </a>
+
+    </div> {{! hero__big-buttons }}
+
+{{> hero-demo}}
+
+  </div> {{! .primary-content }}
+
+</div> {{! hero }}

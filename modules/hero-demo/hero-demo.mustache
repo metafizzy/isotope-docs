@@ -1,0 +1,38 @@
+<div class="demo" data-js-module="hero-demo">
+
+  <div class="ui-group">
+    <h3 class="ui-group__title">Filter</h3>
+    <div class="filters button-group js-radio-button-group">
+      <button class="button is-checked" data-filter="*">show all</button>
+      <button class="button" data-filter=".metal">metal</button>
+      <button class="button" data-filter=".transition">transition</button>
+      <button class="button" data-filter="ium">&ndash;ium</button>
+    </div>
+  </div>
+  <div class="ui-group">
+    <h3 class="ui-group__title">Sort</h3>
+    <div class="sort-by button-group js-radio-button-group">
+      <button class="button is-checked" data-sort-by="original-order">original order</button>
+      <button class="button" data-sort-by="name">name</button>
+      <button class="button" data-sort-by="symbol">symbol</button>
+      <button class="button" data-sort-by="number">number</button>
+    </div>
+  </div>
+
+<pre class="code-display"><code>$grid.isotope({
+  itemSelector: <span class="string">'.element-item'</span>,
+  layoutMode: <span class="string">'fitRows'</span>,
+  ...
+})</code></pre>
+
+  <div class="isotope-demo">
+    {{#best-of-elements}}
+      {{> element-item}}
+    {{/best-of-elements}}
+  </div>
+
+  {{#codepens.heroDemo}}
+    {{> edit-demo}}
+  {{/codepens.heroDemo}}
+
+</div>
