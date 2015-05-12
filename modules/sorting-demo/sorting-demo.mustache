@@ -1,0 +1,23 @@
+<div class="big-demo go-wide" data-js-module="sorting-demo">
+
+  <div class="button-group sort-by-button-group js-radio-button-group">
+    <button class="button is-checked" data-sort-by="original-order">original order</button>
+    <button class="button" data-sort-by="name">name</button>
+    <button class="button" data-sort-by="symbol">symbol</button>
+    <button class="button" data-sort-by="number">number</button>
+    <button class="button" data-sort-by="weight">weight</button>
+    <button class="button" data-sort-by="category">category</button>
+  </div>
+
+  <pre class="code-display"><code>$grid.isotope({...})</code></pre>
+
+  <div class="isotope-demo">
+    {{#best-of-elements}}
+      {{> element-item}}
+    {{/best-of-elements}}
+  </div>
+
+  {{#codepens.sortingDemo}}
+    {{> edit-demo}}
+  {{/codepens.sortingDemo}}
+</div>

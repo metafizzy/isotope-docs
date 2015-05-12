@@ -4,45 +4,23 @@ title: Sorting
 
 <p>Isotope can rearrange the order of item elements based on their data.</p>
 
-<div id="sorting-demo" class="demo">
-  <div class="button-group js-radio-button-group">
-    <button class="button is-checked" data-sort-by="original-order">original order</button>
-    <button class="button" data-sort-by="name">name</button>
-    <button class="button" data-sort-by="symbol">symbol</button>
-    <button class="button" data-sort-by="number">number</button>
-    <button class="button" data-sort-by="weight">weight</button>
-    <button class="button" data-sort-by="category">category</button>
-  </div>
-  <pre class="code-display"><code>$container.isotope({...})</code></pre>
-  <div class="isotope">
-    {{#best-of-elements}}
-      <div class="element-item {{#categories}}{{this}} {{/categories}}" data-category="{{firstValue categories}}">
-        <h5 class="name">{{name}}</h5>
-        <p class="symbol">{{symbol}}</p>
-        <p class="number">{{number}}</p>
-        <p class="weight">{{weight}}</p>
-      </div>
-    {{/best-of-elements}}
-  </div>
-  <p class="edit"><a href="http://codepen.io/desandro/pen/lzCqe">Edit this example on CodePen</a></p>
-</div>
+{{> sorting-demo}}
 
+{{! --------------------------------------------------- }}
 
-<h2>Markup</h2>
+<h2>HTML</h2>
 
-<p>All the data used for sorting can be kept in the markup. It could be a text value, like a title or tag. Or it could be a number, like a price, measurement, or rating.</p>
-
-<p> For our example, each item element has several data points that can be used for sorting. There&rsquo;s the elemental symbol, number, name of the element, weight, and category.</p>
+<p>All the data used for sorting can be set in the HTML. For the example at the top of the page, each item element has several data points that can be used for sorting.</p>
 
 ``` html
-<div id="container">
-  <div class="item transition metal" data-category="transition">
+<div class="grid">
+  <div class="element-item transition metal" data-category="transition">
     <p class="number">79</p>
     <h3 class="symbol">Au</h3>
     <h2 class="name">Gold</h2>
     <p class="weight">196.966569</p>
   </div>
-  <div class="item metalloid" data-category="metalloid">
+  <div class="element-item metalloid" data-category="metalloid">
     <p class="number">51</p>
     <h3 class="symbol">Sb</h3>
     <h2 class="name">Antimony</h2>
@@ -52,13 +30,14 @@ title: Sorting
 </div>
 ```
 
+{{! --------------------------------------------------- }}
 
 <h2>getSortData</h2>
 
-<p>Isotope reads data from markup with the <code>getSortData</code> option. This option accepts an object. The object&rsquo;s keys are keywords used to sort by. Object values are either a shortcut string or function to retrieve the data.</p>
+<p>Isotope reads data from HTML with the <code>getSortData</code> option. <code>getSortData</code> is set with an object. The object&rsquo;s keys are keywords used to sort by. Object values are either a shortcut string or function to retrieve the data.</p>
 
 ``` js
-var $container = $('#container').isotope({
+var $grid = $('.grid').isotope({
   getSortData: {
     name: '.name', // text from querySelector
     category: '[data-category]', // value of attribute
@@ -70,9 +49,11 @@ var $container = $('#container').isotope({
 });
 ```
 
+{{! --------------------------------------------------- }}
+
 <h3>getSortData strings</h3>
 
-<p>Isotope provides shortcut strings to get sort data. By default, a string will be used as a query selector to get the text of a child element for each item element.</p>
+<p>When a <code>getSortData</code> value is set to a string, the string will be used as a query selector to get the text of a child element for each item element by default.</p>
 
 ``` js
 name: '.name', // use text of .name element
@@ -86,7 +67,7 @@ symbol: '.symbol' // use text of .symbol
 category: '[data-category]'
 ```
 
-<p>There are two additional parser keywords you can add to parse text.</p>
+<p>Data values can be parsed into numbers by adding parser keywords to the shortcut string.</p>
 
 ``` js
 // parse text of .number as an integer
@@ -95,9 +76,11 @@ number: '.number parseInt',
 weight: '.weight parseFloat'
 ```
 
+{{! --------------------------------------------------- }}
+
 <h3>getSortData functions</h3>
 
-<p>You can pass in a function as method. This function is used on each item element to get data. The function provides one parameter <code>itemElem</code>, which is the item element. The function needs to return the data point.</p>
+<p><code>getSortData</code> values can be set to a function. This function is used on each item element to get data. The function provides one parameter <code>itemElem</code>, which is the item element. The function needs to return the data point.</p>
 
 ``` js
 weight: function( itemElem ) {
@@ -108,10 +91,11 @@ weight: function( itemElem ) {
 }
 ```
 
+{{! --------------------------------------------------- }}
 
 <h2>sortBy</h2>
 
-<p>For every property set in <code>getSortData</code>, Isotope can use it for sorting with the <a href="options.html#sortby">sortBy option</a>. The value of <code>sortBy</code> needs to match a property name in <code>getSortData</code>. With the properties above, we can set sortBy to
+<p>For every property set in <code>getSortData</code>, Isotope can use it for sorting with the <code>sortBy</code> option. The value of <code>sortBy</code> needs to match a key in <code>getSortData</code>. With the properties above, <code>sortBy</code> can be set to
   <code><span class="string">'name'</span></code>,
   <code><span class="string">'symbol'</span></code>,
   <code><span class="string">'number'</span></code>,
@@ -120,123 +104,99 @@ weight: function( itemElem ) {
 </p>
 
 ``` js
-$container.isotope({ sortBy : 'symbol' });
+$grid.isotope({ sortBy : 'symbol' });
 ```
 
-<p>Two additional <code>sortBy</code> options are built in</p>
+<p>Two additional <code>sortBy</code> options are built in.</p>
 
-<ul>
-  <li><code><span class="string">'original-order'</span></code> will use the original order of the item elements to arrange them in the layout.</li>
-  <li><code><span class="string">'random'</span></code> is a random order.</li>
-</ul>
+``` js
+$grid.isotope({ sortBy : 'original-order' });
+// original order of the item elements
+
+$grid.isotope({ sortBy : 'random' });
+// random order
+```
+
+{{! --------------------------------------------------- }}
 
 <h3>Multiple sortBy</h3>
 
-<p>To sort by multiple properties, you can set <code>sortBy</code> to an array of property names. For example, <code>sortBy: [ <span class="string">'color'</span>, <span class="string">'number'</span> ]</code> will sort items by color, <em>then</em> by number.</p>
+<p>To sort by multiple properties, you can set <code>sortBy</code> to an array. For example, <code>sortBy: [ <span class="string">'color'</span>, <span class="string">'number'</span> ]</code> will sort items by color, <em>then</em> by number.</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` html
-<div class="isotope">
-  <div class="mini-item w2 h2" data-color="yellow">
-    <p class="number">3</p>
-  </div>
-  <div class="mini-item w2 h2" data-color="blue">
-    <p class="number">2</p>
-  </div>
-  ...
-</div>
-```
-``` js
-var $container = $('#multiple-sort-by .isotope').isotope({
-  getSortData: {
-    color: '[data-color]',
-    number: '.number parseInt'
-  },
-  // sort by color then number
-  sortBy: [ 'color', 'number' ]
-});
-```
-  </div>
-  <div id="multiple-sort-by-demo" class="cell demo">
-    <div class="button-group js-radio-button-group">
-      <button class="button is-checked" data-sort-by="color,number" />color, number</button>
-      <button class="button" data-sort-by="number,color" />number, color</button>
+<div class="duo example go-wide">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
+      <div class="grid-item" data-color="yellow">
+        <p class="number">3</p>
+      </div>
+      <div class="grid-item" data-color="blue">
+        <p class="number">2</p>
+      </div>
+      ...
     </div>
-    <div class="isotope">
-      <div class="mini-item w2 h2" data-color="yellow">
-        <p class="number">3</p>
-      </div>
-      <div class="mini-item w2 h2" data-color="blue">
-        <p class="number">2</p>
-      </div>
-      <div class="mini-item w2 h2" data-color="blue">
-        <p class="number">1</p>
-      </div>
-      <div class="mini-item w2 h2" data-color="yellow">
-        <p class="number">1</p>
-      </div>
-      <div class="mini-item w2 h2" data-color="yellow">
-        <p class="number">2</p>
-      </div>
-      <div class="mini-item w2 h2" data-color="blue">
-        <p class="number">3</p>
-      </div>
-      <div class="mini-item w2 h2" data-color="yellow">
-        <p class="number">2</p>
-      </div>
-      <div class="mini-item w2 h2" data-color="red">
-        <p class="number">2</p>
-      </div>
-      <div class="mini-item w2 h2" data-color="red">
-        <p class="number">3</p>
-      </div>
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/sxAJL">Edit this example on CodePen</a></p>
+    ```
+
+    ``` js
+    var $grid = $('.grid').isotope({
+      getSortData: {
+        color: '[data-color]',
+        number: '.number parseInt'
+      },
+      // sort by color then number
+      sortBy: [ 'color', 'number' ]
+    });
+    ```
   </div>
+
+  {{> multiple-sort-by}}
+
 </div>
 
-
+{{! --------------------------------------------------- }}
 
 <h2>sortAscending</h2>
 
-<p>By default, Isotope sorts ascendingly: A, B, C and 1, 2, 3. To reverse this, set the <code>sortAscending: <span class="literal">false</span></code>.</p>
+<p>By default, Isotope sorts ascendingly: A, B, C and 1, 2, 3. To sort descendingly Z, Y, X, and 9, 8, 7, set <code>sortAscending: <span class="literal">false</span></code>.</p>
 
 ``` js
-// sort by number, highest number first
-$container.isotope({
+// sort highest number first
+$grid.isotope({
   sortBy: 'number',
   sortAscending: false
 });
 ```
 
-<p><code>sortAscending</code> can also accept an object, so that you can set ascending order for each <code>sortBy</code> value.</p>
+<p><code>sortAscending</code> can also be set with an object, so that you can set ascending order for each <code>sortBy</code> value.</p>
 
 ``` js
+$grid.isotope({
   sortAscending: {
     name: true,
     weight: false,
     category: true,
     number: false
   }
+});
 ```
 
+{{! --------------------------------------------------- }}
 
 <h2>updateSortData</h2>
 
 <p>To update sort data after a change has been made to item elements, use the <a href="methods.html#updatesortdata"><code>updateSortData</code> method</a>.</p>
 
 ``` js
-$container.isotope('updateSortData').isotope();
+$grid.isotope('updateSortData').isotope();
 ```
 
 
-<h2>Creating interactive buttons</h2>
+<h2>UI</h2>
 
 <p>Let&rsquo;s use a group of buttons for the UI.</p>
 
 ``` html
-<div id="sorts" class="button-group">
+<div class="button-group sort-by-button-group">
   <button data-sort-by="original-order">original order</button>
   <button data-sort-by="name">name</button>
   <button data-sort-by="symbol">symbol</button>
@@ -246,11 +206,11 @@ $container.isotope('updateSortData').isotope();
 </div>
 ```
 
-<p>Each button has its sortBy set in the <code>data-sort-by</code> attribute. In the JS, we can use that value when a button is clicked.</p>
+<p>Each button has its <code>sortBy</code> value set in the <code>data-sort-by</code> attribute. In the JS, we can use that value when a button is clicked.</p>
 
 ``` js
 // init Isotope
-var $container = $container.isotope({
+var $grid = $grid.isotope({
   getSortData: {
     name: '.name',
     symbol: '.symbol',
@@ -262,9 +222,10 @@ var $container = $container.isotope({
     }
   }
 });
+
 // sort items on button click
-$('#sorts').on( 'click', 'button', function() {
+$('.sort-by-button-group').on( 'click', 'button', function() {
   var sortByValue = $(this).attr('data-sort-by');
-  $container.isotope({ sortBy: sortByValue });
+  $grid.isotope({ sortBy: sortByValue });
 });
 ```
