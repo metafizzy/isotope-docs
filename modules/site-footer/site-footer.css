@@ -1,0 +1,65 @@
+/* site-footer
+------------------------- */
+
+.site-footer {
+  position: relative;
+  padding: 3.0em 0;
+  background: #161615;
+  z-index: 20; /* above page-nav */
+}
+
+/* ---- brand ---- */
+
+.site-footer__brand {
+  bottom: 20px;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.site-footer__brand__logo {
+  display: block;
+  font-size: 80px;
+  line-height: 1.3;
+  background: none;
+  color: #4BF;
+  opacity: 0.5;
+  /* use custom font for logo */
+  font-family: 'Metafizzy Logo', sans-serif;
+}
+
+.site-footer__brand__logo .etafizzy {
+  display: none;
+}
+
+.site-footer__brand__logo:hover {
+  color: #FB4;
+  opacity: 1;
+}
+
+/* ---- footer-copy ---- */
+
+
+.footer-copy {
+  font-size: 1.2rem;
+}
+
+/* ----  ---- */
+
+
+/* desktop */
+@media screen and ( min-width: 768px ) {
+  .site-footer {
+    min-height: 240px;
+  }
+
+  .site-footer__brand {
+    width: 200px;
+    position: absolute;
+    left: 0;
+    top: 20px;
+  }
+
+  .site-footer__brand__logo {
+    font-size: 130px;
+  }
+}
