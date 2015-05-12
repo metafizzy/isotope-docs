@@ -12,49 +12,58 @@ title: Filtering
 <p>The simplest way to filter items is with selectors, like classes. For example, each item element can have several identifying classes: <code>transition</code>, <code>metal</code>, <code>lanthanoid</code>, <code>alkali</code>, etc.</p>
 
 ``` html
-<div id="container">
-  <div class="item transition metal">...</div>
-  <div class="item post-transition metal">...</div>
-  <div class="item alkali metal">...</div>
-  <div class="item transition metal">...</div>
-  <div class="item lanthanoid metal inner-transition">...</div> 
-  <div class="item halogen nonmetal">...</div> 
-  <div class="item alkaline-earth metal">...</div>
+<div class="grid">
+  <div class="element-item transition metal">...</div>
+  <div class="element-item post-transition metal">...</div>
+  <div class="element-item alkali metal">...</div>
+  <div class="element-item transition metal">...</div>
+  <div class="element-item lanthanoid metal inner-transition">...</div>
+  <div class="element-item halogen nonmetal">...</div>
+  <div class="element-item alkaline-earth metal">...</div>
   ...
 </div>
 ```
 
-<p>Set a selector with the <a href="options.html#filter">filter option</a>. Items that match the selector will be shown. Items that do not match will be hidden. To filter <code>.metal</code> items:</p>
+<p>Set a selector with the <code>filter</code> option. Items that match the selector will be shown. Items that do not match will be hidden. </p>
 
 ``` js
-$container.isotope({ filter: '.metal' });
+// filter .metal items
+$grid.isotope({ filter: '.metal' });
+
+// filter .alkali OR .alkaline-earth items
+$grid.isotope({ filter: '.alkali, .alkaline-earth' });
+
+// filter .metal AND .transition items
+$grid.isotope({ filter: '.metal.transition' });
+
+// show all items
+$grid.isotope({ filter: '*' });
+
 ```
 
-<ul>
-  <li><code><span class="string">'.alkali, .alkaline-earth'</span></code> will show <code>.alkali</code> <strong>and</strong> <code> .alkaline-earth</code> item elements.</li>
-  <li><code><span class="string">'.metal.transition'</span></code> will show item elements that have <strong>both</strong> <code>.metal</code> and <code>.transition</code> classes.</li>
-  <li><code><span class="string">'*'</span></code> will show all items.</li>
-</ul>
+{{! --------------------------------------------------- }}
 
 <h3>jQuery selectors</h3>
 
-<p>If jQuery is present, Isotope uses jQuery to filter items. You can filter items with <a href="http://api.jquery.com/category/selectors/">jQuery selectors</a>. For example:</p>
+<p>Isotope uses jQuery to filter items (if jQuery is present). You can filter items with <a href="http://api.jquery.com/category/selectors/">jQuery selectors</a>.</p>
 
-<ul>
-  <li><code><span class="string">'.metal:not(.transition)'</span></code> will show <code>.metal</code> item elements that are NOT <code>.transition</code>.</li>
-</ul>
+``` js
+// filter .metal items that are NOT .transition
+$grid.isotope({ filter: '.metal:not(.transition)' });
+```
 
+{{! --------------------------------------------------- }}
 
 <h2>Functions</h2>
 
-<p>You can filter items with functions. The example above uses a function to filter items when the item&rsquo;s number is greater than 50.</p>
+<p>You can filter with functions. The example at the top of this page uses a function to filter items when the item&rsquo;s number is greater than 50.</p>
 
 ``` html
-<div id="container">
-  <div class="item ..."><p class="number">80</p></div>
-  <div class="item ..."><p class="number">42</p></div>
-  <div class="item ..."><p class="number">20</p></div>
-  <div class="item ..."><p class="number">75</p></div>
+<div class="grid">
+  <div class="element-item ..."><p class="number">80</p></div>
+  <div class="element-item ..."><p class="number">42</p></div>
+  <div class="element-item ..."><p class="number">20</p></div>
+  <div class="element-item ..."><p class="number">75</p></div>
   ...
 </div>
 ```
@@ -62,7 +71,7 @@ $container.isotope({ filter: '.metal' });
 <p>If you use jQuery, you can filter with <a href="http://api.jquery.com/is/#is-functionindex">functions in jQuery</a>.</p>
 
 ``` js
-$container.isotope({
+$grid.isotope({
   // filter element with numbers greater than 50
   filter: function() {
     // _this_ is the item element. Get text of element's .number
@@ -88,10 +97,10 @@ iso.arrange({
 
 <h2>UI</h2>
 
-<p>The example above uses buttons for UI. Each button has its filter set in the <code>data-filter</code> attribute.</p>
+<p>The example at the top uses buttons for UI. Each button has its filter set in the <code>data-filter</code> attribute.</p>
 
 ``` html
-<div id="filters" class="button-group">
+<div class="button-group filter-button-group">
   <button data-filter="*">show all</button>
   <button data-filter=".metal">metal</button>
   <button data-filter=".transition">transition</button>
@@ -105,11 +114,11 @@ iso.arrange({
 
 ``` js
 // init Isotope
-var $container = $('#container').isotope({
+var $grid = $('.grid').isotope({
   // options
 });
 // filter items on button click
-$('#filters').on( 'click', 'button', function() {
+$('.filter-button-group').on( 'click', 'button', function() {
   var filterValue = $(this).attr('data-filter');
   $container.isotope({ filter: filterValue });
 });
@@ -120,9 +129,8 @@ $('#filters').on( 'click', 'button', function() {
 <p>To filter with a function, use a keyword and map it to an object.</p>
 
 ``` html
-  <!-- in button group -->
-  <button data-filter="numberGreaterThan50">number > 50</button>
-  <button data-filter="ium">name ends with -ium</button>
+<button data-filter="numberGreaterThan50">number > 50</button>
+<button data-filter="ium">name ends with -ium</button>
 ```
 
 ``` js
@@ -139,12 +147,13 @@ var filterFns = {
     return name.match( /ium$/ );
   }
 };
+
 // filter items on button click
-$('#filters').on( 'click', 'button', function() {
+$('.filter-button-group').on( 'click', 'button', function() {
   var filterValue = $(this).attr('data-filter');
   // use filter function if value matches
   filterValue = filterFns[ filterValue ] || filterValue;
-  $container.isotope({ filter: filterValue });
+  $grid.isotope({ filter: filterValue });
 });
 ```
 
@@ -163,54 +172,7 @@ $('#filters').on( 'click', 'button', function() {
 
 <p>Filters can be combined. In addition to filtering for just <code>.red</code> or <code>.tall</code>, you can pass in a filter selector of both: <code>.red.tall</code>.</p>
 
-<div id="combination-filters-demo" class="demo">
-
-  <div class="ui-group">
-    <h3>Color</h3>
-    <div class="button-group js-radio-button-group" data-filter-group="color">
-      <button class="button is-checked" data-filter="">any</button>
-      {{#combos.colors}}
-        <button class="button" data-filter=".{{color}}">{{color}}</button>
-      {{/combos.colors}}
-    </div>
-  </div>
-
-  <div class="ui-group">
-    <h3>Size</h3>
-    <div class="button-group js-radio-button-group" data-filter-group="size">
-      <button class="button is-checked" data-filter="">any</button>
-      {{#combos.sizes}}
-        <button class="button" data-filter=".{{size}}">{{size}}</button>
-      {{/combos.sizes}}
-    </div>
-  </div>
-
-  <div class="ui-group">
-    <h3>Shape</h3>
-    <div class="button-group js-radio-button-group" data-filter-group="shape">
-      <button class="button is-checked" data-filter="">any</button>
-      {{#combos.shapes}}
-        <button class="button" data-filter=".{{shape}}">{{shape}}</button>
-      {{/combos.shapes}}
-    </div>
-  </div>
-
-  <pre class="code-display"><code>$container.isotope({...})</code></pre>
-
-  <div class="isotope">
-    {{#with combos}}
-      {{#each sizes}}
-        {{#each ../shapes}}
-          {{#each ../../colors}}
-            <div class="color-shape {{../../size}} {{../shape}} {{color}}"></div>
-          {{/each}}
-        {{/each}}
-      {{/each}}
-    {{/with}}
-  </div>
-
-  <p class="edit"><a href="http://codepen.io/desandro/pen/JEojz/">Edit this example on CodePen</a></p>
-</div>
+{{> combination-filters-demo}}
 
 <h3>Combination filters UI</h3>
 
@@ -246,13 +208,18 @@ $demo.on( 'click', '.button', function() {
   // set filter for group
   filters[ filterGroup ] = $this.attr('data-filter');
   // combine filters
-  var filterValue = '';
-  for ( var prop in filters ) {
-    filterValue += filters[ prop ];
-  }
-  // set filter for Isotope
-  $container.isotope({ filter: filterValue });
+  var filterValue = concatValues( filters );
+  $grid.isotope({ filter: filterValue });
 });
+
+// flatten object by concatting values
+function concatValues( obj ) {
+  var value = '';
+  for ( var prop in obj ) {
+    value += obj[ prop ];
+  }
+  return value;
+}
 ```
 
 <h2>URL hash</h2>
