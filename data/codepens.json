@@ -15,6 +15,12 @@
   "multipleSortBy": {
     "default": "sxAJL"
   },
+  "masonryBasic": {
+    "default": "mEinp"
+  },
+  "masonryFluid": {
+    "default": "mIkhq"
+  },
   "isOriginLeft": {
     "default": "gadFJ"
   },

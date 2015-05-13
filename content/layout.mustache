@@ -1,0 +1,72 @@
+---
+title: Layout
+---
+
+<p>Isotope can position items with different layout modes. To start, these examples will use the default <code>masonry</code> layout mode.</p>
+
+<h2>Item sizing</h2>
+
+<p>All sizing and styling of items is handled by your own CSS.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      ...
+    </div>
+    ```
+
+    ``` css
+    .grid-item {
+      float: left;
+      width: 50px;
+      height: 50px;
+      background: #e6e5e4;
+      border: 2px solid #b6b5b4;
+    }
+
+    .grid-item--width2 { width: 100px; }
+    .grid-item--height2 { height: 100px; }
+    ```
+  </div>
+  <div class="duo__cell examle__demo">
+    <div class="isotope-demo js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
+      {{>grid-mini-items}}
+    </div>
+
+    {{#codepens.masonryBasic}}
+      {{> edit-demo}}
+    {{/codepens.masonryBasic}}
+  </div>
+</div>
+
+<p>Item sizes can be set with percentages for responsive sizing. Set <code>percentPosition: <span class="literal">true</span></code> so item positions are likewise set with percentages. This reduces adjustment transitions when the window is resized.</p>
+
+<p>For the <code>masonry</code> layout mode, </p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` css
+    /* fluid 5 columns */
+    .grid-sizer,
+    .grid-item { width: 20%; }
+    /* 2 columns */
+    .grid-item--width2 { width: 40%; }
+    ```
+  </div>
+  <div class="duo__cell examle__demo">
+    <div class="isotope-demo isotope-demo--fluid-5-col js-isotope"
+      data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-mini-item", "percentPosition": true }'>
+      {{>grid-mini-items}}
+    </div>
+
+    {{#codepens.masonryFluid}}
+      {{> edit-demo}}
+    {{/codepens.masonryFluid}}
+  </div>
+</div>
+

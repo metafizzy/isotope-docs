@@ -33,15 +33,17 @@
 }
 
 /* selected */
-.filtering-page .site-nav__item--filtering a,
-.sorting-page .site-nav__item--sorting a,
-.options-page .site-nav__item--options a,
-.methods-page .site-nav__item--methods a,
-.events-page .site-nav__item--events a,
-.draggable-page .site-nav__item--draggable a,
-.license-page .site-nav__item--license a,
-.appendix-page .site-nav__item--appendix a,
-.faq-page .site-nav__item--faq a {
+.page--filtering .site-nav__item--filtering .site-nav__item__link,
+.page--sorting .site-nav__item--sorting .site-nav__item__link,
+.page--layout .site-nav__item--layout .site-nav__item__link,
+.page--layout-modes .site-nav__item--layout-modes .site-nav__item__link,
+.page--options .site-nav__item--options .site-nav__item__link,
+.page--methods .site-nav__item--methods .site-nav__item__link,
+.page--events .site-nav__item--events .site-nav__item__link,
+.page--draggable .site-nav__item--draggable .site-nav__item__link,
+.page--license .site-nav__item--license .site-nav__item__link,
+.page--appendix .site-nav__item--appendix .site-nav__item__link,
+.page--faq .site-nav__item--faq a {
   color: #4Bf;
   background: #161615;
 }

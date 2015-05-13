@@ -12,6 +12,13 @@ check requiring jQuery with pkgd
 
 filtering & quick search
 
+## Layout
+
++ Basic values
++ percent values for responsive sizing
++ Layout Modes
++ imagesLoaded
+
 ## Duo example
 
 <div class="duo example">
