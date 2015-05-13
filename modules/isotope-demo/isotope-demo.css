@@ -20,7 +20,7 @@
   counter-reset: item;
 }
 
-.isotope-demo--counting .grid-mini-item:before {
+.isotope-demo--counting .grid-item:before {
   counter-increment: item;
   content: counter(item);
   display: block;
