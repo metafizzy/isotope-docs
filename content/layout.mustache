@@ -194,6 +194,36 @@ var $grid = $('.grid').isotope({
 
 {{! --------------------------------------------------- }}
 
+<h2>vertical</h2>
+
+<p>Items are stacked vertically.</p>
+
+<p><a href="layout-modes/vertical.html">See vertical layout mode</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'vertical'
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="isotope js-isotope counting" data-isotope-options='{ "layoutMode": "vertical" }'>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width3"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width3"></div>
+    </div>
+    {{#codepens.verticalBasic}}
+      {{> edit-demo}}
+    {{/codepens.verticalBasic}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
 <h3>cellsByRow</h3>
 
 <p>A vertical grid layout where items are centered inside each cell. The grid is defined by <code>columnWidth</code> and <code>rowHeight</code> options.</p>
@@ -218,33 +248,7 @@ cellsByRow: {
   </div>
 </div>
 
-{{! --------------------------------------------------- }}
 
-<h2>vertical</h2>
-
-<p>Items are stacked vertically.</p>
-
-<p><a href="{{root_path}}layout-modes/vertical.html">See vertical layout mode docs</a>.</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-``` js
-layoutMode: 'vertical'
-```
-  </div>
-  <div class="duo__cell example__demo">
-    <div class="isotope js-isotope counting" data-isotope-options='{ "layoutMode": "vertical" }'>
-      <div class="grid-item grid-item--width2"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width3"></div>
-      <div class="grid-item grid-item--width2"></div>
-      <div class="grid-item grid-item--width2 h2"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width3"></div>
-    </div>
-    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p> -->
-  </div>
-</div>
 
 {{! --------------------------------------------------- }}
 

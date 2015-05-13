@@ -1,19 +1,25 @@
 {
-  "heroDemo": {
-    "default": "nFrte"
+  "combinationFilters": {
+    "default": "JEojz"
   },
   "filteringDemo": {
     "default": "Ehgij",
     "vanillaJS": "BgcCD"
   },
-  "combinationFilters": {
-    "default": "JEojz"
+  "fitRows": {
+    "default": "nCskp"
   },
-  "sortingDemo": {
-    "default": "lzCqe"
+  "heroDemo": {
+    "default": "nFrte"
   },
-  "multipleSortBy": {
-    "default": "sxAJL"
+  "isOriginLeft": {
+    "default": "gadFJ"
+  },
+  "isOriginTop": {
+    "default": "kxFJH"
+  },
+  "layoutModesDemo": {
+    "default": "ClgeH"
   },
   "masonryBasic": {
     "default": "mEinp"
@@ -21,16 +27,16 @@
   "masonryFluid": {
     "default": "mIkhq"
   },
-  "layoutModesDemo": {
-    "default": "ClgeH"
+  "multipleSortBy": {
+    "default": "sxAJL"
   },
-  "fitRows": {
-    "default": "nCskp"
+  "sortingDemo": {
+    "default": "lzCqe"
   },
-  "isOriginLeft": {
-    "default": "gadFJ"
+  "verticalBasic": {
+    "default": "oXxepd"
   },
-  "isOriginTop": {
-    "default": "kxFJH"
+  "verticalHorizontalAlignment": {
+    "default": "vhuIl"
   }
 }
