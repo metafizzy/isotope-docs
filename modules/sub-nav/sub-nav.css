@@ -1,0 +1,53 @@
+/* sub-nav
+------------------------- */
+
+.sub-nav {
+  display: none;
+}
+
+@media screen and ( min-width: 768px ) {
+
+  .sub-nav-parent {
+    position: relative;
+    max-height: 2em;
+  }
+
+  .sub-nav {
+    display: block; /* visible on desktop */
+    position: absolute;
+    left: 100%;
+    top: 0;
+    list-style: none;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: width 0.2s, opacity 0.2s;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sub-nav-parent:hover .sub-nav {
+    opacity: 1;
+    width: 190px;
+    z-index: 2; /* on top of stuff */
+  }
+
+  .sub-nav-parent:hover,
+  .sub-nav {
+    background: #161615;
+  }
+
+  .sub-nav-parent > a:after { content: '...'; }
+  .sub-nav-parent:hover > a:after { content: none; }
+
+  .sub-nav__item__link {
+    display: block;
+    padding: 5px 10px;
+  }
+
+  .sub-nav__item {
+    font-size: 1.0rem;
+  }
+  
+
+}

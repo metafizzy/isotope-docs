@@ -1,0 +1,46 @@
+/* nav
+------------------------- */
+
+.nav__title {
+  float: left;
+  margin: 0;
+  line-height: 44px;
+  font-size: 1.5rem;
+}
+
+.nav__title a {
+  padding: 0 0.8em;
+  display: block;
+  color: #4FB;
+}
+
+.nav__title a:hover {
+  background: #D26;
+  color: white;
+}
+
+@media screen and ( min-width: 768px ) {
+
+  .nav {
+    position: absolute;
+    left: 0;
+    top: 39px;
+    width: 200px;
+  }
+
+  .nav__title {
+    line-height: 1.25;
+    float: none;
+    font-size: 2.0rem;
+  }
+
+  .nav__title a {
+    padding: 7px 20px;
+  }
+
+  /* hide h1 on index */
+  .index-page .nav__title {
+    visibility: hidden;
+  }
+
+}

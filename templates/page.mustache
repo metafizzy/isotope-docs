@@ -31,36 +31,7 @@
 </head>
 <body class="{{basename}}-page" data-page="{{basename}}">
 
-  <div id="nav">
-    <h1><a href="{{root_path}}.">Isotope</a></h1>
-    <ol id="site-nav">
-      <li class="nav-filtering"><a href="{{root_path}}filtering.html">Filtering</a></li>
-      <li class="nav-sorting"><a href="{{root_path}}sorting.html">Sorting</a></li>
-      <li class="nav-layout-modes sub-nav">
-        <a href="{{root_path}}layout-modes.html">Layout modes</a>
-        <ul>
-          <li class="nav-masonry"><a href="{{root_path}}layout-modes/masonry.html">masonry</a></li>
-          <li class="nav-fitrows"><a href="{{root_path}}layout-modes/fitrows.html">fitRows</a></li>
-          <li class="nav-vertical"><a href="{{root_path}}layout-modes/vertical.html">vertical</a></li>
-          <li class="nav-cellsbyrow"><a href="{{root_path}}layout-modes/cellsbyrow.html">cellsByRow</a></li>
-          <li class="nav-packery"><a href="{{root_path}}layout-modes/packery.html">packery</a></li>
-          <li class="nav-masonryhorizontal"><a href="{{root_path}}layout-modes/masonryhorizontal.html">masonryHorizontal</a></li>
-          <li class="nav-fitcolumns"><a href="{{root_path}}layout-modes/fitcolumns.html">fitColumns</a></li>
-          <li class="nav-cellsbycolumn"><a href="{{root_path}}layout-modes/cellsbycolumn.html">cellsByColumn</a></li>
-          <li class="nav-horizontal"><a href="{{root_path}}layout-modes/horizontal.html">horizontal</a></li>
-        </ul>
-      </li>
-      <li class="nav-options"><a href="{{root_path}}options.html">Options</a></li>
-      <li class="nav-methods"><a href="{{root_path}}methods.html">Methods</a></li>
-      <li class="nav-events"><a href="{{root_path}}events.html">Events</a></li>
-      <li class="nav-license"><a href="{{root_path}}license.html">License</a></li>
-      <li class="nav-appendix"><a href="{{root_path}}appendix.html">Appendix</a></li>
-      <li class="nav-faq"><a href="{{root_path}}faq.html">FAQ</a></li>
-    </ol>
-
-    <ul id="page-nav"></ul>
-
-  </div>
+  {{> nav}}
 
 {{! display hero only on index page }}
 {{#if page.is_homepage}}

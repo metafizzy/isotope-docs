@@ -164,7 +164,7 @@ $.fn.displayIsotopeCode = function( key, value ) {
 // -------------------------- stickynav -------------------------- //
 
 function stickifyPageNav() {
-  var pageNav = document.querySelector('#page-nav');
+  var pageNav = document.querySelector('.page-nav');
   if ( !pageNav ) {
     return;
   }

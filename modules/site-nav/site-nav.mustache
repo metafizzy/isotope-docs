@@ -1,0 +1,37 @@
+<ol class="site-nav">
+  <li class="site-nav__item site-nav__item--filtering">
+    <a class="site-nav__item__link"
+      href="{{root_path}}filtering.html">Filtering</a></li>
+  <li class="site-nav__item site-nav__item--sorting">
+    <a class="site-nav__item__link"
+      href="{{root_path}}sorting.html">Sorting</a></li>
+  <li class="site-nav__item site-nav__item--layout-modes sub-nav-parent">
+    <a class="site-nav__item__link"
+      href="{{root_path}}layout-modes.html">Layout modes</a>
+    <ul class="sub-nav">
+      {{#each layout-modes-sub-nav}}
+        <li class="sub-nav__item sub-nav__item--{{slug this}}">
+          <a class="sub-nav__item__link"
+            href="{{root_path}}layout-modes/{{slug this}}.html">{{this}}</a></li>
+      {{/each}}
+    </ul>
+  </li>
+  <li class="site-nav__item site-nav__item--options">
+    <a class="site-nav__item__link"
+      href="{{root_path}}options.html">Options</a></li>
+  <li class="site-nav__item site-nav__item--methods">
+    <a class="site-nav__item__link"
+      href="{{root_path}}methods.html">Methods</a></li>
+  <li class="site-nav__item site-nav__item--events">
+    <a class="site-nav__item__link"
+      href="{{root_path}}events.html">Events</a></li>
+  <li class="site-nav__item site-nav__item--license">
+    <a class="site-nav__item__link"
+      href="{{root_path}}license.html">License</a></li>
+  <li class="site-nav__item site-nav__item--appendix">
+    <a class="site-nav__item__link"
+      href="{{root_path}}appendix.html">Appendix</a></li>
+  <li class="site-nav__item site-nav__item--faq">
+    <a class="site-nav__item__link"
+      href="{{root_path}}faq.html">FAQ</a></li>
+</ol>

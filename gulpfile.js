@@ -220,6 +220,9 @@ var helpers = {
   },
   plusOne: function( str ) {
     return parseInt( str, 10 ) + 1;
+  },
+  slug: function( str ) {
+    return str.replace( /[^\w\d]+/gi, '-' ).toLowerCase();
   }
 };
 
