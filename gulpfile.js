@@ -39,8 +39,14 @@ gulp.task( 'assets', function() {
     .pipe( gulp.dest('build') );
 });
 
+// copy over bower files for use in CodePens
+gulp.task( 'bower-files', function() {
+  return gulp.src('bower_components/**/*.js')
+    .pipe( gulp.dest('build/bower_components') );
+});
+
 // copy prod assets
-gulp.task( 'prod-assets', [ 'fonts', 'assets' ] );
+gulp.task( 'prod-assets', [ 'fonts', 'assets', 'bower-files' ] );
 
 // ----- dist ----- //
 

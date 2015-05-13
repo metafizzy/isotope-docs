@@ -1,0 +1,29 @@
+/* grid-splash-item
+------------------------- */
+
+.grid-splash-item {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  padding: 20px;
+  background: red;
+  color: white;
+  font-size: 3.0rem;
+  font-weight: bold;
+  line-height: 1.0;
+}
+
+.grid-splash-item--width2 { width: 210px; }
+.grid-splash-item--height2 { height: 210px; }
+
+.grid-splash-item:nth-child(10n+0) { background: hsl(   0, 100%, 50%); }
+.grid-splash-item:nth-child(10n+1) { background: hsl(  36, 100%, 50%); }
+.grid-splash-item:nth-child(10n+2) { background: hsl(  72, 100%, 50%); }
+.grid-splash-item:nth-child(10n+3) { background: hsl( 108, 100%, 50%); }
+.grid-splash-item:nth-child(10n+4) { background: hsl( 144, 100%, 50%); }
+.grid-splash-item:nth-child(10n+5) { background: hsl( 180, 100%, 50%); }
+.grid-splash-item:nth-child(10n+6) { background: hsl( 216, 100%, 50%); }
+.grid-splash-item:nth-child(10n+7) { background: hsl( 252, 100%, 50%); }
+.grid-splash-item:nth-child(10n+8) { background: hsl( 288, 100%, 50%); }
+.grid-splash-item:nth-child(10n+9) { background: hsl( 324, 100%, 50%); }
