@@ -2,8 +2,6 @@
 title: Layout
 ---
 
-<p>Isotope can position items with different layout modes. To start, these examples will use the default <code>masonry</code> layout mode.</p>
-
 <h2>Item sizing</h2>
 
 <p>All sizing and styling of items is handled by your own CSS.</p>
@@ -44,7 +42,9 @@ title: Layout
   </div>
 </div>
 
-<p>Item sizes can be set with percentages for responsive sizing. Set <code>percentPosition: <span class="literal">true</span></code> so item positions are likewise set with percentages. This reduces adjustment transitions when the window is resized.</p>
+<h3>Responsive layout</h3>
+
+<p>Item sizes can be set with percentages for responsive layouts. Set <code>percentPosition: <span class="literal">true</span></code> so item positions are likewise set with percentages. This reduces adjustment transitions when the window is resized.</p>
 
 <p>The <code>masonry</code> layout uses <a href="http://localhost/isotope-docs/build/options.html#element-sizing">element sizing</a> for percentage-width <code>columnWidth</code>.</p>
 
@@ -81,284 +81,47 @@ title: Layout
   </div>
 </div>
 
-<h2>Layout modes</h2>
-
-<p>Set and change the layout mode with the <code>layoutMode</code> option.</p>
-
-{{> layout-modes-demo}}
-
-<h3>Layout mode options</h3>
-
-<p>Layout modes can have their own separate options. These are set in a corresponding object within the options.</p>
-
-``` js
-var $grid = $('.grid').isotope({
-  // main isotope options
-  itemSelector: '.grid-item',
-  // set layoutMode
-  layoutMode: 'cellsByRow',
-  // options for cellsByRow layout mode
-  cellsByRow: {
-    columnWidth: 200,
-    rowHeight: 150
-  },
-  // options for masonry layout mode
-  masonry: {
-    columnWidth: '.grid-sizer'
-  }
-})
-```
-
 {{! --------------------------------------------------- }}
 
-<h3>Horizontal layouts</h3>
+<h2>imagesLoaded</h2>
 
-<p>Horizontal layout modes (masonryHorizontal, fitColumns, cellsByColumn, and horizontal) need a container that has a height value. Be sure that your CSS has height set.</p>
+<p>Unloaded images can throw off Isotope layouts and cause item elements to overlap. <a href="http://imagesloaded.desandro.com">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback when images load.</p>
 
-``` css
-#container {
-  /* either of these will work for horizontal Isotope layouts */
-  height: 80%;
-  height: 480px;
-}
-```
-
-{{! --------------------------------------------------- }}
-
-<h3>Included modes</h3>
-
-<p>masonry, fitRows, and vertical are included in <code>isotope.pkgd.js</code> and if you install Isotope via a package manager. All other layout modes need to installed separately.</p>
-
-{{! --------------------------------------------------- }}
-
-<h3>masonry</h3>
-
-<p>The default layout mode. Items are arranged in a vertically cascading grid.</p>
-
-<p><a href="layout-modes/masonry.html">See masonry layout mode</a>.</p>
+<p>Initialize Isotope, then trigger <a href="methods.html#layout"><code>layout</code></a> after each image loads.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    masonry: {
-      columnWidth: 50
-    }
+    // init Isotope
+    var $grid = $('.grid').isotope({
+      // options...
+    });
+    // layout Isotope after each image loads
+    $grid.imagesLoaded().progress( function() {
+      $grid.isotope('layout');
+    });
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting js-isotope"
-      data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
-      {{> grid-items-fewer}}
-    </div>
-    {{#codepens.masonryBasic}}
-      {{> edit-demo}}
-    {{/codepens.masonryBasic}}
+    {{> imagesloaded-progress}}
   </div>
 </div>
 
-{{! --------------------------------------------------- }}
-
-<h3>fitRows</h3>
-
-<p>Items are arranged into rows. Rows progress vertically. Similar to what you would expect from a layout that uses CSS floats. fitRows works well for items that have the same height.</p>
-
-<p><a href="layout-modes/fitrows.html">See fitRows layout mode</a>.</p>
+<p>Or, initialize Isotope after all images have been loaded.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    layoutMode: 'fitRows'
+    var $grid = $('.grid').imagesLoaded( function() {
+      // init Isotope after all images have loaded
+      $grid.isotope({
+        // options...
+      });
+    });
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting js-isotope"
-      data-isotope-options='{ "layoutMode": "fitRows" }'>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width2"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width2"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width2"></div>
-      <div class="grid-item grid-item--width3"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width2"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width3"></div>
-    </div>
-    {{#codepens.fitRows}}
-      {{> edit-demo}}
-    {{/codepens.fitRows}}
+    {{> imagesloaded-callback}}
   </div>
 </div>
 
-{{! --------------------------------------------------- }}
-
-<h2>vertical</h2>
-
-<p>Items are stacked vertically.</p>
-
-<p><a href="layout-modes/vertical.html">See vertical layout mode</a>.</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-    ``` js
-    layoutMode: 'vertical'
-    ```
-  </div>
-  <div class="duo__cell example__demo">
-    <div class="isotope js-isotope counting" data-isotope-options='{ "layoutMode": "vertical" }'>
-      <div class="grid-item grid-item--width2"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width3"></div>
-      <div class="grid-item grid-item--width2"></div>
-      <div class="grid-item grid-item--width2 grid-item--height2"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width3"></div>
-    </div>
-    {{#codepens.verticalBasic}}
-      {{> edit-demo}}
-    {{/codepens.verticalBasic}}
-  </div>
-</div>
-
-{{! --------------------------------------------------- }}
-
-<h3>cellsByRow</h3>
-
-<p>A vertical grid layout where items are centered inside each cell. The grid is defined by <code>columnWidth</code> and <code>rowHeight</code> options.</p>
-
-<p><a href="{{root_path}}layout-modes/cellsbyrow.html">See cellsByRow layout mode docs</a>.</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-``` js
-layoutMode: 'cellsByRow',
-cellsByRow: {
-  columnWidth: 110,
-  rowHeight: 110
-}
-```
-  </div>
-  <div class="duo__cell example__demo">
-    <div class="isotope js-isotope counting" data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
-      {{> grid-items-fewer}}
-    </div>
-    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p> -->
-  </div>
-</div>
-
-
-
-{{! --------------------------------------------------- }}
-
-<h2>masonryHorizontal</h2>
-
-<p>Horizontal version of masonry. Items are arranged in a horizontally cascading grid.</p>
-
-<p><a href="{{root_path}}layout-modes/masonryhorizontal.html">See masonryHorizontal layout mode docs</a>.</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-``` js
-layoutMode: 'masonryHorizontal',
-masonry: {
-  rowHeight: 50
-}
-```
-  </div>
-  <div class="duo__cell example__demo">
-    <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonry": { "rowHeight": 50 } }'>
-      {{> grid-items-fewer}}
-    </div>
-    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p> -->
-  </div>
-</div>
-
-{{! --------------------------------------------------- }}
-
-<h2>fitColumns</h2>
-
-<p>Items are arranged into columns. Columns progress horizontally.</p>
-
-<p>fitColumns is ideal for items that have the same width.</p>
-
-<p><a href="{{root_path}}layout-modes/fitcolumns.html">See fitColumns layout mode docs</a>.</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-``` js
-layoutMode: 'fitColumns'
-```
-  </div>
-  <div class="duo__cell example__demo">
-    <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "fitColumns" }'>
-      <div class="grid-item"></div>
-      <div class="grid-item h2"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item h2"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item h2"></div>
-      <div class="grid-item h3"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item h2"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item h3"></div>
-    </div>
-    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p> -->
-  </div>
-</div>
-
-{{! --------------------------------------------------- }}
-
-<h2>cellsByColumn</h2>
-
-<p>A horizontal grid layout where items are centered inside each cell. The grid is defined by <code>columnWidth</code> and <code>rowHeight</code> options.</p>
-
-<p><a href="{{root_path}}layout-modes/cellsbycolumn.html">See cellsByColumn layout mode docs</a>.</p>
-
-``` js
-layoutMode: 'cellsByColumn',
-cellsByColumn: {
-  columnWidth: 110,
-  rowHeight: 110
-}
-```
-
-
-  <div class="demo">
-    <div class="isotope js-isotope counting horizontal" data-isotope-options='{ "layoutMode": "cellsByColumn", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
-      {{> grid-items}}
-    </div>
-    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p> -->
-  </div>
-
-{{! --------------------------------------------------- }}
-
-<h2>horizontal</h2>
-
-<p>Items are arranged horizontally.</p>
-
-<p><a href="{{root_path}}layout-modes/horizontal.html">See horizontal layout mode docs</a>.</p>
-
-``` js
-layoutMode: 'horizontal'
-```
-
-
-  <div class="demo">
-    <div class="isotope js-isotope counting horizontal" data-isotope-options='{ "layoutMode": "horizontal" }'>
-      <div class="grid-item"></div>
-      <div class="grid-item h2"></div>
-      <div class="grid-item grid-item--width2"></div>
-      <div class="grid-item h3"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width2 h2"></div>
-      <div class="grid-item h3"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item h2"></div>
-      <div class="grid-item h3"></div>
-    </div>
-    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p> -->
-  </div>

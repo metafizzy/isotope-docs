@@ -2,5 +2,329 @@
 title: Layout modes
 ---
 
-<p>Isotope has a versatile layout engine allowing you to position items with different layout logic. Set and change layout mode with the <code>layoutMode</code> option.</p>
+<p>Isotope can position items with different layout modes. Set and change the layout mode with the <code>layoutMode</code> option.</p>
 
+{{> layout-modes-demo}}
+
+<h2>Layout mode options</h2>
+
+<p>Layout modes can have their own separate options. These are set in a corresponding object within the options.</p>
+
+``` js
+var $grid = $('.grid').isotope({
+  // main isotope options
+  itemSelector: '.grid-item',
+  // set layoutMode
+  layoutMode: 'cellsByRow',
+  // options for cellsByRow layout mode
+  cellsByRow: {
+    columnWidth: 200,
+    rowHeight: 150
+  },
+  // options for masonry layout mode
+  masonry: {
+    columnWidth: '.grid-sizer'
+  }
+})
+```
+
+{{! --------------------------------------------------- }}
+
+<h2>Horizontal layouts</h2>
+
+<p>Horizontal layout modes (masonryHorizontal, fitColumns, cellsByColumn, and horizontal) need a container that has a height value. Be sure that your CSS has height set.</p>
+
+``` css
+#container {
+  /* either of these will work for horizontal Isotope layouts */
+  height: 80%;
+  height: 480px;
+}
+```
+
+{{! --------------------------------------------------- }}
+
+<h2>Included layout modes</h2>
+
+<p><code>masonry</code>, <code>fitRows</code>, and <code>vertical</code> are included in Isotope by default. All other layout modes need to installed separately.</p>
+
+{{! --------------------------------------------------- }}
+
+<h2>Layout modes</h2>
+
+{{! --------------------------------------------------- }}
+
+<h3>masonry</h3>
+
+<p>The default layout mode. Items are arranged in a vertically cascading grid.</p>
+
+<p><a href="layout-modes/masonry.html">See masonry layout mode</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    masonry: {
+      columnWidth: 50
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting js-isotope"
+      data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
+      {{> grid-items-fewer}}
+    </div>
+    {{#codepens.masonryBasic}}
+      {{> edit-demo}}
+    {{/codepens.masonryBasic}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>fitRows</h3>
+
+<p>Items are arranged into rows. Rows progress vertically. Similar to what you would expect from a layout that uses CSS floats. fitRows works well for items that have the same height.</p>
+
+<p><a href="layout-modes/fitrows.html">See fitRows layout mode</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'fitRows'
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting js-isotope"
+      data-isotope-options='{ "layoutMode": "fitRows" }'>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width3"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width3"></div>
+    </div>
+    {{#codepens.fitRows}}
+      {{> edit-demo}}
+    {{/codepens.fitRows}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>vertical</h3>
+
+<p>Items are stacked vertically.</p>
+
+<p><a href="layout-modes/vertical.html">See vertical layout mode</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'vertical'
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting js-isotope" data-isotope-options='{ "layoutMode": "vertical" }'>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width3"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width3"></div>
+    </div>
+    {{#codepens.verticalBasic}}
+      {{> edit-demo}}
+    {{/codepens.verticalBasic}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>packery</h3>
+
+<p>The <code>packery</code> layout mode uses a bin-packing algorithm. This is a fancy way of saying &ldquo;it fills empty gaps.&rdquo; It works similarly to <code>masonry</code>, except gaps will be filled.</p>
+
+<p><a href="layout-modes/packery.html">See <code>packery</code> layout mode</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'packery'
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting js-isotope"
+      data-isotope-options='{ "layoutMode": "packery" }'>
+      {{> grid-items-fewer}}
+    </div>
+    {{#codepens.packeryBasic}}
+      {{> edit-demo}}
+    {{/codepens.packeryBasic}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>cellsByRow</h3>
+
+<p>A vertical grid layout where items are centered inside each cell. The grid is defined by <code>columnWidth</code> and <code>rowHeight</code> options.</p>
+
+<p><a href="layout-modes/cellsbyrow.html">See cellsByRow layout mode</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'cellsByRow',
+    cellsByRow: {
+      columnWidth: 110,
+      rowHeight: 110
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting js-isotope"
+      data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
+      {{> grid-items-fewer}}
+    </div>
+    {{#codepens.cellsByRow}}
+      {{> edit-demo}}
+    {{/codepens.cellsByRow}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>masonryHorizontal</h3>
+
+<p>Horizontal version of masonry. Items are arranged in a horizontally cascading grid.</p>
+
+<p><a href="layout-modes/masonryhorizontal.html">See <code>masonryHorizontal</code> layout mode</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'masonryHorizontal',
+    masonryHorizontal: {
+      rowHeight: 50
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting grid--horizontal js-isotope horizontal counting"
+      data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 50 } }'>
+      {{> grid-items-fewer}}
+    </div>
+    {{#codepens.masonryHorizontalBasic}}
+      {{> edit-demo}}
+    {{/codepens.masonryHorizontalBasic}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>fitColumns</h3>
+
+<p>Items are arranged into columns. Columns progress horizontally.</p>
+
+<p><code>fitColumns</code> works well with items that have the same width.</p>
+
+<p><a href="{{root_path}}layout-modes/fitcolumns.html">See <code>fitColumns</code> layout mode</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'fitColumns'
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting grid--horizontal js-isotope" data-isotope-options='{ "layoutMode": "fitColumns" }'>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+    </div>
+    {{#codepens.fitColumns}}
+      {{> edit-demo}}
+    {{/codepens.fitColumns}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>cellsByColumn</h3>
+
+<p>A horizontal grid layout where items are centered inside each cell. The grid is defined by <code>columnWidth</code> and <code>rowHeight</code> options.</p>
+
+<p><a href="layout-modes/cellsbycolumn.html">See <code>cellsByColumn</code> layout mode</a>.</p>
+
+``` js
+layoutMode: 'cellsByColumn',
+cellsByColumn: {
+  columnWidth: 110,
+  rowHeight: 110
+}
+```
+
+<div class="example">
+  <div class="grid grid--counting grid--horizontal js-isotope"
+    data-isotope-options='{ "layoutMode": "cellsByColumn", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
+    {{> grid-items}}
+  </div>
+  {{#codepens.cellsByColumnBasic}}
+    {{> edit-demo}}
+  {{/codepens.cellsByColumnBasic}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>horizontal</h3>
+
+<p>Items are arranged horizontally.</p>
+
+<p><a href="layout-modes/horizontal.html">See <code>horizontal</code> layout mode</a>.</p>
+
+``` js
+layoutMode: 'horizontal'
+```
+
+<div class="example">
+  <div class="grid grid--counting grid--horizontal js-isotope" data-isotope-options='{ "layoutMode": "horizontal" }'>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item grid-item--height3"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--width2 grid-item--height2"></div>
+    <div class="grid-item grid-item--height3"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item grid-item--height3"></div>
+  </div>
+  {{#codepens.horizontalBasic}}
+    {{> edit-demo}}
+  {{/codepens.horizontalBasic}}
+</div>
+
+{{! --------------------------------------------------- }}

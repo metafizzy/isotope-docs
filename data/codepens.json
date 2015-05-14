@@ -1,4 +1,10 @@
 {
+  "cellsByColumnBasic": {
+    "default": "qAlEy"
+  },
+  "cellsByRow": {
+    "default": "zFart"
+  },
   "combinationFilters": {
     "default": "JEojz"
   },
@@ -6,11 +12,28 @@
     "default": "Ehgij",
     "vanillaJS": "BgcCD"
   },
+  "fitColumns": {
+    "default": "zEAwi"
+  },
   "fitRows": {
     "default": "nCskp"
   },
   "heroDemo": {
     "default": "nFrte"
+  },
+  "horizontalBasic": {
+    "default": "uGetl"
+  },
+  "horizontalVerticalAlignment": {
+    "default": "JdXeYP"
+  },
+  "imagesloadedCallback": {
+    "default": "BNKPRJ",
+    "vanillaJS": "QbNBpB"
+  },
+  "imagesloadedProgress": {
+    "default": "NqNBxy",
+    "vanillaJS": "PqNBzj"
   },
   "isOriginLeft": {
     "default": "gadFJ"
@@ -27,8 +50,14 @@
   "masonryFluid": {
     "default": "mIkhq"
   },
+  "masonryHorizontalBasic": {
+    "default": "oCiAD"
+  },
   "multipleSortBy": {
     "default": "sxAJL"
+  },
+  "packeryBasic": {
+    "default": "vdwmb"
   },
   "sortingDemo": {
     "default": "lzCqe"
