@@ -9,7 +9,7 @@ ID.modules['sorting-demo'] = function( elem ) {
 
   var $buttonGroup = $demo.find('.sort-by-button-group');
 
-  var $grid = $demo.find('.isotope-demo').isotope({
+  var $grid = $demo.find('.grid').isotope({
     itemSelector: '.element-item',
     layoutMode: 'fitRows',
     transitionDuration: '0.6s',

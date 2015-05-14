@@ -13,7 +13,7 @@ ID.modules['multiple-sort-by'] = function( elem ) {
 
   var $buttonGroup = $demo.find('.button-group');
 
-  var $grid = $demo.find('.isotope-demo').isotope({
+  var $grid = $demo.find('.grid').isotope({
     layoutMode: 'fitRows',
     itemSelector: '.grid-multi-item',
     getSortData: {

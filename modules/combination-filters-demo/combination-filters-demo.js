@@ -7,7 +7,7 @@ ID.modules['combination-filters-demo'] = function( elem ) {
 
   var $demo = $( elem );
 
-  var $grid = $demo.find('.isotope-demo').isotope({
+  var $grid = $demo.find('.grid').isotope({
     itemSelector: '.color-shape',
     columnWidth: 80,
     transitionDuration: '0.6s'

@@ -9,7 +9,7 @@ ID.modules['layout-modes-demo'] = function( elem ) {
 
   var $demo = $( elem );
 
-  var $grid = $demo.find('.isotope-demo').isotope({
+  var $grid = $demo.find('.grid').isotope({
     itemSelector: '.grid-splash-item',
     layoutMode: 'masonry',
     transitionDuration: '0.6s',

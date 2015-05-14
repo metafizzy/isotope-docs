@@ -21,7 +21,7 @@
   height: 200px;
 }
 
-.isotope-demo--clickable .grid-item:hover {
+.grid--clickable .grid-item:hover {
   border-color: #28F;
   background: #8CF;
   cursor: pointer;

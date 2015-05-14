@@ -7,7 +7,7 @@ ID.modules['hero-demo'] = function( elem ) {
 
   var $demo = $( elem );
 
-  var $grid = $demo.find('.isotope-demo').isotope({
+  var $grid = $demo.find('.grid').isotope({
     itemSelector: '.element-item',
     layoutMode: 'fitRows',
     transitionDuration: '0.6s',

@@ -1,14 +1,14 @@
-/* isotope-demo
+/* grid
 ------------------------- */
 
-.isotope-demo {
+.grid {
   border: 2px solid #484542;
   background: hsla(0, 0%, 0%, 0.15);
   position: relative;
 }
 
 /* clearfix */
-.isotope-demo:after {
+.grid:after {
   content: '';
   display: block;
   clear: both;
@@ -16,11 +16,11 @@
 
 /* ---- counting ---- */
 
-.isotope-demo--counting {
+.grid--counting {
   counter-reset: item;
 }
 
-.isotope-demo--counting .grid-item:before {
+.grid--counting .grid-item:before {
   counter-increment: item;
   content: counter(item);
   display: block;
@@ -32,7 +32,7 @@
 
 /* ---- fluid-5-col ---- */
 
-.isotope-demo--fluid-5-col .grid-item,
-.isotope-demo--fluid-5-col .grid-sizer { width: 20%; }
+.grid--fluid-5-col .grid-item,
+.grid--fluid-5-col .grid-sizer { width: 20%; }
 
-.isotope-demo--fluid-5-col .grid-item--width2 { width: 40%; }
+.grid--fluid-5-col .grid-item--width2 { width: 40%; }
