@@ -1,0 +1,42 @@
+/* param
+------------------------- */
+
+.param {
+  padding: 4px 10px;
+  margin: 0 0 10px;
+  border-radius: 5px;
+  background: hsla(0, 0%, 100%, 0.1);
+}
+
+/* single param */
+div.param {
+  margin-bottom: 20px;
+}
+
+.param-list {
+  padding: 0;
+  list-style: none;
+}
+
+.param__bit {
+  display: inline;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: 1.0em;
+}
+
+.param__bit:last-child { margin-right: 0}
+
+.param__bit--name {
+  font-size: 15px;
+  font-weight: normal;
+  color: #BBB;
+}
+
+.param__bit__title {
+  font-weight: normal;
+}
+
+.param__bit--type .param__bit__value {
+  color: #ADF;
+}

@@ -1,46 +1,4 @@
 
-/* ---- parameters ---- */
-
-.params {
-  padding: 0;
-  list-style: none;
-}
-
-.param {
-  background: hsla(0, 0%, 100%, 0.1);
-  padding: 0.4em 0.8em;
-  margin: 0;
-  border-radius: 5px;
-}
-
-/* just one param */
-div.param {
-  margin-bottom: 0.8em;
-}
-
-.param-bit {
-  display: inline;
-  display: inline-block;
-  margin-bottom: 0;
-  margin-right: 1.0em;
-}
-
-.param-bit:last-child { margin-right: 0}
-
-.param-name {
-  font-size: 15px;
-  font-weight: normal;
-  color: #BBB;
-}
-
-.param-bit b {
-  font-weight: normal;
-}
-
-.param-bit.type .value {
-  color: #ADF;
-}
-
 /* ---- instruction ---- */
 
 .instruction {
