@@ -21,6 +21,9 @@
   "heroDemo": {
     "default": "nFrte"
   },
+  "hiddenStyleVisibleStyle": {
+    "default": "lxzDA"
+  },
   "horizontalBasic": {
     "default": "uGetl"
   },
@@ -34,6 +37,9 @@
   "imagesloadedProgress": {
     "default": "NqNBxy",
     "vanillaJS": "PqNBzj"
+  },
+  "isInitLayout": {
+    "default": "doXbZL"
   },
   "isOriginLeft": {
     "default": "gadFJ"
@@ -64,6 +70,9 @@
   },
   "packeryBasic": {
     "default": "vdwmb"
+  },
+  "stampOption": {
+    "default": "jfhnx"
   },
   "sortingDemo": {
     "default": "lzCqe"

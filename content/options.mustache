@@ -140,47 +140,61 @@ $grid.isotope( 'on', 'arrangeComplete', function() {
 $grid.isotope();
 ```
 
+{{#codepens.isInitLayout}}
+  {{> edit-demo}}
+{{/codepens.isInitLayout}}
+
 {{! --------------------------------------------------- }}
 
 <h2>Layout</h2>
 
 <h3>layoutMode</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>String</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code><span class="string">'masonry'</span></code></span>
-  </p>
-</div>
-
-<p>Sets the layout mode used to position items. See <a href="layout-modes.html">docs on layout modes</a>.</p>
+<p>Sets the layout mode used to position items. Default is
+  <code><span class="comment">layoutMode: 'masonry'</span></code>
+  See <a href="layout-modes.html">Layout modes</a>.</p>
 
 {{! --------------------------------------------------- }}
 
 <h3>percentPosition</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code><span class="literal">false</span></code></span>
-  </p>
-</div>
+<p>Sets item positions in percent values, rather than pixel values. <code>percentPosition: <span class="literal">true</span></code> works well with percent-width items, as items will not transition their position on resize.</p>
 
-<p>Will set item position in percent values, rather than pixel values. <code>percentPosition</code> works well with percent-width items, as items will not transition their position on resize.</p>
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $('.grid').isotope({
+      percentPosition: true,
+      itemSelector: '.grid-item',
+      masonry: {
+        columnWidth: '.grid-sizer'
+      }
+    })
+    ```
+
+    ``` css
+    /* fluid 5 columns */
+    .grid-sizer,
+    .grid-item { width: 20%; }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-5-col js-isotope"
+      data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-item", "percentPosition": true }'>
+      <div class="grid-sizer"></div>
+      {{> grid-items-fewer}}
+    </div>
+    {{#codepens.masonryFluid}}
+      {{> edit-demo}}
+    {{/codepens.masonryFluid}}
+  </div>
+</div>
 
 {{! --------------------------------------------------- }}
 
 <h3>Element sizing</h3>
 
-<p>Sizing options like <a href="layout-modes/masonry.html#columnwidth"><code>masonry: columnWidth</code></a>, <a href="layout-modes/masonry.html#gutter"><code>masonry: gutter</code></a>, and <a href="layout-modes/packery.html#columnwidth">packery: columnWidth</a> can be set with an element. The size of the element is then used as the value of the option.</p>
+<p>Sizing options like <a href="layout-modes/masonry.html#columnwidth"><code>masonry: columnWidth</code></a>, <a href="layout-modes/masonry.html#gutter"><code>masonry: gutter</code></a>, and <a href="layout-modes/packery.html#columnwidth"><code>packery: columnWidth</code></a> can be set with an element. The size of the element is then used as the value of the option.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -265,80 +279,87 @@ masonry: {
   </p>
 </div>
 
-<p>Specifies which elements are <a href="methods.html#stamp">stamped</a> within the layout. These are special layout elements which will not be laid out. Rather, Isotope will layout item elements <em>below</em> stamped elements.</p>
+<p>Specifies which elements are <em>stamped</em> within the layout. Isotope will layout items around stamped elements.</p>
 
-<p>Only <a href="{{root_path}}layout-modes/masonry.html">masonry</a>, <a href="layout-modes/packery.html">packery</a>, and <a href="{{root_path}}layout-modes/masonryhorizontal.html">masonryHorizontal</a> layout modes support stamping.</p>
+<p>The <a href="layout-modes/masonry.html">masonry</a>, <a href="layout-modes/packery.html">packery</a>, and <a href="layout-modes/masonryhorizontal.html">masonryHorizontal</a> layout modes support stamping.</p>
 
 <p>The <code>stamp</code> option stamps elements only when the Isotope instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` html
-<div class="grid">
-  <div class="stamp stamp1"></div>
-  <div class="stamp stamp2"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  ....
-</div>
-```
+    ``` html
+    <div class="grid">
+      <div class="stamp stamp1"></div>
+      <div class="stamp stamp2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      ....
+    </div>
+    ```
 
-``` js
-itemSelector: '.grid-item',
-stamp: '.stamp'
-```
+    ``` js
+    // specify itemSelector so stamps do get laid out
+    itemSelector: '.grid-item',
+    // stamp elements
+    stamp: '.stamp'
+    ```
 
-``` css
-/* position stamp elements with CSS */
-.grid {
-  position: relative;
-}
-.stamp {
-  position: absolute;
-  background: orange;
-  border: 4px dotted black;
-}
-.stamp1 {
-  left: 30%;
-  top: 10px;
-  width: 20%;
-  height: 100px;
-}
-.stamp2 {
-  right: 10%;
-  top: 20px;
-  width: 70%;
-  height: 30px;
-}
-```
+    ``` css
+    /* position stamp elements with CSS */
+    .grid {
+      position: relative;
+    }
+    .stamp {
+      position: absolute;
+      background: orange;
+      border: 4px dotted black;
+    }
+    .stamp1 {
+      left: 30%;
+      top: 10px;
+      width: 20%;
+      height: 100px;
+    }
+    .stamp2 {
+      right: 10%;
+      top: 20px;
+      width: 70%;
+      height: 30px;
+    }
+    ```
   </div>
   <div class="duo__cell example__demo">
-    {{> stamp-option-demo}}
+    <div class="grid grid--has-stamp js-isotope"
+      data-isotope-options='{ "itemSelector": ".grid-item", "stamp": ".stamp", "masonry": { "columnWidth": 50 } }'>
+      <div class="stamp stamp--stamp-option-demo-stamp1"></div>
+      <div class="stamp stamp--stamp-option-demo-stamp2"></div>
+      {{> grid-items}}
+    </div>
 
     {{#codepens.stampOption}}
       {{> edit-demo}}
     {{/codepens.stampOption}}
-    <p class="edit"><a href="http://codepen.io/desandro/pen/jfhnx">Edit this example on CodePen</a></p>
   </div>
 </div>
 
+<p><code>stamp</code> can be set to a Selector <i>String</i>, <i>Element</i>, or an <i>Array</i>-like object of <i>Element</i>s.</p>
+
+``` js
+// selector string
+stamp: '.stamp'
+
+// single element
+stamp: $grid.find('.stamp')[0]
+
+// multiple elements
+stamp: $grid.find('.stamp')
+```
 
 {{! --------------------------------------------------- }}
 
 <h3>isOriginLeft</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left. Set to <code><span class="literal">false</span></code> for right-to-left layouts.</p>
+<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left, with <code><span class="comment">isOriginLeft: true</span></code>. Set <code>isOriginLeft: <span class="literal">false</span></code> for right-to-left layouts.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -348,7 +369,7 @@ stamp: '.stamp'
   </div>
   <div class="duo__cell example__code">
     <div class="grid grid--counting js-isotope"
-      data-isotope-options='{ "isOriginLeft": false }'>
+      data-isotope-options='{ "isOriginLeft": false, "masonry": { "columnWidth": 50 } }'>
       {{> grid-items}}
     </div>
     {{#codepens.isOriginLeft}}
@@ -360,17 +381,6 @@ stamp: '.stamp'
 {{! --------------------------------------------------- }}
 
 <h3>isOriginTop</h3>
-
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
 
 <p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
 
@@ -397,25 +407,18 @@ stamp: '.stamp'
 
 <h3>filter</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>String</i> or <i>Function</i></span>
-  </p>
-</div>
-
-<p>Shows items that match the filter and hides items that do not match. See <a href="filtering.html">docs on Filtering</a>.</p>
+<p>Shows items that match the filter and hides items that do not match. See <a href="filtering.html">Filtering</a>.</p>
 
 <p>If set to a string, that value is used as a <a href="filtering.html#selectors">selector</a>.</p>
 
 ``` js
-$container.isotope({ filter: '.selector' });
+$grid.isotope({ filter: '.selector' });
 ```
 
 <p>If <a href="filtering.html#functions"><code>filter</code> is set to a function</a>, that function checks each item and returns <code>true</code> or <code>false</code> if the item should be shown or hidden.</p>
 
 ``` js
-$container.isotope({
+$grid.isotope({
   // filter element with numbers greater than 50
   filter: function() {
     // _this_ is the item element. Get text of element's .number
@@ -430,21 +433,16 @@ $container.isotope({
 
 <h2>Sorting</h2>
 
+{{! --------------------------------------------------- }}
+
 <h3>getSortData</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Object</i></span>
-  </p>
-</div>
+<p>Isotope reads data from HTML with the <code>getSortData</code> option. See <a href="sorting.html#getsortdata">Sorting: <code>getSortData</code></a>.</p>
 
-<p>Isotope reads data from markup with the <code>getSortData</code> option. See <a href="sorting.html#getsortdata">complete docs on <code>getSortData</code></a>.</p>
-
-<p><code>getSortData</code> accepts an object. The object&rsquo;s keys are keywords used to <a href="#sortby"><code>sortBy</code></a>. Object values are either a shortcut string or function to retrieve the data.</p>
+<p><code>getSortData</code> is set with an object. The object&rsquo;s keys are keywords used to sort by. Object values are either a shortcut string or function to retrieve the data.</p>
 
 ``` js
-var $container = $('#container').isotope({
+var $grid = $('.grid').isotope({
   getSortData: {
     name: '.name', // text from querySelector
     category: '[data-category]', // value of attribute
@@ -460,17 +458,10 @@ var $container = $('#container').isotope({
 
 <h3>sortBy</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>String</i> or <i>Array</i></span>
-  </p>
-</div>
-
-<p>Specify which property of <code>getSortData</code> to sort items by. The value of <code>sortBy</code> needs to match a property name in <code>getSortData</code>.</p>
+<p>Sorts items according to which property of <code>getSortData</code>. See <a href="sorting.html#sortby">Sorting: <code>sortBy</code></a>. The value of <code>sortBy</code> needs to match a key name in <code>getSortData</code>.</p>
 
 ``` js
-container.isotope({
+$grid.isotope({
   getSortData: {
     number: '.number parseInt'
   },
@@ -478,50 +469,53 @@ container.isotope({
 });
 ```
 
+{{! **needs demo** }}
+
 <p>Two additional <code>sortBy</code> options are built in.</p>
 
-<ul>
-  <li><code><span class="string">'original-order'</span></code> will use the original order of the item elements to arrange them in the layout.</li>
-  <li><code><span class="string">'random'</span></code> is a random order.</li>
-</ul>
+``` js
+$grid.isotope({ sortBy : 'original-order' });
+// original order of the item elements
 
-<p>To sort by multiple properties, you can set <code>sortBy</code> to an array of property names. For example, <code>sortBy: [ 'color', 'number' ]</code> will sort items by color, <em>then</em> by number.</p>
+$grid.isotope({ sortBy : 'random' });
+// random order
+```
+
+<p>To sort by multiple properties, you can set <code>sortBy</code> to an array of key names.</p>
+
+``` js
+// sort by color, then number
+sortBy: [ 'color', 'number' ]
+```
 
 {{! --------------------------------------------------- }}
 
 <h3>sortAscending</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Boolean</i> or <i>Object</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Sorts items ascending if <code><span class="literal">true</span></code> &ldquo;A, B, C&hellip;&rdquo;, &ldquo;1, 2, 3&hellip;&rdquo;, or descending if <code><span class="literal">false</span></code>, &ldquo;Z, Y, X&hellip;&rdquo;, &ldquo;9, 8, 7&hellip;&rdquo;.</p>
+<p>Sorts items ascendingly if <code>sortAscending: <span class="literal">true</span></code> &ldquo;A, B, C&hellip;&rdquo;, &ldquo;1, 2, 3&hellip;&rdquo;, or descendingly if <code>sortAscending: <span class="literal">false</span></code>, &ldquo;Z, Y, X&hellip;&rdquo;, &ldquo;9, 8, 7&hellip;&rdquo;.</p>
 
 ``` js
 // sort by number, highest number first
-$container.isotope({
+$grid.isotope({
   sortBy: 'number',
   sortAscending: false
 });
 ```
 
-<p><code>sortAscending</code> can also accept an object, so that you can set ascending order for each <code>sortBy</code> value.</p>
+{{! **needs demo** }}
+
+<p>You can set ascending order for each <code>sortBy</code> value by setting <code>sortAscending</code> to an object.</p>
 
 ``` js
-  sortAscending: {
-    name: true,
-    weight: false,
-    category: true,
-    number: false
-  }
+sortAscending: {
+  name: true, // name ascendingly
+  weight: false, // weight descendingly
+  category: true, // category ascendingly
+  number: false // number descendingly
+}
 ```
+
+{{! **needs demo** }}
 
 {{! --------------------------------------------------- }}
 
@@ -531,40 +525,29 @@ $container.isotope({
 
 <h3>transitionDuration</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>String</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code><span class="string">'0.4s'</span></code></span>
-  </p>
-</div>
+<p>Duration of the transition when items change position or appearance, set in a CSS time format. Default: <code><span class="comment">transitionDuration: '0.4s'</span></code></p>
 
-<p>Duration of the transition when items change position or appearance, set in a CSS time format.</p>
+``` js
+// fast transitions
+transitionDuration: '0.2s'
 
-<p>To disable all transitions, set <code>transitionDuration: <span class="literal">0</span></code>.</p>
+// slow transitions
+transitionDuration: '0.8s'
+
+// no transitions
+transitionDuration: 0
+```
+
+{{! **needs demo** }}
 
 {{! --------------------------------------------------- }}
 
-<h3>hiddenStyle</h3>
+<h3>hiddenStyle &amp; visibleStyle</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Object</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code>{ opacity: <span class="literal">0</span>, transform: <span class="string">'scale(0.001)'</span> }</code></span>
-  </p>
-</div>
-
-<p>The style applied to hide items.</p>
+<p>The styles applied to hide and reveal items when filtering.</p>
 
 ``` js
-$('#container').isotope({
+$grid.isotope({
   // disable scale transform transition when hiding
   hiddenStyle: {
     opacity: 0
@@ -575,37 +558,10 @@ $('#container').isotope({
 })
 ```
 
-<p><a href="http://codepen.io/desandro/pen/lxzDA">See demo with only opacity transition</a>.</p>
+{{! **needs demo** }}
 
-{{! --------------------------------------------------- }}
-
-<h3>visibleStyle</h3>
-
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Object</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code>{ opacity: <span class="literal">1</span>, transform: <span class="string">'scale(1)'</span> }</code></span>
-  </p>
-</div>
-
-<p>The style applied to reveal hidden items.</p>
-
-``` js
-$('#container').isotope({
-  // disable scale transform transition when hiding
-  hiddenStyle: {
-    opacity: 0
-  },
-  visibleStyle: {
-    opacity: 1
-  }
-})
-```
-
-<p><a href="http://codepen.io/desandro/pen/lxzDA">See demo with only opacity transition</a>.</p>
+{{#codepens.hiddenStyleVisibleStyle}}
+  {{> edit-demo}}
+{{/codepens.hiddenStyleVisibleStyle}}
 
 {{! --------------------------------------------------- }}

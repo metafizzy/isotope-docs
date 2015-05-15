@@ -66,3 +66,9 @@
 .grid--fixed-width {
   width: 304px;
 }
+
+/* ---- stamp ---- */
+
+.grid--has-stamp {
+  position: relative;
+}
