@@ -6,8 +6,8 @@ title: Options
 
 ``` js
 // with jQuery
-$('#container').isotope({
-  itemSelector: '.item',
+var $grid = $('.grid').isotope({
+  itemSelector: '.grid-item',
   getSortData: {
     name: '.name',
     category: '[data-category]'
@@ -20,8 +20,8 @@ $('#container').isotope({
 ```
 ``` js
 // with vanilla JS
-var iso = new Isotope( '#container', {
-  itemSelector: '.item',
+var iso = new Isotope( '.grid', {
+  itemSelector: '.grid-item',
   getSortData: {
     name: '.name',
     category: '[data-category]'
@@ -34,91 +34,110 @@ var iso = new Isotope( '#container', {
 ```
 ``` html
 <!-- in HTML -->
-<div id="container" class="js-isotope" data-isotope-options='{ "itemSelector": ".item", "getSortData": { "name": ".name", "category": "[data-category]" }, "masonry": { "columnWidth": 200 } }'>
+<div class="grid js-isotope" data-isotope-options='{ "itemSelector": ".grid-item", "getSortData": { "name": ".name", "category": "[data-category]" }, "masonry": { "columnWidth": 200 } }'>
 ```
 
 <h2>Setup</h2>
 
 <h3>itemSelector</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value">Selector <i>String</i></span>
-  </p>
+<p>Specifies which child elements to be used as item elements. We recommend always setting <code>itemSelector</code>. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a> or other elements that are not part of the layout.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    itemSelector: '.grid-item'
+    ```
+
+    ``` html
+    <div class="grid">
+      <!-- do not use banner in Isotope layout -->
+      <div class="static-banner">Static banner</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      ...
+    </div>
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--has-banner js-isotope"
+      data-isotope-options='{ "itemSelector": ".grid-item", "masonry": { "columnWidth": 50 }}'>
+      <div class="static-banner">Static banner</div>
+      {{> grid-items}}
+    </div>
+    {{#codepens.itemSelector}}
+      {{> edit-demo}}
+    {{/codepens.itemSelector}}
+  </div>
 </div>
-
-<p>Specifies which child elements to be used as item elements. Setting <code>itemSelector</code> is always recommended. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a>.</p>
-
-``` js
-itemSelector: '.item'
-```
-
-{{! --------------------------------------------------- }}
-
-
-<h3>containerStyle</h3>
-
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Object</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code>{ position: <span class="string">'relative'</span> }</code></span>
-  </p>
-</div>
-
-<p>CSS styles that are applied to the container element. To disable Masonry from setting any CSS to the container element, set <code>containerStyle: <span class="literal">null</span></code>.</p>
 
 {{! --------------------------------------------------- }}
 
 <h3>isResizeBound</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code><span class="literal">true</span></code></span>
-  </p>
+<p>Adjusts sizes and positions when window is resized. Enabled by default <code><span class="comment">isResizeBound: true</span></code>.</p>
+
+<p>See also <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    isResizeBound: false
+    ```
+    
+    ``` css
+    /* grid has fixed width */
+    .grid {
+      width: 304px;
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fixed-width js-isotope"
+      data-isotope-options='{ "masonry": { "columnWidth": 50 }}'>
+      {{> grid-items}}
+    </div>
+    {{#codepens.isResizeBound}}
+      {{> edit-demo}}
+    {{/codepens.isResizeBound}}
+  </div>
 </div>
 
-<p>Binds layout to window resizing.</p>
+{{! --------------------------------------------------- }}
 
-<p><code>isResizeBound</code> binds layout only when the Masonry instance is first initialized. You can bind and unbind resize layout afterwards with the <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
+<h3>containerStyle</h3>
+
+<p>CSS styles that are applied to the container element. Def</p>
+
+``` js
+// default
+// containerStyle: { position: 'relative' }
+
+// disable any styles being set on container
+// useful if using absolute position on container
+containerStyle: null
+```
 
 {{! --------------------------------------------------- }}
 
 <h3>isInitLayout</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
+<p>Enables layout on initialization.
+  Enabled by default <code><span class="comment">isInitLayout: true</span></code>.</p>
 
-<p>Enables layout on initialization. Set this to <code><span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
+<p>Set <code>isInitLayout: <span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
 
 ``` js
-var $container = $('#container').isotope({
-  // disables initial layout
+var $grid = $('.grid').isotope({
+  // disable initial layout
   isInitLayout: false
 });
 // bind event
-$container.isotope( 'on', 'layoutComplete', function() {
-  console.log('layout is complete');
+$grid.isotope( 'on', 'arrangeComplete', function() {
+  console.log('arrange is complete');
 });
 // manually trigger initial layout
-$container.isotope();
+$grid.isotope();
 ```
 
 {{! --------------------------------------------------- }}
@@ -161,49 +180,77 @@ $container.isotope();
 
 <h3>Element sizing</h3>
 
-<p>For the sizing options, like <a href="{{root_path}}layout-modes/masonry.html#columnwidth"><code>masonry: columnWidth</code></a> and <a href="{{root_path}}layout-modes/masonry.html#gutter"><code>masonry: gutter</code></a>, you may set these options to an <i>Element</i> or <i>String</i>, in addition to a <i>Number</i>.</p>
+<p>Sizing options like <a href="layout-modes/masonry.html#columnwidth"><code>masonry: columnWidth</code></a>, <a href="layout-modes/masonry.html#gutter"><code>masonry: gutter</code></a>, and <a href="layout-modes/packery.html#columnwidth">packery: columnWidth</a> can be set with an element. The size of the element is then used as the value of the option.</p>
 
-``` html
-<div id="container">
-  <div class="grid-sizer"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  ...
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
+      <!-- width of .grid-sizer used for columnWidth -->
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      ...
+    </div>
+    ```
+
+    ``` css
+    /* fluid 5 columns */
+    .grid-sizer,
+    .grid-item { width: 20%; }
+    /* 2 columns */
+    .grid-item--width2 { width: 40%; }
+    ```
+
+    ``` js
+    $('.grid').isotope({
+      // set itemSelector so .grid-sizer is not used in layout
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      masonry: {
+        // set to the element
+        columnWidth: '.grid-sizer'
+      }
+    })
+    ```
+  </div>
+  <div class="duo__cell examle__demo">
+    <div class="grid grid--fluid-5-col js-isotope"
+      data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-item", "percentPosition": true }'>
+      <div class="grid-sizer"></div>
+      {{> grid-items-fewer}}
+    </div>
+
+    {{#codepens.masonryFluid}}
+      {{> edit-demo}}
+    {{/codepens.masonryFluid}}
+  </div>
 </div>
-```
 
-<p>With a <i>String</i>, Isotope will use the string as a selector to get the first matching element within the container element. The size of that element is then used.</p>
+<p>The option can be set to a Selector <i>String</i> or an <i>Element</i>.</p>
 
 ``` js
-var $container = $('#container').isotope({
-  itemSelector: '.item',
-  masonry: {
-    columnWidth: '.grid-sizer'
-  }
-});
+// set to a selector string
+// first matching element within container element will be used
+masonry: {
+  columnWidth: '.grid-sizer'
+}
+
+// set to an element
+masonry: {
+  columnWidth: $grid.find('.grid-sizer')[0]
+}
 ```
 
-<div class="warning">
-  <p>If you are using element sizing, be sure to set <a href="#itemselector"><code>itemSelector</code></a> as well, so the sizing element does not get used in the layout.</p>
-</div>
-
-<p>With an <i>Element</i>, Isotope will use its outer width to set the value of the related property.</p>
-
-``` js
-  masonry: {
-    columnWidth: $container.find('.grid-sizer')[0]
-  }
-```
-
-<p>This allows you to control the size of the Isotope layout just with your CSS. This is useful for responsive layouts, keeping control within CSS so you can rely on media queries.</p>
+<p>Element sizing options allow you to control the sizing of the Isotope layout within your CSS. This is useful for responsive layouts and media queries.</p>
 
 ``` css
-/* 5 columns by default */
-.grid-sizer { width: 20%; }
+/* 3 columns by default */
+.grid-sizer { width: 33.333%; }
 
-@media screen and (min-width: 720px) {
-  /* 10 columns for larger screens */
-  .grid-sizer { width: 10%; }
+@media screen and (min-width: 768px) {
+  /* 5 columns for larger screens */
+  .grid-sizer { width: 20%; }
 }
 ```
 

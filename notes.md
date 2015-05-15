@@ -27,9 +27,9 @@ filtering & quick search
   </div>
   <div class="duo__cell example__demo">
     
+    {{#codepens.penname}}
+      {{> edit-demo}}
+    {{/codepens.penname}}
   </div>
-  {{#codepens.penname}}
-    {{> edit-demo}}
-  {{/codepens.penname}}
 </div>
 

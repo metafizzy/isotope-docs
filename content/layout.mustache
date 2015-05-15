@@ -11,9 +11,9 @@ title: Layout
     ``` html
     <div class="grid">
       <div class="grid-item"></div>
-      <div class="grid-item grid-item--height2"></div>
-      <div class="grid-item"></div>
       <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
       ...
     </div>
     ```
@@ -42,14 +42,24 @@ title: Layout
   </div>
 </div>
 
-<h3>Responsive layout</h3>
+<h3>Responsive layouts</h3>
 
-<p>Item sizes can be set with percentages for responsive layouts. Set <code>percentPosition: <span class="literal">true</span></code> so item positions are likewise set with percentages. This reduces adjustment transitions when the window is resized.</p>
+<p>Item sizes can be set with percentages for responsive layouts. With the <code>masonry</code> layout mode, set percentage-width <code>columnWidth</code> with <a href="options.html#element-sizing">element sizing</a>. Set <code>percentPosition: <span class="literal">true</span></code> so item positions are likewise set with percentages to reduce adjustment transitions on window resize.</p>
 
-<p>The <code>masonry</code> layout uses <a href="http://localhost/isotope-docs/build/options.html#element-sizing">element sizing</a> for percentage-width <code>columnWidth</code>.</p>
+<p></p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
+      <!-- width of .grid-sizer used for columnWidth -->
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      ...
+    </div>
+    ```
+
     ``` css
     /* fluid 5 columns */
     .grid-sizer,
@@ -60,9 +70,11 @@ title: Layout
 
     ``` js
     $('.grid').isotope({
+      // set itemSelector so .grid-sizer is not used in layout
       itemSelector: '.grid-item',
       percentPosition: true,
       masonry: {
+        // use element for option
         columnWidth: '.grid-sizer'
       }
     })
@@ -85,7 +97,7 @@ title: Layout
 
 <h2>imagesLoaded</h2>
 
-<p>Unloaded images can throw off Isotope layouts and cause item elements to overlap. <a href="http://imagesloaded.desandro.com">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback when images load.</p>
+<p>Unloaded images can throw off Isotope layouts and cause item elements to overlap. <a href="http://imagesloaded.desandro.com">imagesLoaded</a> resolves this issue.</p>
 
 <p>Initialize Isotope, then trigger <a href="methods.html#layout"><code>layout</code></a> after each image loads.</p>
 

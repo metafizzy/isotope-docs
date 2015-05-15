@@ -1,99 +1,120 @@
 ---
-title: masonry layout mode
+title: masonry
 ---
 
-<p>Masonry is the default layout mode.</p>
+<p><code>masonry</code> is the default layout mode.  It works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall. <code>masonry</code> uses the same code from the <a href="http://masonry.desandro.com">Masonry library</a>.</p> 
 
-<p>Masonry works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall. You&rsquo;ve probably seen it in use all over the Internet. Isotope&rsquo;s masonry layout mode works just like <a href="http://masonry.desandro.com">regular Masonry</a>.</p>
-
-<div class="demo">
-  <div class="isotope js-isotope is-varying-sizes rainbowed" data-isotope-options='{ "masonry": { "columnWidth": 110 } }'>
-    {{>feature-layout-mode-demo-items}}
+<div class="big-demo go-wide">
+  <div class="grid js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 110 } }'>
+    {{> grid-splash-items}}
   </div>
-  <p class="edit"><a href="http://codepen.io/desandro/pen/mEinp">Edit this example on CodePen</a></p>
+  {{#codepens.masonryBasic}}
+    {{> edit-demo}}
+  {{/codepens.masonryBasic}}
 </div>
 
+{{! --------------------------------------------------- }}
 
-<h1>Options</h1>
+<h2>Options</h2>
 
+{{! --------------------------------------------------- }}
 
-<h2>columnWidth</h2>
+<h3>columnWidth</h3>
 
 <div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  <p class="param__bit param__bit--type">
+    <span class="param__bit__title">Type:</span>
+    <span class="param__bit__value">
+      <i>Number</i>, <i>Element</i>, or Selector <i>String</i>
+    </span>
   </p>
 </div>
 
-<p>The width of a column of a horizontal grid.</p>
+<p>Aligns items to a horizontal grid.</p>
 
-<p>If <code>columnWidth</code> is not set, Masonry will use the outer width of the first element.</p>
+<div class="call-out">
+  <p>We recommend setting <code>columnWidth</code>. If <code>columnWidth</code> is not set, Isotope will use the outer width of the first item.</p>
+</div>
 
-<div class="row example">
-  <div class="cell example-code">
-``` js
-masonry: {
-  columnWidth: 50
-}
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    masonry: {
+      columnWidth: 50
+    }
+    ```
   </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
-      {{>mini-demo-items}}
+  <div class="duo__cell example__demo">
+    <div class="grid js-isotope"
+      data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
+      {{> grid-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/mEinp">Edit this example on CodePen</a></p>
+    {{#codepens.masonryBasic}}
+      {{> edit-demo}}
+    {{/codepens.masonryBasic}}
   </div>
 </div>
 
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="../options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
+<p>Use <a href="../options.html#element-sizing">element sizing</a> for responsive layouts with percentage widths, . Set <code>columnWidth</code> to an <i>Element</i> or Selector <i>String</i> to use the outer width of the element.</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` html
-<div class="isotope">
-  <div class="grid-sizer"></div>
-  <div class="mini-item"></div>
-  <div class="mini-item"></div>
-  ...
-</div>
-```
-``` css
-.grid-sizer,
-.mini-item { width: 20%; }
-.mini-item.w2 { width: 40%; }
-```
-``` js
-masonry: {
-  columnWidth: '.grid-sizer'
-},
-itemSelector: '.mini-item',
-percentPosition: true
-```
-  </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope flex-5-col" data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".mini-item", "percentPosition": true }'>
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
+      <!-- .grid-sizer empty element, only used for element sizing -->
       <div class="grid-sizer"></div>
-      {{>mini-demo-items}}
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      ...
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/mIkhq">Edit this example on CodePen</a></p>
+    ```
+
+    ``` css
+    /* fluid 5 columns */
+    .grid-sizer,
+    .grid-item { width: 20%; }
+    /* 2 columns wide */
+    .grid-item--width2 { width: 40%; }
+    ```
+
+    ``` js
+    $('.grid').isotope({
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      masonry: {
+        // use outer width of grid-sizer for columnWidth
+        columnWidth: '.grid-sizer'
+      }
+    })
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-5-col js-isotope"
+      data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-item", "percentPosition": true }'>
+      <div class="grid-sizer"></div>
+      {{> grid-items-fewer}}
+    </div>
+    {{#codepens.masonryFluid}}
+      {{> edit-demo}}
+    {{/codepens.masonryFluid}}
   </div>
 </div>
 
+{{! --------------------------------------------------- }}
 
-<h2>gutter</h2>
+<h3>gutter</h3>
 
 <div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  <p class="param__bit param__bit--type">
+    <span class="param__bit__title">Type:</span>
+    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
   </p>
 </div>
 
 <p>The horizontal space between item elements.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 masonry: {
   columnWidth: 50,
@@ -106,7 +127,7 @@ masonry: {
 }
 ```
   </div>
-  <div class="cell demo masonry-gutter">
+  <div class="duo__cell example__demo masonry-gutter">
     <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
       {{>mini-demo-items}}
     </div>
@@ -116,8 +137,8 @@ masonry: {
 
 <p>To set vertical space between elements, use <code>margin</code> CSS.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 masonry: {
   columnWidth: 50,
@@ -133,7 +154,7 @@ masonry: {
 }
 ```
   </div>
-  <div class="cell demo masonry-gutter">
+  <div class="duo__cell example__demo masonry-gutter">
     <div id="masonry-bottom-spaced" class="isotope js-isotope " data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
       {{>mini-demo-items}}
     </div>
@@ -143,8 +164,8 @@ masonry: {
 
 <p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="../options.html#element-sizing">Element sizing</a>.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` html
 <div class="isotope">
   <div class="grid-sizer"></div>
@@ -169,7 +190,7 @@ itemSelector: '.mini-item',
 percentPosition: true
 ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     <div class="isotope js-isotope flex-4-col-gutter" data-isotope-options='{ "itemSelector": ".mini-item", "percentPosition": true, "masonry": { "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer" } }'>
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
@@ -183,13 +204,13 @@ percentPosition: true
 <h2>isFitWidth</h2>
 
 <div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
+  <p class="param__bit param__bit--type">
+    <span class="param__bit__title">Type:</span>
+    <span class="param__bit__value"><i>Boolean</i></span>
   </p>
   <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">false</span></code></span>
+    <span class="param__bit__title">Default:</span>
+    <span class="param__bit__value"><code><span class="literal">false</span></code></span>
   </p>
 </div>
 
@@ -199,8 +220,8 @@ percentPosition: true
   <p>isFitWidth does not work with <a href="../options.html#element-sizing">element sizing</a> <em>and</em> percentage width. Either columnWidth needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
 </div>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 masonry: {
   columnWidth: 100,
@@ -214,7 +235,7 @@ masonry: {
 }
 ```
   </div>
-  <div id="masonry-fit-width" class="cell demo">
+  <div id="masonry-fit-width" class="duo__cell example__demo">
     <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 100, "isFitWidth": true }, "itemSelector": ".mini-item" }'>
       <div class="mini-item w2"></div>
       <div class="mini-item w2 h2"></div>

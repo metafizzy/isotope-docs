@@ -41,6 +41,12 @@
   "isOriginTop": {
     "default": "kxFJH"
   },
+  "isResizeBound": {
+    "default": "LVNKab"
+  },
+  "itemSelector": {
+    "default": "yNOdxr"
+  },
   "layoutModesDemo": {
     "default": "ClgeH"
   },

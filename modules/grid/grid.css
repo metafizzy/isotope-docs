@@ -43,3 +43,26 @@
 .grid--horizontal {
   height: 334px;
 }
+
+/* ---- static banner ---- */
+
+.grid--has-banner {
+  position: relative;
+}
+
+.static-banner {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: hsla(210, 100%, 50%, 0.8);
+  z-index: 1;
+  padding: 2px 20px;
+  color: white;
+  pointer-events: none;
+}
+
+/* ---- fixed-width ---- */
+
+.grid--fixed-width {
+  width: 304px;
+}

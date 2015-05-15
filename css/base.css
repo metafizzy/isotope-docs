@@ -35,13 +35,13 @@ body {
 }
 
 /* margins */
-h1, h2, h3, h4, h5, h6,
+/*h1, h2, h3, h4, h5, h6,
 p,
 ol, ul,
 pre {
   margin-top: 0;
   margin-bottom: 1.0em;
-}
+}*/
 
 /* Fonts
 ------------------------- */
