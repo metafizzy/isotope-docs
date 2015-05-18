@@ -2,163 +2,70 @@
 title: Methods
 ---
 
-<p>Methods are actions taken on Isotope instances.</p>
+<p>Methods are actions done by Isotope instances.</p>
 
-<p>If you are using jQuery, methods follow the jQuery UI pattern <code>.isotope( <span class="string">'methodName'</span> <span class="comment">/* arguments */</span> )</code>.</p>
+<p>With jQuery, methods follow the jQuery UI pattern <code>.isotope( <span class="string">'methodName'</span> <span class="comment">/* arguments */</span> )</code>.</p>
 
 ``` js
-$container.isotope()
+$grid.isotope()
   .append( elem )
   .isotope( 'appended', elem )
   .isotope('layout');
 ```
 
-``` js
-// vanilla JS
-var container = document.querySelector('#container');
-var iso = new Isotope( container );
-container.appendChild( elem );
-iso.appended( elem );
-iso.layout();
-```
-
-<div class="warning">
-  <p>jQuery chaining is broken by methods that return values (i.e. 
+<div class="call-out">
+  <p>jQuery chaining is broken by methods that return values: (i.e. 
     <a href="#getitemelements"><code>getItemElements</code></a>,
     <a href="#getitem"><code>getItem</code></a>,
     <a href="#on"><code>on</code></a>, and
     <a href="#off"><code>off</code></a>).</p>
 </div>
 
-``` js
-// chaining works with 'appended' method
-$container.isotope( 'appended', elem ).fadeIn();
-// 'on' method breaks jQuery chaining
-$container.isotope( 'on', 'layoutComplete', function() {...} );
-$container.fadeIn();
-```
-
-
-<h2>addItems</h2>
+<p>Vanilla JavaScript methods look like <code>isotope.methodName( <span class="comment">/* arguments */</span> )</code>. Unlike jQuery methods, they cannot be chained together.</p>
 
 ``` js
-$container.isotope( 'addItems', elements )
-// or with vanilla JS
-iso.addItems( elements )
+// vanilla JS
+var iso = new Isotope('.grid');
+container.appendChild( elem );
+iso.appended( elem );
+iso.layout();
 ```
 
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>elements</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value">
-        <i>Element</i>,
-        <i>jQuery</i> Object,
-        <i>NodeList</i>, or
-        <i>Array</i> of Elements
-      </span>
-    </p>
-  </li>
-</ul>
+{{! --------------------------------------------------- }}
 
-<p>Add item elements to the Isotope instance. <code>addItems</code> does not lay out items like <a href="#appended"><code>appended</code></a>, <a href="#insert"><code>insert</code></a>, <a href="#prepended"><code>prepended</code></a>.</p>
+<h2>Arranging and layout</h2>
 
+{{! --------------------------------------------------- }}
 
-<h2>appended</h2>
-
-``` js
-$container.isotope( 'appended', elements )
-// or with vanilla JS
-iso.appended( elements )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>elements</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value">
-        <i>Element</i>,
-        <i>jQuery</i> Object,
-        <i>NodeList</i>, or
-        <i>Array</i> of Elements
-      </span>
-    </p>
-  </li>
-</ul>
-
-<p>Add and lay out newly appended item elements to the end of the layout. See also <a href="#insert">insert</a> and <a href="#prepended">prepended</a>.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-var $demo = $('#appended-demo');
-var $container = $demo.find('.isotope').isotope({
-  masonry: {
-    columnWidth: 50
-  }
-});
-
-$demo.find('button').on( 'click', function() {
-  // create new item elements
-  var elems = [];
-  for ( var i = 0; i < 3; i++ ) {
-    var elem = getItemElement();
-    elems.push( elem );
-  }
-  // append elements to container
-  $container.append( elems )
-    // add and lay out newly appended elements
-    .isotope( 'appended', elems );
-});
-```
-  </div>
-  <div id="appended-demo" class="cell demo">
-    <button class="button">Append items</button>
-    <div class="isotope">
-      <div class="mini-item w3"></div>
-      <div class="mini-item h3"></div>
-      <div class="mini-item w2"></div>
-      <div class="mini-item"></div>
-      <div class="mini-item h2"></div>
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/ECKiw">Edit example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h2>arrange / .isotope()</h2>
-
-``` js
-$container.isotope( options )
-// or with vanilla JS
-iso.arrange( options )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>options</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Object</i></span>
-    </p>
-  </li>
-</ul>
+<h3>arrange / .isotope()</h3>
 
 <p>Filters, sorts, and lays out items. <code>arrange</code> is the principle method of Isotope. It is the default method with jQuery <code>.isotope()</code>. Pass in <a href="options.html"><code>options</code></a> to apply filtering and sorting.</p>
 
 ``` js
+// jQuery
+$grid.isotope( options )
+// vanilla JS
+iso.arrange( options )
+```
+
+<p class="variable">
+  <code class="variable__code">options</code>
+  <span class="variable__type">Object</span>
+</p>
+
+``` js
 // filter metal, sort by number, and layout
-$container.isotope({
+$grid.isotope({
   filter: '.metal',
   sortBy: 'number'
 });
 // triggering method without options will
 // re-apply filtering, sorting, and layout
-$container.isotope();
+$grid.isotope();
 ```
+
 ``` js
-// with vanilla JS
+// vanilla JS
 iso.arrange({
   filter: '.metal',
   sortBy: 'number'
@@ -167,88 +74,592 @@ iso.arrange({
 iso.arrange();
 ```
 
+{{! --------------------------------------------------- }}
 
-<h2>bindResize</h2>
+<h3>layout</h3>
 
-``` js
-$container.isotope('bindResize')
-// or with vanilla JS
-iso.bindResize()
-
-```
-
-<p>Binds event listener to window <code>resize</code>, so layout is triggered when the browser window is resized.</p>
-
-
-<h2>destroy</h2>
+<p>Lays out all item elements. <code>layout</code> is useful when an item has changed size, and all items need to be laid out again. <code>layout</code> does not apply filtering or sorting.</p>
 
 ``` js
-$container.isotope('destroy')
-// or with vanilla JS
-iso.destroy()
+// jQuery
+$grid.isotope('layout')
+// vanilla JS
+iso.layout()
 ```
 
-<p>Removes the Isotope functionality completely. This will return the element back to its pre-initialized state.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-var $demo = $('#destroy-demo');
-var isoOptions = {
-  masonry: {
-    columnWidth: 50
-  }
-};
-// initialize Isotope
-var $container = $demo.find('.isotope').isotope( isoOptions );
-var isActive = true;
-
-$demo.find('button').on( 'click', function() {
-  if ( isActive ) {
-    $container.isotope('destroy'); // destroy
-  } else {
-    $container.isotope( isoOptions ); // re-initialize
-  }
-  isActive = !isActive;
-});
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var $grid = $('.grid').isotope({
+      masonry: {
+        columnWidth: 50
+      }
+    });
+    // change size of item by toggling gigante class
+    $grid.on( 'click', '.grid-item', function() {
+      $(this).toggleClass('gigante');
+      // trigger layout after item size changes
+      $grid.isotope('layout');
+    });
+    ```
   </div>
-  <div id="destroy-demo" class="cell demo">
-    <button class="button">Toggle Isotope</button>
-    <div class="isotope">
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/pcjgk">Edit this example on CodePen</a></p>
+  <div id="layout-demo" class="duo__cell example__demo">
+    {{> layout-demo}}
+    <p class="edit"><a href="http://codepen.io/desandro/pen/qzhIb">Edit this example on CodePen</a></p>
   </div>
 </div>
 
+{{! --------------------------------------------------- }}
 
-<h2>getItemElements</h2>
+<h3>layoutItems</h3>
+
+<p>Lays out specified items.</p>
 
 ``` js
-var elems = $container.isotope('getItemElements')
-// or with vanilla JS
+// jQuery
+$grid.isotope( 'layoutItems', items, isStill )
+// vanilla JS
+iso.layoutItems( items, isStill )
+```
+
+<p class="variable">
+  <code class="variable__code">items</code>
+  <span class="variable__type"><i>Array</i> of <i>Isotope.Item</i>s</span>
+</p>
+
+<p class="variable">
+  <code class="variable__code">isStill</code>
+  <span class="variable__type"><i>Boolean</i></span>
+  <span class="variable__description">Disables transitions</span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>updateSortData</h3>
+
+<p>Updates sort data.</p>
+
+``` js
+// jQuery
+$grid.isotope( 'updateSortData', elements )
+// vanilla JS
+iso.updateSortData( elements )
+```
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+  <span class="variable__description">Optional</span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>shuffle</h3>
+
+<p>Shuffles items in a random order.</p> 
+
+``` js
+// jQuery
+$grid.isotope('shuffle')
+// vanilla JS
+iso.shuffle()
+```
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $('.shuffle-button').on( 'click', function() {
+      $grid.isotope('shuffle');
+    });
+    ```
+  </div>
+  {{> shuffle-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>stamp</h3>
+
+<p>Stamps elements in the layout. Isotope will lay out item elements <em>around</em> stamped elements.</p>
+
+``` js
+// jQuery
+$grid.isotope( 'stamp', elements )
+// vanilla JS
+iso.stamp( elements )
+```
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+<p>Stamping is only supported by some layout modes: <a href="{{root_path}}layout-modes/masonry.html">masonry</a>, <a href="{{root_path}}layout-modes/packery.html">packery</a> and <a href="{{root_path}}layout-modes/masonryhorizontal.html">masonryhorizontal</a>.</p>
+
+<p>Set <a href="options.html#itemselector"><code>itemSelector</code></a> so that stamps do not get used as layout items.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var $grid = $('.grid').isotope({
+      // specify itemSelector so stamps do get laid out
+      itemSelector: '.grid-item',
+      masonry: {
+        columnWidth: 50
+      }
+    });
+    var $stampElem = $demo.find('.stamp');
+    var isStamped = false;
+
+    $('.stamp-button').on( 'click', function() {
+      // stamp or unstamp element
+      if ( isStamped ) {
+        $grid.isotope( 'unstamp', $stampElem );
+      } else {
+        $grid.isotope( 'stamp', $stampElem );
+      }
+      // trigger layout
+      $grid.isotope('layout');
+      // set flag
+      isStamped = !isStamped;
+    });
+    ```
+  </div>
+  {{> stamp-methods-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>unstamp</h3>
+
+``` js
+$grid.isotope( 'unstamp', elements )
+// vanilla JS
+iso.unstamp( elements )
+```
+
+<p>Un-stamps elements in the layout, so that Isotope will no longer layout item elements around them. <a href="#stamp">See demo above</a>.</p>
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>hide</h3>
+
+<p>Hide items.</p>
+
+``` js
+// jQuery
+$grid.isotope( 'hide', items )
+// vanilla JS
+iso.hide( items )
+```
+
+<p class="variable">
+  <code class="variable__code">items</code>
+  <span class="variable__type"><i>Array</i> of <i>Isotope.Item</i>s</span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>reveal</h3>
+
+<p>Reveals hidden items.</p>
+
+``` js
+$grid.isotope( 'reveal', items )
+// vanilla JS
+iso.reveal( items )
+```
+
+<p class="variable">
+  <code class="variable__code">items</code>
+  <span class="variable__type"><i>Array</i> of <i>Isotope.Item</i>s</span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h2>Adding and removing items</h2>
+
+{{! --------------------------------------------------- }}
+
+<h3>appended</h3>
+
+``` js
+// jQuery
+$grid.isotope( 'appended', elements )
+// vanilla JS
+iso.appended( elements )
+```
+
+<p>Adds and lays out newly appended item elements to the end of the layout.</p>
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $('.append-button').on( 'click', function() {
+      // create new item elements
+      var $items = $('<div class="grid-item">...</div>');
+      // append items to grid
+      $grid.append( $items )
+        // add and lay out newly appended items
+        .isotope( 'appended', $items );
+    });
+    ```
+  </div>
+  {{> appended-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>prepended</h3>
+
+<p>Adds and lays out newly prepended item elements at the beginning of layout.</p>
+
+``` js
+// jQuery
+iso.prepended( elements )
+// vanilla JS
+$grid.isotope( 'prepended', elements )
+```
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $('.prepend-button').on( 'click', function() {
+      // create new item elements
+      var $items = $('<div class="grid-item">...</div>');
+      // prepend items to grid
+      $grid.prepend( $items )
+        // add and lay out newly prepended items
+        .isotope( 'prepended', $items );
+    });
+    ```
+  </div>
+  {{> prepended-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>insert</h3>
+
+``` js
+// jQuery
+$grid.isotope( 'insert', elements )
+// vanilla JS
+iso.insert( elements )
+```
+
+<p>Appends elements into container element, adds elements as items, and arranges items with filtering and sorting.</p>
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var $grid = $('grid').isotope({
+      masonry: {
+        columnWidth: 50
+      },
+      // filter items with odd numbers
+      filter: function() {
+        var number = $( this ).find('.number').text();
+        return parseInt( number, 10 ) % 2;
+      },
+      // sort by number
+      sortBy: 'number',
+      getSortData: {
+        'number': '.number parseInt'
+      }
+    });
+
+    $('.insert-button').on( 'click', function() {
+      // create new item elements
+      var elems = [];
+      for ( var i = 0; i < 3; i++ ) {
+        var $elem = $('<div class="grid-item" />');
+        // set number
+        var num = Math.floor( Math.random() * 100 );
+        $elem.append( '<p class="number">' + num + '</p>' );
+        elems.push( $elem[0] );
+      }
+      // insert new elements
+      $grid.isotope( 'insert', elems );
+    });
+    ```
+  </div>
+  {{> insert-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>addItems</h3>
+
+``` js
+// jQuery
+$grid.isotope( 'addItems', elements )
+// vanilla JS
+iso.addItems( elements )
+```
+
+<p>Adds item elements to the Isotope instance. <code>addItems</code> does not lay out items like <a href="#appended"><code>appended</code></a>, <a href="#prepended"><code>prepended</code></a>, or <a href="#insert"><code>insert</code></a>.</p>
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>remove</h3>
+
+``` js
+// jQuery
+$grid.isotope( 'remove', elements )
+// vanilla JS
+iso.remove( elements )
+```
+
+<p>Removes elements from the Isotope instance and DOM.</p>
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $grid.on( 'click', '.grid-item', function() {
+      // remove clicked element
+      $grid.isotope( 'remove', this )
+        // layout remaining item elements
+        .isotope('layout');
+    });
+    ```
+  </div>
+  {{> remove-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h2>Events</h2>
+
+{{! --------------------------------------------------- }}
+
+<h3>on</h3>
+
+<p>Adds an <a href="events.html">Isotope event</a> listener.</p>
+
+``` js
+// jQuery
+var iso = $grid.isotope( 'on', eventName, listener )
+// vanilla JS
+iso.on( eventName, listener )
+```
+
+<p class="variable">
+  <code class="variable__code">eventName</code>
+  <span class="variable__type"><i>String</i></span>
+  <span class="variable__description">Name of an <a href="events.html">Isotope event</a></span>
+</p>
+
+<p class="variable">
+  <code class="variable__code">listener</code>
+  <span class="variable__type"><i>Function</i></span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>off</h3>
+
+<p>Removes an <a href="events.html">Isotope event</a> listener.</p>
+
+``` js
+// jQuery
+var iso = $grid.isotope( 'off', eventName, listener )
+// vanilla JS
+iso.off( eventName, listener )
+```
+
+<p class="variable">
+  <code class="variable__code">eventName</code>
+  <span class="variable__type"><i>String</i></span>
+  <span class="variable__description">Name of an <a href="events.html">Isotope event</a></span>
+</p>
+
+<p class="variable">
+  <code class="variable__code">listener</code>
+  <span class="variable__type"><i>Function</i></span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>once</h3>
+
+<p>Adds an <a href="events.html">Isotope event</a> listener to be triggered just once.</p>
+
+``` js
+// jQuery
+var iso = $grid.isotope( 'once', eventName, listener )
+// vanilla JS
+iso.once( eventName, listener )
+```
+
+<p class="variable">
+  <code class="variable__code">eventName</code>
+  <span class="variable__type"><i>String</i></span>
+  <span class="variable__description">Name of an <a href="events.html">Isotope event</a></span>
+</p>
+
+<p class="variable">
+  <code class="variable__code">listener</code>
+  <span class="variable__type"><i>Function</i></span>
+</p>
+
+``` js
+$grid.isotope( 'once', 'arrangeComplete', function() {
+  console.log('arrange is complete, just once')
+})
+```
+
+{{! --------------------------------------------------- }}
+
+<h2>Utilities</h2>
+
+{{! --------------------------------------------------- }}
+
+<h3>reloadItems</h3>
+
+``` js
+// jQuery
+$grid.isotope('reloadItems')
+// vanilla JS
+iso.reloadItems()
+```
+
+<p>Recollect all item elements.</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>destroy</h3>
+
+``` js
+$grid.isotope('destroy')
+// vanilla JS
+iso.destroy()
+```
+
+<p>Removes the Isotope functionality completely. <code>destroy</code> will return the element back to its pre-initialized state.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var isoOptions = {
+      masonry: {
+        columnWidth: 50
+      }
+    };
+    // initialize Isotope
+    var $grid = $('.grid').isotope( isoOptions );
+    var isActive = true;
+
+    $('.toggle-button').on( 'click', function() {
+      if ( isActive ) {
+        $grid.isotope('destroy'); // destroy
+      } else {
+        $grid.isotope( isoOptions ); // re-initialize
+      }
+      // set flag
+      isActive = !isActive;
+    });
+    ```
+  </div>
+  {{> destroy-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>getItemElements</h3>
+
+<p>Returns an array of item elements.</p>
+
+``` js
+// jQuery
+var elems = $grid.isotope('getItemElements')
+// vanilla JS
 var elems = iso.getItemElements()
 ```
 
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name">returns</h5>
-    <h5 class="param__bit param__bit--name"><code>itemElems</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Array</i></span>
-    </p>
-  </li>
-</ul>
+<p class="variable">
+  <code class="variable__code">elems</code>
+  <span class="variable__type"><i>Array</i> of <i>Element</i>s</span>
+</p>
 
-<p>Get an array of elements used as the Isotope instance's items.</p>
+{{! --------------------------------------------------- }}
 
-
-<h2>getItem</h2>
+<h3>getItem</h3>
 
 ``` js
-var item = $container.isotope( 'getItem', element )
-// or with vanilla JS
+// jQuery
+var item = $grid.isotope( 'getItem', element )
+// vanilla JS
 var item = iso.getItem( element )
 ```
 
@@ -270,110 +681,13 @@ var item = iso.getItem( element )
 
 <p>Get an <i>Isotope.Item</i> from an element.</p>
 
+{{! --------------------------------------------------- }}
 
-<h2>hide</h2>
-
-``` js
-$container.isotope( 'hide', items )
-// or with vanilla JS
-iso.hide( items )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>items</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value">
-        <i>Array</i> of <i>Isotope.Item</i>s
-      </span>
-    </p>
-  </li>
-</ul>
-
-<p>Hides items.</p>
-
-
-
-<h2>insert</h2>
-
-``` js
-$container.isotope( 'insert', elements )
-// or with vanilla jS
-iso.insert( elements )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>elements</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value">
-        <i>Element</i>,
-        <i>jQuery</i> Object,
-        <i>NodeList</i>, or
-        <i>Array</i> of Elements
-      </span>
-    </p>
-  </li>
-</ul>
-
-<p>Inserts elements into container elements and adds elements as items. Filtering and sorting will be applied to inserted elements.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-var $demo = $('#insert-demo');
-var $container = $demo.find('.isotope').isotope({
-  masonry: {
-    columnWidth: 50
-  },
-  // filter items with odd numbers
-  filter: function() {
-    var number = $( this ).find('.number').text();
-    return parseInt( number, 10 ) % 2;
-  },
-  // sort by number
-  sortBy: 'number',
-  getSortData: {
-    'number': '.number parseInt'
-  }
-});
-
-$demo.find('button').on( 'click', function() {
-  // create new item elements
-  var elems = [];
-  for ( var i = 0; i < 3; i++ ) {
-    var elem = getItemElement();
-    // set number
-    var number = Math.floor( Math.random() * 100 );
-    $( elem ).append( '<p class="number">' + number + '</p>' );
-    elems.push( elem );
-  }
-  // insert new elements
-  $container.isotope( 'insert', elems );
-});
-```
-  </div>
-  <div id="insert-demo" class="cell demo">
-    <button class="button">Insert items</button>
-    <div class="isotope">
-      <div class="mini-item w3"><p class="number">59</p></div>
-      <div class="mini-item h3"><p class="number">41</p></div>
-      <div class="mini-item w2"><p class="number">93</p></div>
-      <div class="mini-item"><p class="number">5</p></div>
-      <div class="mini-item h2"><p class="number">17</p></div>
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/byqcz">Edit example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h2>Isotope.data / .data('isotope')</h2>
+<h3>Isotope.data / .data('isotope')</h3>
 
 ``` js
 var iso = $( element ).data('isotope')
-// or with vanilla jS
+// vanilla JS
 var iso = Isotope.data( element )
 ```
 
@@ -410,465 +724,6 @@ var iso = $('#container').data('isotope');
 iso.layout();
 ```
 
+{{! --------------------------------------------------- }}
 
-<h2>layout</h2>
-
-``` js
-$container.isotope('layout')
-// or with vanilla JS
-iso.layout()
-```
-
-<p>Lay out all item elements. <code>layout</code> is useful when an item has changed size, and all items need to be laid out again. <code>layout</code> does not apply filtering or sorting.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-var $container = $('#layout-demo .isotope').isotope({
-  masonry: {
-    columnWidth: 50
-  }
-});
-// change size of item by toggling gigante class
-$container.on( 'click', '.mini-item', function() {
-  $(this).toggleClass('gigante');
-  $container.isotope('layout');
-});
-```
-  </div>
-  <div id="layout-demo" class="cell demo">
-    <p class="instruction">Click item to toggle size</p>
-    <div class="isotope clickable">
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/qzhIb">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h2>layoutItems</h2>
-
-``` js
-iso.layoutItems( items, isStill )
-// or with vanilla JS
-$container.isotope( 'layoutItems', items, isStill )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>items</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Array</i> of <i>Isotope.Item</i>s</span>
-    </p>
-  </li>
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>isStill</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Boolean</i>
-    </p>
-    <p class="description param-bit">Disables transitions</p>
-  </li>
-</ul>
-
-<p>Lay out specified items.</p>
-
-
-<h2>off</h2>
-
-``` js
-var iso = $container.isotope( 'off', eventName, listener )
-// or with vanilla JS
-iso.off( eventName, listener )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>eventName</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>String</i></span>
-    </p>
-    <p class="description param-bit">name of a <a href="events.html">Isotope event</a></p>
-  </li>
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>listener</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Function</i>
-    </p>
-  </li>
-  <li class="param">
-    <h5 class="param__bit param__bit--name">returns</h5>
-    <p class="param__bit param__bit--name"><code>iso</code></p>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Isotope</i></span>
-    </p>
-  </li>
-</ul>
-
-<p>Remove an event listener. See <a href="events.html">Events</a>.</p>
-
-
-<h2>on</h2>
-
-``` js
-var iso = $container.isotope( 'on', eventName, listener )
-// or with vanilla JS
-iso.on( eventName, listener )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>eventName</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>String</i></span>
-    </p>
-    <p class="description param-bit">name of a <a href="events.html">Isotope event</a></p>
-  </li>
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>listener</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Function</i>
-    </p>
-  </li>
-  <li class="param">
-    <h5 class="param__bit param__bit--name">returns</h5>
-    <p class="param__bit param__bit--name"><code>iso</code></p>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Isotope</i></span>
-    </p>
-  </li>
-</ul>
-
-<p>Add an event listener for <a href="events.html">certain events</a>.</p>
-
-<p>Isotope's <code>on</code> method only works with the specified events.</p>
-
-``` js
-// yes, layoutComplete is an Isotope event
-$container.isotope( 'on', 'layoutComplete', function() {...})
-// no, click is not an Isotope event
-$container.isotope( 'on', 'click', function() {... })
-// yes, click is a jQuery event
-$container.on( 'click', function() {... })
-```
-
-
-<h2>once</h2>
-
-``` js
-var iso = $container.isotope( 'once', eventName, listener )
-// or with vanilla JS
-iso.once( eventName, listener )
-```
-
-<p>Add an event listener for <a href="events.html">certain events</a>, to be triggered once.</p>
-
-``` js
-$container.isotope( 'once', 'layoutComplete', function() {
-  console.log('layout is complete, just once')
-})
-```
-
-
-<h2>prepended</h2>
-
-``` js
-iso.prepended( elements )
-// or with vanilla JS
-$container.isotope( 'prepended', elements )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>elements</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value">
-        <i>Element</i>,
-        <i>jQuery</i> Object,
-        <i>NodeList</i>, or
-        <i>Array</i> of Elements
-      </span>
-    </p>
-  </li>
-</ul>
-
-<p>Add and lay out newly prepended item elements at the beginning of layout. Similar to <a href="#appended">appended</a>.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-var $demo = $('#prepended-demo');
-var $container = $demo.find('.isotope').isotope({
-  masonry: {
-    columnWidth: 50
-  }
-});
-
-$demo.find('button').on( 'click', function() {
-  // create new item elements
-  var elems = [];
-  for ( var i = 0; i < 3; i++ ) {
-    var elem = getItemElement();
-    elems.push( elem );
-  }
-  // prepend elements to container
-  $container.prepend( elems )
-    // add and lay out newly prepended elements
-    .isotope( 'prepended', elems );
-});
-```
-  </div>
-  <div id="prepended-demo" class="cell demo">
-    <button class="button">Prepend items</button>
-    <div class="isotope">
-      <div class="mini-item w3"></div>
-      <div class="mini-item h3"></div>
-      <div class="mini-item w2"></div>
-      <div class="mini-item"></div>
-      <div class="mini-item h2"></div>
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/fuwdk">Edit example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h2>reloadItems</h2>
-
-``` js
-$container.isotope('reloadItems')
-// or with vanilla JS
-iso.reloadItems()
-```
-
-<p>Recollect all item elements.</p>
-
-
-<h2>remove</h2>
-
-``` js
-$container.isotope( 'remove', elements )
-// or with vanilla JS
-iso.remove( elements )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>elements</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value">
-        <i>Element</i>,
-        <i>jQuery</i> Object,
-        <i>NodeList</i>, or
-        <i>Array</i> of Elements
-      </span>
-    </p>
-  </li>
-</ul>
-
-<p>Remove elements from the Isotope instance, then from the DOM.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-var $container = $('#remove-demo .isotope').isotope({
-  masonry: {
-    columnWidth: 50
-  }
-});
-
-$container.on( 'click', '.mini-item', function() {
-  // remove clicked element
-  $container.isotope( 'remove', this )
-    // layout remaining item elements
-    .isotope('layout');
-});
-```
-  </div>
-  <div id="remove-demo" class="cell demo">
-    <p class="instruction">Click items to remove them</p>
-    <div class="isotope clickable">
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/fHkwt">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h2>reveal</h2>
-
-``` js
-$container.isotope( 'reveal', items )
-// or with vanilla JS
-iso.reveal( items )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>items</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value">
-        <i>Array</i> of <i>Isotope.Item</i>s
-      </span>
-    </p>
-  </li>
-</ul>
-
-<p>Reveals hidden items.</p>
-
-
-<h2>shuffle</h2>
-
-``` js
-$container.isotope('shuffle')
-// or with vanilla JS
-iso.shuffle()
-```
-
-<p>Shuffles item in a random order.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-$('#shuffle-button').on( 'click', function() {
-  $container.isotope('shuffle');
-});
-```
-  </div>
-  <div id="shuffle-demo" class="cell demo">
-    <button class="button">Shuffle</button>
-    <div class="isotope">
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/EluFg">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h2>stamp</h2>
-
-``` js
-$container.isotope( 'stamp', elements )
-// or with vanilla JS
-iso.stamp( elements )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>elements</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value">
-        <i>Element</i>,
-        <i>jQuery</i> Object,
-        <i>NodeList</i>, or
-        <i>Array</i> of Elements
-      </span>
-    </p>
-  </li>
-</ul>
-
-<p>Stamp the elements in the layout. Isotope will lay out item elements <em>around</em> stamped elements.</p>
-
-<p>Stamping is only supported by some layout modes: <a href="{{root_path}}layout-modes/masonry.html">masonry</a>, <a href="{{root_path}}layout-modes/packery.html">packery</a> and <a href="{{root_path}}layout-modes/masonryhorizontal.html">masonryhorizontal</a>.</p>
-
-<p>Set <a href="options.html#itemselector"><code>itemSelector</code></a> so that stamps do not get used as layout items.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-var $demo = $('#stamp-demo');
-var $container = $demo.find('.isotope').isotope({
-  itemSelector: '.mini-item',
-  masonry: {
-    columnWidth: 50
-  }
-});
-var $stampElem = $demo.find('.stamp');
-var isStamped = false;
-
-$demo.find('button').on( 'click', function() {
-  // stamp or unstamp element
-  if ( isStamped ) {
-    $container.isotope( 'unstamp', $stampElem );
-  } else {
-    $container.isotope( 'stamp', $stampElem );
-  }
-  // trigger layout
-  $container.isotope('layout');
-  isStamped = !isStamped;
-});
-```
-  </div>
-  <div id="stamp-demo" class="cell demo">
-    <button class="button">Toggle stamped</button>
-    <div class="isotope has-stamp">
-      <div class="stamp"></div>
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/wguvo">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h2>unbindResize</h2>
-
-``` js
-$container.isotope('unbindResize')
-// or with vanilla JS
-iso.unbindResize()
-```
-
-<p>Un-bind layout to window <code>resize</code> event.</p>
-
-
-<h2>unstamp</h2>
-
-``` js
-$container.isotope( 'unstamp', elements )
-// or with vanilla JS
-iso.unstamp( elements )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>elements</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value">
-        <i>Element</i>,
-        <i>jQuery</i> Object,
-        <i>NodeList</i>, or
-        <i>Array</i> of Elements
-      </span>
-    </p>
-  </li>
-</ul>
-
-<p>Un-<a href="#stamp">stamp</a> the elements, so that Isotope will no longer layout item elements around them.</p>
-
-
-<h2>updateSortData</h2>
-
-``` js
-$container.isotope( 'updateSortData', elements )
-// or with vanilla JS
-iso.updateSortData( elements )
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>elements</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value">
-        <i>Element</i>,
-        <i>jQuery</i> Object,
-        <i>NodeList</i>, or
-        <i>Array</i> of Elements
-      </span>
-    </p>
-    <p class="param-bit">Optional</p>
-  </li>
-</ul>
+<h3>Isotope.data()</h3>

@@ -33,3 +33,10 @@ filtering & quick search
   </div>
 </div>
 
+## Variable
+
+<p class="variable">
+  <code class="variable__code"></code>
+  <span class="variable__type"></span>
+  <span class="variable__description"></span>
+</p>

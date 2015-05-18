@@ -547,6 +547,17 @@ transitionDuration: 0
 <p>The styles applied to hide and reveal items when filtering.</p>
 
 ``` js
+/* default
+hiddenStyle: {
+  opacity: 0,
+  transform: 'scale(0.001)'
+},
+visibleStyle: {
+  opacity: 1,
+  transform: 'scale(1)'
+}
+*/
+
 $grid.isotope({
   // disable scale transform transition when hiding
   hiddenStyle: {
