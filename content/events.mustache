@@ -4,149 +4,120 @@ title: Events
 
 <div id="notification"></div>
 
-<p>Isotope is an Event Emitter. You can bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
+<p>Bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
 
 ```js
-var $container = $('#container').isotope({...});
-var iso = new Isotope( elem );
+var $grid = $('.grid').isotope({...});
 
 function onArrange() {
   console.log('layout done');
 }
 // bind event listener
-$container.isotope( 'on', 'arrangeComplete', onArrange );
+$grid.isotope( 'on', 'arrangeComplete', onArrange );
 // un-bind event listener
-$container.isotope( 'off', 'arrangeComplete', onArrange );
+$grid.isotope( 'off', 'arrangeComplete', onArrange );
 // bind event listener to be triggered just once
-$container.isotope( 'once', 'arrangeComplete', function() {
+$grid.isotope( 'once', 'arrangeComplete', function() {
   console.log('arrange done, just this one time');
 });
 ```
 
+{{! --------------------------------------------------- }}
 
-<h2>arrangeComplete</h2>
+<h3>arrangeComplete</h3>
+
+<p>Triggered after <a href="http://localhost/isotope-docs/build/methods.html#arrange-isotope"><code>.isotope({...})</code>/<code>arrange</code></a>, when all layout, hide, and reveal transitions have completed.</p>
+
 
 ``` js
-$container.isotope( 'on', 'arrangeComplete', function( filteredItems ) {} )
-// or with vanilla JS
+// jQuery
+$grid.isotope( 'on', 'arrangeComplete', function( filteredItems ) {} )
+// vanilla JS
 iso.on( 'arrangeComplete', function( filteredItems ) {} )
-// or with jQuery
 ```
 
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>filteredItems</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Array</i> of <i>Isotope.Item</i>s</span>
-    </p>
-    <p class="description param-bit">items that are visible</p>
-  </li>
-</ul>
+<p class="variable">
+  <code class="variable__code">filteredItems</code>
+  <span class="variable__type"><i>Array</i> of <i>Isotope.Item</i>s</span>
+  <span class="variable__description">Items that are visible</span>
+</p>
 
-<p>Triggered after <a href="http://localhost/isotope-docs/build/methods.html#arrange-isotope"><code>.isotope({...})</code>/<code>arrange</code></a>, when all layout, hide, and reveal transitions have completeled.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-$container.isotope( 'on', 'arrangeComplete',
-  function( filteredItems ) {
-    console.log( 'Isotope arrange completed on ' +
-      filteredItems.length + ' items' );
-  }
-);
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $grid.isotope( 'on', 'arrangeComplete',
+      function( filteredItems ) {
+        console.log( 'Isotope arrange completed on ' +
+          filteredItems.length + ' items' );
+      }
+    );
+    ```
   </div>
-  <div id="arrange-complete-demo" class="cell demo">
-    <div class="button-group js-radio-button-group">
-      <button class="button is-checked" data-filter="*">show all</button>
-      <button class="button" data-filter=".w2">width 2</button>
-      <button class="button" data-filter=".h2">height 2</button>
-    </div>
-    <div class="isotope">
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/pvXxRN">Edit this example on CodePen</a></p>
-  </div>
+  {{> arrange-complete-demo}}
 </div>
 
-<h2>layoutComplete</h2>
+{{! --------------------------------------------------- }}
 
-``` js
-$container.isotope( 'on', 'layoutComplete', function( laidOutItems ) {} )
-// or with vanilla JS
-iso.on( 'layoutComplete', function( laidOutItems ) {} )
-// or with jQuery
-```
-
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>laidOutItems</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Array</i> of <i>Isotope.Item</i>s</span>
-    </p>
-    <p class="description param-bit">items that were laid out</p>
-  </li>
-</ul>
+<h3>layoutComplete</h3>
 
 <p>Triggered after a layout and all positioning transitions have been completed.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+
 ``` js
-$container.isotope( 'on', 'layoutComplete',
-  function( laidOutItems ) {
-    console.log( 'Isotope layout completed on ' +
-      laidOutItems.length + ' items' );
-  }
-);
+// jQuery
+$grid.isotope( 'on', 'layoutComplete', function( laidOutItems ) {} )
+// vanilla JS
+iso.on( 'layoutComplete', function( laidOutItems ) {} )
 ```
+
+<p class="variable">
+  <code class="variable__code">laidOutItems</code>
+  <span class="variable__type"><i>Array</i> of <i>Isotope.Item</i>s</span>
+  <span class="variable__description">Items that were laid out</span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $grid.isotope( 'on', 'layoutComplete',
+      function( laidOutItems ) {
+        console.log( 'Isotope layout completed on ' +
+          laidOutItems.length + ' items' );
+      }
+    );
+    ```
   </div>
-  <div id="layout-complete-demo" class="cell demo">
-    <p class="instruction">Resize browser or click item to toggle size</p>
-    <div class="isotope clickable">
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/scajv">Edit this example on CodePen</a></p>
-  </div>
+  {{> layout-complete-demo}}
 </div>
 
+{{! --------------------------------------------------- }}
 
-<h2>removeComplete</h2>
+<h3>removeComplete</h3>
 
 ``` js
-$container.isotope( 'on', 'removeComplete', function( removedItems ) {} )
-// or with vanilla JS
+// jQuery
+$grid.isotope( 'on', 'removeComplete', function( removedItems ) {} )
+// vanilla JS
 iso.on( 'removeComplete', function( removedItems ) { //...
 ```
 
 <p>Triggered after an item element has been removed.</p>
 
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>removedItems</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span>
-      <span class="param__bit__value"><i>Array</i> of <i>Isotope.Item</i>s</span>
-    </p>
-    <p class="description param-bit">items that were removed</p>
-  </li>
-</ul>
+<p class="variable">
+  <code class="variable__code">removedItems</code>
+  <span class="variable__type"><i>Array</i> of <i>Isotope.Item</i>s</span>
+  <span class="variable__description">Items that were removed</span>
+</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` js
-$container.isotope( 'on', 'removeComplete',
-  function( removedItems ) {
-    notify( 'Removed ' + removedItems.length + ' items' );
-  }
-);
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $grid.isotope( 'on', 'removeComplete',
+      function( removedItems ) {
+        notify( 'Removed ' + removedItems.length + ' items' );
+      }
+    );
+    ```
   </div>
-  <div id="remove-complete-demo" class="cell demo">
-    <p class="instruction">Click items to remove them</p>
-    <div class="isotope clickable">
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/wErky">Edit this example on CodePen</a></p>
-  </div>
+  {{> remove-complete-demo}}
 </div>

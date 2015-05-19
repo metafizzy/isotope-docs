@@ -2,6 +2,9 @@
   "appended": {
     "default": "ECKiw"
   },
+  "arrangeComplete": {
+    "deafult": "pvXxRN"
+  },
   "cellsByColumnBasic": {
     "default": "qAlEy"
   },
@@ -65,6 +68,9 @@
   "layoutDemo": {
     "default": "qzhIb"
   },
+  "layoutComplete": {
+    "default": "scajv"
+  },
   "layoutModesDemo": {
     "default": "ClgeH"
   },
@@ -88,6 +94,9 @@
   },
   "remove": {
     "default": "fHkwt"
+  },
+  "removeComplete": {
+    "default": "wErky"
   },
   "shuffle": {
     "default": "EluFg"
