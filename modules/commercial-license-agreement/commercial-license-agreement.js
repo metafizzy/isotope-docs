@@ -1,5 +1,9 @@
+/**
+ * commercial-license-agreement
+**/
 
-ID.license = function() {
+
+ID.modules['commercial-license-agreement'] = function( elem ) {
   'use strict';
 
   var utils = window.fizzyUIUtils;
@@ -24,7 +28,6 @@ ID.license = function() {
 
   // ----- clone h2 ----- //
 
-  var elem = document.querySelector('.commercial-license-agreement');
   var buttonGroup = elem.querySelector('.button-group');
 
   var h2 = elem.querySelector('h2');
