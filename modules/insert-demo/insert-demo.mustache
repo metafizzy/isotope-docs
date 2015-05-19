@@ -7,5 +7,7 @@
     <div class="grid-item"><p class="number">5</p></div>
     <div class="grid-item grid-item--height2"><p class="number">17</p></div>
   </div>
-  <p class="edit"><a href="http://codepen.io/desandro/pen/byqcz">Edit example on CodePen</a></p>
+  {{#codepens.insert}}
+    {{> edit-demo}}
+  {{/codepens.insert}}
 </div>

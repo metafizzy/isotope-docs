@@ -7,5 +7,7 @@
     <div class="grid-item"></div>
     <div class="grid-item grid-item--height2"></div>
   </div>
-  <p class="edit"><a href="http://codepen.io/desandro/pen/fuwdk">Edit example on CodePen</a></p>
+  {{#codepens.prepended}}
+    {{> edit-demo}}
+  {{/codepens.prepended}}
 </div>

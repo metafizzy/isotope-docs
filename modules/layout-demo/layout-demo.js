@@ -5,7 +5,9 @@
 ID.modules['layout-demo'] = function( elem ) {
   'use strict';
 
-  var $grid = $( elem ).isotope({
+  var $demo = $( elem );
+
+  var $grid = $demo.find('.grid').isotope({
     masonry: {
       columnWidth: 50
     }

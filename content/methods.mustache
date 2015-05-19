@@ -103,10 +103,7 @@ iso.layout()
     });
     ```
   </div>
-  <div id="layout-demo" class="duo__cell example__demo">
-    {{> layout-demo}}
-    <p class="edit"><a href="http://codepen.io/desandro/pen/qzhIb">Edit this example on CodePen</a></p>
-  </div>
+  {{> layout-demo}}
 </div>
 
 {{! --------------------------------------------------- }}
@@ -243,6 +240,7 @@ iso.stamp( elements )
 <h3>unstamp</h3>
 
 ``` js
+// jQuery
 $grid.isotope( 'unstamp', elements )
 // vanilla JS
 iso.unstamp( elements )
@@ -587,6 +585,10 @@ $grid.isotope( 'once', 'arrangeComplete', function() {
 
 <h3>reloadItems</h3>
 
+<p>Recollects all item elements.</p>
+
+<p>For frameworks like Angular and React, <code>reloadItems</code> may be useful to apply changes to the DOM to Isotope.</p>
+
 ``` js
 // jQuery
 $grid.isotope('reloadItems')
@@ -594,19 +596,18 @@ $grid.isotope('reloadItems')
 iso.reloadItems()
 ```
 
-<p>Recollect all item elements.</p>
-
 {{! --------------------------------------------------- }}
 
 <h3>destroy</h3>
 
+<p>Removes the Isotope functionality completely. <code>destroy</code> will return the element back to its pre-initialized state.</p>
+
 ``` js
+// jQuery
 $grid.isotope('destroy')
 // vanilla JS
 iso.destroy()
 ```
-
-<p>Removes the Isotope functionality completely. <code>destroy</code> will return the element back to its pre-initialized state.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -654,7 +655,10 @@ var elems = iso.getItemElements()
 
 {{! --------------------------------------------------- }}
 
+{{!
 <h3>getItem</h3>
+
+<p>Returns an <i>Isotope.Item</i> from an element.</p>
 
 ``` js
 // jQuery
@@ -663,67 +667,65 @@ var item = $grid.isotope( 'getItem', element )
 var item = iso.getItem( element )
 ```
 
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>element</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Element</i></span>
-    </p>
-  </li>
-  <li class="param">
-    <h5 class="param__bit param__bit--name">returns</h5>
-    <h5 class="param__bit param__bit--name"><code>item</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Isotope.Item</i></span>
-    </p>
-  </li>
-</ul>
+<p class="variable">
+  <code class="variable__code">element</code>
+  <span class="variable__type"><i>Element</i></span>
+</p>
 
-<p>Get an <i>Isotope.Item</i> from an element.</p>
+<p class="variable">
+  <code class="variable__code">item</code>
+  <span class="variable__type"><i>Isotope.Item</i></span>
+</p>
+}}
 
 {{! --------------------------------------------------- }}
 
-<h3>Isotope.data / .data('isotope')</h3>
+<h3>jQuery.fn.data('isotope')</h3>
+
+<p>Get the Isotope instance from a jQuery object. Isotope instances are useful to access Isotope properties.</p>
 
 ``` js
-var iso = $( element ).data('isotope')
-// vanilla JS
+var iso = $('.grid').data('isotope')
+// access Isotope properties
+console.log( iso.filteredItems.length + ' filtered items'  )
+```
+
+{{! --------------------------------------------------- }}
+
+<h3>Isotope.data</h3>
+
+<p>Get the Isotope instance via its element. <code>Isotope.data()</code> is useful for getting the Isotope instance in JavaScript, after it has been initalized in HTML.</p>
+
+``` js
 var iso = Isotope.data( element )
 ```
 
-<ul class="param-list">
-  <li class="param">
-    <h5 class="param__bit param__bit--name"><code>elements</code></h5>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Element</i></span>
-    </p>
-  </li>
-  <li class="param">
-    <h5 class="param__bit param__bit--name">returns</h5>
-    <p class="param__bit param__bit--name"><code>iso</code></p>
-    <p class="param__bit param__bit--type">
-      <span class="param__bit__title">Type:</span> <span class="param__bit__value"><i>Isotope</i></span>
-    </p>
-  </li>
-</ul>
+<p class="variable">
+  <code class="variable__code">element</code>
+  <span class="variable__type"><i>Element</i> or Selector <i>String</i></span>
+</p>
 
-<p>Get the Isotope instance from an element. Note this method is of <code>Isotope</code>, rather than of a Isotope instance.</p>
-
-<p>This method is useful to access the Isotope instance after it was initialized via HTML.</p>
+<p class="variable">
+  <code class="variable__code">iso</code>
+  <span class="variable__type"><i>Isotope</i></span>
+</p>
 
 ``` html
-<div id="container" class="js-isotope" data-isotope-options='{...}'>
-  <div class="item"></div>
-  <div class="item"></div>
-  ...
-</div>
+<!-- init Isotope in HTML -->
+<div class="grid js-isotope" data-isotope-options='{...}'>...</div>
 ```
+
 ``` js
-var iso = $('#container').data('isotope');
-// do stuff with Isotope instance
-iso.layout();
+// jQuery
+// pass in the element, $element[0], not the jQuery object
+var iso = Isotope.data( $('.grid')[0] )
+
+// vanilla JS
+// using an element
+var grid = document.querySelector('.grid')
+var iso = Isotope.data( grid )
+// using a selector string
+var iso = Isotope.data('.grid')
 ```
 
 {{! --------------------------------------------------- }}
-
-<h3>Isotope.data()</h3>

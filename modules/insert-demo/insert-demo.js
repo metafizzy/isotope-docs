@@ -5,8 +5,6 @@
 ID.modules['insert-demo'] = function( elem ) {
   'use strict';
 
-
-  console.log('hi');
   var $demo = $( elem );
   
   var $grid = $demo.find('.grid').isotope({
