@@ -13,13 +13,14 @@ hljsJavascript.keywords.isotope_var = 'iso';
 
 hljsJavascript.contains.push({
   className: 'jquery_var',
-  begin: /\$container/
+  begin: /\$grid/
 });
 
-hljsJavascript.contains.push({
-  className: 'isotope',
-  begin: /isotope/
-});
+// FIXME, this doesn't work
+// hljsJavascript.contains.push({
+//   className: 'isotope',
+//   begin: /isotope/
+// });
 
 var reFirstLine = /.*\n/;
 

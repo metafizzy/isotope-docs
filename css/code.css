@@ -32,6 +32,7 @@ code .at_rule { color: #088; }
 
 /* isotope keywords */
 code .isotope_var { color: #F3F; }
+code .jquery_var { color: #DF8; }
 code .isotope_keyword { color: #0FF; text-decoration: underline; }
 
 .code-display code {
