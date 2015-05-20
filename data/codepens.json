@@ -136,6 +136,9 @@
   "verticalHorizontalAlignment": {
     "default": "vhuIl"
   },
+  "verticalList": {
+    "default": "pbwGC"
+  },
   "DEMO_NAME": {
     "default": "CODEPEN_ID"
   },

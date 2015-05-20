@@ -4,42 +4,31 @@ title: vertical
 
 <p>Items are arranged vertically. Useful for simple lists and table-like views.</p>
 
-<div id="vertical-feature-demo" class="demo">
-  <div class="button-group js-radio-button-group">
-    <button class="button is-checked" data-sort-by="original-order">original order</button>
-    <button class="button" data-sort-by="name">name</button>
-    <button class="button" data-sort-by="symbol">symbol</button>
-    <button class="button" data-sort-by="number">number</button>
-    <button class="button" data-sort-by="weight">weight</button>
-    <button class="button" data-sort-by="category">category</button>
-  </div>
-  <ul class="isotope table-like">
-    {{#best-of-elements}}
-      <li>
-        <div class="name">{{name}}</div>
-        <div class="symbol">{{symbol}}</div>
-        <div class="number">{{number}}</div>
-        <div class="weight">{{weight}}</div>
-        <div class="category">{{firstValue categories}}</div>
-      </li>
-    {{/best-of-elements}}
-  </ul>
-  <p class="edit"><a href="http://codepen.io/desandro/pen/pbwGC">Edit this example on CodePen</a></p>
-</div>
+{{> vertical-list-demo}}
 
+<h2>Options</h2>
 
-<h1>Options</h1>
+<h3>horizontalAlignment</h3>
 
-<h2>horizontalAlignment</h2>
+<p>Aligns items horizontally. Set as a decimal <code>0</code> to <code>1</code>.</p>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i> a decimal 0 to 1</span>
-  </p>
-</div>
+``` js
+/* default
+vertical: {
+  // align to origin edge
+  horizontalAlignment: 0
+} */
 
-<p>Aligns items horizontally. <code>0</code> will align the origin edge. <code>1</code> will align the opposite edge. <code>0.5</code> will align center.</p>
+vertical: {
+  // align to center
+  horizontalAlignment: 0.5
+}
+
+vertical: {
+  // align to opposite edge
+  horizontalAlignment: 1
+}
+```
 
 <div class="row example">
   <div class="cell example-code">

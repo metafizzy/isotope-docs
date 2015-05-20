@@ -1,0 +1,26 @@
+/* vertical-list
+------------------------- */
+
+.vertical-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #484542;
+  background: hsla(0, 0%, 0%, 0.15);
+}
+
+.vertical-list__item {
+  width: 100%;
+  border-top: 1px solid #484542;
+}
+
+.vertical-list__item > * {
+  display: inline-block;
+  padding: 3px 4px;
+}
+
+.vertical-list__item .name { width: 20%; }
+.vertical-list__item .symbol { width: 10%; }
+.vertical-list__item .weight { width: 15%; }
+.vertical-list__item .number { width: 10%; }
+.vertical-list__item .category { width: 25%; }

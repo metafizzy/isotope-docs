@@ -64,20 +64,6 @@
   cursor: pointer;
 }
 
-
-/* ----  ---- */
-
-.rainbowed > *:nth-child(10n+0) { background: hsl(   0, 100%, 50%); }
-.rainbowed > *:nth-child(10n+1) { background: hsl(  36, 100%, 50%); }
-.rainbowed > *:nth-child(10n+2) { background: hsl(  72, 100%, 50%); }
-.rainbowed > *:nth-child(10n+3) { background: hsl( 108, 100%, 50%); }
-.rainbowed > *:nth-child(10n+4) { background: hsl( 144, 100%, 50%); }
-.rainbowed > *:nth-child(10n+5) { background: hsl( 180, 100%, 50%); }
-.rainbowed > *:nth-child(10n+6) { background: hsl( 216, 100%, 50%); }
-.rainbowed > *:nth-child(10n+7) { background: hsl( 252, 100%, 50%); }
-.rainbowed > *:nth-child(10n+8) { background: hsl( 288, 100%, 50%); }
-.rainbowed > *:nth-child(10n+9) { background: hsl( 324, 100%, 50%); }
-
 /* ---- individual demos ---- */
 
 /* flexible 5 columns */
@@ -92,14 +78,6 @@
 
 .packery-gutter .mini-item.h2 { height: 110px; }
 
-/* masonry bottom spaced */
-#masonry-bottom-spaced .mini-item {
-  margin-bottom: 10px;
-}
-#masonry-bottom-spaced .mini-item.h2 {
-  height: 110px;
-}
-
 /* flexible 4 columns w/ gutter */
 .flex-4-col-gutter .grid-sizer,
 .flex-4-col-gutter .mini-item { width: 22%; }
@@ -113,17 +91,6 @@
 
 #masonry-horizontal-right-spaced .mini-item {
   margin-right: 10px;
-}
-
-/* ---- fit width ---- */
-
-#masonry-fit-width {
-  border: 2px solid white;
-}
-
-/* center container with CSS */
-#masonry-fit-width .isotope {
-  margin: 10px auto;
 }
 
 /* ---- cells-by-row-element-sizing ---- */
@@ -166,23 +133,6 @@
 
 /* ---- measurement demos ---- */
 
-#gutter-opt-demo2 .item {
-  margin-bottom: 10px;
-}
-
-/* responive column width */
-#column-width-demo2 .grid-sizer { width: 20%; }
-#column-width-demo2 .item { width: 20%; }
-#column-width-demo2 .item.w2 { width: 40%; }
-
-#row-height-demo2 .grid-sizer {
-  height: 60px;
-}
-
-#gutter-opt-demo3 .gutter-sizer {
-  width: 3%;
-}
-
 #stamp-demo .mini-item { opacity: 0.8; }
 
 #packery-stamp-opt-demo .stamp1 {
@@ -198,44 +148,5 @@
   border-color: white;
   background: #A2C;
   cursor: pointer;
-}
-
-/* ---- vertical table-like ---- */
-
-.table-like {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.table-like > li {
-  width: 100%;
-  clear: both;
-  border-top: 1px solid;
-  border-color: hsla(0, 0%, 100%, 0.2);
-}
-
-/* clearfix */
-.table-like > li:after {
-  display: block;
-  content: '';
-  clear: both;
-}
-
-.table-like > li > * {
-  float: left;
-  padding: 2px 4px;
-}
-
-.table-like .name { width: 30%; }
-.table-like .symbol { width: 10%; }
-.table-like .weight { width: 15%; }
-.table-like .number { width: 10%; }
-.table-like .category { width: 20%; }
-
-/* ----  ---- */
-
-#fit-columns-feature-demo {
-  height: 448px;
 }
 

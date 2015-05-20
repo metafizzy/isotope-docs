@@ -1,0 +1,28 @@
+<div data-js-module="vertical-list">
+
+  <div class="button-group js-radio-button-group">
+    <button class="button is-checked" data-sort-by="original-order">original order</button>
+    <button class="button" data-sort-by="name">name</button>
+    <button class="button" data-sort-by="symbol">symbol</button>
+    <button class="button" data-sort-by="number">number</button>
+    <button class="button" data-sort-by="weight">weight</button>
+    <button class="button" data-sort-by="category">category</button>
+  </div>
+
+  <ul class="vertical-list">
+    {{#best-of-elements}}
+      <li class="vertical-list__item">
+        <div class="name">{{name}}</div>
+        <div class="symbol">{{symbol}}</div>
+        <div class="number">{{number}}</div>
+        <div class="weight">{{weight}}</div>
+        <div class="category">{{firstValue categories}}</div>
+      </li>
+    {{/best-of-elements}}
+  </ul>
+
+  {{#codepens.verticalList}}
+    {{> edit-demo}}
+  {{/codepens.verticalList}}
+
+</div>

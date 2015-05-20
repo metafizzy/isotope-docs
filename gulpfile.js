@@ -98,9 +98,7 @@ var jsSrc = [
   'js/vendor/*.js',
   'js/controller.js',
   // modules
-  'modules/**/*.js',
-  // pages
-  'js/pages/*.js'
+  'modules/**/*.js'
 ];
 
 

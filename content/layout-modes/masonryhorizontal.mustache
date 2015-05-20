@@ -2,11 +2,11 @@
 title: masonryHorizontal
 ---
 
-<p>masonryHorizontal is the horizontal version of <a href="{{root_path}}layout-modes/masonry.html">Masonry</a>. It works by placing elements in optimal position based on available horizontal space.</p>
+<p>masonryHorizontal is the horizontal version of <a href="masonry.html">masonry</a>. It works by placing elements in optimal position based on available horizontal space.</p>
 
-<div class="demo">
-  <div class="isotope js-isotope is-varying-sizes rainbowed horizontal" data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 110 } }'>
-    {{>feature-layout-mode-demo-items}}
+<div class="big-demo go-wide">
+  <div class="grid grid--horizontal js-isotope" data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 110 } }'>
+    {{> grid-splash-items}}
   </div>
   {{#codepens.masonryHorizontalBasic}}
     {{> edit-demo}}
