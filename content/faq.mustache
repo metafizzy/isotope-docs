@@ -31,7 +31,7 @@ title: FAQ
 <p>You most likely need to set the <a href="{{root_path}}layout-modes/masonry.html#columnwidth"><code>columnWidth</code> option</a> for <a href="{{root_path}}layout-modes/masonry.html">masonry layout mode</a>. Without <code>columnWidth</code> set, the masonry layout mode will use the width of the first item for the size of its columns.</p>
 
 ``` js
-$('#container').isotope({
+$('.grid').isotope({
   masonry: {
     columnWidth: 200
   }
@@ -45,12 +45,12 @@ $('#container').isotope({
 
 ``` js
 // init isotope, filter & sort
-var $container = $('#container').isotope({
+var $grid = $('.grid').isotope({
   filter: '.selector',
   sortBy: 'order'
 });
 // get Isotope instance, if using jQuery
-var iso = $container.data('isotope');
+var iso = $grid.data('isotope');
 // count how many
 console.log( 'filtered ' + iso.filteredItems.length + ' items' );
 // first element
@@ -65,12 +65,12 @@ console.log( iso.filteredItems[0].element );
 ``` js
 // This code will trigger the "cannot call methods" error
 
-$container.append( $items )
+$grid.append( $items )
   // isotope method
   .isotope( 'appended', $items );
 
 // init Isotope
-$container.isotope({
+$grid.isotope({
   // options...
 });
 ```
@@ -80,42 +80,42 @@ $container.isotope({
 ``` js
 // race condition with imagesLoaded
 
-$container.imagesLoaded( function() {
+$grid.imagesLoaded( function() {
   // init Isotope
-  $container.isotope({
+  $grid.isotope({
     // options...
   });
 });
 
 // imagesLoaded will trigger after this
-$container.append( $items )
+$grid.append( $items )
   .isotope( 'appended', $items );
 ```
 
 <p>To resolve this, make sure that the Isotope instance has been initialized before the method is called.</p>
 
 ``` js
-$container.imagesLoaded( function() {
+$grid.imagesLoaded( function() {
   // init Isotope
-  $container.isotope({
+  $grid.isotope({
     // options...
   });
   // isotope has been initalized, okay to call methods
-  $container.append( $items )
+  $grid.append( $items )
     .isotope( 'appended', $items );
 });
 ```
 
 ``` js
 // another fix, init Isotope first, before imagesLoaded
-$container.isotope({
+$grid.isotope({
   // options...
 });
 // okay to call methods
-$container.append( $items )
+$grid.append( $items )
   .isotope( 'appended', $items );
 // just do layout on imagesLoaded
-$container.imagesLoaded( function() {
-  $container.isotope('layout');
+$grid.imagesLoaded( function() {
+  $grid.isotope('layout');
 });
 ```
