@@ -26,11 +26,6 @@
   clear: both;
 }
 
-
-/* ---- item elements ---- */
-
-
-
 /* varying sizes */
 .is-varying-sizes .element-item.width2 { width: 210px; }
 .is-varying-sizes .element-item.height2 { height: 210px; }
@@ -65,29 +60,6 @@
 }
 
 /* ---- individual demos ---- */
-
-/* flexible 5 columns */
-.flex-5-col .grid-sizer,
-.flex-5-col .mini-item { width: 20%; }
-.flex-5-col .mini-item.w2 { width: 40%; }
-.flex-5-col .gutter-sizer { width: 5%; }
-
-/* masonry gutter */
-.masonry-gutter .mini-item.w2,
-.packery-gutter .mini-item.w2 { width: 110px; }
-
-.packery-gutter .mini-item.h2 { height: 110px; }
-
-/* flexible 4 columns w/ gutter */
-.flex-4-col-gutter .grid-sizer,
-.flex-4-col-gutter .mini-item { width: 22%; }
-.flex-4-col-gutter .mini-item.w2 { width: 48%; }
-.flex-4-col-gutter .gutter-sizer { width: 4%; }
-
-/* masonry flex gutter */
-#masonry-flex-gutter .gutter-sizer {
-  width: 3%;
-}
 
 #masonry-horizontal-right-spaced .mini-item {
   margin-right: 10px;
@@ -129,17 +101,6 @@
   padding-top: 0.2em;
   text-align: center;
   font-size: 18px;
-}
-
-/* ---- measurement demos ---- */
-
-#stamp-demo .mini-item { opacity: 0.8; }
-
-#packery-stamp-opt-demo .stamp1 {
-  right: 20%;
-  top: 80px;
-  width: 45%;
-  height: 90px;
 }
 
 /* ---- clickable ---- */

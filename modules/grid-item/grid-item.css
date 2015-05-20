@@ -37,9 +37,16 @@
   font-size: 1.3rem;
 }
 
+/* ---- fluid-5-col ---- */
+
+.grid--fluid-5-col .grid-item,
+.grid--fluid-5-col .grid-sizer { width: 20%; }
+
+.grid--fluid-5-col .grid-item--width2 { width: 40%; }
+
 /* ---- grid--masonry-gutter ---- */
 
-.grid--masonry-gutter .grid-item--width2 {
+.grid--has-gutter .grid-item--width2 {
   width: 110px;
 }
 
@@ -51,4 +58,24 @@
 
 .grid--masonry-gutter-bottom .grid-item--height2 {
   height: 110px;
+}
+
+/* ---- grid--packery-gutter ---- */
+
+.grid--packery-gutter .grid-item--width2 { width: 110px; }
+.grid--packery-gutter .grid-item--height2 { height: 110px; }
+
+/* ---- grid--fluid-gutter ---- */
+
+.grid--fluid-gutter .grid-item,
+.grid--fluid-gutter .grid-sizer {
+  width: 22%;
+}
+
+.grid--fluid-gutter .gutter-sizer {
+  width: 4%;
+}
+
+.grid--fluid-gutter .grid-item--width2 {
+  width: 48%;
 }

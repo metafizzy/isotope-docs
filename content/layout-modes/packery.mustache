@@ -15,6 +15,7 @@ title: packery
   {{/codepens.packeryBasic}}
 </div>
 
+{{! --------------------------------------------------- }}
 
 <h2>Install</h2>
 
@@ -39,233 +40,226 @@ bower install isotope-packery
 npm install isotope-packery
 ```
 
+{{! --------------------------------------------------- }}
 
-<h2>Stamp</h2>
+<h2>Options</h2>
 
-<p>Packery layout can <a href="../options.html#stamp">stamp</a> items in place. Packery will layout item elements <em>around</em> stamped elements &mdash; even above, unlike Masonry.</p>
+{{! --------------------------------------------------- }}
 
-<div class="row example">
-  <div class="cell example-code">
-``` js
-layoutMode: 'packery',
-itemSelector: '.mini-item',
-stamp: '.stamp'
-```
-  </div>
-  <div class="cell demo">
-    <div id="packery-stamp-opt-demo" class="isotope has-stamp js-isotope" data-isotope-options='{ "layoutMode": "packery", "itemSelector": ".mini-item", "stamp": ".stamp" }'>
-      <div class="stamp stamp1"></div>
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/Ccnmi">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h1>Options</h1>
-
-
-<h2>columnWidth</h2>
-
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
-
-<p>Aligns items to the width of a column of a horizontal grid.</p>
-
-<p>Unlike <a href="masonry.html">masonry layout</a>, packery layout does not require <code>columnWidth</code>.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-layoutMode: 'packery',
-packery: {
-  columnWidth: 60
-}
-```
-  </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "packery", "packery": { "columnWidth": 60 } }'>
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/EoBqg">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="../options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` html
-<div class="isotope">
-  <div class="grid-sizer"></div>
-  <div class="mini-item"></div>
-  <div class="mini-item"></div>
-  ...
-</div>
-```
-``` css
-.grid-sizer,
-.mini-item { width: 20%; }
-.mini-item.w2 { width: 40%; }
-```
-``` js
-layoutMode: 'packery',
-packery: {
-  columnWidth: '.grid-sizer'
-},
-itemSelector: '.mini-item',
-percentPosition: true
-```
-  </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope flex-5-col" data-isotope-options='{ "layoutMode": "packery", "packery": { "columnWidth": ".grid-sizer" }, "itemSelector": ".mini-item", "percentPosition": true }'>
-      <div class="grid-sizer"></div>
-      {{>mini-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/DbciA">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-
-  
-<h2>gutter</h2>
-
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
+<h3>gutter</h3>
 
 <p>The space between item elements, both vertically and horizontally.</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` js
-packery: {
-  gutter: 10
-}
-```
-``` css
-.packery-gutter .mini-item.w2 {
-  width: 110px;
-}
-.packery-gutter .mini-item.h2 {
-  height: 110px;
-}
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    packery: {
+      gutter: 10
+    }
+    ```
   </div>
-  <div class="cell demo packery-gutter">
-    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "packery", "packery": { "gutter": 10 } }'>
-      {{>mini-demo-items}}
+  <div class="duo__cell example__demo packery-gutter">
+    <div class="grid js-isotope grid--packery-gutter" data-isotope-options='{ "layoutMode": "packery", "packery": { "gutter": 10 } }'>
+      {{> grid-items-fewer}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/LBCwy">Edit this example on CodePen</a></p>
+  {{#codepens.packeryGutter}}
+    {{> edit-demo}}
+  {{/codepens.packeryGutter}}
   </div>
 </div>
 
 <p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="../options.html#element-sizing">Element sizing</a>.</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` html
-<div class="isotope">
-  <div class="grid-sizer"></div>
-  <div class="gutter-sizer"></div>
-  <div class="mini-item"></div>
-  <div class="mini-item"></div>
-  ...
-</div>
-```
-``` css
-.grid-sizer,
-.mini-item { width: 22%; }
-.mini-item.w2 { width: 48%; }
-.gutter-sizer { width: 4%; }
-```
-``` js
-layoutMode: 'packery',
-packery: {
-  gutter: '.gutter-sizer'
-},
-itemSelector: '.mini-item',
-percentPosition: true
-```
-  </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope flex-4-col-gutter" data-isotope-options='{ "layoutMode": "packery", "itemSelector": ".mini-item", "percentPosition": true, "packery": { "gutter": ".gutter-sizer" } }'>
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
-      {{>mini-demo-items}}
+      <div class="grid-item"></div>
+      <div class="grid-item--width2"></div>
+      ...
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/fGrKe">Edit this example on CodePen</a></p>
+    ```
+    ``` css
+    .grid-sizer,
+    .grid-item { width: 22%; }
+
+    .gutter-sizer { width: 4%; }
+    /* spans 2 columns: 22% + 4% + 22% = 48% */
+    .grid-item--width2 { width: 48%; }
+    ```
+
+    ``` js
+    layoutMode: 'packery',
+    packery: {
+      gutter: '.gutter-sizer'
+    },
+    itemSelector: '.mini-item',
+    percentPosition: true
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-gutter js-isotope"
+      data-isotope-options='{ "layoutMode": "packery", "itemSelector": ".grid-item", "percentPosition": true, "packery": { "gutter": ".gutter-sizer" } }'>
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      {{> grid-items}}
+    </div>
+    {{#codepens.packeryGutterFluid}}
+      {{> edit-demo}}
+    {{/codepens.packeryGutterFluid}}
   </div>
 </div>
 
-<h2>isHorizontal</h2>
+{{! --------------------------------------------------- }}
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code><span class="literal">false</span></code></span>
-  </p>
+<h3>columnWidth</h3>
+
+<p>Aligns items to the width of a column of a horizontal grid.</p>
+
+<p>Unlike <a href="masonry.html">masonry layout</a>, packery layout does not require <code>columnWidth</code>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'packery',
+    packery: {
+      columnWidth: 60
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid js-isotope"
+      data-isotope-options='{ "layoutMode": "packery", "packery": { "columnWidth": 60 } }'>
+      {{> grid-items-fewer}}
+    </div>
+    {{#codepens.packeryColumnWidth}}
+      {{> edit-demo}}
+    {{/codepens.packeryColumnWidth}}
+  </div>
 </div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="../options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      ...
+    </div>
+    ```
+
+    ``` css
+    .grid-sizer,
+    .grid-item { width: 20%; }
+
+    .grid-item--width2 { width: 40%; }
+    ```
+
+    ``` js
+    layoutMode: 'packery',
+    packery: {
+      columnWidth: '.grid-sizer'
+    },
+    itemSelector: '.grid-item',
+    percentPosition: true
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-5-col js-isotope"
+      data-isotope-options='{ "layoutMode": "packery", "packery": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-item", "percentPosition": true }'>
+      <div class="grid-sizer"></div>
+      {{> grid-items}}
+    </div>
+    {{#codepens.packeryColumnWidthFluid}}
+      {{> edit-demo}}
+    {{/codepens.packeryColumnWidthFluid}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>rowHeight</h3>
+
+<p>Aligns items to the height of a row of a vertical grid.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'packery',
+    packery: {
+      rowHeight: 60
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid js-isotope" data-isotope-options='{ "layoutMode": "packery", "packery": { "rowHeight": 60 } }'>
+      {{> grid-items-fewer}}
+    </div>
+    {{#codepens.packeryRowHeight}}
+      {{> edit-demo}}
+    {{/codepens.packeryRowHeight}}
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the height of that element. See <a href="../options.html#element-sizing">Element sizing</a>. Setting <code>rowHeight</code> with element sizing is recommended if you are using media queries.</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>isHorizontal</h3>
 
 <p>Arranges items horizontally instead of vertically.</p>
 
 <p>Set a <a href="../layout-modes.html#horizontal-layouts">container height</a> for horizontal layouts.</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` js
-layoutMode: 'packery',
-packery: {
-  isHorizontal: true
-}
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'packery',
+    packery: {
+      isHorizontal: true
+    }
+    ```
   </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "packery", "packery": { "isHorizontal": true } }'>
-      {{>mini-demo-items}}
+  <div class="duo__cell example__demo">
+    <div class="grid grid--horizontal grid--counting js-isotope"
+      data-isotope-options='{ "layoutMode": "packery", "packery": { "isHorizontal": true } }'>
+      {{> grid-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/AmpsD">Edit this example on CodePen</a></p>
+    {{#codepens.packeryHorizontal}}
+      {{> edit-demo}}
+    {{/codepens.packeryHorizontal}}
   </div>
 </div>
 
 
-<h2>rowHeight</h2>
+{{! --------------------------------------------------- }}
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
+<h2>Stamp</h2>
 
-<p>Aligns items to the height of a row of a vertical grid.</p>
+<p>Packery layout can <a href="../options.html#stamp">stamp</a> items in place. Packery will layout item elements <em>around</em> stamped elements &mdash; even above, unlike Masonry.</p>
 
-<div class="row example">
-  <div class="cell example-code">
-``` js
-layoutMode: 'packery',
-packery: {
-  rowHeight: 60
-}
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'packery',
+    itemSelector: '.mini-item',
+    stamp: '.stamp'
+    ```
   </div>
-  <div class="cell demo">
-    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "packery", "packery": { "rowHeight": 60 } }'>
-      {{>mini-demo-items}}
+  <div class="duo__cell example__demo">
+    <div class="grid grid--has-stamp js-isotope" data-isotope-options='{ "layoutMode": "packery", "itemSelector": ".grid-item", "stamp": ".stamp" }'>
+      <div class="stamp stamp--packery"></div>
+      {{> grid-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/jhgef">Edit this example on CodePen</a></p>
+    {{#codepens.packeryStamp}}
+      {{> edit-demo}}
+    {{/codepens.packeryStamp}}
   </div>
 </div>
 
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the height of that element. See <a href="../options.html#element-sizing">Element sizing</a>. Setting <code>rowHeight</code> with element sizing is recommended if you are using media queries.</p>
+{{! --------------------------------------------------- }}

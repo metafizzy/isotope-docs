@@ -30,13 +30,6 @@
   font-size: 18px;
 }
 
-/* ---- fluid-5-col ---- */
-
-.grid--fluid-5-col .grid-item,
-.grid--fluid-5-col .grid-sizer { width: 20%; }
-
-.grid--fluid-5-col .grid-item--width2 { width: 40%; }
-
 /* ---- horizontal ---- */
 
 /* horizontal examples need height */

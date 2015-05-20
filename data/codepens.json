@@ -109,6 +109,27 @@
   "packeryBasic": {
     "default": "vdwmb"
   },
+  "packeryGutter": {
+    "default": "LBCwy"
+  },
+  "packeryGutterFluid": {
+    "default": "fGrKe"
+  },
+  "packeryColumnWidth": {
+    "default": "EoBqg"
+  },
+  "packeryColumnWidthFluid": {
+    "default": "DbciA"
+  },
+  "packeryRowHeight": {
+    "default": "jhgef"
+  },
+  "packeryHorizontal": {
+    "default": "AmpsD"
+  },
+  "packeryStamp": {
+    "default": "Ccnmi"
+  },
   "prepended": {
     "default": "fuwdk"
   },

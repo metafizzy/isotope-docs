@@ -68,8 +68,8 @@ npm install isotope-cells-by-column
 
 <p>If <code>rowHeight</code> is not set, the outer height of the first element will be used.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 layoutMode: 'cellsByColumn',
 cellsByColumn: {
@@ -78,7 +78,7 @@ cellsByColumn: {
 }
 ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "cellsByColumn", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
       {{> grid-items-fewer}}
     </div>
@@ -91,8 +91,8 @@ cellsByColumn: {
 
 <p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the height of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>rowHeight</code> with element sizing is recommended if you are using media queries to change the size of items.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 layoutMode: 'cellsByColumn',
 itemSelector: '.mini-item',
@@ -111,7 +111,7 @@ cellsByColumn: {
 }
 ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     <div class="isotope js-isotope horizontal counting cells-by-column-element-sizing" data-isotope-options='{ "layoutMode": "cellsByColumn", "itemSelector": ".mini-item", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
       <div class="grid-sizer"></div>
       {{> grid-items-fewer}}

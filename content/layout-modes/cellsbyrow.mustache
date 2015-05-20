@@ -48,8 +48,8 @@ npm install isotope-cells-by-row
 
 <p>If <code>columnWidth</code> is not set, the outer width of the first element will be used.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 layoutMode: 'cellsByRow',
 cellsByRow: {
@@ -58,7 +58,7 @@ cellsByRow: {
 }
 ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
       {{> grid-items-fewer}}
     </div>
@@ -68,8 +68,8 @@ cellsByRow: {
 
 <p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths or media queries to change the size of items.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 layoutMode: 'cellsByRow',
 itemSelector: '.item',
@@ -88,7 +88,7 @@ cellsByRow: {
 }
 ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     <div class="isotope cells-by-row-element-sizing js-isotope" data-isotope-options='{ "layoutMode": "cellsByRow", "itemSelector": ".mini-item", "cellsByRow": { "columnWidth": ".grid-sizer", "rowHeight": ".grid-sizer" } }'>
       <div class="grid-sizer"></div>
       {{> grid-items-fewer}}

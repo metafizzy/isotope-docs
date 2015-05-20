@@ -107,7 +107,7 @@ title: masonry
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--masonry-gutter js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+    <div class="grid grid-has-gutter js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
       {{> grid-items-fewer}}
     </div>
     {{#codepens.masonryGutter}}
@@ -134,7 +134,7 @@ title: masonry
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--masonry-gutter grid--masonry-gutter-bottom js-isotope " data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+    <div class="grid grid-has-gutter grid--masonry-gutter-bottom js-isotope " data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
       {{> grid-items-fewer}}
     </div>
     {{#codepens.masonryGutterBottom}}
@@ -177,7 +177,20 @@ title: masonry
     ```
 
   </div>
-  {{> masonry-fluid-gutter-demo}}
+  <div class="duo__cell example__demo">
+
+    <div class="grid grid--fluid-gutter js-isotope"
+      data-isotope-options='{ "itemSelector": ".grid-item", "percentPosition": true, "masonry": { "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer" } }'>
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      {{> grid-items}}
+    </div>
+
+    {{#codepens.masonryFluidGutter}}
+      {{> edit-demo}}
+    {{/codepens.masonryFluidGutter}}
+  </div>
+
 </div>
 
 {{! --------------------------------------------------- }}
