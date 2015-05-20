@@ -36,3 +36,19 @@
   margin: 0;
   font-size: 1.3rem;
 }
+
+/* ---- grid--masonry-gutter ---- */
+
+.grid--masonry-gutter .grid-item--width2 {
+  width: 110px;
+}
+
+/* ---- grid--masonry-gutter-bottom ---- */
+
+.grid--masonry-gutter-bottom .grid-item {
+  margin-bottom: 10px;
+}
+
+.grid--masonry-gutter-bottom .grid-item--height2 {
+  height: 110px;
+}

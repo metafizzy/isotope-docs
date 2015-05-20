@@ -1,0 +1,16 @@
+/* masonry-fluid-gutter
+------------------------- */
+
+
+.grid--masonry-fluid-gutter .grid-item,
+.grid--masonry-fluid-gutter .grid-sizer {
+  width: 22%;
+}
+
+.grid--masonry-fluid-gutter .gutter-sizer {
+  width: 4%;
+}
+
+.grid--masonry-fluid-gutter .grid-item--width2 {
+  width: 48%;
+}

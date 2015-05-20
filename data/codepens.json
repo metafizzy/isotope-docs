@@ -85,8 +85,20 @@
   "masonryBasic": {
     "default": "mEinp"
   },
+  "masonryFitWidth": {
+    "default": "BptxJ"
+  },
   "masonryFluid": {
     "default": "mIkhq"
+  },
+  "masonryFluidGutter": {
+    "default": "aEmkl"
+  },
+  "masonryGutter": {
+    "default": "dHsCJ"
+  },
+  "masonryGutterBottom": {
+    "default": "sqrwo"
   },
   "masonryHorizontalBasic": {
     "default": "oCiAD"

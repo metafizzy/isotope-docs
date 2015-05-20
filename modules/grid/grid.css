@@ -72,3 +72,10 @@
 .grid--has-stamp {
   position: relative;
 }
+
+/* ---- fit-width ---- */
+
+/* centered */
+.grid--fit-width {
+  margin: 0 auto;
+}

@@ -21,18 +21,9 @@ title: masonry
 
 <h3>columnWidth</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value">
-      <i>Number</i>, <i>Element</i>, or Selector <i>String</i>
-    </span>
-  </p>
-</div>
-
 <p>Aligns items to a horizontal grid.</p>
 
-<div class="call-out">
+<div class="call-out call-out--chill">
   <p>We recommend setting <code>columnWidth</code>. If <code>columnWidth</code> is not set, Isotope will use the outer width of the first item.</p>
 </div>
 
@@ -104,34 +95,24 @@ title: masonry
 
 <h3>gutter</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
-
 <p>The horizontal space between item elements.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-masonry: {
-  columnWidth: 50,
-  gutter: 10
-}
-```
-``` css
-.masonry-gutter .mini-item.w2 {
-  width: 110px;
-}
-```
+    ``` js
+    masonry: {
+      columnWidth: 50,
+      gutter: 10
+    }
+    ```
   </div>
-  <div class="duo__cell example__demo masonry-gutter">
-    <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
-      {{>mini-demo-items}}
+  <div class="duo__cell example__demo">
+    <div class="grid grid--masonry-gutter js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+      {{> grid-items-fewer}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/dHsCJ">Edit this example on CodePen</a></p>
+    {{#codepens.masonryGutter}}
+      {{> edit-demo}}
+    {{/codepens.masonryGutter}}
   </div>
 </div>
 
@@ -139,26 +120,26 @@ masonry: {
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-masonry: {
-  columnWidth: 50,
-  gutter: 10
-}
-```
-``` css
-#masonry-bottom-spaced .mini-item {
-  margin-bottom: 10px;
-}
-#masonry-bottom-spaced .mini-item.h2 {
-  height: 110px;
-}
-```
+    ``` js
+    masonry: {
+      columnWidth: 50,
+      gutter: 10
+    }
+    ```
+
+    ``` css
+    .grid-item {
+      margin-bottom: 10px;
+    }
+    ```
   </div>
-  <div class="duo__cell example__demo masonry-gutter">
-    <div id="masonry-bottom-spaced" class="isotope js-isotope " data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
-      {{>mini-demo-items}}
+  <div class="duo__cell example__demo">
+    <div class="grid grid--masonry-gutter grid--masonry-gutter-bottom js-isotope " data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+      {{> grid-items-fewer}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/sqrwo">Edit this example on CodePen</a></p>
+    {{#codepens.masonryGutterBottom}}
+      {{> edit-demo}}
+    {{/codepens.masonryGutterBottom}}
   </div>
 </div>
 
@@ -166,86 +147,83 @@ masonry: {
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` html
-<div class="isotope">
-  <div class="grid-sizer"></div>
-  <div class="gutter-sizer"></div>
-  <div class="mini-item"></div>
-  <div class="mini-item"></div>
-  ...
-</div>
-```
-``` css
-.grid-sizer,
-.mini-item { width: 22%; }
-.mini-item.w2 { width: 48%; }
-.gutter-sizer { width: 4%; }
-```
-``` js
-masonry: {
-  columnWidth: '.grid-sizer',
-  gutter: '.gutter-sizer'
-},
-itemSelector: '.mini-item',
-percentPosition: true
-```
-  </div>
-  <div class="duo__cell example__demo">
-    <div class="isotope js-isotope flex-4-col-gutter" data-isotope-options='{ "itemSelector": ".mini-item", "percentPosition": true, "masonry": { "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer" } }'>
+    ``` html
+    <div class="grid">
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
-      {{>mini-demo-items}}
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      ...
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/aEmkl">Edit this example on CodePen</a></p>
+    ```
+
+    ``` css
+    .grid-sizer,
+    .grid-item { width: 22%; }
+
+    .gutter-sizer { width: 4%; }
+
+    .grid-item--width2 { width: 48%; }
+
+    ```
+
+    ``` js
+    masonry: {
+      columnWidth: '.grid-sizer',
+      gutter: '.gutter-sizer'
+    },
+    itemSelector: '.grid-item',
+    percentPosition: true
+    ```
+
   </div>
+  {{> masonry-fluid-gutter-demo}}
 </div>
 
+{{! --------------------------------------------------- }}
 
-<h2>isFitWidth</h2>
-
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <span class="param__bit__title">Default:</span>
-    <span class="param__bit__value"><code><span class="literal">false</span></code></span>
-  </p>
-</div>
+<h3>isFitWidth</h3>
 
 <p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
 
-<div class="warning">
-  <p>isFitWidth does not work with <a href="../options.html#element-sizing">element sizing</a> <em>and</em> percentage width. Either columnWidth needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
+<div class="call-out">
+  <p>isFitWidth does not work with <a href="../options.html#element-sizing">element sizing</a> <em>and</em> percentage width. Either <code>columnWidth</code> needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
 </div>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-masonry: {
-  columnWidth: 100,
-  isFitWidth: true
-}
-```
-``` css
-/* center container with CSS */
-#masonry-fit-width .isotope {
-  margin: 0 auto;
-}
-```
+    ``` js
+    masonry: {
+      columnWidth: 100,
+      isFitWidth: true
+    }
+    ```
+
+    ``` css
+    /* center container with CSS */
+    .grid {
+      margin: 0 auto;
+    }
+    ```
   </div>
-  <div id="masonry-fit-width" class="duo__cell example__demo">
-    <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 100, "isFitWidth": true }, "itemSelector": ".mini-item" }'>
-      <div class="mini-item w2"></div>
-      <div class="mini-item w2 h2"></div>
-      <div class="mini-item w2 h2"></div>
-      <div class="mini-item w2"></div>
-      <div class="mini-item w2 h2"></div>
-      <div class="mini-item w2 h2"></div>
-      <div class="mini-item w2"></div>
-      <div class="mini-item w2 h2"></div>
+  <div class="duo__cell example__demo"  style="border: 2px solid #484542; padding-top: 10px;">
+    <div class="grid grid--fit-width js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 100, "isFitWidth": true } }'>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/BptxJ">Edit this example on CodePen</a></p>
+
+    {{#codepens.masonryFitWidth}}
+      {{> edit-demo}}
+    {{/codepens.masonryFitWidth}}
   </div>
+
 </div>
+
+{{! --------------------------------------------------- }}
