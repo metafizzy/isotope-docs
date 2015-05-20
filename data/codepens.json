@@ -1,4 +1,12 @@
 {
+  "animateItemSize": {
+    "default": "jnhAi",
+    "vanillaJS": "fztmB"
+  },
+  "animateItemSizeResponsive": {
+    "default": "utGrv",
+    "vanillaJS": "jeLKl"
+  },
   "appended": {
     "default": "ECKiw"
   },

@@ -2,6 +2,23 @@
 title: Appendix
 ---
 
+{{! ----------------------------------------------------------------- }}
+
+<h2>Extra examples</h2>
+
+<ul>
+  <li><a href="http://codepen.io/desandro/pen/owAyG/">Combination filters with functions</a></li>
+  <li><a href="http://codepen.io/desandro/pen/GFbAs">Combination inclusive and exclusive filters with selects and checkboxes</a>. Explanation on <a href="https://github.com/metafizzy/isotope/issues/771#issuecomment-50991110">issue #771</a>.</li>
+  <li><a href="http://codepen.io/desandro/pen/Kpvyd">Reveal items on init</a></li>
+  <li><a href="http://codepen.io/desandro/pen/AEslp">Only filter items, no layout</a>. See <a href="https://github.com/metafizzy/isotope/issues/675#issuecomment-40675160">issue #675</a></li>
+  <li><a href="http://codepen.io/desandro/pen/mCdbD">Search and filter buttons</a></li>
+  <li><a href="http://codepen.io/desandro/pen/bsHix">Reveal each image as they load</a></li>
+  <li><a href="http://codepen.io/desandro/pen/vEJbNr">Filtering with toggle on/off buttons</a></li>
+  <li><a href="http://codepen.io/desandro/pen/vErxXj">Filtering with URL hash</a>. View <a href="http://s.codepen.io/desandro/debug/vErxXj#filter=%3Anot(.transition)">debug version</a> to see filter in URL hash.</li>
+</ul>
+
+{{! ----------------------------------------------------------------- }}
+
 <h2>Web fonts</h2>
 
 <p>Like images, unloaded web fonts can throw off Isotope. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
@@ -11,26 +28,28 @@ title: Appendix
   <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
 </ul>
 
+{{! ----------------------------------------------------------------- }}
+
 <h3>Typekit</h3>
 
 <p>Try the script below when using Isotope on a page with Typekit. This will trigger Isotope when the document is ready and again when fonts have loaded. Be sure to remove Typekit’s default script, <code>try{Typekit.load();}catch(e){}</code>.</p>
 
 ``` js
-var $container;
+var $grid;
 
 function triggerIsotope() {
-  // don't proceed if $container has not been selected
-  if ( !$container ) {
+  // don't proceed if $grid has not been selected
+  if ( !$grid ) {
     return;
   }
   // init Isotope
-  $container.isotope({
+  $grid.isotope({
     // options
   });
 }
 // trigger Isotope on document ready
 $(function(){
-  $container = $('#container');
+  $grid = $('.grid');
   triggerIsotope();
 });
 // trigger Isotope when fonts have loaded
@@ -42,21 +61,21 @@ Typekit.load({
 
 ``` js
 // or with vanilla JS
-var container, iso;
+var grid, iso;
 
 function triggerIsotope() {
   // don't proceed if doc isn't ready
-  if ( !container ) {
+  if ( !grid ) {
     return;
   }
   // init Isotope
-  iso = new Isotope( container, {
+  iso = new Isotope( grid, {
     // options
   });
 }
 // initialize Isotope on document ready
 docReady( function() {
-  var container = document.querySelector('#container');
+  var grid = document.querySelector('.grid');
   triggerIsotope();
 });
 // trigger Isotope when fonts have loaded
@@ -66,70 +85,7 @@ Typekit.load({
 });
 ```
 
-
-<h2>Support</h2>
-
-<ul>
-  <li>Having trouble setting up Isotope?</li>
-  <li>Running into a time-consuming problem?</li>
-</ul>
-
-<p><a href="https://www.codersclan.net/?repo_id=1">CodersClan has a dedicated support forum for Isotope</a>, where you can get personal support from experienced developers.</p>
-
-<p><a class="support-button button" href="https://www.codersclan.net/?repo_id=1">Get support</a></p>
-
-
-<h2>Submitting issues</h2>
-
-<p>Submit bugs and issues to the <a href="https://github.com/metafizzy/isotope/issues/">GitHub issue tracker</a>.</p>
-
-<h3>Reduced test case required</h3>
-
-<p>All bug reports and problem issues require a <a href="http://css-tricks.com/reduced-test-cases/"><strong>reduced test case</strong></a>. Create one by forking any one of the <a href="http://codepen.io/desandro/tag/isotope-docs">CodePen examples</a> from these docs.</p>
-
-<ul>
-  <li>A reduced test case clearly demonstrates the bug or issue.</li>
-  <li>It contains the bare minimum HTML, CSS, and JavaScript required to demonstrate the bug.</li>
-  <li>A link to your production site is <strong>not</strong> a reduced test case.</li>
-</ul>
-
-<p>Providing a reduced test case is the best way to get your issue addressed. Without a reduced test case, your issue may be closed.</p>
-
-
-<h2>Upgrading from v1</h2>
-
-<h3>New features</h3>
-
-<ul>
-  <li>Custom CSS no longer required.</li>
-  <li>jQuery no longer required. Isotope works with vanilla JavaScript.</li>
-  <li><a href="events.html#layoutcomplete"><code>layoutComplete</code> event</a>.</li>
-  <li><a href="sorting.html#getsortdata"><code>getSortData</code> shortcut strings</a>.</li>
-  <li>Way better support for responsive web design with <a href="options.html#element-sizing">element sizing options</a>.</li>
-</ul>
-
-<h3>Changes</h3>
-
-<ul>
-  <li><a href="https://github.com/louisremi/jquery-smartresize">smartresize jQuery plugin</a> removed.</li>
-  <li><a href="http://imagesloaded.desandro.com">imagesLoaded</a> no longer included, but is still recommended.</li>
-  <li><code>animationOptions</code> removed. jQuery animation removed. This means no animation for IE8 and IE9.</li>
-  <li><code>isResizable</code> option renamed to <a href="options.html#isresizebound"><code>isResizeBound</code></a></li>
-  <li><code>reLayout</code> method renamed to <a href="methods.html#layout"><code>layout</code></a></li>
-  <li><code>layout</code> method renamed to <a href="methods.html#layoutitems"><code>layoutItems</code></a></li>
-  <li><code>transformsEnabled</code> option removed. Transforms are still used, but only for transitions.</li>
-  <li><code>itemPositionDataEnabled</code> option removed. Item position is now accessible as it is set with <code>left</code> and <code>top</code>.</li>
-  <li><code>onLayout</code> option removed. Use the <a href="events.html#layoutcomplete"><code>layoutComplete</code> event</a>.</li>
-</ul>
-
-<h3>Upgrades to <a href="{{root_path}}layout-modes/masonry.html">masonry layout mode</a></h3>
-
-<ul>
-  <li>Corner stamp is now integrated as <a href="options.html#stamp"><code>stamp</code> option</a> and <a href="methods.html#stamp"><code>stamp</code> method</a></li>
-  <li>Centering integrated as the <a href="{{root_path}}layout-modes/masonry.html#isfitwidth"><code>isFitWidth</code> option</a>.</li>
-  <li><code>gutterWidth</code> option renamed to <a href="{{root_path}}layout-modes/masonry.html#gutter"><code>gutter</code></a></li>
-</ul>
-
+{{! ----------------------------------------------------------------- }}
 
 <h2>RequireJS</h2>
 
@@ -141,7 +97,7 @@ Typekit.load({
 requirejs( [
   'path/to/isotope.pkgd.js',
 ], function( Isotope ) {
-  var iso = new Isotope( '#container', {...});
+  var iso = new Isotope( '.grid', {...});
 });
 ```
 
@@ -152,7 +108,7 @@ requirejs( [
   'path/to/isotope.pkgd.js',
   'path/to/masonry-horizontal.js'
 ], function( Isotope ) {
-  var iso = new Isotope( '#container', {
+  var iso = new Isotope( '.grid', {
     layoutMode: 'masonryHorizontal'
   });
 });
@@ -171,7 +127,7 @@ requirejs( [ 'require', 'jquery', 'path/to/isotope.pkgd.js' ],
       // make Isotope a jQuery plugin
       $.bridget( 'isotope', Isotope );
       // now you can use $().isotope()
-      $('#container').isotope({...});
+      $('.grid').isotope({...});
     }
   );
 });
@@ -191,7 +147,7 @@ requirejs( [
   'isotope/js/isotope',
   'app/my-component.js'
 ], function( Isotope, myComp ) {
-  var iso = new Isotope( '#container', {...});
+  var iso = new Isotope( '.grid', {...});
 });
 ```
 
@@ -214,9 +170,11 @@ requirejs( [
     // make Isotope a jQuery plugin
     $.bridget( 'isotope', Isotope );
     // now you can use $().isotope()
-    $('#container').isotope({...});
+    $('.grid').isotope({...});
 });
 ```
+
+{{! ----------------------------------------------------------------- }}
 
 <h2>Browserify</h2>
 
@@ -229,7 +187,7 @@ npm install isotope-layout
 ``` js
 var Isotope = require('isotope-layout');
 
-var iso = new Isotope( '#container', {
+var iso = new Isotope( '.grid', {
   // options...
 });
 ```
@@ -245,7 +203,7 @@ var Isotope = require('isotope-layout');
 // add cellsByRow layout mode
 require('isotope-cells-by-row')
 
-var iso = new Isotope( '#container', {
+var iso = new Isotope( '.grid', {
   layoutMode: 'cellsByRow'
 });
 ```
@@ -264,96 +222,124 @@ var Isotope = require('isotope-layout');
 // make Isotope a jQuery plugin
 $.bridget( 'isotope', Isotope );
 // now you can use $().isotope()
-$('#container').isotope({
+$('.grid').isotope({
   // options...
 });
 ```
 
 
-  <h2>Animating item size</h2>
+{{! ----------------------------------------------------------------- }}
 
-  <p>You cannot transition or animate the size of an item element <em>and</em> properly lay out. But there is a trick &mdash; you can animate a child element of the item element.</p>
+<h2>Animating item size</h2>
 
-  <div class="row example">
-    <div class="cell example-code">
-``` html
-<div class="isotope">
-  <!-- items have item-content children element -->
-  <div class="item">
-    <div class="item-content"></div>
-  </div>
-  ...
-```
-``` css
-/* item is invisible, but used for layout
-item-content is visible, and transitions size */
-.animate-item-size-demo .item,
-.animate-item-size-demo .item-content {
-  width: 60px;
-  height: 60px;
-}
-.animate-item-size-demo .item-content {
-  background: #09D;
-  transition: width 0.4s, height 0.4s;
-  /* -webkit-transition -moz, etc, too */
-}
-/* both item and item content change size */
-.animate-item-size-demo .item.is-expanded,
-.animate-item-size-demo .item.is-expanded .item-content {
-  width: 180px;
-  height: 120px;
-}
-```
-    </div>
-    <div id="animate-item-size" class="cell demo">
-      <p class="instruction">Click to item to toggle size</p>
-      <div class="isotope clickable animate-item-size-demo">
-        {{>animate-item-size-items}}
+<p>You cannot transition or animate the size of an item element <em>and</em> properly lay out. But there is a trick &mdash; you can animate a child element of the item element.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
+      <!-- items have grid-item-content child elements -->
+      <div class="grid-item">
+        <div class="grid-item-content"></div>
       </div>
-      <p class="edit"><a href="http://codepen.io/desandro/pen/jnhAi">Edit this example</a> or <a href="http://codepen.io/desandro/pen/fztmB">example with vanilla JS</a> on CodePen</p>
-    </div>
+      ...
+    ```
+
+    ``` css
+    /* item is invisible, but used for layout
+    item-content is visible, and transitions size */
+    .grid-item,
+    .grid-item-content {
+      width: 60px;
+      height: 60px;
+    }
+    .grid-item-content {
+      background: #09D;
+      transition: width 0.4s, height 0.4s;
+    }
+
+    /* both item and item content change size */
+    .grid-item.is-expanded,
+    .grid-item.is-expanded .grid-item-content {
+      width: 180px;
+      height: 120px;
+    }
+    ```
   </div>
+  {{> animate-item-size}}
+</div>
 
-  <p>This technique works on items with responsive, percentage widths. Although, it does require a bit more JS. <a href="http://codepen.io/desandro/pen/jGJKL">Check out the example on CodePen</a> to see how it&rsquo;s done.</p>
+<p>This technique works on items with responsive, percentage widths. Although, it does require a bit more JS. <a href="http://codepen.io/desandro/pen/jGJKL">Check out the example on CodePen</a> to see how it&rsquo;s done.</p>
 
-  <div class="row example">
-    <div class="cell example-code">
-``` css
-#animate-item-size-responsive .item {
-  width: 20%;
-  height: 60px;
-}
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` css
+    #animate-item-size-responsive .item {
+      width: 20%;
+      height: 60px;
+    }
 
-#animate-item-size-responsive .item-content {
-  width:  100%;
-  height: 100%;
-  background: #09D;
-  transition: width 0.4s, height 0.4s;
-  /* -webkit-transition -moz, etc, too */
-}
-/* item has expanded size */
-#animate-item-size-responsive .item.is-expanded {
-  width: 60%;
-  height: 120px;
-}
-```
-    </div>
-    <div id="animate-item-size-responsive" class="cell demo">
-      <p class="instruction">Click to item to toggle size</p>
-      <div class="isotope clickable animate-item-size-demo">
-        <div class="grid-sizer"></div>
-        {{>animate-item-size-items}}
-      </div>
-      <p class="edit"><a href="http://codepen.io/desandro/pen/utGrv">Edit this example</a> or <a href="http://codepen.io/desandro/pen/jeLKl"> the example with vanilla JS</a> on CodePen</p>
-    </div>
-
+    #animate-item-size-responsive .item-content {
+      width:  100%;
+      height: 100%;
+      background: #09D;
+      transition: width 0.4s, height 0.4s;
+    }
+    /* item has expanded size */
+    #animate-item-size-responsive .item.is-expanded {
+      width: 60%;
+      height: 120px;
+    }
+    ```
   </div>
+  {{> animate-item-size-responsive}}
 
+</div>
 
+{{! ----------------------------------------------------------------- }}
+
+<h2>Support</h2>
+
+<ul>
+  <li>Having trouble setting up Isotope?</li>
+  <li>Running into a time-consuming problem?</li>
+</ul>
+
+<p><a href="https://www.codersclan.net/?repo_id=1">CodersClan has a dedicated support forum for Isotope</a>, where you can get personal support from experienced developers.</p>
+
+<p><a class="support-button button" href="https://www.codersclan.net/?repo_id=1">Get support</a></p>
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>Issues</h2>
+
+<h3>Reduced test cases</h3>
+
+<p>Creating a reduced test case is the best way to debug problems and report issues. Read <a href="http://css-tricks.com/reduced-test-cases/">CSS Tricks</a> on why they&rsquo;re so great.</p>
+
+<p>Create a reduced test case for Isotope by forking any one of the <a href="http://codepen.io/desandro/tag/isotope-docs">CodePen demos</a> from these docs.</p>
+
+<ul>
+  <li>A reduced test case clearly demonstrates the bug or issue.</li>
+  <li>It contains the bare minimum HTML, CSS, and JavaScript required to demonstrate the bug.</li>
+  <li>A link to your production site is <b>not</b> a reduced test case.</li>
+</ul>
+
+<p>Creating a reduced test case is the best way to get your issue addressed. They help you point out the problem. They help us debug the problem. They help others understand the problem.</p>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Submitting issues</h3>
+
+<p>Report <a href="https://github.com/metafizzy/isotope/issues/">issues on GitHub</a>. Make sure to include a <strong>reduced test case</strong>. Without a reduced test case, your issue may be closed.</p>
+
+{{! ----------------------------------------------------------------- }}
 
 <h2>Component libraries</h2>
 
 <p>Isotope includes several vanilla JS component libraries. You might have seen these used in the example code. You can use some of these libraries in your own code.</p>
+
+{{! ----------------------------------------------------------------- }}
 
 <h3>docReady</h3>
 
@@ -362,10 +348,12 @@ item-content is visible, and transitions size */
 ``` js
 docReady( function() {
   // document is ready, let's do some fun stuff!
-  var container = document.querySelector('#container');
+  var container = document.querySelector('.grid');
   var iso = new Isotope( container );
 });
 ```
+
+{{! ----------------------------------------------------------------- }}
 
 <h3>eventie</h3>
 
@@ -383,20 +371,7 @@ eventie.bind( elem, 'click', onElemClick );
 eventie.unbind( elem, 'click', onElemClick );
 ```
 
-
-<h2>Extra examples</h2>
-
-<ul>
-  <li><a href="http://codepen.io/desandro/pen/owAyG/">Combination filters with functions</a></li>
-  <li><a href="http://codepen.io/desandro/pen/GFbAs">Combination inclusive and exclusive filters with selects and checkboxes</a>. Explanation on <a href="https://github.com/metafizzy/isotope/issues/771#issuecomment-50991110">issue #771</a>.</li>
-  <li><a href="http://codepen.io/desandro/pen/Kpvyd">Reveal items on init</a></li>
-  <li><a href="http://codepen.io/desandro/pen/AEslp">Only filter items, no layout</a>. See <a href="https://github.com/metafizzy/isotope/issues/675#issuecomment-40675160">issue #675</a></li>
-  <li><a href="http://codepen.io/desandro/pen/mCdbD">Search and filter buttons</a></li>
-  <li><a href="http://codepen.io/desandro/pen/bsHix">Reveal each image as they load</a></li>
-  <li><a href="http://codepen.io/desandro/pen/vEJbNr">Filtering with toggle on/off buttons</a></li>
-  <li><a href="http://codepen.io/desandro/pen/vErxXj">Filtering with URL hash</a>. View <a href="http://s.codepen.io/desandro/debug/vErxXj#filter=%3Anot(.transition)">debug version</a> to see filter in URL hash.</li>
-</ul>
-
+{{! ----------------------------------------------------------------- }}
 
 <h2>Additional resources</h2>
 
@@ -407,3 +382,47 @@ eventie.unbind( elem, 'click', onElemClick );
   <li><a href="http://stackoverflow.com/search?q=isotope">Stack Overflow questions about Isotope</a></li>
   <li><a href="https://delicious.com/desandro/re:isotope">Related Isotope links</a></li>
 </ul>
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>Upgrading from v1</h2>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>New features</h3>
+
+<ul>
+  <li>Custom CSS no longer required.</li>
+  <li>jQuery no longer required. Isotope works with vanilla JavaScript.</li>
+  <li><a href="events.html#layoutcomplete"><code>layoutComplete</code> event</a>.</li>
+  <li><a href="sorting.html#getsortdata"><code>getSortData</code> shortcut strings</a>.</li>
+  <li>Way better support for responsive web design with <a href="options.html#element-sizing">element sizing options</a>.</li>
+</ul>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Changes</h3>
+
+<ul>
+  <li><a href="https://github.com/louisremi/jquery-smartresize">smartresize jQuery plugin</a> removed.</li>
+  <li><a href="http://imagesloaded.desandro.com">imagesLoaded</a> no longer included, but is still recommended.</li>
+  <li><code>animationOptions</code> removed. jQuery animation removed. This means no animation for IE8 and IE9.</li>
+  <li><code>isResizable</code> option renamed to <a href="options.html#isresizebound"><code>isResizeBound</code></a></li>
+  <li><code>reLayout</code> method renamed to <a href="methods.html#layout"><code>layout</code></a></li>
+  <li><code>layout</code> method renamed to <a href="methods.html#layoutitems"><code>layoutItems</code></a></li>
+  <li><code>transformsEnabled</code> option removed. Transforms are still used, but only for transitions.</li>
+  <li><code>itemPositionDataEnabled</code> option removed. Item position is now accessible as it is set with <code>left</code> and <code>top</code>.</li>
+  <li><code>onLayout</code> option removed. Use the <a href="events.html#layoutcomplete"><code>layoutComplete</code> event</a>.</li>
+</ul>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Upgrades to <a href="{{root_path}}layout-modes/masonry.html">masonry layout mode</a></h3>
+
+<ul>
+  <li>Corner stamp is now integrated as <a href="options.html#stamp"><code>stamp</code> option</a> and <a href="methods.html#stamp"><code>stamp</code> method</a></li>
+  <li>Centering integrated as the <a href="{{root_path}}layout-modes/masonry.html#isfitwidth"><code>isFitWidth</code> option</a>.</li>
+  <li><code>gutterWidth</code> option renamed to <a href="{{root_path}}layout-modes/masonry.html#gutter"><code>gutter</code></a></li>
+</ul>
+
+{{! ----------------------------------------------------------------- }}
