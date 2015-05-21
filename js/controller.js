@@ -37,13 +37,6 @@ docReady( function() {
 
   $('.js-radio-button-group').radioButtonGroup();
 
-  // get name of page
-  var pageAttr = document.body.getAttribute('data-page');
-  // trigger controller if there
-  if ( pageAttr && typeof ID[ pageAttr ] === 'function' ) {
-    ID[ pageAttr ]();
-  }
-
   // init stick page nav
 
   // get conditional class http://adactio.com/journal/5429/
@@ -65,23 +58,6 @@ docReady( function() {
 });
 
 // -------------------------- helpers -------------------------- //
-
-ID.getSomeItemElements = function() {
-  var fragment = document.createDocumentFragment();
-  var items = [];
-  for ( var i=0; i < 3; i++ ) {
-    var item = document.createElement('div');
-    var wRand = Math.random();
-    var widthClass = wRand > 0.85 ? 'w4' :
-      wRand > 0.7 ? 'w2' : '';
-    var hRand = Math.random();
-    var heightClass = hRand > 0.85 ? 'h4' :
-      hRand > 0.7 ? 'h2' : '';
-    item.className = 'item ' + widthClass + ' ' + heightClass;
-    fragment.appendChild( item );
-    items.push( item );
-  }
-};
 
 ID.getItemElement = function() {
   var elem = document.createElement('div');
