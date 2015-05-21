@@ -2,64 +2,10 @@
   http://adactio.com/journal/5429/ */
 head { font-family: 'base'; }
 
-/* ---- row ---- */
-
-.row .cell {
-  margin-bottom: 0.8em;
-}
-
-/* clearfix */
-.row:after {
-  content: ' ';
-  display: block;
-  clear: both;
-}
-
-.row4 .cell {
-  float: left;
-  width: 48%;
-  margin-right: 2%;
-}
-
 /* tablet-ish */
 @media screen and ( min-width: 800px ) {
 
   head { font-family: 'desktop'; }
-
-  .row {
-    margin-bottom: 0.8em;
-  }
-
-  /* clearfix */
-  .row:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-
-  /* two column by default*/
-  .row .cell {
-    float: left;
-    width: 48.75%;
-    margin-right: 2.5%;
-    margin-bottom: 0;
-  }
-  /* IE8 doesn't support :last-child */
-  .lt-ie9 .row .cell { margin-right: 1.5%; }
-
-  /* three column */
-  .row3 .cell {
-    width: 31.6%;
-  }
-
-  /* four column */
-  .row4 .cell {
-    width: 23.1%;
-  }
-
-  .row .cell:last-child {
-    margin-right: 0;
-  }
 
 }
 
