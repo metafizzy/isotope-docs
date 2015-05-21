@@ -16,8 +16,14 @@
   "cellsByColumnBasic": {
     "default": "qAlEy"
   },
+  "cellsByColumnElementSizing": {
+    "default": "qfatn"
+  },
   "cellsByRow": {
     "default": "zFart"
+  },
+  "cellsByRowElementSizing": {
+    "default": "ybEuz"
   },
   "combinationFilters": {
     "default": "JEojz"
@@ -102,6 +108,12 @@
   },
   "masonryHorizontalBasic": {
     "default": "oCiAD"
+  },
+  "masonryHorizontalGutter": {
+    "default": "pkzxK"
+  },
+  "masonryHorizontalGutterRight": {
+    "default": "gsJlr"
   },
   "multipleSortBy": {
     "default": "sxAJL"

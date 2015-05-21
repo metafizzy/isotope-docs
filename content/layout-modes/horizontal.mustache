@@ -5,21 +5,23 @@ title: horizontal
 <p>Items are arranged horizontally.</p>
 
 <div class="demo">
-  <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "horizontal" }'>
-    <div class="mini-item h2"></div>
-    <div class="mini-item"></div>
-    <div class="mini-item h3"></div>
-    <div class="mini-item w2"></div>
-    <div class="mini-item h2"></div>
-    <div class="mini-item h3"></div>
-    <div class="mini-item"></div>
-    <div class="mini-item h2"></div>
+  <div class="grid grid--horizontal js-isotope"
+    data-isotope-options='{ "layoutMode": "horizontal" }'>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height3"></div>
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item grid-item--height3"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height2"></div>
   </div>
   {{#codepens.horizontalBasic}}
     {{> edit-demo}}
   {{/codepens.horizontalBasic}}
 </div>
 
+{{! --------------------------------------------------- }}
 
 <h2>Install</h2>
 
@@ -39,20 +41,33 @@ bower install isotope-horizontal
 npm install isotope-horizontal
 ```
 
+{{! --------------------------------------------------- }}
 
-<h1>Options</h1>
+<h2>Options</h2>
 
+{{! --------------------------------------------------- }}
 
-<h2>verticalAlignment</h2>
+<h3>verticalAlignment</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i> a decimal 0 to 1</span>
-  </p>
-</div>
+<p>Aligns items vertically. Set as a decimal <code>0</code> to <code>1</code>.</p>
 
-<p>Aligns items vertically. <code>0</code> will align the origin edge. <code>1</code> will align the opposite edge. <code>0.5</code> will align center.</p>
+``` js
+/* default
+horizontal: {
+  // align to origin edge
+  verticalAlignment: 0
+} */
+
+horizontal: {
+  // align to center
+  verticalAlignment: 0.5
+}
+
+horizontal: {
+  // align to opposite edge
+  verticalAlignment: 1
+}
+```
 
 <div class="example">
   <div class="example__code">
@@ -64,15 +79,16 @@ npm install isotope-horizontal
     ```
   </div>
   <div class="example__demo">
-    <div class="grid grid--horizontal js-isotope" data-isotope-options='{ "layoutMode": "horizontal", "horizontal": { "verticalAlignment": 0.5 } }'>
-      <div class="grid-item grid-item--h2"></div>
+    <div class="grid grid--horizontal js-isotope"
+      data-isotope-options='{ "layoutMode": "horizontal", "horizontal": { "verticalAlignment": 0.5 } }'>
+      <div class="grid-item grid-item--height2"></div>
       <div class="grid-item"></div>
-      <div class="grid-item grid-item--h3"></div>
-      <div class="grid-item grid-item--w2"></div>
-      <div class="grid-item grid-item--h2"></div>
-      <div class="grid-item grid-item--h3"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--height3"></div>
       <div class="grid-item"></div>
-      <div class="grid-item grid-item--h2"></div>
+      <div class="grid-item grid-item--height2"></div>
     </div>
     {{#codepens.horizontalVerticalAlignment}}
       {{> edit-demo}}

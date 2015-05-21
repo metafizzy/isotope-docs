@@ -4,9 +4,10 @@ title: cellsByColumn
 
 <p>A horizontal grid layout where items are centered inside each cell. The grid is defined by <code>columnWidth</code> and <code>rowHeight</code> options.</p>
 
-<div class="demo">
-  <div class="isotope js-isotope horizontal rainbowed counting" data-isotope-options='{ "layoutMode": "cellsByColumn", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
-    {{>mini-demo-items}}
+<div class="big-demo">
+  <div class="grid grid--horizontal grid--counting js-isotope"
+    data-isotope-options='{ "layoutMode": "cellsByColumn", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
+    {{> grid-items}}
   </div>
 
   {{#codepens.cellsByColumnBasic}}
@@ -33,53 +34,31 @@ bower install isotope-cells-by-column
 npm install isotope-cells-by-column
 ```
 
+{{! --------------------------------------------------- }}
 
-<h1>Options</h1>
+<h2>Options</h2>
 
+{{! --------------------------------------------------- }}
 
-<h2>columnWidth</h2>
+<h3>rowHeight</h3>
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
-
-<p>The width of a column of the horizontal grid.</p>
-
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths or media queries to change the size of items.</p>
-
-<p>If <code>columnWidth</code> is not set, the outer width of the first element will be used.</p>
-
-<p>See examples below.</p>
-
-
-<h2>rowHeight</h2>
-
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
-
-<p>The width of a column of the vertical grid.</p>
+<p>The height of a column of the vertical grid.</p>
 
 <p>If <code>rowHeight</code> is not set, the outer height of the first element will be used.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-layoutMode: 'cellsByColumn',
-cellsByColumn: {
-  columnWidth: 110,
-  rowHeight: 110
-}
-```
+    ``` js
+    layoutMode: 'cellsByColumn',
+    cellsByColumn: {
+      columnWidth: 110,
+      rowHeight: 110
+    }
+    ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "cellsByColumn", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
+    <div class="grid grid--horizontal grid--counting js-isotope"
+      data-isotope-options='{ "layoutMode": "cellsByColumn", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
       {{> grid-items-fewer}}
     </div>
 
@@ -93,29 +72,47 @@ cellsByColumn: {
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-layoutMode: 'cellsByColumn',
-itemSelector: '.mini-item',
-cellsByColumn: {
-  columnWidth: '.grid-sizer',
-  rowHeight: '.grid-sizer'
-}
-```
-``` css
-.mini-item { height: 10.5%; }
-.mini-item.h2 { height: 23%; }
-/* isotope element option sizing */
-.grid-sizer {
-  width: 110px;
-  height: 25%;
-}
-```
+    ``` js
+    layoutMode: 'cellsByColumn',
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    cellsByColumn: {
+      columnWidth: '.grid-sizer',
+      rowHeight: '.grid-sizer'
+    }
+    ```
+
+    ``` css
+    .grid-item { height: 13%; }
+    .grid-item--height2 { height: 23%; }
+    /* isotope element option sizing */
+    .grid-sizer {
+      width: 110px;
+      height: 25%;
+    }
+    ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="isotope js-isotope horizontal counting cells-by-column-element-sizing" data-isotope-options='{ "layoutMode": "cellsByColumn", "itemSelector": ".mini-item", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
+    <div class="grid grid--horizontal grid--counting grid--cells-by-column-element-sizing js-isotope"
+      data-isotope-options='{ "layoutMode": "cellsByColumn", "itemSelector": ".grid-item", "cellsByColumn": { "columnWidth": ".grid-sizer", "rowHeight": ".grid-sizer" } }'>
       <div class="grid-sizer"></div>
       {{> grid-items-fewer}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/qfatn">Edit this example on CodePen</a></p>
+
+    {{#codepens.cellsByColumnElementSizing}}
+      {{> edit-demo}}
+    {{/codepens.cellsByColumnElementSizing}}
   </div>
 </div>
+
+{{! --------------------------------------------------- }}
+
+<h3>columnWidth</h3>
+
+<p>The width of a column of the horizontal grid.</p>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths or media queries to change the size of items.</p>
+
+<p>If <code>columnWidth</code> is not set, the outer width of the first element will be used.</p>
+
+<p>See examples above.</p>

@@ -9,7 +9,9 @@ title: cellsByRow
     data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 220, "rowHeight": 220 } }'>
     {{> grid-splash-items}}
   </div>
-  <p class="edit"><a href="http://codepen.io/desandro/pen/zFart">Edit this example on CodePen</a></p>
+  {{#codepens.cellsByRow}}
+    {{> edit-demo}}
+  {{/codepens.cellsByRow}}
 </div>
 
 
@@ -31,18 +33,13 @@ bower install isotope-cells-by-row
 npm install isotope-cells-by-row
 ```
 
+{{! --------------------------------------------------- }}
 
-<h1>Options</h1>
+<h2>Options</h2>
 
+{{! --------------------------------------------------- }}
 
-<h2>columnWidth</h2>
-
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
+<h3>columnWidth</h3>
 
 <p>The width of a column of the horizontal grid.</p>
 
@@ -50,47 +47,16 @@ npm install isotope-cells-by-row
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-layoutMode: 'cellsByRow',
-cellsByRow: {
-  columnWidth: 110,
-  rowHeight: 110
-}
-```
+    ``` js
+    layoutMode: 'cellsByRow',
+    cellsByRow: {
+      columnWidth: 110,
+      rowHeight: 110
+    }
+    ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="isotope js-isotope" data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
-      {{> grid-items-fewer}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/zFart">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths or media queries to change the size of items.</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-``` js
-layoutMode: 'cellsByRow',
-itemSelector: '.item',
-cellsByRow: {
-  columnWidth: '.grid-sizer',
-  rowHeight: '.grid-sizer'
-}
-```
-``` css
-.mini-item { width: 10.5%; }
-.mini-item.w2 { width: 23%; }
-/* isotope element option sizing */
-.grid-sizer {
-  width: 20%;
-  height: 110px;
-}
-```
-  </div>
-  <div class="duo__cell example__demo">
-    <div class="isotope cells-by-row-element-sizing js-isotope" data-isotope-options='{ "layoutMode": "cellsByRow", "itemSelector": ".mini-item", "cellsByRow": { "columnWidth": ".grid-sizer", "rowHeight": ".grid-sizer" } }'>
-      <div class="grid-sizer"></div>
+    <div class="grid js-isotope" data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
       {{> grid-items-fewer}}
     </div>
     {{#codepens.cellsByRow}}
@@ -99,15 +65,44 @@ cellsByRow: {
   </div>
 </div>
 
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Isotope will use the width of that element. See <a href="options.html#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths or media queries to change the size of items.</p>
 
-<h2>rowHeight</h2>
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    layoutMode: 'cellsByRow',
+    itemSelector: '.item',
+    percentPosition: true,
+    cellsByRow: {
+      columnWidth: '.grid-sizer',
+      rowHeight: '.grid-sizer'
+    }
+    ```
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
+    ``` css
+    /* isotope element option sizing */
+    .grid-sizer {
+      width: 25%;
+      height: 110px;
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--cells-by-row-element-sizing js-isotope"
+      data-isotope-options='{ "layoutMode": "cellsByRow", "itemSelector": ".grid-item", "percentPosition": true, "cellsByRow": { "columnWidth": ".grid-sizer", "rowHeight": ".grid-sizer" } }'>
+      <div class="grid-sizer"></div>
+      {{> grid-items-fewer}}
+    </div>
+    {{#codepens.cellsByRowElementSizing}}
+      {{> edit-demo}}
+    {{/codepens.cellsByRowElementSizing}}
+  </div>
 </div>
+
+
+{{! --------------------------------------------------- }}
+
+<h3>rowHeight</h3>
 
 <p>The width of a column of the vertical grid.</p>
 

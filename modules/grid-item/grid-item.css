@@ -79,3 +79,49 @@
 .grid--fluid-gutter .grid-item--width2 {
   width: 48%;
 }
+
+/* ---- masonry-horizontal ---- */
+
+.grid--masonry-horizontal-gutter .grid-item--height2 {
+  height: 110px;
+}
+
+/* ----  ---- */
+
+.grid--masonry-horizontal-gutter-right .grid-item {
+  margin-right: 10px;
+}
+
+.grid--masonry-horizontal-gutter-right .grid-item--width2 {
+  width: 110px;
+}
+
+/* ---- cells-by-row-element-sizing ---- */
+
+.grid--cells-by-row-element-sizing .grid-item {
+  width: 13%;
+}
+
+.grid--cells-by-row-element-sizing .grid-item--width2 {
+  width: 23%;
+}
+
+.grid--cells-by-row-element-sizing .grid-sizer {
+  width: 25%;
+  height: 110px;
+}
+
+/* ---- cells-by-column-element-sizing ---- */
+
+.grid--cells-by-column-element-sizing .grid-item {
+  height: 13%;
+}
+
+.grid--cells-by-column-element-sizing .grid-item--width2 {
+  height: 23%;
+}
+
+.grid--cells-by-column-element-sizing .grid-sizer {
+  height: 25%;
+  width: 110px;
+}

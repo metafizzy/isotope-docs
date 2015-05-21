@@ -13,7 +13,6 @@ title: masonryHorizontal
   {{/codepens.masonryHorizontalBasic}}
 </div>
 
-
 <h2>Install</h2>
 
 <p>This layout mode is not included in <a href="../isotope.pkgd.js">isotope.pkgd.js</a> and must be installed separately.</p>
@@ -32,18 +31,13 @@ bower install isotope-masonry-horizontal
 npm install isotope-masonry-horizontal
 ```
 
+{{! --------------------------------------------------- }}
 
-<h1>Options</h1>
+<h2>Options</h2>
 
+{{! --------------------------------------------------- }}
 
-<h2>rowHeight</h2>
-
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
+<h3>rowHeight</h3>
 
 <p>The height of a row of a vertical grid.</p>
 
@@ -51,50 +45,53 @@ npm install isotope-masonry-horizontal
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-layoutMode: 'masonryHorizontal',
-masonryHorizontal: {
-  rowHeight: 50
-}
-```
+    ``` js
+    layoutMode: 'masonryHorizontal',
+    masonryHorizontal: {
+      rowHeight: 50
+    }
+    ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 50 } }'>
-      {{>mini-demo-items}}
+    <div class="grid grid--horizontal grid--counting js-isotope"
+      data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 50 } }'>
+      {{> grid-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/oCiAD">Edit this example on CodePen</a></p>
+    {{#codepens.masonryHorizontalBasic}}
+      {{> edit-demo}}
+    {{/codepens.masonryHorizontalBasic}}
   </div>
 </div>
 
 <p>If set to an <i>Element</i> or Selector <i>String</i>, the height of that element will be used. See <a href="../options.html/#element-sizing">Element sizing</a>. This is useful for responsive design and media queries. <a href="http://codepen.io/desandro/pen/bckrz">See masonryHorizontal element sizing example on CodePen</a>.</p>
 
 
-<h2>gutter</h2>
+{{! needs demo }}
 
-<div class="param">
-  <p class="param__bit param__bit--type">
-    <span class="param__bit__title">Type:</span>
-    <span class="param__bit__value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
+{{! --------------------------------------------------- }}
+
+<h3>gutter</h3>
 
 <p>The vertical space between item elements.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-layoutMode: 'masonryHorizontal',
-masonryHorizontal: {
-  rowHeight: 50,
-  gutter: 10
-}
-```
+    ``` js
+    layoutMode: 'masonryHorizontal',
+    masonryHorizontal: {
+      rowHeight: 50,
+      gutter: 10
+    }
+    ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 50, "gutter": 10 } }'>
-      {{>mini-demo-items}}
+    <div class="grid grid--horizontal grid--counting grid--masonry-horizontal-gutter js-isotope"
+      data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 50, "gutter": 10 } }'>
+      {{> grid-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/pkzxK">Edit this example on CodePen</a></p>
+    {{#codepens.masonryHorizontalGutter}}
+      {{> edit-demo}}
+    {{/codepens.masonryHorizontalGutter}}
   </div>
 </div>
 
@@ -102,25 +99,31 @@ masonryHorizontal: {
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-layoutMode: 'masonryHorizontal',
-masonryHorizontal: {
-  rowHeight: 50,
-  gutter: 10
-}
-```
-``` css
-#masonry-horizontal-right-spaced .mini-item {
-  margin-right: 10px;
-}
-```
+    ``` js
+    layoutMode: 'masonryHorizontal',
+    masonryHorizontal: {
+      rowHeight: 50,
+      gutter: 10
+    }
+    ```
+
+    ``` css
+    .grid-item {
+      margin-right: 10px;
+    }
+    ```
   </div>
   <div class="duo__cell example__demo">
-    <div id="masonry-horizontal-right-spaced" class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 50, "gutter": 10 } }'>
-      {{>mini-demo-items}}
+    <div class="grid grid--horizontal grid--counting grid--masonry-horizontal-gutter grid--masonry-horizontal-gutter-right js-isotope"
+      data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 50, "gutter": 10 } }'>
+      {{> grid-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/gsJlr">Edit this example on CodePen</a></p>
+    {{#codepens.masonryHorizontalGutterRight}}
+      {{> edit-demo}}
+    {{/codepens.masonryHorizontalGutterRight}}
   </div>
 </div>
 
 <p>If set to an <i>Element</i> or Selector <i>String</i>, the outer height of that element will be used. See <a href="../options.html#element-sizing">Element sizing</a>. This is useful for responsive design and media queries. <a href="http://codepen.io/desandro/pen/klrvb">See masonryHorizontal element sizing with gutter example on CodePen</a>.</p>
+
+{{! needs demo }}
