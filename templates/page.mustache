@@ -8,9 +8,6 @@
 
   <title>Isotope{{#unless page.is_homepage}} &middot; {{page.title}}{{/unless}}</title>
 
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700" />
-
-  <!-- Isotope does not require any CSS files -->
   {{#if is_dev}}
     {{! DEV MODE - including each .css file }}
     {{#each css_paths}}
@@ -18,6 +15,7 @@
     {{/each}}
   {{else}}
     {{! in production, just include concat CSS }}
+    <!-- Isotope does not require any CSS files -->
     <link rel="stylesheet" href="{{#if page.is_404}}/{{else}}{{root_path}}{{/if}}css/isotope-docs.css" media="screen" />
   {{/if}}
 

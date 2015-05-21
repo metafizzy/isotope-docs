@@ -153,6 +153,12 @@ a:hover code {
   background: #D26;
 }
 
+.clearfix:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
 @media screen and ( min-width: 768px ) {
 
   html {

@@ -39,7 +39,7 @@
   }
 
   /* hide h1 on index */
-  .index-page .nav__title {
+  .page--index .nav__title {
     visibility: hidden;
   }
 
