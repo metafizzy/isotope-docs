@@ -203,8 +203,6 @@ iso.stamp( elements )
 
 <p>Stamping is only supported by some layout modes: <a href="{{root_path}}layout-modes/masonry.html">masonry</a>, <a href="{{root_path}}layout-modes/packery.html">packery</a> and <a href="{{root_path}}layout-modes/masonryhorizontal.html">masonryhorizontal</a>.</p>
 
-<p>Set <a href="options.html#itemselector"><code>itemSelector</code></a> so that stamps do not get used as layout items.</p>
-
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
@@ -652,31 +650,6 @@ var elems = iso.getItemElements()
   <code class="variable__code">elems</code>
   <span class="variable__type"><i>Array</i> of <i>Element</i>s</span>
 </p>
-
-{{! --------------------------------------------------- }}
-
-{{!
-<h3>getItem</h3>
-
-<p>Returns an <i>Isotope.Item</i> from an element.</p>
-
-``` js
-// jQuery
-var item = $grid.isotope( 'getItem', element )
-// vanilla JS
-var item = iso.getItem( element )
-```
-
-<p class="variable">
-  <code class="variable__code">element</code>
-  <span class="variable__type"><i>Element</i></span>
-</p>
-
-<p class="variable">
-  <code class="variable__code">item</code>
-  <span class="variable__type"><i>Isotope.Item</i></span>
-</p>
-}}
 
 {{! --------------------------------------------------- }}
 
