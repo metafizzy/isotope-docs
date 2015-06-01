@@ -10,7 +10,7 @@ title: Events
 var $grid = $('.grid').isotope({...});
 
 function onArrange() {
-  console.log('layout done');
+  console.log('arrange done');
 }
 // bind event listener
 $grid.isotope( 'on', 'arrangeComplete', onArrange );
@@ -26,7 +26,7 @@ $grid.isotope( 'once', 'arrangeComplete', function() {
 
 <h3>arrangeComplete</h3>
 
-<p>Triggered after <a href="http://localhost/isotope-docs/build/methods.html#arrange-isotope"><code>.isotope({...})</code>/<code>arrange</code></a>, when all layout, hide, and reveal transitions have completed.</p>
+<p>Triggered after <a href="methods.html#arrange-isotope"><code>.isotope({...})</code>/<code>arrange</code></a>, when all layout, hide, and reveal transitions have completed.</p>
 
 
 ``` js
@@ -60,7 +60,7 @@ iso.on( 'arrangeComplete', function( filteredItems ) {} )
 
 <h3>layoutComplete</h3>
 
-<p>Triggered after a layout and all positioning transitions have been completed.</p>
+<p>Triggered after a layout and all positioning transitions have completed.</p>
 
 
 ``` js
