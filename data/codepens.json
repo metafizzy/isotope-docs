@@ -41,6 +41,12 @@
   "fitRows": {
     "default": "nCskp"
   },
+  "fit_rows_gutter": {
+    "default": "vOxJRG"
+  },
+  "fit_rows_gutter_fluid": {
+    "default": "WvpEyM"
+  },
   "heroDemo": {
     "default": "nFrte"
   },

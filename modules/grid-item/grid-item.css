@@ -125,3 +125,8 @@
   height: 25%;
   width: 110px;
 }
+
+/* ---- fitrows-gutter ---- */
+
+.grid--fit-rows-gutter .grid-item--width2 { width: 110px; }
+.grid--fit-rows-gutter .grid-item--width3 { width: 170px; }
