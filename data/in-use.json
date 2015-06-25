@@ -1,5 +1,40 @@
 [
   {
+    "title": "TylerPerry.com",
+    "url": "http://www.tylerperry.com/entertainment/",
+    "image": "http://i.imgur.com/M4WWoiC.jpg"
+  },
+  {
+    "title": "New York Times",
+    "url": "http://www.nytimes.com/interactive/2012/12/24/sports/basketball/pick-your-all-time-new-york-city-nba-team.html",
+    "image": "http://i.imgur.com/a8DsGOg.jpg"
+  },
+  {
+    "title": "Rimmel London",
+    "url": "http://uk.rimmellondon.com/products/all",
+    "image": "http://i.imgur.com/ykVIUTD.jpg"
+  },
+  {
+    "title": "BBC - Flight Risk",
+    "url": "http://www.bbc.com/future/bespoke/20140724-flight-risk/",
+    "image": "http://i.imgur.com/zDc6cDu.jpg"
+  },
+  {
+    "title": "Whole Foods Market",
+    "url": "http://www.wholefoodsmarket.com/",
+    "image": "http://i.imgur.com/z6T2zcO.jpg"
+  },
+  {
+    "title": "Merrill Lynch",
+    "url": "https://www.ml.com/financial-goals-and-priorities/home.html",
+    "image": "http://i.imgur.com/FRkY3M0.jpg"
+  },
+  {
+    "title": "Gallup",
+    "url": "http://www.gallup.com/",
+    "image": "http://i.imgur.com/q8Z1OIf.jpg"
+  },
+  {
     "title": "Patchwork",
     "url": "http://patchwork.stylehatch.co/",
     "image": "http://i.imgur.com/d4c5KdG.jpg"
@@ -10,32 +45,12 @@
     "image": "http://i.imgur.com/BjZDpte.jpg"
   },
   {
-    "title": "Seriously Amazing | Smithsonian",
+    "title": "Smithsonian",
     "url": "http://seriouslyamazing.si.edu/",
     "image": "http://i.imgur.com/844IN6P.jpg"
   },
   {
-    "title": "TylerPerry.com - Entertainment",
-    "url": "http://www.tylerperry.com/entertainment/",
-    "image": "http://i.imgur.com/M4WWoiC.jpg"
-  },
-  {
-    "title": "Pick Your All-Time New York City N.B.A. Team",
-    "url": "http://www.nytimes.com/interactive/2012/12/24/sports/basketball/pick-your-all-time-new-york-city-nba-team.html",
-    "image": "http://i.imgur.com/a8DsGOg.jpg"
-  },
-  {
-    "title": "Products | Rimmel London",
-    "url": "http://uk.rimmellondon.com/products/all",
-    "image": "http://i.imgur.com/ykVIUTD.jpg"
-  },
-  {
-    "title": "Flight Risk | BBC",
-    "url": "http://www.bbc.com/future/bespoke/20140724-flight-risk/",
-    "image": "http://i.imgur.com/zDc6cDu.jpg"
-  },
-  {
-    "title": "Explore KC | Press",
+    "title": "Explore KC",
     "url": "http://explore-kc.com/press.html",
     "image": "http://i.imgur.com/V8M2dY7.jpg"
   },
@@ -60,7 +75,7 @@
     "image": "http://i.imgur.com/gVlXtYk.jpg"
   },
   {
-    "title": "You and Who | Our Shirts",
+    "title": "You and Who",
     "url": "http://www.youandwho.com/shirts",
     "image": "http://i.imgur.com/wjXQx5I.jpg"
   },
@@ -70,7 +85,7 @@
     "image": "http://i.imgur.com/ER6LINu.jpg"
   },
   {
-    "title": "Ortega Graphics | Logos",
+    "title": "Ortega Graphics",
     "url": "http://ortegagraphics.com/logos.html",
     "image": "http://i.imgur.com/RZj2El4.jpg"
   }
