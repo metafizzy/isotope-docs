@@ -14,7 +14,7 @@ ID.modules['remove-complete-demo'] = function( elem ) {
   });
 
   // bind listener
-  $grid.isotope( 'on', 'removeComplete', function( removedItems ) {
+  $grid.on( 'removeComplete', function( event, removedItems ) {
     ID.notify( 'Removed ' + removedItems.length + ' items' );
   });
 

@@ -14,7 +14,7 @@ ID.modules['arrange-complete-demo'] = function( elem ) {
   });
 
   // bind listener
-  $grid.isotope( 'on', 'arrangeComplete', function( filteredItems ) {
+  $grid.on( 'arrangeComplete', function( event, filteredItems ) {
     ID.notify( 'Isotope arrange completed on ' + filteredItems.length + ' items' );
   });
 

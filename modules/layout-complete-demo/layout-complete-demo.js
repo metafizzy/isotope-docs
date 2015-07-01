@@ -14,7 +14,7 @@ ID.modules['layout-complete-demo'] = function( elem ) {
   });
 
   // bind listener
-  $grid.isotope( 'on', 'layoutComplete', function( laidOutItems ) {
+  $grid.on( 'layoutComplete', function( event, laidOutItems ) {
     ID.notify( 'Isotope layout completed on ' + laidOutItems.length + ' items' );
   });
 

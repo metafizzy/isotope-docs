@@ -4,23 +4,75 @@ title: Events
 
 <div id="notification"></div>
 
-<p>Bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
+{{! --------------------------------------------------- }}
 
-```js
+<h2>Event binding</h2>
+
+{{! --------------------------------------------------- }}
+
+<h3>jQuery event binding</h3>
+
+{{! --------------------------------------------------- }}
+
+<p>Bind events with jQuery with standard jQuery event methods <code>.on()</code>, <code>.off()</code>, and <code>.one()</code>.</p>
+
+``` js
+// jQuery
 var $grid = $('.grid').isotope({...});
 
 function onArrange() {
   console.log('arrange done');
 }
 // bind event listener
-$grid.isotope( 'on', 'arrangeComplete', onArrange );
+$grid.on( 'arrangeComplete', onArrange );
 // un-bind event listener
-$grid.isotope( 'off', 'arrangeComplete', onArrange );
-// bind event listener to be triggered just once
-$grid.isotope( 'once', 'arrangeComplete', function() {
+$grid.off( 'arrangeComplete', onArrange );
+// bind event listener to be triggered just once. note ONE not ON
+$grid.one( 'arrangeComplete', function() {
   console.log('arrange done, just this one time');
 });
 ```
+
+<p>jQuery event listeners have an <code>event</code> argument, whereas vanilla JS listeners do not.</p>
+
+``` js
+// jQuery, has event argument
+$grid.on( 'arrangeComplete', function( event, filteredItems ) {
+  console.log( filteredItems.length );
+});
+
+// vanilla JS, no event argument
+iso.on( 'arrangeComplete', function( filteredItems ) {
+  console.log( filteredItems.length );
+});
+```
+
+{{! --------------------------------------------------- }}
+
+<h3>Vanilla JS event binding</h3>
+
+<p>Bind events with vanilla JS with <a href="methods.html#on">.on()</a>, <a href="methods.html#off">.off()</a>, and <a href="methods.html#once">.once()</a> methods.</p>
+
+```js
+// vanilla JS
+var iso = new Isotope( '.grid', {...});
+
+function onArrange() {
+  console.log('arrange done');
+}
+// bind event listener
+iso.on( 'arrangeComplete', onArrange );
+// un-bind event listener
+iso.off( 'arrangeComplete', onArrange );
+// bind event listener to be triggered just once
+iso.once( 'arrangeComplete', function() {
+  console.log('arrange done, just this one time');
+});
+```
+
+{{! --------------------------------------------------- }}
+
+<h2>Isotope events</h2>
 
 {{! --------------------------------------------------- }}
 
@@ -28,12 +80,11 @@ $grid.isotope( 'once', 'arrangeComplete', function() {
 
 <p>Triggered after <a href="methods.html#arrange-isotope"><code>.isotope({...})</code>/<code>arrange</code></a>, when all layout, hide, and reveal transitions have completed.</p>
 
-
 ``` js
 // jQuery
-$grid.isotope( 'on', 'arrangeComplete', function( filteredItems ) {} )
+$grid.on( 'arrangeComplete', function( event, filteredItems ) {...} )
 // vanilla JS
-iso.on( 'arrangeComplete', function( filteredItems ) {} )
+iso.on( 'arrangeComplete', function( filteredItems ) {...} )
 ```
 
 <p class="variable">
@@ -45,8 +96,8 @@ iso.on( 'arrangeComplete', function( filteredItems ) {} )
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    $grid.isotope( 'on', 'arrangeComplete',
-      function( filteredItems ) {
+    $grid.on( 'arrangeComplete',
+      function( event, filteredItems ) {
         console.log( 'Isotope arrange completed on ' +
           filteredItems.length + ' items' );
       }
@@ -65,9 +116,9 @@ iso.on( 'arrangeComplete', function( filteredItems ) {} )
 
 ``` js
 // jQuery
-$grid.isotope( 'on', 'layoutComplete', function( laidOutItems ) {} )
+$grid.on( 'layoutComplete', function( event, laidOutItems ) {...} )
 // vanilla JS
-iso.on( 'layoutComplete', function( laidOutItems ) {} )
+iso.on( 'layoutComplete', function( laidOutItems ) {...} )
 ```
 
 <p class="variable">
@@ -79,8 +130,8 @@ iso.on( 'layoutComplete', function( laidOutItems ) {} )
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    $grid.isotope( 'on', 'layoutComplete',
-      function( laidOutItems ) {
+    $grid.on( 'layoutComplete',
+      function( event, laidOutItems ) {
         console.log( 'Isotope layout completed on ' +
           laidOutItems.length + ' items' );
       }
@@ -96,9 +147,9 @@ iso.on( 'layoutComplete', function( laidOutItems ) {} )
 
 ``` js
 // jQuery
-$grid.isotope( 'on', 'removeComplete', function( removedItems ) {} )
+$grid.on( 'removeComplete', function( event, removedItems ) {...} )
 // vanilla JS
-iso.on( 'removeComplete', function( removedItems ) { //...
+iso.on( 'removeComplete', function( removedItems ) {...} )
 ```
 
 <p>Triggered after an item element has been removed.</p>
@@ -112,9 +163,9 @@ iso.on( 'removeComplete', function( removedItems ) { //...
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    $grid.isotope( 'on', 'removeComplete',
-      function( removedItems ) {
-        notify( 'Removed ' + removedItems.length + ' items' );
+    $grid.on( 'removeComplete',
+      function( event, removedItems ) {
+        console.log( 'Removed ' + removedItems.length + ' items' );
       }
     );
     ```
