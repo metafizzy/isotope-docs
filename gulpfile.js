@@ -233,9 +233,9 @@ function buildContent( dataOptions ) {
   // gulp task
   return function() {
     var data = extend( siteData, dataOptions );
-    // data.source_url_path = data.is_export ? '' :
-    //   'http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/' + data.isotope_version + '/';
-    data.source_url_path = '';
+    data.source_url_path = data.is_export ? '' :
+      'http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/' + data.isotope_version + '/';
+    // data.source_url_path = '';
     var filter = gulpFilter( filterQuery );
 
     var buildOptions = {
