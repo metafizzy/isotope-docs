@@ -44,25 +44,6 @@
   font-size: 1.2rem;
 }
 
-/* ---- refactor-shirt ---- */
-
-.refactor-shirt {
-  margin: 40px 0;
-}
-
-.refactor-shirt h3 {
-  font-size: 1.6rem;
-}
-
-.refactor-shirt img {
-  display: block;
-  width: 100%;
-  max-width: 1000px;
-  margin-bottom: 10px;
-}
-
-
-
 /* desktop */
 @media screen and ( min-width: 768px ) {
   .site-footer {
