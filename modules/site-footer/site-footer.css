@@ -11,30 +11,24 @@
 
 /* ---- brand ---- */
 
+
 .site-footer__brand {
-  bottom: 20px;
-  text-align: center;
-  font-size: 0.8em;
+  padding: 0 10px;
 }
 
-.site-footer__brand__logo {
-  display: block;
-  font-size: 80px;
-  line-height: 1.3;
-  background: none;
-  color: #4BF;
-  opacity: 0.5;
-  /* use custom font for logo */
-  font-family: 'Metafizzy Logo', sans-serif;
+.site-footer .metafizzy-logo {
+  display: inline-block;
+  width: 50px;
 }
 
-.site-footer__brand__logo .etafizzy {
-  display: none;
+.site-footer .metafizzy-wordmark {
+  display: inline-block;
+  width: 160px;
+  height: auto;
 }
 
-.site-footer__brand__logo:hover {
-  color: #FB4;
-  opacity: 1;
+.site-footer__brand__link:hover .metafizzy-wordmark {
+  fill: #4BF;
 }
 
 /* ---- footer-copy ---- */
@@ -53,11 +47,19 @@
   .site-footer__brand {
     width: 200px;
     position: absolute;
-    left: 0;
-    top: 20px;
+    left: 10px;
+    top: 50px;
   }
 
-  .site-footer__brand__logo {
-    font-size: 130px;
+  .site-footer .metafizzy-logo {
+    display: block;
+    width: 100px;
+    margin: 20px auto 10px;
+  }
+
+  .site-footer .metafizzy-wordmark {
+    display: block;
+    width: 140px;
+    margin: 0 auto;
   }
 }

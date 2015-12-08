@@ -12,8 +12,10 @@
 
   <div class="site-footer__brand">
     {{! logo is broken up so font renders just the logo in M }}
-    <a class="site-footer__brand__logo" href="http://metafizzy.co">M<span class="etafizzy">etafizzy</span></a>
-    <span class="site-footer__brand__copyright">&copy; 2011&ndash;2015</span>
+    <a class="site-footer__brand__link" href="http://metafizzy.co">
+      {{> metafizzy-logo}}
+      {{> metafizzy-wordmark}}
+    </a>
   </div>
 
 </div>

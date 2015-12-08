@@ -34,31 +34,6 @@ body {
   background: #262524;
 }
 
-/* margins */
-/*h1, h2, h3, h4, h5, h6,
-p,
-ol, ul,
-pre {
-  margin-top: 0;
-  margin-bottom: 1.0em;
-}*/
-
-/* Fonts
-------------------------- */
-
-/* montserrat */
-
-/* metafizzy logo */
-@font-face {
-  font-family: 'Metafizzy Logo';
-  src: url('../fonts/metafizzylogo-regular.eot');
-  src: url('../fonts/metafizzylogo-regular.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/metafizzylogo-regular.woff') format('woff'),
-       url('../fonts/metafizzylogo-regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* ---- links ---- */
 
 a,
