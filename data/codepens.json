@@ -13,6 +13,12 @@
   "arrangeComplete": {
     "default": "pvXxRN"
   },
+  "bootstrap3": {
+    "default": "yeezdp"
+  },
+  "bootstrap3_mq": {
+    "default": "addLrQ"
+  },
   "cellsByColumnBasic": {
     "default": "qAlEy"
   },
