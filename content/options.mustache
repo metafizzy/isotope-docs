@@ -65,9 +65,7 @@ var iso = new Isotope( '.grid', {
       <div class="static-banner">Static banner</div>
       {{> grid-items}}
     </div>
-    {{#codepens.itemSelector}}
-      {{> edit-demo}}
-    {{/codepens.itemSelector}}
+    {{> edit-demo default="yNOdxr" }}
   </div>
 </div>
 
@@ -97,9 +95,7 @@ var iso = new Isotope( '.grid', {
       data-isotope-options='{ "masonry": { "columnWidth": 50 }}'>
       {{> grid-items}}
     </div>
-    {{#codepens.isResizeBound}}
-      {{> edit-demo}}
-    {{/codepens.isResizeBound}}
+    {{> edit-demo default="LVNKab" }}
   </div>
 </div>
 
@@ -140,9 +136,7 @@ $grid.isotope( 'on', 'arrangeComplete', function() {
 $grid.isotope();
 ```
 
-{{#codepens.isInitLayout}}
-  {{> edit-demo}}
-{{/codepens.isInitLayout}}
+{{> edit-demo default="doXbZL" }}
 
 {{! --------------------------------------------------- }}
 
@@ -184,9 +178,7 @@ $grid.isotope();
       <div class="grid-sizer"></div>
       {{> grid-items-fewer}}
     </div>
-    {{#codepens.masonryFluid}}
-      {{> edit-demo}}
-    {{/codepens.masonryFluid}}
+    {{> edit-demo default="mIkhq" }}
   </div>
 </div>
 
@@ -235,9 +227,7 @@ $grid.isotope();
       {{> grid-items-fewer}}
     </div>
 
-    {{#codepens.masonryFluid}}
-      {{> edit-demo}}
-    {{/codepens.masonryFluid}}
+    {{> edit-demo default="mIkhq" }}
   </div>
 </div>
 
@@ -329,9 +319,7 @@ masonry: {
       {{> grid-items}}
     </div>
 
-    {{#codepens.stampOption}}
-      {{> edit-demo}}
-    {{/codepens.stampOption}}
+    {{> edit-demo default="jfhnx" }}
   </div>
 </div>
 
@@ -365,9 +353,8 @@ stamp: $grid.find('.stamp')
       data-isotope-options='{ "isOriginLeft": false, "masonry": { "columnWidth": 50 } }'>
       {{> grid-items}}
     </div>
-    {{#codepens.isOriginLeft}}
-      {{> edit-demo}}
-    {{/codepens.isOriginLeft}}
+
+    {{> edit-demo default="gadFJ" }}
   </div>
 </div>
 
@@ -388,9 +375,7 @@ stamp: $grid.find('.stamp')
       data-isotope-options='{ "isOriginTop": false }'>
       {{> grid-items}}
     </div>
-    {{#codepens.isOriginTop}}
-      {{> edit-demo}}
-    {{/codepens.isOriginTop}}
+    {{> edit-demo default="kxFJH" }}
   </div>
 </div>
 
@@ -564,8 +549,6 @@ $grid.isotope({
 
 {{! **needs demo** }}
 
-{{#codepens.hiddenStyleVisibleStyle}}
-  {{> edit-demo}}
-{{/codepens.hiddenStyleVisibleStyle}}
+{{> edit-demo default="lxzDA" }}
 
 {{! --------------------------------------------------- }}

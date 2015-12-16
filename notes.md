@@ -27,9 +27,7 @@ filtering & quick search
   </div>
   <div class="duo__cell example__demo">
     
-    {{#codepens.penname}}
-      {{> edit-demo}}
-    {{/codepens.penname}}
+    {{> edit-demo default="PEN_ID" vanillaJS="PEN_ID" }}
   </div>
 </div>
 
