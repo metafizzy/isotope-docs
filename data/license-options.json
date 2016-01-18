@@ -3,18 +3,21 @@
     "title": "Developer",
     "for": "1 developer",
     "price": "25",
-    "simplegoods_id": "WFOLIVJF"
+    "simplegoods_id": "WFOLIVJF",
+    "gumroad_slug": "isotope-dev"
   },
   "team": {
     "title": "Team",
     "for": "up to 8 developers",
     "price": "110",
-    "simplegoods_id": "QZAXGOUY"
+    "simplegoods_id": "QZAXGOUY",
+    "gumroad_slug": "isotope-team"
   },
   "organization": {
     "title": "Organization",
     "for": "Unlimited developers",
     "price": "290",
-    "simplegoods_id": "NWONVKMO"
+    "simplegoods_id": "NWONVKMO",
+    "gumroad_slug": "isotope-org"
   }
 }
