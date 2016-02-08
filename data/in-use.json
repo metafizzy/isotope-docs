@@ -1,8 +1,8 @@
 [
   {
-    "title": "TylerPerry.com",
-    "url": "http://www.tylerperry.com/entertainment/",
-    "image": "http://i.imgur.com/M4WWoiC.jpg"
+    "title": "NASA",
+    "url": "https://www.nasa.gov/",
+    "image": "http://i.imgur.com/w0RCtOp.jpg"
   },
   {
     "title": "New York Times",
@@ -15,9 +15,19 @@
     "image": "http://i.imgur.com/ykVIUTD.jpg"
   },
   {
+    "title": "Kia",
+    "url": "http://www.kia.ca/all-vehicles",
+    "image": "http://i.imgur.com/f86QG9u.jpg"
+  },
+  {
     "title": "BBC - Flight Risk",
     "url": "http://www.bbc.com/future/bespoke/20140724-flight-risk/",
     "image": "http://i.imgur.com/zDc6cDu.jpg"
+  },
+  {
+    "title": "TylerPerry.com",
+    "url": "http://www.tylerperry.com/entertainment/",
+    "image": "http://i.imgur.com/M4WWoiC.jpg"
   },
   {
     "title": "Whole Foods Market",
@@ -45,11 +55,6 @@
     "image": "http://i.imgur.com/BjZDpte.jpg"
   },
   {
-    "title": "Smithsonian",
-    "url": "http://seriouslyamazing.si.edu/",
-    "image": "http://i.imgur.com/844IN6P.jpg"
-  },
-  {
     "title": "Explore KC",
     "url": "http://explore-kc.com/press.html",
     "image": "http://i.imgur.com/V8M2dY7.jpg"
@@ -58,11 +63,6 @@
     "title": "Design Inspiration / Bench.li",
     "url": "http://bench.li/",
     "image": "http://i.imgur.com/Jr3XuHp.jpg"
-  },
-  {
-    "title": "NASA",
-    "url": "https://www.nasa.gov/",
-    "image": "http://i.imgur.com/w0RCtOp.jpg"
   },
   {
     "title": "Gimmick Book",
@@ -78,11 +78,6 @@
     "title": "Northlich",
     "url": "http://www.northlich.com/",
     "image": "http://i.imgur.com/gVlXtYk.jpg"
-  },
-  {
-    "title": "You and Who",
-    "url": "http://www.youandwho.com/shirts",
-    "image": "http://i.imgur.com/wjXQx5I.jpg"
   },
   {
     "title": "Biodroid",
