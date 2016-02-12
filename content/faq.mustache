@@ -2,6 +2,7 @@
 title: FAQ
 ---
 
+{{! --------------------------------------------------- }}
 
   <h2>How do I fix overlapping item elements?</h2>
 
@@ -9,11 +10,13 @@ title: FAQ
 
   <p>Overlaping items are caused by items that change size after a layout. This is caused by unloaded media: images, <a href="appendix.html#web-fonts">web fonts</a>, embedded buttons. To fix it, you need to initialize or <a href="methods.html#layout"><code>layout</code></a> after all the items have their proper size.</p>
 
+{{! --------------------------------------------------- }}
 
   <h2>What is Isotope&rsquo;s browser support?</h2>
 
   <p>Isotope works in IE8+ and modern browsers, including mobile browsers on iOS and Android.</p>
 
+{{! --------------------------------------------------- }}
 
   <h2>What is the difference between Isotope, Masonry, and Packery?</h2>
 
@@ -25,6 +28,7 @@ title: FAQ
 
   <p>Masonry is licensed MIT and is freely available for use and distribution. Isotope and Packery have a proprietary license, where you can purchase a license for commercial projects, or use it freely for open-source projects.</p>
 
+{{! --------------------------------------------------- }}
 
 <h2>The first item breaks the grid!</h2>
 
@@ -38,6 +42,7 @@ $('.grid').isotope({
 });
 ```
 
+{{! --------------------------------------------------- }}
 
 <h2>How can I access filtered items in current order?</h2>
 
@@ -57,6 +62,31 @@ console.log( 'filtered ' + iso.filteredItems.length + ' items' );
 console.log( iso.filteredItems[0].element );
 ```
 
+{{! --------------------------------------------------- }}
+
+<h2>Items jump after transitioning position</h2>
+
+<p>This double transition jump bug occurs when CSS transitions are enable for all properties on item elements.</p>
+
+``` css
+.grid-item {
+  transition: all 0.4s;
+}
+```
+
+{{> edit-demo default="NxoRxp" }}
+
+<p>Fix it by setting <code>transition</code> properties to only the properties that will be transitioning.</p>
+
+``` css
+.grid-item {
+  transition: background 0.4s, box-shadow 0.4s;
+}
+```
+
+{{> edit-demo default="qbgaRG" }}
+
+{{! --------------------------------------------------- }}
 
 <h2>Error: &ldquo;cannot call methods on isotope prior to initialization; attempted to call '___'&rdquo;</h2>
 
