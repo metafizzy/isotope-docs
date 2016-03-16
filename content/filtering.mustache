@@ -120,7 +120,7 @@ var $grid = $('.grid').isotope({
 // filter items on button click
 $('.filter-button-group').on( 'click', 'button', function() {
   var filterValue = $(this).attr('data-filter');
-  $container.isotope({ filter: filterValue });
+  $grid.isotope({ filter: filterValue });
 });
 ```
 
@@ -239,7 +239,7 @@ function getHashFilter() {
 
 $( function() {
 
-  var $container = $('.isotope');
+  var $grid = $('.isotope');
 
   // bind filter button click
   var $filters = $('#filters').on( 'click', 'button', function() {
@@ -257,7 +257,7 @@ $( function() {
     }
     isIsotopeInit = true;
     // filter isotope
-    $container.isotope({
+    $grid.isotope({
       itemSelector: '.element-item',
       filter: hashFilter
     });
