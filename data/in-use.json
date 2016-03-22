@@ -10,6 +10,11 @@
     "image": "http://i.imgur.com/a8DsGOg.jpg"
   },
   {
+    "title": "Malika Favre",
+    "url": "http://malikafavre.com/",
+    "image": "http://i.imgur.com/0HvLvih.png"
+  },
+  {
     "title": "Rimmel London",
     "url": "http://uk.rimmellondon.com/products/all",
     "image": "http://i.imgur.com/ykVIUTD.jpg"
@@ -70,23 +75,8 @@
     "image": "http://i.imgur.com/IuLghbY.jpg"
   },
   {
-    "title": "Create the Bridge",
-    "url": "http://www.createthebridge.com/portfolio.html",
-    "image": "http://i.imgur.com/TzesDQh.jpg"
-  },
-  {
-    "title": "Northlich",
-    "url": "http://www.northlich.com/",
-    "image": "http://i.imgur.com/gVlXtYk.jpg"
-  },
-  {
     "title": "Biodroid",
     "url": "http://www.biodroid-entertainment.com/",
     "image": "http://i.imgur.com/ER6LINu.jpg"
-  },
-  {
-    "title": "Ortega Graphics",
-    "url": "http://ortegagraphics.com/logos.html",
-    "image": "http://i.imgur.com/RZj2El4.jpg"
   }
 ]
