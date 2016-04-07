@@ -5,7 +5,8 @@
 ID.modules['animate-item-size-responsive'] = function( elem ) {
   'use strict';
 
-  var transitionProp = getStyleProperty('transition');
+  var transitionProp = typeof docElemStyle.transition == 'string' ?
+    'transition' : 'WebkitTransition';
   var transitionEndEvent = {
     WebkitTransition: 'webkitTransitionEnd',
     MozTransition: 'transitionend',

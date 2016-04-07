@@ -1,23 +1,17 @@
 {
   "name": "isotope-docs",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "author": "Metafizzy",
   "dependencies": {
-    "classie": "1.x",
-    "doc-ready": "1.x",
-    "eventie": "1.x",
-    "get-style-property": "1.x",
-    "get-size": "1.2.x",
-    "imagesloaded": "3.x",
-    "isotope": "2.x",
+    "get-size": "^2.0.0",
+    "imagesloaded": "^4.0.0",
+    "isotope": "v3",
     "isotope-cells-by-column": "1.x",
     "isotope-cells-by-row": "1.x",
     "isotope-fit-columns": "1.x",
     "isotope-horizontal": "1.x",
-    "isotope-masonry-horizontal": "1.x",
-    "isotope-packery": "1.x",
-    "jquery": "~1",
-    "jquery-bridget": "~1.1.0",
-    "normalize.css": "~3"
+    "isotope-masonry-horizontal": "v2",
+    "isotope-packery": "v2",
+    "normalize.css": "^4.0.0"
   }
 }

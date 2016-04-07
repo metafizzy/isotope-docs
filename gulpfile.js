@@ -54,15 +54,10 @@ gulp.task( 'dist', function() {
 
 var jsSrc = [
   // isotope dependencies
-  'bower_components/get-style-property/get-style-property.js',
   'bower_components/get-size/get-size.js',
-  'bower_components/matches-selector/matches-selector.js',
-  'bower_components/eventEmitter/EventEmitter.js',
-  'bower_components/eventie/eventie.js',
-  'bower_components/doc-ready/doc-ready.js',
-  'bower_components/classie/classie.js',
+  'bower_components/desandro-matches-selector/matches-selector.js',
+  'bower_components/ev-emitter/ev-emitter.js',
   'bower_components/fizzy-ui-utils/utils.js',
-  'bower_components/jquery-bridget/jquery.bridget.js',
   'bower_components/outlayer/item.js',
   'bower_components/outlayer/outlayer.js',
   // isotope

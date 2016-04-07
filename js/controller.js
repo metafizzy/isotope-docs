@@ -14,8 +14,8 @@ var notifElem;
 
 // -------------------------- page controller -------------------------- //
 
-docReady( function() {
-  // get some elements
+// get some elements
+document.addEventListener( 'DOMContentLoaded', function() {
   notifElem = document.querySelector('#notification');
 
   $('.js-radio-button-group').radioButtonGroup();
@@ -56,17 +56,17 @@ function setText( elem, value ) {
 
 // -------------------------- notify -------------------------- //
 
-var transitionProp = getStyleProperty('transition');
+var docElemStyle = document.documentElement.style;
+
+var transitionProp = typeof docElemStyle.transition == 'string' ?
+  'transition' : 'WebkitTransition';
 
 var notifyTimeout;
-var hideTime = transitionProp ? 1000 : 1500;
 
 ID.notify = function( message ) {
   setText( notifElem, message + ' at ' + getTimestamp() );
 
-  if ( transitionProp ) {
-    notifElem.style[ transitionProp ] = 'none';
-  }
+  notifElem.style[ transitionProp ] = 'none';
   notifElem.style.display = 'block';
   notifElem.style.opacity = '1';
 
@@ -75,7 +75,7 @@ ID.notify = function( message ) {
     clearTimeout( notifyTimeout );
   }
 
-  notifyTimeout = setTimeout( ID.hideNotify, hideTime );
+  notifyTimeout = setTimeout( ID.hideNotify, 1000 );
 };
 
 function getTimestamp() {
