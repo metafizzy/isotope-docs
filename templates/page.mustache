@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="{{#if is_export}}export{{/if}}">
+<html class="{{#if isExport}}export{{/if}}">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -8,15 +8,15 @@
 
   <title>Isotope{{#unless page.is_homepage}} &middot; {{page.title}}{{/unless}}</title>
 
-  {{#if is_dev}}
+  {{#if isDev}}
     {{! DEV MODE - including each .css file }}
     {{#each css_paths}}
-      <link rel="stylesheet" href="../{{../root_path}}{{this}}" />
+      <link rel="stylesheet" href="../{{../rootPath}}{{this}}" />
     {{/each}}
   {{else}}
     {{! in production, just include concat CSS }}
     <!-- Isotope does not require any CSS files -->
-    <link rel="stylesheet" href="{{#if page.is_404}}/{{else}}{{root_path}}{{/if}}css/isotope-docs.css" media="screen" />
+    <link rel="stylesheet" href="{{#if page.is_404}}/{{else}}{{rootPath}}{{/if}}css/isotope-docs.css" media="screen" />
   {{/if}}
 
   {{! Twitter Cards }}
@@ -52,19 +52,19 @@
 <!-- Looking for isotope.js? Use {{source_url_path}}isotope.pkgd.min.js -->
 <!-- Isotope does NOT require jQuery. But it does make things easier -->
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{root_path}}/jquery.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="{{rootPath}}/jquery.min.js"><\/script>')</script>
 
-{{#if is_dev}}
+{{#if isDev}}
   {{#each js_paths}}
     {{! DEV MODE - including each .js file }}
-    <script src="../{{../root_path}}{{this}}"></script>
+    <script src="../{{../rootPath}}{{this}}"></script>
   {{/each}}
 {{else}}
   {{! in production, just include concat/minified js }}
-  <script src="{{#if page.is_404}}/{{else}}{{root_path}}{{/if}}js/isotope-docs.min.js"></script>
+  <script src="{{#if page.is_404}}/{{else}}{{rootPath}}{{/if}}js/isotope-docs.min.js"></script>
 {{/if}}
 
-{{#unless is_export}}
+{{#unless isExport}}
   <!-- Google Analytics - Remove this if you copy/pasted this page -->
   <script>
     // Google Analytics

@@ -6,21 +6,15 @@ highlightjs.configure({
 });
 
 var hljsJavascript = highlightjs.getLanguage('javascript');
-// highlight Isotope
-hljsJavascript.keywords.isotope_keyword = 'Isotope';
+// highlight Packery
+hljsJavascript.keywords.packery = 'Packery';
 // highlight packery variables
-hljsJavascript.keywords.isotope_var = 'iso';
+hljsJavascript.keywords.packery_var = 'pckry';
 
 hljsJavascript.contains.push({
   className: 'jquery_var',
   begin: /\$grid/
 });
-
-// FIXME, this doesn't work
-// hljsJavascript.contains.push({
-//   className: 'isotope',
-//   begin: /isotope/
-// });
 
 var reFirstLine = /.*\n/;
 
@@ -49,7 +43,7 @@ function replaceCodeBlock( match, leadingWhiteSpace, block ) {
 module.exports = function() {
   return through2.obj( function( file, enc, callback ) {
     var contents = file.contents.toString();
-    contents = contents.replace( /\n( *)```([^`]+)```/gi, replaceCodeBlock );
+    contents = contents.replace( /\n( *)```([^```]+)```/gi, replaceCodeBlock );
     file.contents = new Buffer( contents );
     this.push( file );
     callback();
