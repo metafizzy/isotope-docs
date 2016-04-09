@@ -52,7 +52,7 @@
 <!-- Looking for isotope.js? Use {{source_url_path}}isotope.pkgd.min.js -->
 <!-- Isotope does NOT require jQuery. But it does make things easier -->
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{rootPath}}/jquery.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="{{rootPath}}js/jquery.min.js"><\/script>')</script>
 
 {{#if isDev}}
   {{#each js_paths}}
@@ -66,15 +66,11 @@
 
 {{#unless isExport}}
   <!-- Google Analytics - Remove this if you copy/pasted this page -->
-  <script>
-    // Google Analytics
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-    e.src='//www.google-analytics.com/analytics.js';
-    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','UA-58739927-3','auto');ga('send','pageview');
-  </script>
+    <script>
+        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+        ga('create','UA-58739927-3','auto');ga('send','pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 {{/unless}}
 
 </body>

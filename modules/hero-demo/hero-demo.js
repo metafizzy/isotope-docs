@@ -5,8 +5,9 @@
 ID.modules['hero-demo'] = function( elem ) {
   'use strict';
 
-  var grid = elem.querySelector('.grid');
-  var iso = new Isotope( grid, {
+  var $demo = $( elem );
+
+  var $grid = $demo.find('.grid').isotope({
     itemSelector: '.element-item',
     layoutMode: 'fitRows',
     transitionDuration: '0.5s',
@@ -17,19 +18,19 @@ ID.modules['hero-demo'] = function( elem ) {
       number: '.number parseInt',
       category: '[data-category]',
       weight: function( itemElem ) {
-        var weight = itemElem.querySelector('.weight').textContent;
+        var weight = $( itemElem ).find('.weight').text();
         return parseFloat( weight.replace( /[\(\)]/g, '') );
       }
     }
   });
 
   var filterFns = {
-    numberGreaterThan50: function( i, itemElem ) {
-      var number = itemElem.querySelector('.number').textContent;
+    numberGreaterThan50: function() {
+      var number = $(this).find('.number').text();
       return parseInt( number, 10 ) > 50;
     },
-    ium: function( i, itemElem ) {
-      var name = itemElem.querySelector('.name').textContent;
+    ium: function() {
+      var name = $(this).find('.name').text();
       return name.match( /ium$/ );
     }
   };
@@ -39,22 +40,20 @@ ID.modules['hero-demo'] = function( elem ) {
     ium: 'function() {\n  var name = $(this).find(\'.name\').text();\n  return name.match( /ium$/ );\n}'
   };
 
-  var codeDisplay = elem.querySelector('.code-display code');
+  var $codeDisplay = $demo.find('.code-display code');
 
-  var sortByElem = elem.querySelector('.sort-by');
-  filterBindEvent( sortByElem, 'click', 'button', function( event ) {
-    var sortByValue = event.target.getAttribute('data-sort-by');
-    iso.arrange({ sortBy: sortByValue });
-    displayIsotopeCode( codeDisplay, 'sortBy', sortByValue );
+  $demo.find('.sort-by').on( 'click', 'button', function() {
+    var sortByValue = $(this).attr('data-sort-by');
+    $grid.isotope({ sortBy: sortByValue });
+    $codeDisplay.displayIsotopeCode( 'sortBy', sortByValue );
   });
 
-  var filtersElem = elem.querySelector('.filters');
-  filterBindEvent( filtersElem, 'click', 'button', function( event ) {
-    var filterValue = event.target.getAttribute('data-filter');
+  $demo.find('.filters').on( 'click', 'button', function() {
+    var filterValue = $(this).attr('data-filter');
     var isoFilterValue = filterFns[ filterValue ] || filterValue;
     var displayFilterValue = filterFnsDisplay[ filterValue ] || filterValue;
-    iso.arrange({ filter: isoFilterValue });
-    displayIsotopeCode( codeDisplay, 'filter', displayFilterValue );
+    $grid.isotope({ filter: isoFilterValue });
+    $codeDisplay.displayIsotopeCode( 'filter', displayFilterValue );
   });
 
 };

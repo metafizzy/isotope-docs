@@ -5,13 +5,11 @@
 ID.modules['in-use-grid'] = function( elem ) {
   'use strict';
 
+  var $grid = $(elem);
   // hide items by default
-  var items = elem.querySelectorAll('.in-use-grid__item');
-  for ( var i=0; i < items.length; i++ ) {
-    items[i].style.display = 'none';
-  }
+  $grid.find('.in-use-grid__item').hide();
 
-  var iso = new Isotope( elem, {
+  $grid.isotope({
     // select none
     itemSelector: 'none',
     masonry: {
@@ -21,14 +19,14 @@ ID.modules['in-use-grid'] = function( elem ) {
   });
 
   // now select items
-  iso.option({ itemSelector: '.in-use-grid__item' });
+  $grid.isotope( 'option', { itemSelector: '.in-use-grid__item' } );
 
-  imagesLoaded( elem ).on( 'progress', function( imgLoad, image ) {
+  $grid.imagesLoaded().progress( function( imgLoad, image ) {
+    var $item = $( image.img ).parents( '.in-use-grid__item' );
     // un-hide item
-    var item = image.img.parentNode;
-    image.img.parentNode.style.display = 'block';
+    $item.show();
     // isotope does its thing
-    iso.appended( item );
+    $grid.isotope( 'appended', $item );
   });
 
 };

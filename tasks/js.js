@@ -9,6 +9,7 @@ var jsSrc = [
   'bower_components/desandro-matches-selector/matches-selector.js',
   'bower_components/ev-emitter/ev-emitter.js',
   'bower_components/fizzy-ui-utils/utils.js',
+  'bower_components/jquery-bridget/jquery-bridget.js',
   'bower_components/outlayer/item.js',
   'bower_components/outlayer/outlayer.js',
   // isotope
@@ -50,7 +51,12 @@ gulp.task( 'docs-js', function() {
     .pipe( gulp.dest('build/js') );
 });
 
-gulp.task( 'js', [ 'docs-js' ] );
+gulp.task( 'copy-js', function() {
+  gulp.src('bower_components/jquery/dist/jquery.min.js')
+    .pipe( gulp.dest('build/js') );
+});
+
+gulp.task( 'js', [ 'docs-js', 'copy-js' ] );
 
 module.exports = function( site ) {
 

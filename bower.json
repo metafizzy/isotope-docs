@@ -12,6 +12,7 @@
     "isotope-horizontal": "1.x",
     "isotope-masonry-horizontal": "v2",
     "isotope-packery": "v2",
+    "jquery-bridget": "^2.0.0",
     "normalize.css": "^4.0.0"
   }
 }
