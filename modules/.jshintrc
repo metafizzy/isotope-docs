@@ -5,12 +5,11 @@
   "jquery": true,
   "undef": true,
   "unused": true,
-  "predef": {
-    "classie": false,
-    "docReady": false,
-    "eventie": false,
+  "globals": {
+    "Isotope": false,
+    "displayIsotopeCode": false,
+    "filterBindEvent": false,
     "getSize": false,
-    "getStyleProperty": false,
     "hljs": false,
     "imagesLoaded": false,
     "Masonry": false,

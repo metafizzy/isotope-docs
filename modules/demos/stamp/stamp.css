@@ -1,0 +1,33 @@
+/* stamp
+------------------------- */
+
+.stamp {
+  position: absolute;
+  width: 30%;
+  height: 60px;
+  background: orange;
+  border: 4px dotted #161615;
+}
+
+/* ---- stamp-option ---- */
+
+.stamp--stamp-option-stamp1 {
+  left: 30%;
+  top: 10px;
+  width: 20%;
+  height: 100px;
+}
+
+.stamp--stamp-option-stamp2 {
+  right: 10%;
+  top: 20px;
+  width: 70%;
+  height: 30px;
+}
+
+.stamp--packery {
+  right: 20%;
+  top: 80px;
+  width: 45%;
+  height: 90px;
+}

@@ -1,0 +1,11 @@
+/* stamp-methods
+------------------------- */
+
+.grid--stamp-methods .grid-item {
+  opacity: 0.8;
+}
+
+.stamp--stamp-methods {
+  left: 10px;
+  top: 10px;
+}

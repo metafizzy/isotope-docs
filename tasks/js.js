@@ -36,6 +36,7 @@ var jsSrc = [
   'bower_components/imagesloaded/imagesloaded.js',
   // docs
   'js/vendor/*.js',
+  'js/utils.js',
   'js/controller.js',
   // modules
   'modules/**/*.js'

@@ -6,7 +6,6 @@
 .in-use-grid .gutter-sizer { width: 2%; }
 
 .in-use-grid__item {
-  display: block;
   background: #161615;
   float: left;
   margin-bottom: 20px;

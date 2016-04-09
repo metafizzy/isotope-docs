@@ -5,31 +5,31 @@
 ID.modules['hero-demo'] = function( elem ) {
   'use strict';
 
-  var $demo = $( elem );
-
-  var $grid = $demo.find('.grid').isotope({
+  var grid = elem.querySelector('.grid');
+  var iso = new Isotope( grid, {
     itemSelector: '.element-item',
     layoutMode: 'fitRows',
-    transitionDuration: '0.6s',
+    transitionDuration: '0.5s',
+    stagger: 33,
     getSortData: {
       name: '.name',
       symbol: '.symbol',
       number: '.number parseInt',
       category: '[data-category]',
       weight: function( itemElem ) {
-        var weight = $( itemElem ).find('.weight').text();
+        var weight = itemElem.querySelector('.weight').textContent;
         return parseFloat( weight.replace( /[\(\)]/g, '') );
       }
     }
   });
 
   var filterFns = {
-    numberGreaterThan50: function() {
-      var number = $(this).find('.number').text();
+    numberGreaterThan50: function( i, itemElem ) {
+      var number = itemElem.querySelector('.number').textContent;
       return parseInt( number, 10 ) > 50;
     },
-    ium: function() {
-      var name = $(this).find('.name').text();
+    ium: function( i, itemElem ) {
+      var name = itemElem.querySelector('.name').textContent;
       return name.match( /ium$/ );
     }
   };
@@ -39,20 +39,22 @@ ID.modules['hero-demo'] = function( elem ) {
     ium: 'function() {\n  var name = $(this).find(\'.name\').text();\n  return name.match( /ium$/ );\n}'
   };
 
-  var $codeDisplay = $demo.find('.code-display code');
+  var codeDisplay = elem.querySelector('.code-display code');
 
-  $demo.find('.sort-by').on( 'click', 'button', function() {
-    var sortByValue = $(this).attr('data-sort-by');
-    $grid.isotope({ sortBy: sortByValue });
-    $codeDisplay.displayIsotopeCode( 'sortBy', sortByValue );
+  var sortByElem = elem.querySelector('.sort-by');
+  filterBindEvent( sortByElem, 'click', 'button', function( event ) {
+    var sortByValue = event.target.getAttribute('data-sort-by');
+    iso.arrange({ sortBy: sortByValue });
+    displayIsotopeCode( codeDisplay, 'sortBy', sortByValue );
   });
 
-  $demo.find('.filters').on( 'click', 'button', function() {
-    var filterValue = $(this).attr('data-filter');
+  var filtersElem = elem.querySelector('.filters');
+  filterBindEvent( filtersElem, 'click', 'button', function( event ) {
+    var filterValue = event.target.getAttribute('data-filter');
     var isoFilterValue = filterFns[ filterValue ] || filterValue;
     var displayFilterValue = filterFnsDisplay[ filterValue ] || filterValue;
-    $grid.isotope({ filter: isoFilterValue });
-    $codeDisplay.displayIsotopeCode( 'filter', displayFilterValue );
+    iso.arrange({ filter: isoFilterValue });
+    displayIsotopeCode( codeDisplay, 'filter', displayFilterValue );
   });
 
 };

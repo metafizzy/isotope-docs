@@ -19,23 +19,13 @@ ID.modules['page-nav'] = function( elem ) {
 
 };
 
-
-var getComputedStyle = window.getComputedStyle;
-var getStyle = getComputedStyle ?
-  function( elem ) {
-    return getComputedStyle( elem, null );
-  } :
-  function( elem ) {
-    return elem.currentStyle;
-  };
-
 // -------------------------- Stickeroo -------------------------- //
 
 // sticky elements, like the page nav
 function Stickeroo( element ) {
   this.element = element;
   this.originalY = this.element.getBoundingClientRect().top + window.pageYOffset;
-  eventie.bind( window, 'scroll', this );
+  window.addEventListener( 'scroll', this );
   this.isFixed = false;
   this.onscroll();
 }
@@ -73,7 +63,7 @@ Stickeroo.prototype.onscroll = function() {
     return;
   }
 
-  classie.toggle( this.element, 'is-fixed' );
+  this.element.classList.toggle('is-fixed');
   this.isFixed = isFixed;
 };
 

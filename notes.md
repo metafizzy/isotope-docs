@@ -1,3 +1,7 @@
+## V3
+
+remove jQuery
+
 ## Pages
 
 examples
