@@ -11,38 +11,44 @@
 
 .hero__tagline {
   font-size: 1.6rem;
-  margin-bottom: 0.8em;
+  margin: 0 0 0.8em;
   line-height: 1.2;
 }
 
 
-/* ---- hero__big-buttons__button ---- */
+/* ---- hero__big-button ---- */
 
-.hero__big-buttons__button {
+.hero__big-button {
   display: block;
   position: relative;
-  padding: 10px 10px 10px 50px;
-  min-height: 52px;
+  padding: 10px;
   font-size: 1.2rem;
   background: #161615;
   color: #FB4;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.hero__big-buttons__button:hover {
+.hero__button-icon {
+  vertical-align: bottom;
+  width: 40px;
+  height: 40px;
+  margin-right: 6px;
+}
+
+.hero__button-icon path {
+  fill: #FB4;
+}
+
+/* hover */
+.hero__big-button:hover {
   background: #4FB;
   color: #222;
-  text-shadow: none;
 }
 
-.hero__big-buttons__button .icon {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  font-size: 32px;
+.hero__big-button:hover .hero__button-icon path {
+  fill: #222;
 }
-
 
 /* ---- desktop ---- */
 
@@ -58,27 +64,11 @@
 
   /* buttons */
 
-  .hero__big-buttons__button {
-    float: left;
-    width: 31.333%;
-    margin-right: 3%;
+  .hero__big-button {
     font-size: 1.3rem;
-    line-height: 1.2;
-    padding-left: 86px;
-    padding-top: 16px;
-    min-height: 94px;
+    line-height: 1.5;
+    padding: 20px 20px;
     margin-bottom: 40px;
   }
 
-  .hero__big-buttons__button:last-child {
-    margin-right: 0;
-  }
-
-  .hero__big-buttons__button .icon {
-    font-size: 56px;
-    left: 18px;
-    top: 16px;
-  }
-
-  
 }

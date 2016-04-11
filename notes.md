@@ -1,6 +1,8 @@
 ## V3
 
-remove jQuery
+<!-- remove jQuery -->
+
+stagger option
 
 ## Pages
 

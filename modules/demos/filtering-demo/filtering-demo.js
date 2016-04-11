@@ -10,8 +10,7 @@ ID.modules['filtering-demo'] = function( elem ) {
   var $grid = $demo.find('.grid').isotope({
     itemSelector: '.element-item',
     layoutMode: 'fitRows',
-    transitionDuration: '0.5s',
-    stagger: 33
+    transitionDuration: '0.6s'
   });
 
   var filterFns = {
