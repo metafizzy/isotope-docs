@@ -2,28 +2,24 @@
 
 <!-- remove jQuery -->
 
+publish v2 layout modes
+
 stagger option
+
+updating from v2
+
+**Redirects**
+
+appendix -> extras
+horizontal -> horiz
 
 ## Pages
 
 examples
 
-hash history?
-
-combination filters
-
 check requiring jQuery
 
 check requiring jQuery with pkgd
-
-filtering & quick search
-
-## Layout
-
-+ Basic values
-+ percent values for responsive sizing
-+ Layout Modes
-+ imagesLoaded
 
 ## Duo example
 
