@@ -16,6 +16,7 @@ code .params { color: #98D; }
 code .regexp  { color: #FC8; } /* regex */
 code .o  { color: #F63; }   /* operator */
 code .nb { color: #AA97AC;} /* support */
+code .built_in { color: #DD8; }
 
 /* comment */
 code .comment { color: #999; font-style: italic; }
