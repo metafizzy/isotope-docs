@@ -7,7 +7,7 @@ title: packery
 <p><a href="http://packery.metafizzy.co">Packery</a> is available as a stand-alone layout library. See also: <a href="../faq.html#difference-between-isotope-masonry-and-packery">What is the difference between Isotope, Masonry, and Packery?</a></p>
 
 <div class="big-demo go-wide">
-  <div class="grid js-isotope" data-isotope-options='{ "layoutMode": "packery" }'>
+  <div class="grid" data-isotope='{ "layoutMode": "packery" }'>
     {{> grid-splash-items}}
   </div>
   {{> edit-demo default="vdwmb" }}
@@ -57,7 +57,7 @@ npm install isotope-packery
     ```
   </div>
   <div class="duo__cell example__demo packery-gutter">
-    <div class="grid js-isotope grid--packery-gutter" data-isotope-options='{ "layoutMode": "packery", "packery": { "gutter": 10 } }'>
+    <div class="grid grid--packery-gutter" data-isotope='{ "layoutMode": "packery", "packery": { "gutter": 10 } }'>
       {{> grid-items-fewer}}
     </div>
     {{> edit-demo default="LBCwy" }}
@@ -96,8 +96,7 @@ npm install isotope-packery
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--fluid-gutter js-isotope"
-      data-isotope-options='{ "layoutMode": "packery", "itemSelector": ".grid-item", "percentPosition": true, "packery": { "gutter": ".gutter-sizer" } }'>
+    <div class="grid grid--fluid-gutter" data-isotope='{ "layoutMode": "packery", "itemSelector": ".grid-item", "percentPosition": true, "packery": { "gutter": ".gutter-sizer" } }'>
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
       {{> grid-items}}
@@ -124,8 +123,7 @@ npm install isotope-packery
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid js-isotope"
-      data-isotope-options='{ "layoutMode": "packery", "packery": { "columnWidth": 60 } }'>
+    <div class="grid" data-isotope='{ "layoutMode": "packery", "packery": { "columnWidth": 60 } }'>
       {{> grid-items-fewer}}
     </div>
     {{> edit-demo default="EoBqg" }}
@@ -162,8 +160,7 @@ npm install isotope-packery
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--fluid-5-col js-isotope"
-      data-isotope-options='{ "layoutMode": "packery", "packery": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-item", "percentPosition": true }'>
+    <div class="grid grid--fluid-5-col" data-isotope='{ "layoutMode": "packery", "packery": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-item", "percentPosition": true }'>
       <div class="grid-sizer"></div>
       {{> grid-items}}
     </div>
@@ -187,7 +184,7 @@ npm install isotope-packery
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid js-isotope" data-isotope-options='{ "layoutMode": "packery", "packery": { "rowHeight": 60 } }'>
+    <div class="grid" data-isotope='{ "layoutMode": "packery", "packery": { "rowHeight": 60 } }'>
       {{> grid-items-fewer}}
     </div>
     {{> edit-demo default="jhgef" }}
@@ -214,8 +211,7 @@ npm install isotope-packery
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--horizontal grid--counting js-isotope"
-      data-isotope-options='{ "layoutMode": "packery", "packery": { "isHorizontal": true } }'>
+    <div class="grid grid--horizontal grid--counting" data-isotope='{ "layoutMode": "packery", "packery": { "isHorizontal": true } }'>
       {{> grid-items}}
     </div>
     {{> edit-demo default="AmpsD" }}
@@ -238,7 +234,7 @@ npm install isotope-packery
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--has-stamp js-isotope" data-isotope-options='{ "layoutMode": "packery", "itemSelector": ".grid-item", "stamp": ".stamp" }'>
+    <div class="grid grid--has-stamp" data-isotope='{ "layoutMode": "packery", "itemSelector": ".grid-item", "stamp": ".stamp" }'>
       <div class="stamp stamp--packery"></div>
       {{> grid-items}}
     </div>

@@ -5,8 +5,7 @@ title: cellsByRow
 <p>A grid layout where items are centered inside each cell. The grid is defined by <code>columnWidth</code> and <code>rowHeight</code> options.</p>
 
 <div class="big-demo go-wide">
-  <div class="grid js-isotope"
-    data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 220, "rowHeight": 220 } }'>
+  <div class="grid" data-isotope='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 220, "rowHeight": 220 } }'>
     {{> grid-splash-items}}
   </div>
   {{> edit-demo default="zFart" }}
@@ -54,7 +53,7 @@ npm install isotope-cells-by-row
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid js-isotope" data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
+    <div class="grid" data-isotope='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
       {{> grid-items-fewer}}
     </div>
     {{> edit-demo default="zFart" }}
@@ -84,8 +83,7 @@ npm install isotope-cells-by-row
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--cells-by-row-element-sizing js-isotope"
-      data-isotope-options='{ "layoutMode": "cellsByRow", "itemSelector": ".grid-item", "percentPosition": true, "cellsByRow": { "columnWidth": ".grid-sizer", "rowHeight": ".grid-sizer" } }'>
+    <div class="grid grid--cells-by-row-element-sizing" data-isotope='{ "layoutMode": "cellsByRow", "itemSelector": ".grid-item", "percentPosition": true, "cellsByRow": { "columnWidth": ".grid-sizer", "rowHeight": ".grid-sizer" } }'>
       <div class="grid-sizer"></div>
       {{> grid-items-fewer}}
     </div>

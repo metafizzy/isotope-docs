@@ -32,7 +32,7 @@ title: Layout
     ```
   </div>
   <div class="duo__cell examle__demo">
-    <div class="grid js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
+    <div class="grid" data-isotope='{ "masonry": { "columnWidth": 50 } }'>
       {{>grid-items}}
     </div>
 
@@ -79,8 +79,8 @@ title: Layout
     ```
   </div>
   <div class="duo__cell examle__demo">
-    <div class="grid grid--fluid-5-col js-isotope"
-      data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-item", "percentPosition": true }'>
+    <div class="grid grid--fluid-5-col"
+      data-isotope='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-item", "percentPosition": true }'>
       <div class="grid-sizer"></div>
       {{> grid-items-fewer}}
     </div>

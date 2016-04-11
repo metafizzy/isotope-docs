@@ -69,8 +69,8 @@ var $grid = $('.grid').isotope({
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting js-isotope"
-      data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
+    <div class="grid grid--counting"
+      data-isotope='{ "masonry": { "columnWidth": 50 } }'>
       {{> grid-items-fewer}}
     </div>
     {{> edit-demo default="mEinp" }}
@@ -92,8 +92,7 @@ var $grid = $('.grid').isotope({
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting js-isotope"
-      data-isotope-options='{ "layoutMode": "fitRows" }'>
+    <div class="grid grid--counting" data-isotope='{ "layoutMode": "fitRows" }'>
       <div class="grid-item"></div>
       <div class="grid-item grid-item--width2"></div>
       <div class="grid-item"></div>
@@ -126,7 +125,7 @@ var $grid = $('.grid').isotope({
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting js-isotope" data-isotope-options='{ "layoutMode": "vertical" }'>
+    <div class="grid grid--counting" data-isotope='{ "layoutMode": "vertical" }'>
       <div class="grid-item grid-item--width2"></div>
       <div class="grid-item"></div>
       <div class="grid-item grid-item--width3"></div>
@@ -154,8 +153,7 @@ var $grid = $('.grid').isotope({
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting js-isotope"
-      data-isotope-options='{ "layoutMode": "packery" }'>
+    <div class="grid grid--counting" data-isotope='{ "layoutMode": "packery" }'>
       {{> grid-items-fewer}}
     </div>
     {{> edit-demo default="vdwmb" }}
@@ -181,8 +179,8 @@ var $grid = $('.grid').isotope({
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting js-isotope"
-      data-isotope-options='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
+    <div class="grid grid--counting"
+      data-isotope='{ "layoutMode": "cellsByRow", "cellsByRow": { "columnWidth": 110, "rowHeight": 110 } }'>
       {{> grid-items-fewer}}
     </div>
 
@@ -208,8 +206,8 @@ var $grid = $('.grid').isotope({
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting grid--horizontal js-isotope horizontal counting"
-      data-isotope-options='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 50 } }'>
+    <div class="grid grid--counting grid--horizontal horizontal counting"
+      data-isotope='{ "layoutMode": "masonryHorizontal", "masonryHorizontal": { "rowHeight": 50 } }'>
       {{> grid-items-fewer}}
     </div>
     {{> edit-demo default="oCiAD" }}
@@ -233,7 +231,7 @@ var $grid = $('.grid').isotope({
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting grid--horizontal js-isotope" data-isotope-options='{ "layoutMode": "fitColumns" }'>
+    <div class="grid grid--counting grid--horizontal" data-isotope='{ "layoutMode": "fitColumns" }'>
       <div class="grid-item"></div>
       <div class="grid-item grid-item--height2"></div>
       <div class="grid-item"></div>
@@ -275,8 +273,8 @@ cellsByColumn: {
 ```
 
 <div class="example">
-  <div class="grid grid--counting grid--horizontal js-isotope"
-    data-isotope-options='{ "layoutMode": "cellsByColumn", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
+  <div class="grid grid--counting grid--horizontal"
+    data-isotope='{ "layoutMode": "cellsByColumn", "cellsByColumn": { "columnWidth": 110, "rowHeight": 110 } }'>
     {{> grid-items}}
   </div>
   {{> edit-demo default="qAlEy" }}
@@ -295,7 +293,8 @@ layoutMode: 'horizontal'
 ```
 
 <div class="example">
-  <div class="grid grid--counting grid--horizontal js-isotope" data-isotope-options='{ "layoutMode": "horizontal" }'>
+  <div class="grid grid--counting grid--horizontal"
+    data-isotope='{ "layoutMode": "horizontal" }'>
     <div class="grid-item"></div>
     <div class="grid-item grid-item--height2"></div>
     <div class="grid-item grid-item--width2"></div>

@@ -5,7 +5,7 @@ title: masonry
 <p><code>masonry</code> is the default layout mode.  It works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall. <code>masonry</code> uses the same code from the <a href="http://masonry.desandro.com">Masonry library</a>.</p> 
 
 <div class="big-demo go-wide">
-  <div class="grid js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 110 } }'>
+  <div class="grid" data-isotope='{ "masonry": { "columnWidth": 110 } }'>
     {{> grid-splash-items}}
   </div>
   {{> edit-demo default="mEinp" }}
@@ -34,8 +34,7 @@ title: masonry
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid js-isotope"
-      data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
+    <div class="grid" data-isotope='{ "masonry": { "columnWidth": 50 } }'>
       {{> grid-items}}
     </div>
     {{> edit-demo default="mEinp" }}
@@ -76,8 +75,7 @@ title: masonry
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--fluid-5-col js-isotope"
-      data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-item", "percentPosition": true }'>
+    <div class="grid grid--fluid-5-col" data-isotope='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".grid-item", "percentPosition": true }'>
       <div class="grid-sizer"></div>
       {{> grid-items-fewer}}
     </div>
@@ -101,7 +99,7 @@ title: masonry
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid-has-gutter js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+    <div class="grid grid-has-gutter" data-isotope='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
       {{> grid-items-fewer}}
     </div>
     {{> edit-demo default="dHsCJ" }}
@@ -126,7 +124,7 @@ title: masonry
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid-has-gutter grid--masonry-gutter-bottom js-isotope " data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+    <div class="grid grid-has-gutter grid--masonry-gutter-bottom" data-isotope='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
       {{> grid-items-fewer}}
     </div>
     {{> edit-demo default="sqrwo" }}
@@ -168,8 +166,7 @@ title: masonry
   </div>
   <div class="duo__cell example__demo">
 
-    <div class="grid grid--fluid-gutter js-isotope"
-      data-isotope-options='{ "itemSelector": ".grid-item", "percentPosition": true, "masonry": { "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer" } }'>
+    <div class="grid grid--fluid-gutter" data-isotope='{ "itemSelector": ".grid-item", "percentPosition": true, "masonry": { "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer" } }'>
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
       {{> grid-items}}
@@ -207,7 +204,7 @@ title: masonry
     ```
   </div>
   <div class="duo__cell example__demo"  style="border: 2px solid #484542; padding-top: 10px;">
-    <div class="grid grid--fit-width js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 100, "isFitWidth": true } }'>
+    <div class="grid grid--fit-width" data-isotope='{ "masonry": { "columnWidth": 100, "isFitWidth": true } }'>
       <div class="grid-item grid-item--width2"></div>
       <div class="grid-item grid-item--width2 grid-item--height2"></div>
       <div class="grid-item grid-item--width2 grid-item--height2"></div>
