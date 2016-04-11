@@ -37,11 +37,13 @@ var iso = new Isotope( '.grid', {
 <div class="grid" data-isotope='{ "itemSelector": ".grid-item", "getSortData": { "name": ".name", "category": "[data-category]" }, "masonry": { "columnWidth": 200 } }'>
 ```
 
-<h2>Setup</h2>
+<h2>Recommended</h2>
 
 <h3>itemSelector</h3>
 
-<p>Specifies which child elements to be used as item elements. We recommend always setting <code>itemSelector</code>. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a> or other elements that are not part of the layout.</p>
+<p>Specifies which child elements will be used as item elements in the layout.</p>
+
+<p>We recommend always setting <code>itemSelector</code>. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a> or other elements that are not part of the layout.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -68,74 +70,6 @@ var iso = new Isotope( '.grid', {
     {{> edit-demo default="yNOdxr" }}
   </div>
 </div>
-
-{{! --------------------------------------------------- }}
-
-<h3>isResizeBound</h3>
-
-<p>Adjusts sizes and positions when window is resized. Enabled by default <code><span class="comment">isResizeBound: true</span></code>.</p>
-
-<p>See also <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-    ``` js
-    isResizeBound: false
-    ```
-    
-    ``` css
-    /* grid has fixed width */
-    .grid {
-      width: 304px;
-    }
-    ```
-  </div>
-  <div class="duo__cell example__demo">
-    <div class="grid grid--fixed-width" data-isotope='{ "masonry": { "columnWidth": 50 }}'>
-      {{> grid-items}}
-    </div>
-    {{> edit-demo default="LVNKab" }}
-  </div>
-</div>
-
-{{! --------------------------------------------------- }}
-
-<h3>containerStyle</h3>
-
-<p>CSS styles that are applied to the container element. Def</p>
-
-``` js
-// default
-// containerStyle: { position: 'relative' }
-
-// disable any styles being set on container
-// useful if using absolute position on container
-containerStyle: null
-```
-
-{{! --------------------------------------------------- }}
-
-<h3>isInitLayout</h3>
-
-<p>Enables layout on initialization.
-  Enabled by default <code><span class="comment">isInitLayout: true</span></code>.</p>
-
-<p>Set <code>isInitLayout: <span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
-
-``` js
-var $grid = $('.grid').isotope({
-  // disable initial layout
-  isInitLayout: false
-});
-// bind event
-$grid.isotope( 'on', 'arrangeComplete', function() {
-  console.log('arrange is complete');
-});
-// manually trigger initial layout
-$grid.isotope();
-```
-
-{{> edit-demo default="doXbZL" }}
 
 {{! --------------------------------------------------- }}
 
@@ -334,18 +268,20 @@ stamp: $grid.find('.stamp')
 
 {{! --------------------------------------------------- }}
 
-<h3>isOriginLeft</h3>
+<h3>originLeft</h3>
 
-<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left, with <code><span class="comment">isOriginLeft: true</span></code>. Set <code>isOriginLeft: <span class="literal">false</span></code> for right-to-left layouts.</p>
+<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left, with <code><span class="comment">originLeft: true</span></code>. Set <code>originLeft: <span class="literal">false</span></code> for right-to-left layouts.</p>
+
+<p><code>originLeft</code> was previously <code>isOriginLeft</code> in Isotope v2. <code>isOriginLeft</code> will still work in Isotope v3.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    isOriginLeft: false
+    originLeft: false
     ```
   </div>
   <div class="duo__cell example__code">
-    <div class="grid grid--counting" data-isotope='{ "isOriginLeft": false, "masonry": { "columnWidth": 50 } }'>
+    <div class="grid grid--counting" data-isotope='{ "originLeft": false, "masonry": { "columnWidth": 50 } }'>
       {{> grid-items}}
     </div>
 
@@ -355,18 +291,20 @@ stamp: $grid.find('.stamp')
 
 {{! --------------------------------------------------- }}
 
-<h3>isOriginTop</h3>
+<h3>originTop</h3>
 
 <p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
+
+<p><code>originTop</code> was previously <code>isOriginTop</code> in Isotope v2. <code>isOriginTop</code> will still work in Isotope v3.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    isOriginTop: false
+    originTop: false
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting" data-isotope='{ "isOriginTop": false }'>
+    <div class="grid grid--counting" data-isotope='{ "originTop": false }'>
       {{> grid-items}}
     </div>
     {{> edit-demo default="kxFJH" }}
@@ -495,9 +433,25 @@ sortAscending: {
 
 {{! --------------------------------------------------- }}
 
+<h3>stagger</h3>
+
+<p>Staggers item transitions, so items transition incrementally after one another. Set as a CSS time format, <code><span class="string">'0.03s'</span></code>, or as a number in milliseconds, <code><span class="number">30</span></code>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    stagger: 30
+    // stagger item transitions 30ms after one another
+    ```
+  </div>
+  {{> stagger }}
+</div>
+
+{{! --------------------------------------------------- }}
+
 <h3>transitionDuration</h3>
 
-<p>Duration of the transition when items change position or appearance, set in a CSS time format. Default: <code><span class="comment">transitionDuration: '0.4s'</span></code></p>
+<p>Duration of the transition when items change position or appearance, set in a CSS time format, or as a number in milliseconds. Default: <code><span class="comment">transitionDuration: '0.4s'</span></code></p>
 
 ``` js
 // fast transitions
@@ -508,6 +462,9 @@ transitionDuration: '0.8s'
 
 // no transitions
 transitionDuration: 0
+
+// 0.4s in milliseconds
+transitionDuration: 400
 ```
 
 {{! **needs demo** }}
@@ -546,3 +503,76 @@ $grid.isotope({
 {{> edit-demo default="lxzDA" }}
 
 {{! --------------------------------------------------- }}
+
+<h2>Setup</h2>
+
+{{! --------------------------------------------------- }}
+
+<h3>containerStyle</h3>
+
+<p>CSS styles that are applied to the container element. Def</p>
+
+``` js
+// default
+// containerStyle: { position: 'relative' }
+
+// disable any styles being set on container
+// useful if using absolute position on container
+containerStyle: null
+```
+
+{{! --------------------------------------------------- }}
+
+
+<h3>resize</h3>
+
+<p>Adjusts sizes and positions when window is resized. Enabled by default <code><span class="comment">resize: true</span></code>.</p>
+
+<p><code>resize</code> was previously <code>isResizeBound</code> in Isotope v2. <code>isResizeBound</code> will still work in Isotope v3.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    resize: false
+    ```
+    
+    ``` css
+    /* grid has fixed width */
+    .grid {
+      width: 304px;
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fixed-width" data-isotope='{ "resize": false, "masonry": { "columnWidth": 50 }}'>
+      {{> grid-items}}
+    </div>
+    {{> edit-demo default="LVNKab" }}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>initLayout</h3>
+
+<p>Enables layout on initialization.
+  Enabled by default <code><span class="comment">initLayout: true</span></code>.</p>
+
+<p>Set <code>initLayout: <span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
+
+<p><code>initLayout</code> was previously <code>isInitLayout</code> in Isotope v2. <code>isInitLayout</code> will still work in Isotope v3.</p>
+
+``` js
+var $grid = $('.grid').isotope({
+  // disable initial layout
+  initLayout: false
+});
+// bind event
+$grid.isotope( 'on', 'arrangeComplete', function() {
+  console.log('arrange is complete');
+});
+// manually trigger initial layout
+$grid.isotope();
+```
+
+{{> edit-demo default="doXbZL" }}

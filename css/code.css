@@ -24,12 +24,14 @@ code .comment { color: #999; font-style: italic; }
 code .tag { color: #6CF; } /* Markup open tag */
 
 code .id { color: #ABC; } /* css id */
-code .class { color: #A63; }  /* CSS class */
+code .class,
+code .selector-class { color: #C95; }  /* CSS class */
 code .rules { color: #FED; }
 code .m  { color: #DE8E50; } /* CSS value */
 code .nd { color: #9FAD7E; } /* CSS pseudo selector */
 code .hexcolor { color: #F63; }
 code .at_rule { color: #088; }
+
 
 /* isotope keywords */
 code .isotope_var { color: #F3F; }
