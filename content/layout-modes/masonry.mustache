@@ -179,12 +179,12 @@ title: masonry
 
 {{! --------------------------------------------------- }}
 
-<h3>isFitWidth</h3>
+<h3>fitWidth</h3>
 
 <p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
 
 <div class="call-out">
-  <p>isFitWidth does not work with <a href="../options.html#element-sizing">element sizing</a> <em>and</em> percentage width. Either <code>columnWidth</code> needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
+  <p>fitWidth does not work with <a href="../options.html#element-sizing">element sizing</a> <em>and</em> percentage width. Either <code>columnWidth</code> needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
 </div>
 
 <div class="duo example">
@@ -192,7 +192,7 @@ title: masonry
     ``` js
     masonry: {
       columnWidth: 100,
-      isFitWidth: true
+      fitWidth: true
     }
     ```
 
@@ -204,7 +204,7 @@ title: masonry
     ```
   </div>
   <div class="duo__cell example__demo"  style="border: 2px solid #484542; padding-top: 10px;">
-    <div class="grid grid--fit-width" data-isotope='{ "masonry": { "columnWidth": 100, "isFitWidth": true } }'>
+    <div class="grid grid--fit-width" data-isotope='{ "masonry": { "columnWidth": 100, "fitWidth": true } }'>
       <div class="grid-item grid-item--width2"></div>
       <div class="grid-item grid-item--width2 grid-item--height2"></div>
       <div class="grid-item grid-item--width2 grid-item--height2"></div>

@@ -6,7 +6,9 @@ publish v2 layout modes
 
 <!-- stagger option -->
 
-updating from v2
+Improve Webpack instructions
+
+<!-- updating from v2 -->
 
 **Redirects**
 

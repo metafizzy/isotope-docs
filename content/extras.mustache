@@ -1,5 +1,5 @@
 ---
-title: Appendix
+title: Extras
 ---
 
 {{! ----------------------------------------------------------------- }}
@@ -16,80 +16,16 @@ title: Appendix
   <li><a href="http://codepen.io/desandro/pen/bsHix">Reveal each image as they load</a></li>
   <li><a href="http://codepen.io/desandro/pen/vEJbNr">Filtering with toggle on/off buttons</a></li>
   <li><a href="http://codepen.io/desandro/pen/vErxXj">Filtering with URL hash</a>. View <a href="http://s.codepen.io/desandro/debug/vErxXj#filter=%3Anot(.transition)">debug version</a> to see filter in URL hash.</li>
-  <li><a href="http://codepen.io/desandro/pen/zGZywM">Sorting by selected category</a>. For <a href="https://github.com/metafizzy/isotope/issues/901">issue 901</a></li>
+  <li><a href="http://codepen.io/desandro/pen/zGZywM">Sorting by selected category</a>. For <a href="https://github.com/metafizzy/isotope/issues/901">issue #901</a></li>
 </ul>
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Web fonts</h2>
-
-<p>Like images, unloaded web fonts can throw off Isotope. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
-
-<ul>
-  <li><a href="http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/">Typekit font events</a></li>
-  <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
-</ul>
+<h2>Module loaders</h2>
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>Typekit</h3>
-
-<p>Try the script below when using Isotope on a page with Typekit. This will trigger Isotope when the document is ready and again when fonts have loaded. Be sure to remove Typekit’s default script, <code>try{Typekit.load();}catch(e){}</code>.</p>
-
-``` js
-var $grid;
-
-function triggerIsotope() {
-  // don't proceed if $grid has not been selected
-  if ( !$grid ) {
-    return;
-  }
-  // init Isotope
-  $grid.isotope({
-    // options
-  });
-}
-// trigger Isotope on document ready
-$(function(){
-  $grid = $('.grid');
-  triggerIsotope();
-});
-// trigger Isotope when fonts have loaded
-Typekit.load({
-  active: triggerIsotope,
-  inactive: triggerIsotope
-});
-```
-
-``` js
-// or with vanilla JS
-var grid, iso;
-
-function triggerIsotope() {
-  // don't proceed if doc isn't ready
-  if ( !grid ) {
-    return;
-  }
-  // init Isotope
-  iso = new Isotope( grid, {
-    // options
-  });
-}
-// initialize Isotope on document ready
-docReady( function() {
-  var grid = document.querySelector('.grid');
-  triggerIsotope();
-});
-// trigger Isotope when fonts have loaded
-Typekit.load({
-  active: triggerIsotope,
-  inactive: triggerIsotope
-});
-```
-
-{{! ----------------------------------------------------------------- }}
-
-<h2>RequireJS</h2>
+<h3>RequireJS</h3>
 
 <p>Isotope supports <a href="http://requirejs.org">RequireJS</a>.</p>
 
@@ -124,10 +60,10 @@ requirejs( [
 requirejs( [ 'require', 'jquery', 'path/to/isotope.pkgd.js' ],
   function( require, $, Isotope ) {
     // require jquery-bridget, it's included in isotope.pkgd.js
-    require( [ 'jquery-bridget/jquery.bridget' ],
-    function() {
+    require( [ 'jquery-bridget/jquery-bridget' ],
+    function( jQueryBridget ) {
       // make Isotope a jQuery plugin
-      $.bridget( 'isotope', Isotope );
+      jQueryBridget( 'isotope', Isotope, $ );
       // now you can use $().isotope()
       $('.grid').isotope({...});
     }
@@ -166,11 +102,11 @@ requirejs.config({
 requirejs( [
     'jquery',
     'isotope/js/isotope',
-    'jquery-bridget/jquery.bridget'
+    'jquery-bridget/jquery-bridget'
   ],
-  function( $, Isotope ) {
+  function( $, Isotope, jQueryBridget ) {
     // make Isotope a jQuery plugin
-    $.bridget( 'isotope', Isotope );
+    jQueryBridget( 'isotope', Isotope, $ );
     // now you can use $().isotope()
     $('.grid').isotope({...});
 });
@@ -178,7 +114,7 @@ requirejs( [
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Browserify</h2>
+<h3>Browserify</h3>
 
 <p>Isotope works with <a href="http://browserify.org">Browserify</a>. <a href="https://www.npmjs.com/package/isotope-layout">Install Isotope with npm</a>.</p>
 
@@ -219,10 +155,10 @@ npm install jquery-bridget
 
 ``` js
 var $ = require('jquery');
-var jQBridget = require('jquery-bridget');
+var jQueryBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
 // make Isotope a jQuery plugin
-$.bridget( 'isotope', Isotope );
+jQueryBridget( 'isotope', Isotope, $ );
 // now you can use $().isotope()
 $('.grid').isotope({
   // options...
@@ -231,7 +167,7 @@ $('.grid').isotope({
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Webpack</h2>
+<h3>Webpack</h3>
 
 <p>Install Isotope and <a href="https://github.com/webpack/imports-loader">imports-loader</a> with npm.</p>
 
@@ -427,16 +363,71 @@ webpack main.js bundle.js
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Support</h2>
+<h2>Web fonts</h2>
+
+<p>Like images, unloaded web fonts can throw off Isotope. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
 
 <ul>
-  <li>Having trouble setting up Isotope?</li>
-  <li>Running into a time-consuming problem?</li>
+  <li><a href="http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/">Typekit font events</a></li>
+  <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
 </ul>
 
-<p><a href="https://www.codersclan.net/?repo_id=1">CodersClan has a dedicated support forum for Isotope</a>, where you can get personal support from experienced developers.</p>
+{{! ----------------------------------------------------------------- }}
 
-<p><a class="support-button button" href="https://www.codersclan.net/?repo_id=1">Get support</a></p>
+<h3>Typekit</h3>
+
+<p>Try the script below when using Isotope on a page with Typekit. This will trigger Isotope when the document is ready and again when fonts have loaded. Be sure to remove Typekit’s default script, <code>try{Typekit.load();}catch(e){}</code>.</p>
+
+``` js
+var $grid;
+
+function triggerIsotope() {
+  // don't proceed if $grid has not been selected
+  if ( !$grid ) {
+    return;
+  }
+  // init Isotope
+  $grid.isotope({
+    // options
+  });
+}
+// trigger Isotope on document ready
+$(function(){
+  $grid = $('.grid');
+  triggerIsotope();
+});
+// trigger Isotope when fonts have loaded
+Typekit.load({
+  active: triggerIsotope,
+  inactive: triggerIsotope
+});
+```
+
+``` js
+// or with vanilla JS
+var grid, iso;
+
+function triggerIsotope() {
+  // don't proceed if doc isn't ready
+  if ( !grid ) {
+    return;
+  }
+  // init Isotope
+  iso = new Isotope( grid, {
+    // options
+  });
+}
+// initialize Isotope on document ready
+document.addEventListener( 'DOMContentLoaded', function() {
+  var grid = document.querySelector('.grid');
+  triggerIsotope();
+});
+// trigger Isotope when fonts have loaded
+Typekit.load({
+  active: triggerIsotope,
+  inactive: triggerIsotope
+});
+```
 
 {{! ----------------------------------------------------------------- }}
 
@@ -464,44 +455,28 @@ webpack main.js bundle.js
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Upgrading from v1</h2>
+<h2>Upgrading from v2</h2>
 
-{{! ----------------------------------------------------------------- }}
-
-<h3>New features</h3>
+<p>Isotope v3 dropped browser support for IE8, IE9, and Android 2.3. All options, methods, and code for Isotope v2 is backwards compatibile with Isotope v3.</p>
 
 <ul>
-  <li>Custom CSS no longer required.</li>
-  <li>jQuery no longer required. Isotope works with vanilla JavaScript.</li>
-  <li><a href="events.html#layoutcomplete"><code>layoutComplete</code> event</a>.</li>
-  <li><a href="sorting.html#getsortdata"><code>getSortData</code> shortcut strings</a>.</li>
-  <li>Way better support for responsive web design with <a href="options.html#element-sizing">element sizing options</a>.</li>
+  <li><a href="options.html#stagger"><code>stagger</code> option</a> added.</li>
+  <li><a href="layout-modes/horiz.html">horizontal layout mode re-named to horiz</a> to avoid conflict with <a href="layout-modes/packery.html#horizontal">horizontal packery option</a>.</li>
+  <li><code>isOptionName</code> options renamed to <code>optionName</code>. Isotope v3 is backwards compatible with the old <code>isOptionName</code> options.
+    <ul>
+      <li><a href="options.html#originleft"><code>isOriginLeft</code> &rarr; <code>originLeft</code></a></li>
+      <li><a href="options.html#origintop"><code>isOriginTop</code> &rarr; <code>originTop</code></a></li>
+      <li><a href="options.html#resize"><code>isResizeBound</code> &rarr; <code>resize</code></a></li>
+      <li><a href="options.html#initlayout"><code>isInitLayout</code> &rarr; <code>initLayout</code></a></li>
+      <li><a href="layout-modes/masonry.html#fitwidth">masonry <code>isFitWidth</code> &rarr; <code>fitWidth</code></a></li>
+      <li><a href="layout-modes/packery.html#horizontal">packery <code>isHorizontal</code> &rarr; <code>horizontal</code></a></li>
+    </ul>
+  </li>
+  <li><a href=".#initialize-in-html">HTML initialization</a> can be done with <code>data-isotope</code>.  Isotope v3 is backwards compatible with previous code: <code>js-isotope</code> class and <code>data-isotope-options</code> attribute.</li>
+  <li>IE8 helper dependencies removed: eventie, get-style-property, doc-ready</li>
+  <li><code>jquery-bridget/jquery.bridget</code> path renamed to <code>jquery-bridget/jquery-bridget</code></li>
 </ul>
 
-{{! ----------------------------------------------------------------- }}
-
-<h3>Changes</h3>
-
-<ul>
-  <li><a href="https://github.com/louisremi/jquery-smartresize">smartresize jQuery plugin</a> removed.</li>
-  <li><a href="http://imagesloaded.desandro.com">imagesLoaded</a> no longer included, but is still recommended.</li>
-  <li><code>animationOptions</code> removed. jQuery animation removed. This means no animation for IE8 and IE9.</li>
-  <li><code>isResizable</code> option renamed to <a href="options.html#isresizebound"><code>isResizeBound</code></a></li>
-  <li><code>reLayout</code> method renamed to <a href="methods.html#layout"><code>layout</code></a></li>
-  <li><code>layout</code> method renamed to <a href="methods.html#layoutitems"><code>layoutItems</code></a></li>
-  <li><code>transformsEnabled</code> option removed. Transforms are still used, but only for transitions.</li>
-  <li><code>itemPositionDataEnabled</code> option removed. Item position is now accessible as it is set with <code>left</code> and <code>top</code>.</li>
-  <li><code>onLayout</code> option removed. Use the <a href="events.html#layoutcomplete"><code>layoutComplete</code> event</a>.</li>
-</ul>
-
-{{! ----------------------------------------------------------------- }}
-
-<h3>Upgrades to <a href="{{rootPath}}layout-modes/masonry.html">masonry layout mode</a></h3>
-
-<ul>
-  <li>Corner stamp is now integrated as <a href="options.html#stamp"><code>stamp</code> option</a> and <a href="methods.html#stamp"><code>stamp</code> method</a></li>
-  <li>Centering integrated as the <a href="{{rootPath}}layout-modes/masonry.html#isfitwidth"><code>isFitWidth</code> option</a>.</li>
-  <li><code>gutterWidth</code> option renamed to <a href="{{rootPath}}layout-modes/masonry.html#gutter"><code>gutter</code></a></li>
-</ul>
+<p>See <a href="https://github.com/metafizzy/isotope/releases">Isotope releases on GitHub for detailed version-by-version changelog</a>.</p>
 
 {{! ----------------------------------------------------------------- }}
