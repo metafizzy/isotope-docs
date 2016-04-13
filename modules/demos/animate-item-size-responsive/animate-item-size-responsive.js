@@ -5,6 +5,7 @@
 ID.modules['animate-item-size-responsive'] = function( elem ) {
   'use strict';
 
+  var docElemStyle = document.documentElement.style;
   var transitionProp = typeof docElemStyle.transition == 'string' ?
     'transition' : 'WebkitTransition';
   var transitionEndEvent = {
@@ -33,7 +34,7 @@ ID.modules['animate-item-size-responsive'] = function( elem ) {
     setItemContentPixelSize( itemContent );
 
     var itemElem = itemContent.parentNode;
-    classie.toggleClass( itemElem, 'is-expanded' );
+    itemElem.classList.toggle('is-expanded');
 
     // force redraw
     var redraw = itemContent.offsetWidth;
