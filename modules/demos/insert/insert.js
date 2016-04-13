@@ -2,7 +2,7 @@
  * insert
  */
 
-ID.modules['insert'] = function( elem ) {
+ID.modules.insert = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

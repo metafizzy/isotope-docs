@@ -2,7 +2,7 @@
  * appended
  */
 
-ID.modules['appended'] = function( elem ) {
+ID.modules.appended = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

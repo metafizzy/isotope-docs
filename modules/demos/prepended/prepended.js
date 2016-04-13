@@ -2,7 +2,7 @@
  * prepended
  */
 
-ID.modules['prepended'] = function( elem ) {
+ID.modules.prepended = function( elem ) {
   'use strict';
 
   var $demo = $( elem );
