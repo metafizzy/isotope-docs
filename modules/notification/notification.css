@@ -1,0 +1,18 @@
+/* notification
+------------------------- */
+
+.notification {
+  max-width: none;
+  display: none; /* hide by default */
+  position: fixed;
+  z-index: 20; /* above most stuff */
+  bottom: 0px;
+  right: 0px;
+  background: #A2C;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1.2rem;
+  pointer-events: none;
+  -webkit-transition: opacity 0.4s;
+          transition: opacity 0.4s;
+}

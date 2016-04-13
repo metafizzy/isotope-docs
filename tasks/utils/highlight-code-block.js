@@ -7,9 +7,9 @@ highlightjs.configure({
 
 var hljsJavascript = highlightjs.getLanguage('javascript');
 // highlight Packery
-hljsJavascript.keywords.packery = 'Packery';
+hljsJavascript.keywords.isotope = 'Isotope';
 // highlight packery variables
-hljsJavascript.keywords.packery_var = 'pckry';
+hljsJavascript.keywords.isotope_var = 'iso';
 
 hljsJavascript.contains.push({
   className: 'jquery_var',

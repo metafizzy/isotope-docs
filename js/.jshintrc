@@ -6,15 +6,10 @@
   "undef": true,
   "unused": true,
   "predef": {
-    "classie": false,
-    "docReady": false,
-    "eventie": false,
     "getSize": false,
     "getStyleProperty": false,
     "hljs": false,
     "imagesLoaded": false,
-    "Masonry": false,
-    "ID": true,
-    "matchesSelector": false
+    "ID": true
   }
 }

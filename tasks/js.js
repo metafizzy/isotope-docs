@@ -36,11 +36,13 @@ var jsSrc = [
   // imagesloaded
   'bower_components/imagesloaded/imagesloaded.js',
   // docs
+  'js/namespace.js',
   'js/vendor/*.js',
   'js/utils.js',
-  'js/controller.js',
   // modules
-  'modules/**/*.js'
+  'modules/**/*.js',
+  // init
+  'js/init.js',
 ];
 
 // concat & minify js
