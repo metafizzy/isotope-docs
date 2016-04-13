@@ -637,13 +637,31 @@ iso.destroy()
 
 <h3>getItemElements</h3>
 
-<p>Returns an array of item elements.</p>
+<p>Returns an array of all item elements in the Isotope instance.</p>
 
 ``` js
 // jQuery
 var elems = $grid.isotope('getItemElements')
 // vanilla JS
 var elems = iso.getItemElements()
+```
+
+<p class="variable">
+  <code class="variable__code">elems</code>
+  <span class="variable__type"><i>Array</i> of <i>Element</i>s</span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>getFilteredItemElements</h3>
+
+<p>Returns an array of filtered item elements in current sorted order.</p>
+
+``` js
+// jQuery
+var elems = $grid.isotope('getFilteredItemElements')
+// vanilla JS
+var elems = iso.getFilteredItemElements()
 ```
 
 <p class="variable">

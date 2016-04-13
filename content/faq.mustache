@@ -12,12 +12,6 @@ title: FAQ
 
 {{! --------------------------------------------------- }}
 
-  <h2>What is Isotope&rsquo;s browser support?</h2>
-
-  <p>Isotope works in IE8+ and modern browsers, including mobile browsers on iOS and Android.</p>
-
-{{! --------------------------------------------------- }}
-
   <h2>What is the difference between Isotope, Masonry, and Packery?</h2>
 
   <p>Isotope, <a href="http://masonry.desandro.com">Masonry</a>, and <a href="http://packery.metafizzy.co">Packery</a> are all similar in that they are layout libraries. Many of their options and methods are the same.</p>
@@ -32,7 +26,7 @@ title: FAQ
 
 <h2>The first item breaks the grid!</h2>
 
-<p>You most likely need to set the <a href="{{rootPath}}layout-modes/masonry.html#columnwidth"><code>columnWidth</code> option</a> for <a href="{{rootPath}}layout-modes/masonry.html">masonry layout mode</a>. Without <code>columnWidth</code> set, the masonry layout mode will use the width of the first item for the size of its columns.</p>
+<p>You most likely need to set the <a href="layout-modes/masonry.html#columnwidth"><code>columnWidth</code> option</a> for <a href="layout-modes/masonry.html">masonry layout mode</a>. Without <code>columnWidth</code> set, the masonry layout mode will use the width of the first item for the size of its columns.</p>
 
 ``` js
 $('.grid').isotope({
@@ -40,26 +34,6 @@ $('.grid').isotope({
     columnWidth: 200
   }
 });
-```
-
-{{! --------------------------------------------------- }}
-
-<h2>How can I access filtered items in current order?</h2>
-
-<p>Use the <code>filteredItems</code> property. <code>filteredItems</code> is an array of <i>Isotope Item</i>s.</p>
-
-``` js
-// init isotope, filter & sort
-var $grid = $('.grid').isotope({
-  filter: '.selector',
-  sortBy: 'order'
-});
-// get Isotope instance, if using jQuery
-var iso = $grid.data('isotope');
-// count how many
-console.log( 'filtered ' + iso.filteredItems.length + ' items' );
-// first element
-console.log( iso.filteredItems[0].element );
 ```
 
 {{! --------------------------------------------------- }}
