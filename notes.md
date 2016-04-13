@@ -4,7 +4,7 @@
 
 publish v2 layout modes
 
-stagger option
+<!-- stagger option -->
 
 updating from v2
 

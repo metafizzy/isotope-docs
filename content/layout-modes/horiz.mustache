@@ -1,11 +1,11 @@
 ---
-title: horizontal
+title: horiz
 ---
 
 <p>Items are arranged horizontally.</p>
 
 <div class="big-demo">
-  <div class="grid grid--horizontal" data-isotope='{ "layoutMode": "horizontal" }'>
+  <div class="grid grid--horizontal" data-isotope='{ "layoutMode": "horiz" }'>
     <div class="grid-item grid-item--height2"></div>
     <div class="grid-item"></div>
     <div class="grid-item grid-item--height3"></div>
@@ -23,6 +23,8 @@ title: horizontal
 <h2>Install</h2>
 
 <p>This layout mode is not included in <a href="../isotope.pkgd.js">isotope.pkgd.js</a> and must be installed separately.</p>
+
+<p><code>horiz</code> layout mode was previously named <code>horizontal</code> in Isotope v2.</p>
 
 <p><a href="https://raw.github.com/metafizzy/isotope-horizontal/master/horizontal.js">Download horizontal.js on GitHub</a>.</p>
 
@@ -50,17 +52,17 @@ npm install isotope-horizontal
 
 ``` js
 /* default
-horizontal: {
+horiz: {
   // align to origin edge
   verticalAlignment: 0
 } */
 
-horizontal: {
+horiz: {
   // align to center
   verticalAlignment: 0.5
 }
 
-horizontal: {
+horiz: {
   // align to opposite edge
   verticalAlignment: 1
 }
@@ -69,14 +71,14 @@ horizontal: {
 <div class="example">
   <div class="example__code">
     ``` js
-    layoutMode: 'horizontal',
-    horizontal: {
+    layoutMode: 'horiz',
+    horiz: {
       verticalAlignment: 0.5,
     }
     ```
   </div>
   <div class="example__demo">
-    <div class="grid grid--horizontal" data-isotope='{ "layoutMode": "horizontal", "horizontal": { "verticalAlignment": 0.5 } }'>
+    <div class="grid grid--horizontal" data-isotope='{ "layoutMode": "horiz", "horiz": { "verticalAlignment": 0.5 } }'>
       <div class="grid-item grid-item--height2"></div>
       <div class="grid-item"></div>
       <div class="grid-item grid-item--height3"></div>
