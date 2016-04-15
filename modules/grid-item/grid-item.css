@@ -129,3 +129,20 @@
 
 .grid--fit-rows-gutter .grid-item--width2 { width: 110px; }
 .grid--fit-rows-gutter .grid-item--width3 { width: 170px; }
+
+/* ---- filter blocks ---- */
+
+.grid-item--filter-block-red,
+.grid-item--filter-block-blue {
+  width: 60px;
+  height: 60px;
+}
+
+.grid--filter-blocks-large .grid-item--filter-block-red,
+.grid--filter-blocks-large .grid-item--filter-block-blue {
+  width: 80px;
+  height: 80px;
+}
+
+.grid-item--filter-block-red { background: #D00; }
+.grid-item--filter-block-blue { background: #19F; }

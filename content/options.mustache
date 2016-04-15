@@ -486,21 +486,25 @@ visibleStyle: {
   transform: 'scale(1)'
 }
 */
-
-$grid.isotope({
-  // disable scale transform transition when hiding
-  hiddenStyle: {
-    opacity: 0
-  },
-  visibleStyle: {
-    opacity: 1
-  }
-})
 ```
 
-{{! **needs demo** }}
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $grid.isotope({
+      // disable scale transform transition when hiding
+      hiddenStyle: {
+        opacity: 0
+      },
+      visibleStyle: {
+        opacity: 1
+      }
+    })
+    ```
+  </div>
 
-{{> edit-demo default="lxzDA" }}
+  {{> visible-hidden-style }}
+</div>
 
 {{! --------------------------------------------------- }}
 
@@ -535,7 +539,7 @@ containerStyle: null
     ``` js
     resize: false
     ```
-    
+
     ``` css
     /* grid has fixed width */
     .grid {
