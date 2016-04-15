@@ -1,5 +1,9 @@
 ## V3
 
+add Isotope v2
+
+deprecate Isotope v1 purchase links
+
 <!-- remove jQuery -->
 
 publish v2 layout modes
@@ -16,8 +20,6 @@ appendix -> extras
 horizontal -> horiz
 
 ## Pages
-
-examples
 
 check requiring jQuery
 
