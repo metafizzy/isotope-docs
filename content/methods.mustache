@@ -4,7 +4,7 @@ title: Methods
 
 <p>Methods are actions done by Isotope instances.</p>
 
-<p>With jQuery, methods follow the jQuery UI pattern <code>.isotope( <span class="string">'methodName'</span> <span class="comment">/* arguments */</span> )</code>.</p>
+<p>With jQuery, methods follow the jQuery UI pattern <code>.isotope( <span class="string">'methodName'</span> <span class="comment">/*, arguments */</span> )</code>.</p>
 
 ``` js
 $grid.isotope()
@@ -14,11 +14,8 @@ $grid.isotope()
 ```
 
 <div class="call-out">
-  <p>jQuery chaining is broken by methods that return values: (i.e. 
-    <a href="#getitemelements"><code>getItemElements</code></a>,
-    <a href="#getitem"><code>getItem</code></a>,
-    <a href="#on"><code>on</code></a>, and
-    <a href="#off"><code>off</code></a>).</p>
+  <p>jQuery chaining is broken by methods that return values like
+    <a href="#getitemelements"><code>getItemElements</code></a>.</p>
 </div>
 
 <p>Vanilla JavaScript methods look like <code>isotope.methodName( <span class="comment">/* arguments */</span> )</code>. Unlike jQuery methods, they cannot be chained together.</p>
@@ -158,7 +155,7 @@ iso.updateSortData( elements )
 
 <h3>shuffle</h3>
 
-<p>Shuffles items in a random order.</p> 
+<p>Shuffles items in a random order.</p>
 
 ``` js
 // jQuery
@@ -258,37 +255,48 @@ iso.unstamp( elements )
 
 {{! --------------------------------------------------- }}
 
-<h3>hide</h3>
+<h3>hideItemElements</h3>
 
 <p>Hide items.</p>
 
 ``` js
 // jQuery
-$grid.isotope( 'hide', items )
+$grid.isotope( 'hideItemElements', elements )
 // vanilla JS
-iso.hide( items )
+iso.hideItemElements( elements )
 ```
 
 <p class="variable">
-  <code class="variable__code">items</code>
-  <span class="variable__type"><i>Array</i> of <i>Isotope.Item</i>s</span>
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
 </p>
 
 {{! --------------------------------------------------- }}
 
-<h3>reveal</h3>
+<h3>revealItemElements</h3>
 
 <p>Reveals hidden items.</p>
 
 ``` js
-$grid.isotope( 'reveal', items )
+// jQuery
+$grid.isotope( 'revealItemElements', elements )
 // vanilla JS
-iso.reveal( items )
+iso.revealItemElements( elements )
 ```
 
 <p class="variable">
-  <code class="variable__code">items</code>
-  <span class="variable__type"><i>Array</i> of <i>Isotope.Item</i>s</span>
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
 </p>
 
 {{! --------------------------------------------------- }}
@@ -492,88 +500,6 @@ iso.remove( elements )
   </div>
   {{> remove}}
 </div>
-
-{{! --------------------------------------------------- }}
-
-<h2>Events</h2>
-
-{{! --------------------------------------------------- }}
-
-<h3>on</h3>
-
-<p>Adds an <a href="events.html">Isotope event</a> listener.</p>
-
-``` js
-// jQuery
-var iso = $grid.isotope( 'on', eventName, listener )
-// vanilla JS
-iso.on( eventName, listener )
-```
-
-<p class="variable">
-  <code class="variable__code">eventName</code>
-  <span class="variable__type"><i>String</i></span>
-  <span class="variable__description">Name of an <a href="events.html">Isotope event</a></span>
-</p>
-
-<p class="variable">
-  <code class="variable__code">listener</code>
-  <span class="variable__type"><i>Function</i></span>
-</p>
-
-{{! --------------------------------------------------- }}
-
-<h3>off</h3>
-
-<p>Removes an <a href="events.html">Isotope event</a> listener.</p>
-
-``` js
-// jQuery
-var iso = $grid.isotope( 'off', eventName, listener )
-// vanilla JS
-iso.off( eventName, listener )
-```
-
-<p class="variable">
-  <code class="variable__code">eventName</code>
-  <span class="variable__type"><i>String</i></span>
-  <span class="variable__description">Name of an <a href="events.html">Isotope event</a></span>
-</p>
-
-<p class="variable">
-  <code class="variable__code">listener</code>
-  <span class="variable__type"><i>Function</i></span>
-</p>
-
-{{! --------------------------------------------------- }}
-
-<h3>once</h3>
-
-<p>Adds an <a href="events.html">Isotope event</a> listener to be triggered just once.</p>
-
-``` js
-// jQuery
-var iso = $grid.isotope( 'once', eventName, listener )
-// vanilla JS
-iso.once( eventName, listener )
-```
-
-<p class="variable">
-  <code class="variable__code">eventName</code>
-  <span class="variable__type"><i>String</i></span>
-  <span class="variable__description">Name of an <a href="events.html">Isotope event</a></span>
-</p>
-
-<p class="variable">
-  <code class="variable__code">listener</code>
-  <span class="variable__type"><i>Function</i></span>
-</p>
-
-``` js
-$grid.isotope( 'once', 'arrangeComplete', function() {
-  console.log('arrange is complete, just once')
-})
-```
 
 {{! --------------------------------------------------- }}
 
