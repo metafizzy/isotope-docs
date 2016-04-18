@@ -10,7 +10,7 @@ publish v2 layout modes
 
 <!-- stagger option -->
 
-Improve Webpack instructions
+Improve Webpack instructions, after v3 & deps all published
 
 <!-- updating from v2 -->
 
