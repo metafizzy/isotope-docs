@@ -1,6 +1,6 @@
 ## V3
 
-add Isotope v2
+<!-- add Isotope v2 -->
 
 deprecate Isotope v1 purchase links
 
@@ -18,12 +18,6 @@ Improve Webpack instructions, after v3 & deps all published
 
 appendix -> extras
 horizontal -> horiz
-
-## Pages
-
-check requiring jQuery
-
-check requiring jQuery with pkgd
 
 ## Duo example
 
