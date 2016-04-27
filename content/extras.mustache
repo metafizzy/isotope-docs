@@ -176,32 +176,15 @@ npm install isotope-layout
 npm install imports-loader
 ```
 
-<p>In your config file, <code>webpack.config.js</code>, use the imports loader to disable <code>define</code> and set <code>window</code> for <code>isotope-layout</code> modules.</p>
+<p>In your config file, <code>webpack.config.js</code>, add these resolve aliases.</p>
 
 ``` js
-// npm v2
 module.exports = {
-  module: {
-    loaders: [
-      {
-        test: /isotope-layout/,
-        loader: 'imports?define=>false&this=>window'
-      }
-    ]
-  }
-};
-```
-
-``` js
-// npm v3
-module.exports = {
-  module: {
-    loaders: [
-      {
-        test: /isotope\-|fizzy\-ui\-utils|desandro\-|masonry|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
-        loader: 'imports?define=>false&this=>window'
-      }
-    ]
+  resolve: {
+    alias: {
+      'masonry': 'masonry-layout',
+      'isotope': 'isotope-layout'
+    }
   }
 };
 ```
