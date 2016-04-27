@@ -6,11 +6,13 @@ deprecate Isotope v1 purchase links
 
 <!-- remove jQuery -->
 
-publish v2 layout modes
+<!-- publish v2 layout modes -->
 
 <!-- stagger option -->
 
 Improve Webpack instructions, after v3 & deps all published
+
+update CodePen
 
 <!-- updating from v2 -->
 
