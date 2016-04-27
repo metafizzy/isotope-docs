@@ -5,13 +5,13 @@
   "dependencies": {
     "get-size": "^2.0.0",
     "imagesloaded": "^4.0.0",
-    "isotope": "v3",
+    "isotope": "^3.0.0",
     "isotope-cells-by-column": "1.x",
     "isotope-cells-by-row": "1.x",
     "isotope-fit-columns": "1.x",
-    "isotope-horizontal": "v2",
-    "isotope-masonry-horizontal": "v2",
-    "isotope-packery": "v2",
+    "isotope-horizontal": "^2.0.0",
+    "isotope-masonry-horizontal": "^2.0.0",
+    "isotope-packery": "^2.0.0",
     "jquery-bridget": "^2.0.0",
     "normalize.css": "^4.0.0"
   }
