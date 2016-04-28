@@ -10,8 +10,6 @@ ID.modules['animate-item-size-responsive'] = function( elem ) {
     'transition' : 'WebkitTransition';
   var transitionEndEvent = {
     WebkitTransition: 'webkitTransitionEnd',
-    MozTransition: 'transitionend',
-    OTransition: 'otransitionend',
     transition: 'transitionend'
   }[ transitionProp ];
 

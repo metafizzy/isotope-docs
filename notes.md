@@ -10,16 +10,16 @@ deprecate Isotope v1 purchase links
 
 <!-- stagger option -->
 
-Improve Webpack instructions, after v3 & deps all published
+<!-- Improve Webpack instructions, after v3 & deps all published -->
 
-update CodePen
+<!-- update CodePen -->
 
 <!-- updating from v2 -->
 
 **Redirects**
 
-appendix -> extras
-horizontal -> horiz
+<!-- appendix -> extras -->
+<!-- horizontal -> horiz -->
 
 ## Duo example
 
