@@ -1,6 +1,6 @@
 {
   "name": "isotope-docs",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "dependencies": {
     "cheerio": "^0.20.0",
     "glob": "^7.0.3",
