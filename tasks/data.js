@@ -18,11 +18,11 @@ module.exports = function( site ) {
   gulp.task( 'isotope-version', function() {
     return gulp.src('bower_components/isotope/.bower.json')
       .pipe( getTransform( function( file, enc, next ) {
-        // var json = JSON.parse( file.contents.toString() );
-        // site.data.isotopeVersion = json.version;
-        // site.data.isotopeMinorVersion = json.version.match(/^\d\.\d+/)[0];
-        site.data.isotopeVersion = '3.0.0';
-        site.data.isotopeMinorVersion = '3.0';
+        // site.data.isotopeVersion = '3.0.0';
+        // site.data.isotopeMinorVersion = '3.0';
+        var json = JSON.parse( file.contents.toString() );
+        site.data.isotopeVersion = json.version;
+        site.data.isotopeMinorVersion = json.version.match(/^\d\.\d+/)[0];
         next( null, file );
       }));
   });
