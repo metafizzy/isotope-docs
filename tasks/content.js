@@ -44,7 +44,7 @@ module.exports = function( site ) {
     var filterQuery = site.data.isExport ? [ '**', '!**/404.*'] : '**';
 
     site.data.sourceUrlPath = site.data.isExport ? '' :
-      'https://npmcdn.com/isotope-layout@' + site.data.isotopeMinorVersion + '/dist/';
+      'https://unpkg.com/isotope-layout@' + site.data.isotopeMinorVersion + '/dist/';
 
     var buildOptions = {
       layout: pageTemplate,
