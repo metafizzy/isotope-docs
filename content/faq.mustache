@@ -62,6 +62,24 @@ $('.grid').isotope({
 
 {{! --------------------------------------------------- }}
 
+<h2>jQuery appended content not working</h2>
+
+<p>Isotope's <a href="methods.html#appended"><code>appended</code> method</a> will work with a jQuery object, but not with an HTML string. Create a jQuery object from the HTML string first, then you can use <code>appended</code></p>
+
+``` js
+// doesn't work
+// content gets appended, but not added as Isotope item
+var content = '<div class="grid-item"></div>'
+$grid.append( content ).isotope( 'appended', content )
+
+// works
+// make into jQuery object
+var $content = $('<div class="grid-item"></div>')
+$grid.append( $content ).isotope( 'appended', $content )
+```
+
+{{! --------------------------------------------------- }}
+
 <h2>Error: &ldquo;cannot call methods on isotope prior to initialization; attempted to call '___'&rdquo;</h2>
 
 <p>This error occurs when your code attempts to use a <a href="methods.html">method</a> before the Isotope instance has been initialized.</p>
