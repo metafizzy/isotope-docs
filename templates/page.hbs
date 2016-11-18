@@ -11,12 +11,12 @@
   {{#if isDev}}
     {{! DEV MODE - including each .css file }}
     {{#each css_paths}}
-      <link rel="stylesheet" href="../{{../rootPath}}{{this}}" />
+      <link rel="stylesheet" href="../{{@file.rootPath}}{{this}}" />
     {{/each}}
   {{else}}
     {{! in production, just include concat CSS }}
     <!-- Isotope does not require any CSS files -->
-    <link rel="stylesheet" href="{{#if page.is_404}}/{{else}}{{rootPath}}{{/if}}css/isotope-docs.css" media="screen" />
+    <link rel="stylesheet" href="{{#if page.is_404}}/{{else}}{{@file.rootPath}}{{/if}}css/isotope-docs.css" media="screen" />
   {{/if}}
 
   {{! Twitter Cards }}
@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="filter &amp; sort magical layouts" />
 
 </head>
-<body class="page--{{basename}}" data-page="{{basename}}">
+<body class="page--{{@file.basename}}">
 
   {{> nav}}
 
@@ -43,7 +43,7 @@
       {{/unless}}
 
 {{! all page content goes here }}
-{{> body}}
+{{#block "main"}}{{/block}}
     </div>
   </div>
 
@@ -57,7 +57,7 @@
 {{#if isDev}}
   {{#each js_paths}}
     {{! DEV MODE - including each .js file }}
-    <script src="../{{../rootPath}}{{this}}"></script>
+    <script src="../{{@file.rootPath}}{{this}}"></script>
   {{/each}}
 {{else}}
   {{! in production, just include concat/minified js }}

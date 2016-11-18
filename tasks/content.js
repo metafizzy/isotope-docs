@@ -2,30 +2,28 @@ var gulp = require('gulp');
 var rename = require('gulp-rename');
 var filter = require('gulp-filter');
 var frontMatter = require('gulp-front-matter');
+var transfob = require('transfob');
+var hb = require('gulp-hb');
+var hbLayouts = require('handlebars-layouts');
+var path = require('path');
 
-var getTransform = require('./utils/get-transform');
 var pageNav = require('./utils/page-nav');
 var highlightCodeBlock = require('./utils/highlight-code-block');
-var build = require('./utils/build');
+var extendPageLayout = require('./utils/extend-page-layout');
 
-var contentSrc = [
-  'content/**/*.mustache'
+// sources
+var contentSrc = 'content/**/*.hbs';
+var partialsSrc = [
+  'bower_components/fizzy-docs-modules/*/*.hbs',
+  'modules/*/**/*.hbs',
 ];
-
-// ----- page template ----- //
-
-var pageTemplateSrc = 'templates/page.mustache';
-var pageTemplate;
-
-gulp.task( 'page-template', function() {
-  return gulp.src( pageTemplateSrc )
-    .pipe( getTransform( function( file, enc, next ) {
-      pageTemplate = file.contents.toString();
-      next( null, file );
-    }));
-});
+var dataSrc = 'data/*.json';
+var pageTemplateSrc = 'templates/*.hbs';
 
 var helpers = {
+  lowercase: function( str ) {
+    return str.toLowerCase();
+  },
   firstValue: function( ary ) {
     return ary[0];
   },
@@ -39,27 +37,40 @@ var helpers = {
 
 module.exports = function( site ) {
 
-  gulp.task( 'content', [ 'partials', 'data', 'page-template' ], function() {
+  gulp.task( 'content', function() {
     // exclude 404 if export
     var filterQuery = site.data.isExport ? [ '**', '!**/404.*'] : '**';
 
     site.data.sourceUrlPath = site.data.isExport ? '' :
-      'https://unpkg.com/isotope-layout@' + site.data.isotopeMinorVersion + '/dist/';
-
-    var buildOptions = {
-      layout: pageTemplate,
-      partials: site.partials,
-      helpers: helpers,
-      rootPathBase: '/content/'
-    };
+      'https://unpkg.com/flickity@2/dist/';
 
     return gulp.src( contentSrc )
       .pipe( filter( filterQuery ) )
       .pipe( frontMatter({
-        property: 'frontMatter',
+        property: 'data.page',
         remove: true
       }) )
-      .pipe( build( site.data, buildOptions ) )
+      .pipe( extendPageLayout() )
+      // add file path data
+      .pipe( transfob( function( file, enc, next ) {
+        file.filePath = path.relative( file.cwd, file.path );
+        file.rootPath = path.relative( file.path, file.cwd + '/content/' )
+          .replace( /\.\.$/, '' );
+        file.basename = path.basename( file.path, '.hbs' );
+        next( null, file );
+      }))
+      .pipe( hb()
+        .partials( pageTemplateSrc )
+        .partials( partialsSrc, {
+          parsePartialName: function( options, file ) {
+            return path.basename( file.path, '.hbs' );
+          }
+        } )
+        .data( dataSrc )
+        .data( site.data )
+        .helpers( hbLayouts )
+        .helpers( helpers )
+      )
       .pipe( highlightCodeBlock() )
       .pipe( pageNav() )
       .pipe( rename({ extname: '.html' }) )
@@ -68,5 +79,7 @@ module.exports = function( site ) {
 
   site.watch( contentSrc, [ 'content' ] );
   site.watch( pageTemplateSrc, [ 'content' ] );
+  site.watch( dataSrc, [ 'content' ] );
+  site.watch( partialsSrc, [ 'content' ] );
 
 };

@@ -13,6 +13,7 @@
     "isotope-masonry-horizontal": "^2.0.0",
     "isotope-packery": "^2.0.0",
     "jquery-bridget": "^2.0.0",
-    "normalize.css": "^4.0.0"
+    "normalize.css": "^4.0.0",
+    "fizzy-docs-modules": "metafizzy/fizzy-docs-modules"
   }
 }

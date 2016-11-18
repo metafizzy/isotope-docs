@@ -1,41 +1,41 @@
 <ol class="site-nav">
   <li class="site-nav__item site-nav__item--filtering">
     <a class="site-nav__item__link"
-      href="{{rootPath}}filtering.html">Filtering</a></li>
+      href="{{@file.rootPath}}filtering.html">Filtering</a></li>
   <li class="site-nav__item site-nav__item--sorting">
     <a class="site-nav__item__link"
-      href="{{rootPath}}sorting.html">Sorting</a></li>
+      href="{{@file.rootPath}}sorting.html">Sorting</a></li>
   <li class="site-nav__item site-nav__item--layout ">
     <a class="site-nav__item__link"
-      href="{{rootPath}}layout.html">Layout</a>
+      href="{{@file.rootPath}}layout.html">Layout</a>
   </li>
   <li class="site-nav__item site-nav__item--layout-modes sub-nav-parent">
     <a class="site-nav__item__link"
-      href="{{rootPath}}layout-modes.html">Layout modes</a>
+      href="{{@file.rootPath}}layout-modes.html">Layout modes</a>
     <ul class="sub-nav">
-      {{#each layout-modes-sub-nav}}
+      {{#each layoutModesSubNav}}
         <li class="sub-nav__item sub-nav__item--{{slug this}}">
           <a class="sub-nav__item__link"
-            href="{{../rootPath}}layout-modes/{{slug this}}.html">{{this}}</a></li>
+            href="{{@file.rootPath}}layout-modes/{{slug this}}.html">{{this}}</a></li>
       {{/each}}
     </ul>
   </li>
   <li class="site-nav__item site-nav__item--options">
     <a class="site-nav__item__link"
-      href="{{rootPath}}options.html">Options</a></li>
+      href="{{@file.rootPath}}options.html">Options</a></li>
   <li class="site-nav__item site-nav__item--methods">
     <a class="site-nav__item__link"
-      href="{{rootPath}}methods.html">Methods</a></li>
+      href="{{@file.rootPath}}methods.html">Methods</a></li>
   <li class="site-nav__item site-nav__item--events">
     <a class="site-nav__item__link"
-      href="{{rootPath}}events.html">Events</a></li>
+      href="{{@file.rootPath}}events.html">Events</a></li>
   <li class="site-nav__item site-nav__item--extras">
     <a class="site-nav__item__link"
-      href="{{rootPath}}extras.html">Extras</a></li>
+      href="{{@file.rootPath}}extras.html">Extras</a></li>
   <li class="site-nav__item site-nav__item--license">
     <a class="site-nav__item__link"
-      href="{{rootPath}}license.html">License</a></li>
+      href="{{@file.rootPath}}license.html">License</a></li>
   <li class="site-nav__item site-nav__item--faq">
     <a class="site-nav__item__link"
-      href="{{rootPath}}faq.html">FAQ</a></li>
+      href="{{@file.rootPath}}faq.html">FAQ</a></li>
 </ol>
