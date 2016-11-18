@@ -37,7 +37,7 @@
 {{/if}}
 
   <div id="content" class="main">
-    <div class="primary-content">
+    <div class="container">
       {{#unless page.is_homepage}}
         <h1>{{page.title}}</h1>
       {{/unless}}
@@ -47,12 +47,12 @@
     </div>
   </div>
 
-  {{> site-footer}}
+  {{> site-footer isotope=true}}
 
 <!-- Looking for isotope.js? Use {{sourceUrlPath}}isotope.pkgd.min.js -->
 <!-- Isotope does NOT require jQuery. But it does make things easier -->
-<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{rootPath}}js/jquery.min.js"><\/script>')</script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{@file.rootPath}}js/jquery.min.js"><\/script>')</script>
 
 {{#if isDev}}
   {{#each js_paths}}
@@ -61,7 +61,7 @@
   {{/each}}
 {{else}}
   {{! in production, just include concat/minified js }}
-  <script src="{{#if page.is_404}}/{{else}}{{rootPath}}{{/if}}js/isotope-docs.min.js"></script>
+  <script src="{{#if page.is_404}}/{{else}}{{@file.rootPath}}{{/if}}js/isotope-docs.min.js"></script>
 {{/if}}
 
 {{#unless isExport}}

@@ -53,7 +53,6 @@ module.exports = function( site ) {
       .pipe( extendPageLayout() )
       // add file path data
       .pipe( transfob( function( file, enc, next ) {
-        file.filePath = path.relative( file.cwd, file.path );
         file.rootPath = path.relative( file.path, file.cwd + '/content/' )
           .replace( /\.\.$/, '' );
         file.basename = path.basename( file.path, '.hbs' );

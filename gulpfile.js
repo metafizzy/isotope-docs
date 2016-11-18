@@ -6,6 +6,7 @@ var gulp = require('gulp');
 var site = {
   // templating data
   data: {
+    productName: 'Isotope',
     isDev: process.argv[2] == 'dev',
     isExport: process.argv[2] == 'export',
   },

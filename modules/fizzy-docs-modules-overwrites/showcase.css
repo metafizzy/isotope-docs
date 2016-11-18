@@ -1,0 +1,16 @@
+/* showcase overwrites
+------------------------- */
+
+.showcase-item__link {
+  background: #262524;
+  color: #4BF;
+}
+
+.showcase-item__link:hover {
+  background: #1FB;
+  color: #262524;
+}
+
+.showcase-item__title { font-weight: bold; }
+
+.huebee-illo__line { stroke: white; }

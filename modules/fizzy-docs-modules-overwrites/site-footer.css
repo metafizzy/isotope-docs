@@ -1,0 +1,48 @@
+/* site-footer overwrites
+------------------------- */
+
+.site-footer {
+  background: #161514;
+  position: relative;
+}
+
+
+.fizzy-bear-shirt__link {
+  padding: 10px;
+  border-radius: 8px;
+  background: #262524;
+  color: #4BF;
+  display: block;
+}
+
+.fizzy-bear-shirt__link:hover {
+  background: #1FB;
+  color: #262524;
+}
+
+.fizzy-bear-shirt__title {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.fizzy-bear-shirt__image { border-radius: 5px; }
+
+.site-footer .twitter-logo { fill: #FB4; }
+.site-footer a:hover .twitter-logo { fill: #1BF; }
+
+
+/* ----  ---- */
+
+.site-footer .metafizzy-wordmark path { fill: #1BF; }
+
+.site-footer .metafizzy-logo__stripe1,
+.site-footer .metafizzy-logo__stripe2,
+.site-footer .metafizzy-logo__stripe3,
+.site-footer .metafizzy-logo__stripe4 { fill: #1BF; }
+
+.site-footer a:hover .metafizzy-wordmark path { fill: white; }
+
+.site-footer a:hover .metafizzy-logo__stripe1 { fill: #C25; }
+.site-footer a:hover .metafizzy-logo__stripe2 { fill: #E62; }
+.site-footer a:hover .metafizzy-logo__stripe3 { fill: #EA0; }
+.site-footer a:hover .metafizzy-logo__stripe4 { fill: #19F; }

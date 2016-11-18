@@ -1,29 +1,29 @@
-/* primary-content
+/* container
 ------------------------- */
 
-.primary-content {
+.container {
   margin-left: 10px;
   margin-right: 10px;
   max-width: 1200px;
 }
 
-.main .primary-content > * {
+.main .container > * {
   max-width: 700px;
 }
 
-.main .primary-content .go-wide,
-.main .primary-content .example {
+.main .container .go-wide,
+.main .container .example {
   max-width: none;
 }
 
 /* tablet-ish */
 @media screen and ( min-width: 768px ) {
 
-  .primary-content {
+  .container {
     margin-left: 220px;
   }
 
-  .main .primary-content > * {
+  .main .container > * {
     max-width: 900px;
   }
 
@@ -32,7 +32,7 @@
 /* desktop */
 @media screen and ( min-width: 960px ) {
 
-  .primary-content {
+  .container {
     margin-right: 6%;
   }
 

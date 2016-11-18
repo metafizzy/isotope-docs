@@ -35,6 +35,8 @@ var jsSrc = [
   'bower_components/isotope-packery/packery-mode.js',
   // imagesloaded
   'bower_components/imagesloaded/imagesloaded.js',
+  // fizzy docs modules
+  'bower_components/fizzy-docs-modules/*/*.js',
   // docs
   'js/namespace.js',
   'js/vendor/*.js',
