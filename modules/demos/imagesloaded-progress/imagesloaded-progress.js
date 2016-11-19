@@ -2,7 +2,7 @@
  * imagesloaded-progress
  */
 
-ID.modules['imagesloaded-progress'] = function( elem ) {
+IsotopeDocs['imagesloaded-progress'] = function( elem ) {
   'use strict';
 
   // init Isotope

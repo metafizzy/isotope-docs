@@ -2,7 +2,7 @@
  * layout-demo
  */
 
-ID.modules['layout-demo'] = function( elem ) {
+IsotopeDocs['layout-demo'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

@@ -2,7 +2,7 @@
  * hero-demo
  */
 
-ID.modules['hero-demo'] = function( elem ) {
+IsotopeDocs['hero-demo'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

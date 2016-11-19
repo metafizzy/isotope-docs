@@ -2,7 +2,7 @@
  * filtering-demo
  */
 
-ID.modules['filtering-demo'] = function( elem ) {
+IsotopeDocs['filtering-demo'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

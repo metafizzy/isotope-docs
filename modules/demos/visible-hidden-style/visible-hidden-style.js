@@ -1,4 +1,4 @@
-ID.modules['visible-hidden-style'] = function( elem ) {
+IsotopeDocs['visible-hidden-style'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

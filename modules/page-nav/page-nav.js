@@ -5,7 +5,7 @@
 ( function() {
 'use strict';
 
-ID.modules['page-nav'] = function( elem ) {
+IsotopeDocs['page-nav'] = function( elem ) {
 
   var navHeight = getSize( elem ).outerHeight;
 

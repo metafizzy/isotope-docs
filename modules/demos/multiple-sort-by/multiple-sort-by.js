@@ -2,7 +2,7 @@
  * multiple-sort-by
  */
 
-ID.modules['multiple-sort-by'] = function( elem ) {
+IsotopeDocs['multiple-sort-by'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

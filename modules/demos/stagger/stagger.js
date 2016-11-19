@@ -1,4 +1,4 @@
-ID.modules.stagger = function( elem ) {
+IsotopeDocs.stagger = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

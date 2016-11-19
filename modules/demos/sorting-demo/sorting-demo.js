@@ -2,7 +2,7 @@
  * sorting-demo
  */
 
-ID.modules['sorting-demo'] = function( elem ) {
+IsotopeDocs['sorting-demo'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

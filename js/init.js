@@ -3,9 +3,9 @@
 'use strict';
 
 // init module instance for all elements with data-module attributes
-$('[data-js-module]').each( function( i, elem ) {
-  var moduleName = elem.getAttribute('data-js-module');
-  var module = ID.modules[ moduleName ];
+$('[data-js]').each( function( i, elem ) {
+  var moduleName = elem.getAttribute('data-js');
+  var module = IsotopeDocs[ moduleName ] || FizzyDocs[ moduleName ];
   if ( module ) {
     module( elem );
   }

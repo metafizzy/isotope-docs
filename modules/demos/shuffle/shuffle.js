@@ -2,7 +2,7 @@
  * shuffle
  */
 
-ID.modules['shuffle'] = function( elem ) {
+IsotopeDocs['shuffle'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

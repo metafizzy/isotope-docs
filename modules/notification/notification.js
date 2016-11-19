@@ -1,4 +1,4 @@
-ID.modules.notification = function( elem ) {
+IsotopeDocs.notification = function( elem ) {
   'use strict';
 
   var docElem = document.documentElement;

@@ -2,7 +2,7 @@
  * prepended
  */
 
-ID.modules.prepended = function( elem ) {
+IsotopeDocs.prepended = function( elem ) {
   'use strict';
 
   var $demo = $( elem );
@@ -15,9 +15,9 @@ ID.modules.prepended = function( elem ) {
   $demo.find('.prepend-button').on( 'click', function() {
     // create new item elements
     var $items = $([
-      ID.getItemElement(),
-      ID.getItemElement(),
-      ID.getItemElement()
+      IsotopeDocs.getItemElement(),
+      IsotopeDocs.getItemElement(),
+      IsotopeDocs.getItemElement()
     ]);
     // prepend elements to container
     $grid.prepend( $items )

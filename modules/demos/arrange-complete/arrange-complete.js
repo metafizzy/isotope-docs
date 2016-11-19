@@ -2,7 +2,7 @@
  * arrange-complete
  */
 
-ID.modules['arrange-complete'] = function( elem ) {
+IsotopeDocs['arrange-complete'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

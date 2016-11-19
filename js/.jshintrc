@@ -6,10 +6,11 @@
   "undef": true,
   "unused": true,
   "predef": {
+    "FizzyDocs": false,
     "getSize": false,
     "getStyleProperty": false,
     "hljs": false,
     "imagesLoaded": false,
-    "ID": true
+    "IsotopeDocs": true
   }
 }

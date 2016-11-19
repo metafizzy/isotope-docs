@@ -1,4 +1,4 @@
-ID.modules['gh-button'] = function( elem ) {
+IsotopeDocs['gh-button'] = function( elem ) {
 
   var user = 'metafizzy';
   var repo = 'isotope';

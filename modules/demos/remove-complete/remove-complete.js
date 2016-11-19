@@ -2,7 +2,7 @@
  * remove-complete
  */
 
-ID.modules['remove-complete'] = function( elem ) {
+IsotopeDocs['remove-complete'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

@@ -2,7 +2,7 @@
  * remove
  */
 
-ID.modules['remove'] = function( elem ) {
+IsotopeDocs['remove'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

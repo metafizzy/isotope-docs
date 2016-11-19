@@ -3,7 +3,7 @@
  */
 
 
-ID.modules['animate-item-size'] = function( elem ) {
+IsotopeDocs['animate-item-size'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

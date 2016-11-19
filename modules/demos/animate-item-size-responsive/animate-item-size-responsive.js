@@ -2,7 +2,7 @@
  * animate-item-size-responsive
  */
 
-ID.modules['animate-item-size-responsive'] = function( elem ) {
+IsotopeDocs['animate-item-size-responsive'] = function( elem ) {
   'use strict';
 
   var docElemStyle = document.documentElement.style;

@@ -2,7 +2,7 @@
  * insert
  */
 
-ID.modules.insert = function( elem ) {
+IsotopeDocs.insert = function( elem ) {
   'use strict';
 
   var $demo = $( elem );
@@ -27,7 +27,7 @@ ID.modules.insert = function( elem ) {
     // create new item elements
     var elems = [];
     for ( var i = 0; i < 3; i++ ) {
-      var elem = ID.getItemElement();
+      var elem = IsotopeDocs.getItemElement();
       // set number
       var num = Math.floor( Math.random() * 100 );
       $( elem ).append( '<p class="number">' + num + '</p>' );

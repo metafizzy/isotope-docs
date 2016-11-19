@@ -2,7 +2,7 @@
  * appended
  */
 
-ID.modules.appended = function( elem ) {
+IsotopeDocs.appended = function( elem ) {
   'use strict';
 
   var $demo = $( elem );
@@ -15,9 +15,9 @@ ID.modules.appended = function( elem ) {
   $demo.find('.append-button').on( 'click', function() {
     // create new item elements
     var $items = $([
-      ID.getItemElement(),
-      ID.getItemElement(),
-      ID.getItemElement()
+      IsotopeDocs.getItemElement(),
+      IsotopeDocs.getItemElement(),
+      IsotopeDocs.getItemElement()
     ]);
     // append elements to container
     $grid.append( $items )

@@ -2,7 +2,7 @@
  * vertical-list
 **/
 
-ID.modules['vertical-list'] = function( elem ) {
+IsotopeDocs['vertical-list'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

@@ -2,7 +2,7 @@
  * destroy demo
  */
 
-ID.modules['destroy'] = function( elem ) {
+IsotopeDocs['destroy'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

@@ -3,7 +3,7 @@
 
 // -------------------------- helpers -------------------------- //
 
-ID.getItemElement = function() {
+IsotopeDocs.getItemElement = function() {
   var elem = document.createElement('div');
   var wRand = Math.random();
   var hRand = Math.random();

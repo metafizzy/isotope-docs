@@ -2,7 +2,7 @@
  * imagesloaded-callback
  */
 
-ID.modules['imagesloaded-callback'] = function( elem ) {
+IsotopeDocs['imagesloaded-callback'] = function( elem ) {
   'use strict';
 
   var $grid = $( elem ).imagesLoaded( function() {

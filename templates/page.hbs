@@ -16,7 +16,7 @@
   {{else}}
     {{! in production, just include concat CSS }}
     <!-- Isotope does not require any CSS files -->
-    <link rel="stylesheet" href="{{#if page.is_404}}/{{else}}{{@file.rootPath}}{{/if}}css/isotope-docs.css" media="screen" />
+    <link rel="stylesheet" href="{{#if page.is_404}}/{{else}}{{@file.rootPath}}{{/if}}css/isotope-docs.css?3" media="screen" />
   {{/if}}
 
   {{! Twitter Cards }}
@@ -61,7 +61,7 @@
   {{/each}}
 {{else}}
   {{! in production, just include concat/minified js }}
-  <script src="{{#if page.is_404}}/{{else}}{{@file.rootPath}}{{/if}}js/isotope-docs.min.js"></script>
+  <script src="{{#if page.is_404}}/{{else}}{{@file.rootPath}}{{/if}}js/isotope-docs.min.js?3"></script>
 {{/if}}
 
 {{#unless isExport}}

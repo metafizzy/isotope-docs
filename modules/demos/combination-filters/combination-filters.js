@@ -2,7 +2,7 @@
  * combination-filters
  */
 
-ID.modules['combination-filters'] = function( elem ) {
+IsotopeDocs['combination-filters'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

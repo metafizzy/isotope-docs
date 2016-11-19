@@ -2,7 +2,7 @@
  * in-use-grid
  */
 
-ID.modules['in-use-grid'] = function( elem ) {
+IsotopeDocs['in-use-grid'] = function( elem ) {
   'use strict';
 
   var $grid = $(elem);

@@ -2,7 +2,7 @@
  * layout-modes-demo
  */
 
-ID.modules['layout-modes-demo'] = function( elem ) {
+IsotopeDocs['layout-modes-demo'] = function( elem ) {
   'use strict';
 
   var $window = $(window);

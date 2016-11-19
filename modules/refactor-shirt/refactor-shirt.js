@@ -1,4 +1,4 @@
-ID.modules['refactor-shirt'] = function( elem ) {
+IsotopeDocs['refactor-shirt'] = function( elem ) {
   'use strict';
 
   var endDate = new Date( 2016, 1, 10 );

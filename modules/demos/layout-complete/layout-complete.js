@@ -2,7 +2,7 @@
  * layout-complete
  */
 
-ID.modules['layout-complete'] = function( elem ) {
+IsotopeDocs['layout-complete'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );

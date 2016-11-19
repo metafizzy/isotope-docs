@@ -2,7 +2,7 @@
  * stamp-methods
  */
 
-ID.modules['stamp-methods'] = function( elem ) {
+IsotopeDocs['stamp-methods'] = function( elem ) {
   'use strict';
 
   var $demo = $( elem );
