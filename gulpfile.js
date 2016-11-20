@@ -25,7 +25,6 @@ require('./tasks/dist')( site );
 require('./tasks/hint')( site );
 require('./tasks/js')( site );
 require('./tasks/css')( site );
-require('./tasks/partials')( site );
 require('./tasks/content')( site );
 
 // ----- default ----- //
