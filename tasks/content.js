@@ -42,7 +42,7 @@ module.exports = function( site ) {
     var filterQuery = site.data.isExport ? [ '**', '!**/404.*'] : '**';
 
     site.data.sourceUrlPath = site.data.isExport ? '' :
-      'https://unpkg.com/flickity@2/dist/';
+      'https://unpkg.com/isotope-layout@3/dist/';
 
     return gulp.src( contentSrc )
       .pipe( filter( filterQuery ) )
