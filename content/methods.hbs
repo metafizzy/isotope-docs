@@ -342,6 +342,20 @@ iso.appended( elements )
   {{> appended}}
 </div>
 
+<p>With jQuery, <code>appended</code>, <code>prepended</code>, and <code>insert</code> will not work with an HTML string, like it does for jQuery's methods. Wrap your HTML string in a jQuery object so it works with Isotope.</p>
+
+``` js
+// doesn't work
+// content gets appended, but not added as Isotope item
+var content = '<div class="grid-item"></div>'
+$grid.append( content ).isotope( 'appended', content )
+
+// works
+// make into jQuery object
+var $content = $('<div class="grid-item"></div>')
+$grid.append( $content ).isotope( 'appended', $content )
+```
+
 {{! --------------------------------------------------- }}
 
 <h3>prepended</h3>
