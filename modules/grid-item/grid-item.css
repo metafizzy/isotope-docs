@@ -146,3 +146,13 @@
 
 .grid-item--filter-block-red { background: #D00; }
 .grid-item--filter-block-blue { background: #19F; }
+
+/* ---- horizontal order ---- */
+
+.grid--hor-order .grid-item {
+  width: 100px;
+  height: 80px;
+}
+
+.grid--hor-order .grid-item--height2 { height: 100px; }
+.grid--hor-order .grid-item--height3 { height: 120px; }

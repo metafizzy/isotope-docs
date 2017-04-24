@@ -177,6 +177,51 @@ title: masonry
 
 </div>
 
+{{! ----------------------------------------------------------- }}
+
+<h3>horizontalOrder</h3>
+
+<p>Lays out items to (mostly) maintain horizontal left-to-right order.</p>
+
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    masonry: {
+      columnWidth: 100,
+      horizontalOrder: true
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo" >
+    <div class="grid grid--hor-order grid--counting"
+      data-isotope='{ "itemSelector": ".grid-item", "masonry": { "horizontalOrder": true } }'>
+      {{> grid-items-horizontal-order}}
+    </div>
+    {{> edit-demo default="ybaoro" }}
+  </div>
+</div>
+
+<p>Look how items in the second and third rows are ordered.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    // default, items have no horizontal order
+    masonry: {
+      columnWidth: 100,
+      // horizontalOrder: false
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo" >
+    <div class="grid grid--hor-order grid--counting"
+      data-isotope='{ "itemSelector": ".grid-item" }'>
+      {{> grid-items-horizontal-order}}
+    </div>
+  </div>
+</div>
+
 {{! --------------------------------------------------- }}
 
 <h3>fitWidth</h3>
