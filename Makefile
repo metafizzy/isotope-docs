@@ -7,7 +7,7 @@ zip:
 	rm -rf isotope-docs
 
 deploy:
-	s3cmd -c ~/.s3cfg-fizzy sync build/. s3://isotope.metafizzy.co/
+	s3cmd -c ~/.s3cfg-fizzy sync --cf-invalidate build/. s3://isotope.metafizzy.co/
 
 gulp:
 	gulp
