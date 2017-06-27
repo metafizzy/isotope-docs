@@ -1,0 +1,18 @@
+/* call-out overwrites
+------------------------- */
+
+.call-out {
+  border-color: #FB4;
+}
+
+.call-out:before {
+  background: #FB4;
+}
+
+.call-out--chill {
+  border-color: #4FB;
+}
+
+.call-out--chill:before {
+  background: #4FB;
+}
