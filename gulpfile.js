@@ -234,7 +234,7 @@ function buildContent( dataOptions ) {
   return function() {
     var data = extend( siteData, dataOptions );
     data.source_url_path = data.is_export ? '' :
-      'http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/' + data.isotope_version + '/';
+      'https://unpkg.com/isotope-layout@2/dist/';
     // data.source_url_path = '';
     var filter = gulpFilter( filterQuery );
 
