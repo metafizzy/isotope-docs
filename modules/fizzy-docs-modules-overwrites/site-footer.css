@@ -6,69 +6,40 @@
   position: relative;
 }
 
-
-.fizzy-bear-shirt__link {
-  padding: 10px;
-  border-radius: 8px;
-  background: #262524;
-  color: #4BF;
-  display: block;
-}
-
-.fizzy-bear-shirt__link:hover {
-  background: #1FB;
-  color: #262524;
-}
-
-.fizzy-bear-shirt__title {
-  margin-top: 0;
-  font-weight: bold;
-}
-
-.fizzy-bear-shirt__image { border-radius: 5px; }
-
 .site-footer .twitter-logo { fill: #FB4; }
 .site-footer a:hover .twitter-logo { fill: #1BF; }
 
+/* ---- mfzy-logo ---- */
 
-/* ----  ---- */
+.site-footer .mfzy-logo__body-fill { fill: #1BF; }
+.site-footer .mfzy-logo__stripes { display: none; }
 
-.site-footer .metafizzy-logo { width: 45px; }
-.site-footer .metafizzy-wordmark { width: 160px; }
+.site-footer a:hover .mfzy-logo__stripes { display: inline; }
 
-.site-footer .metafizzy-wordmark path { fill: #1BF; }
+/* ---- mfzy-wordmark ---- */
 
-.site-footer .metafizzy-logo__stripe1,
-.site-footer .metafizzy-logo__stripe2,
-.site-footer .metafizzy-logo__stripe3,
-.site-footer .metafizzy-logo__stripe4 { fill: #1BF; }
-
-.site-footer a:hover .metafizzy-wordmark path { fill: white; }
-
-.site-footer a:hover .metafizzy-logo__stripe1 { fill: #C25; }
-.site-footer a:hover .metafizzy-logo__stripe2 { fill: #E62; }
-.site-footer a:hover .metafizzy-logo__stripe3 { fill: #EA0; }
-.site-footer a:hover .metafizzy-logo__stripe4 { fill: #19F; }
+.mfzy-wordmark { stroke: #1BF; }
+.mfzy-brand__link:hover .mfzy-wordmark { stroke: white; }
 
 @media screen and ( min-width: 960px ) {
 
   /* sidebar brand */
 
-  .site-footer .metafizzy-brand {
+  .site-footer .mfzy-brand {
     position: absolute;
     left: 20px;
     top: 60px;
     width: 180px;
   }
 
-  .site-footer .metafizzy-logo {
+  .site-footer .mfzy-logo {
     display: block;
-    width: 90px;
+    width: 108px;
+    height: 108px;
     margin: 0 auto 10px;
   }
 
-  .site-footer .metafizzy-wordmark {
-    width: 140px;
+  .site-footer .mfzy-wordmark {
     margin: 0 auto;
     display: block;
   }
