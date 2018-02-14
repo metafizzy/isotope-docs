@@ -31,6 +31,70 @@ title: Extras
 
 {{! ----------------------------------------------------------------- }}
 
+<h3>Webpack</h3>
+
+<p>Install Isotope with npm.</p>
+
+``` bash
+npm install isotope-layout
+```
+
+<p>You can then <code>require(<span class="string">'isotope-layout'</span>)</code>.</p>
+
+``` js
+// main.js
+var Isotope = require('isotope-layout');
+
+var iso = new Isotope( '.grid', {
+  // options...
+});
+```
+
+<p>Run webpack.</p>
+
+
+``` bash
+webpack main.js bundle.js
+```
+
+<p>Install and require <a href="layout-modes.html#included-modes">layout modes that are not included</a>.</p>
+
+``` bash
+npm install isotope-cells-by-row
+```
+
+``` js
+var Isotope = require('isotope-layout');
+// add cellsByRow layout mode
+require('isotope-cells-by-row')
+
+var iso = new Isotope( '.grid', {
+  layoutMode: 'cellsByRow'
+});
+```
+
+<p id="browserify-jquery">To use Isotope as a jQuery plugin with Browserify, you need to use <a href="https://www.npmjs.com/package/jquery-bridget">jQuery Bridget</a></p>
+
+``` bash
+npm install jquery
+npm install jquery-bridget
+```
+
+``` js
+var $ = require('jquery');
+var jQueryBridget = require('jquery-bridget');
+var Isotope = require('isotope-layout');
+// make Isotope a jQuery plugin
+jQueryBridget( 'isotope', Isotope, $ );
+// now you can use $().isotope()
+$('.grid').isotope({
+  // options...
+});
+```
+
+
+{{! ----------------------------------------------------------------- }}
+
 <h3>RequireJS</h3>
 
 <p>Isotope supports <a href="http://requirejs.org">RequireJS</a>.</p>
@@ -77,46 +141,6 @@ requirejs( [ 'require', 'jquery', 'path/to/isotope.pkgd.js' ],
 });
 ```
 
-<p id="requirejs-bower">Or, you can manage dependencies with <a href="http://bower.io">Bower</a>. Set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to <code>bower_components</code> and set a path config for all your application code.</p>
-
-``` js
-requirejs.config({
-  baseUrl: 'bower_components/',
-  paths: {
-    app: '../'
-  }
-});
-
-requirejs( [
-  'isotope/js/isotope',
-  'app/my-component.js'
-], function( Isotope, myComp ) {
-  var iso = new Isotope( '.grid', {...});
-});
-```
-
-<p id="requirejs-bower-jquery">You can require Bower dependencies and use Isotope as a jQuery plugin with jQuery Bridget.</p>
-
-``` js
-requirejs.config({
-  baseUrl: '../bower_components',
-  paths: {
-    jquery: 'jquery/jquery'
-  }
-});
-
-requirejs( [
-    'jquery',
-    'isotope/js/isotope',
-    'jquery-bridget/jquery-bridget'
-  ],
-  function( $, Isotope, jQueryBridget ) {
-    // make Isotope a jQuery plugin
-    jQueryBridget( 'isotope', Isotope, $ );
-    // now you can use $().isotope()
-    $('.grid').isotope({...});
-});
-```
 
 {{! ----------------------------------------------------------------- }}
 
@@ -136,85 +160,7 @@ var iso = new Isotope( '.grid', {
 });
 ```
 
-<p>Install and require <a href="layout-modes.html#included-modes">layout modes that are not included</a>.</p>
-
-``` bash
-npm install isotope-cells-by-row
-```
-
-``` js
-var Isotope = require('isotope-layout');
-// add cellsByRow layout mode
-require('isotope-cells-by-row')
-
-var iso = new Isotope( '.grid', {
-  layoutMode: 'cellsByRow'
-});
-```
-
-<p id="browserify-jquery">To use Isotope as a jQuery plugin with Browserify, you need to use <a href="https://www.npmjs.com/package/jquery-bridget">jQuery Bridget</a></p>
-
-``` bash
-npm install jquery
-npm install jquery-bridget
-```
-
-``` js
-var $ = require('jquery');
-var jQueryBridget = require('jquery-bridget');
-var Isotope = require('isotope-layout');
-// make Isotope a jQuery plugin
-jQueryBridget( 'isotope', Isotope, $ );
-// now you can use $().isotope()
-$('.grid').isotope({
-  // options...
-});
-```
-
-{{! ----------------------------------------------------------------- }}
-
-<h3>Webpack</h3>
-
-<p>Install Isotope with npm.</p>
-
-``` bash
-npm install isotope-layout
-```
-
-<p>In your config file, <code>webpack.config.js</code>, add these resolve aliases.</p>
-
-``` js
-module.exports = {
-  resolve: {
-    alias: {
-      'masonry': 'masonry-layout',
-      'isotope': 'isotope-layout'
-    }
-  }
-};
-```
-
-<p>(This hack is required because of an issue with how Webpack loads dependencies. <a href="https://github.com/webpack/webpack/issues/883">+1 this issue on GitHub</a> to help get this issue addressed.)</p>
-
-<p>You can then <code>require(<span class="string">'isotope-layout'</span>)</code>.</p>
-
-``` js
-// main.js
-var Isotope = require('isotope-layout');
-
-var iso = new Isotope( '.grid', {
-  // options...
-});
-```
-
-<p>Run webpack.</p>
-
-
-``` bash
-webpack main.js bundle.js
-```
-
-<p>Layout modes and jQuery plugin functionality need to be installed separately, similar to <a href="#browserify">using Browserify</a>.</p>
+<p>Layout modes and jQuery plugin functionality need to be installed separately, similar to <a href="#webpack">using Webpack</a>.</p>
 
 {{! --------------------------------------------------- }}
 
