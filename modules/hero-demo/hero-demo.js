@@ -44,7 +44,7 @@ IsotopeDocs['hero-demo'] = function( elem ) {
   $demo.find('.sort-by').on( 'click', 'button', function() {
     var sortByValue = $(this).attr('data-sort-by');
     $grid.isotope({ sortBy: sortByValue });
-    $codeDisplay.displayIsotopeCode( 'sortBy', sortByValue );
+    $codeDisplay.displayIsotopeCode( 'sortBy', sortByValue, 5 );
   });
 
   $demo.find('.filters').on( 'click', 'button', function() {
@@ -52,7 +52,7 @@ IsotopeDocs['hero-demo'] = function( elem ) {
     var isoFilterValue = filterFns[ filterValue ] || filterValue;
     var displayFilterValue = filterFnsDisplay[ filterValue ] || filterValue;
     $grid.isotope({ filter: isoFilterValue });
-    $codeDisplay.displayIsotopeCode( 'filter', displayFilterValue );
+    $codeDisplay.displayIsotopeCode( 'filter', displayFilterValue, 5 );
   });
 
 };

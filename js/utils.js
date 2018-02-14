@@ -20,11 +20,18 @@ IsotopeDocs.getItemElement = function() {
 // disable class prefix on highlight.js
 hljs.configure({ classPrefix: '' });
 
-$.fn.displayIsotopeCode = function( key, value ) {
+$.fn.displayIsotopeCode = function( key, value, minLineBreaks ) {
+  minLineBreaks = minLineBreaks || 0;
   // add quotes for string value
   value = typeof value === 'string' && value.indexOf('function') === -1 ?
     "'" + value + "'" : value;
   var codeHTML = "$grid.isotope({ " + key + ": " + value + " })";
+  // add 3 line breaks so no jumping
+  var linebreaks = codeHTML.match( /\n/g );
+  linebreaks = linebreaks && linebreaks.length || 0;
+  for ( var i=0; linebreaks + i < minLineBreaks; i++ ) {
+    codeHTML += '\n';
+  }
   // syntax highlight
   codeHTML = hljs.highlight( 'js', codeHTML ).value;
   this.html( codeHTML );
