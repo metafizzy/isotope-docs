@@ -7,6 +7,7 @@ var site = {
   // templating data
   data: {
     productName: 'Isotope',
+    description: 'Filter & sort magical layouts',
     majorVersion: 3,
     isDev: process.argv[2] == 'dev',
     isExport: process.argv[2] == 'export',
