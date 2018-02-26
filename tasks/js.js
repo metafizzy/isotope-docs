@@ -19,7 +19,7 @@ var jsSrc = [
   'bower_components/isotope/js/layout-modes/fit-rows.js',
   'bower_components/isotope/js/layout-modes/vertical.js',
   // isotope masonry
-  'bower_components/masonry/masonry.js',
+  'bower_components/masonry-layout/masonry.js',
   'bower_components/isotope/js/layout-modes/masonry.js',
   // layout modes
   'bower_components/isotope-cells-by-column/cells-by-column.js',
