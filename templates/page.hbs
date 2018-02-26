@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width" />
   <meta name="description" content="filter &amp; sort magical layouts" />
 
-  <title>Isotope{{#unless page.is_homepage}} &middot; {{page.title}}{{/unless}}</title>
+  <title>Isotope &middot; {{#if page.is_homepage}}Filter &amp; sort magical layouts{{else}}{{page.title}}{{/if}}</title>
 
   {{#if isDev}}
     {{! DEV MODE - including each .css file }}
@@ -22,9 +22,9 @@
   {{! Twitter Cards }}
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@metafizzyco" />
-  <meta name="twitter:url" content="http://isotope.metafizzy.co/{{basename}}.html" />
+  <meta name="twitter:url" content="https://isotope.metafizzy.co/{{basename}}.html" />
   <meta name="twitter:title" content="Isotope{{#unless page.is_homepage}} {{page.title}}{{/unless}}" />
-  <meta name="twitter:description" content="filter &amp; sort magical layouts" />
+  <meta name="twitter:description" content="Filter &amp; sort magical layouts" />
 
 </head>
 <body class="page--{{@file.basename}}">
