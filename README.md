@@ -6,7 +6,7 @@ This project does _not_ include the source for Isotope. That's over in [github.c
 
 ## Build
 
-Building these docs requires [Bower](http://bower.io), [Grunt](http://gruntjs.com) and [NPM](http://npmjs.org).
+Building these docs requires [npm](http://npmjs.com), [Bower](https://bower.io), and [Gulp](https://gulpjs.com/).
 
 ``` bash
 npm install
