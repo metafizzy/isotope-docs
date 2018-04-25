@@ -134,10 +134,12 @@ $('.filter-button-group').on( 'click', 'button', function() {
 ```
 
 ``` js
+// jQuery
 // hash of functions that match data-filter values
 var filterFns = {
   // show if number is greater than 50
   numberGreaterThan50: function() {
+    // use $(this) to get item element
     var number = $(this).find('.number').text();
     return parseInt( number, 10 ) > 50;
   },
@@ -155,6 +157,24 @@ $('.filter-button-group').on( 'click', 'button', function() {
   filterValue = filterFns[ filterValue ] || filterValue;
   $grid.isotope({ filter: filterValue });
 });
+```
+
+``` js
+// vanilla JS
+// hash of functions that match data-filter values
+var filterFns = {
+  // show if number is greater than 50
+  numberGreaterThan50: function( itemElem ) {
+    // use itemElem argument for item element
+    var number = itemElem.querySelector('.number').textContent;
+    return parseInt( number, 10 ) > 50;
+  },
+  // show if name ends with -ium
+  ium: function( itemElem ) {
+    var number = itemElem.querySelector('.name').textContent;
+    return name.match( /ium$/ );
+  }
+};
 ```
 
 <h3>Other UI</h3>
