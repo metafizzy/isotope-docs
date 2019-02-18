@@ -15,7 +15,7 @@ IsotopeDocs['arrange-complete'] = function( elem ) {
 
   // bind listener
   $grid.on( 'arrangeComplete', function( event, filteredItems ) {
-    ID.notify( 'Isotope arrange completed on ' + filteredItems.length + ' items' );
+    IsotopeDocs.notify( 'Isotope arrange completed on ' + filteredItems.length + ' items' );
   });
 
   $demo.find('.button-group').on( 'click', 'button', function() {

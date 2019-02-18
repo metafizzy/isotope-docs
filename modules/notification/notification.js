@@ -7,7 +7,7 @@ IsotopeDocs.notification = function( elem ) {
 
   var notifyTimeout;
 
-  ID.notify = function( message ) {
+  IsotopeDocs.notify = function( message ) {
     elem.textContent = message + ' at ' + getTimestamp();
 
     elem.style[ transitionProp ] = 'none';

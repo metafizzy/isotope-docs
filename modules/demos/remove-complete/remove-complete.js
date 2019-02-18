@@ -15,7 +15,7 @@ IsotopeDocs['remove-complete'] = function( elem ) {
 
   // bind listener
   $grid.on( 'removeComplete', function( event, removedItems ) {
-    ID.notify( 'Removed ' + removedItems.length + ' items' );
+    IsotopeDocs.notify( 'Removed ' + removedItems.length + ' items' );
   });
 
   $grid.on( 'click', '.grid-item', function() {

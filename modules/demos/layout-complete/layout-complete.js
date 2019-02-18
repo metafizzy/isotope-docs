@@ -15,7 +15,7 @@ IsotopeDocs['layout-complete'] = function( elem ) {
 
   // bind listener
   $grid.on( 'layoutComplete', function( event, laidOutItems ) {
-    ID.notify( 'Isotope layout completed on ' + laidOutItems.length + ' items' );
+    IsotopeDocs.notify( 'Isotope layout completed on ' + laidOutItems.length + ' items' );
   });
 
   $grid.on( 'click', '.grid-item', function() {
