@@ -21,5 +21,12 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/metafizzy/isotope-docs.git"
+  },
+  "scripts": {
+    "build": "npm run buildExport && npx gulp",
+    "zip": "rm -rf build/isotope-docs.zip && cp -r build docs && zip -rq build/isotope-docs.zip docs/ && rm -rf docs",
+    "buildExport": "rm -rf build/ && npx gulp export && npm run zip",
+    "deploy": "vercel deploy --cwd build/",
+    "deployProd": "vercel deploy --cwd build --prod"
   }
 }
